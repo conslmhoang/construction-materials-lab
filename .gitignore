@@ -2,7 +2,9 @@
 # Mix design log: rewritten on every calculation, and wiped whenever
 # Streamlit Cloud restarts. Download it from the app instead of committing it.
 02 MixLog.xlsx
+03 ActualBatch.xlsx
 MixLog.csv
+ActualBatch.csv
 ~$*.xlsx
 
 # --- Python ---------------------------------------------------------------

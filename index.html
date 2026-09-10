@@ -119,10 +119,9 @@
   tbody tr:hover{background:#f7fcf9}
   tfoot td{font-weight:700;border-top:2px solid var(--line-2);background:#f7fcf9}
   /* Log headers keep the material names as written, on one line */
-  #logTable th{text-transform:none;letter-spacing:0;font-size:12.5px;white-space:nowrap}
-  #logTable th:first-child,#logTable td:first-child{white-space:nowrap;text-align:left}
-  #logTable th:nth-child(2),#logTable td:nth-child(2){text-align:right}
-  #logTable td:last-child,#logTable th:last-child{text-align:left;white-space:nowrap}
+  .logtable th{text-transform:none;letter-spacing:0;font-size:12.5px;white-space:nowrap}
+  .logtable th:first-child,.logtable td:first-child{white-space:nowrap;text-align:left}
+  .logtable th:nth-child(2),.logtable td:nth-child(2){text-align:right}
   .tag{font-size:11px;padding:2px 7px;border-radius:99px;background:#e0f2fe;color:#075985;font-weight:600}
   .tag.fib{background:#dcfce7;color:#166534}
 
@@ -206,11 +205,6 @@
       </div>
     </div>
 
-    <div style="margin-top:18px">
-      <label for="note">Mix ID <span style="font-weight:400;color:var(--muted)">— optional; the name this mix will carry in the history table below, so you can tell your runs apart later</span></label>
-      <input type="text" id="note" placeholder="e.g. GP-FA30, M1, Trial 05">
-    </div>
-
     <p id="calcError" class="note err hidden" style="margin-top:16px;margin-bottom:0"></p>
 
     <div style="margin-top:18px">
@@ -243,20 +237,35 @@
     </div>
   </section>
 
-  <!-- ============ 4. LOG ============ -->
+  <!-- ============ 4. MIX DESIGN LOG ============ -->
   <section class="card">
-    <h2>3. Mix Design History</h2>
-    <p class="hint">Every calculation is appended as one row — timestamp plus the proportions you entered. Stored in this browser only; download the Excel file to keep it.</p>
+    <h2>3. Mix Design Log <span style="font-weight:400;font-size:13px;color:var(--muted)">— 02 MixLog.xlsx</span></h2>
+    <p class="hint">One row per 1 m³ calculation: the proportions you entered, plus the totals per cubic metre.</p>
     <div class="bar" style="margin-bottom:14px">
-      <div class="l" id="logCount">No runs logged yet.</div>
+      <div class="l" id="mixCount">No mix designs logged yet.</div>
       <div class="r">
-        <button class="btn-ghost" type="button" id="dlXlsx">⬇️ Download Excel</button>
-        <button class="btn-ghost" type="button" id="dlCsv">⬇️ Download CSV</button>
-        <button class="btn-danger" type="button" id="clearLog">🗑️ Clear log</button>
+        <button class="btn-ghost" type="button" data-dl="mix" data-kind="xlsx">⬇️ Download Excel</button>
+        <button class="btn-ghost" type="button" data-dl="mix" data-kind="csv">⬇️ Download CSV</button>
+        <button class="btn-danger" type="button" data-clear="mix">🗑️ Clear</button>
       </div>
     </div>
     <p id="logWarn" class="note warn hidden"></p>
-    <div class="tablewrap"><table id="logTable"></table></div>
+    <div class="tablewrap"><table id="mixTable" class="logtable"></table></div>
+  </section>
+
+  <!-- ============ 5. ACTUAL BATCH LOG ============ -->
+  <section class="card">
+    <h2>4. Actual Batch Log <span style="font-weight:400;font-size:13px;color:var(--muted)">— 03 ActualBatch.xlsx</span></h2>
+    <p class="hint">One row per batch you compute: the mass of each material in kilograms, for the volume actually cast.</p>
+    <div class="bar" style="margin-bottom:14px">
+      <div class="l" id="batchCount">No batches logged yet.</div>
+      <div class="r">
+        <button class="btn-ghost" type="button" data-dl="batch" data-kind="xlsx">⬇️ Download Excel</button>
+        <button class="btn-ghost" type="button" data-dl="batch" data-kind="csv">⬇️ Download CSV</button>
+        <button class="btn-danger" type="button" data-clear="batch">🗑️ Clear</button>
+      </div>
+    </div>
+    <div class="tablewrap"><table id="batchLogTable" class="logtable"></table></div>
   </section>
 
   <footer class="page">
@@ -299,11 +308,36 @@ const DEFAULT_MATERIALS = [
 // <<< MATERIALS END
 
 /* ---------------------------------------------------------------- state -- */
-const LOG_KEY   = "cml_mix_log_v1";
 const TIME_COL  = "Timestamp";
-const NOTE_COL  = "Mix ID";
 const FIB_SUFF  = " (%vol)";
-const TRAILING  = [NOTE_COL];
+
+/* Two independent logs, each written to its own workbook.
+   MIX   — one row per 1 m³ design: the proportions entered, totals per m³.
+   BATCH — one row per cast batch: the mass of every material in kilograms. */
+const LOGS = {
+  mix: {
+    key:      "cml_mixlog_v2",
+    file:     "02 MixLog",
+    sheet:    "MixDesign",
+    table:    "mixTable",
+    count:    "mixCount",
+    one:      "mix design",
+    many:     "mix designs",
+    trailing: ["Volume (m3)", "Total mass (kg/m3)", "Cost ($/m3)", "Energy (MJ/m3)", "CO2 (kg/m3)"],
+    rows:     []
+  },
+  batch: {
+    key:      "cml_batchlog_v1",
+    file:     "03 ActualBatch",
+    sheet:    "ActualBatch",
+    table:    "batchLogTable",
+    count:    "batchCount",
+    one:      "batch",
+    many:     "batches",
+    trailing: ["Volume (m3)", "Total mass (kg)", "Cost ($)", "Energy (MJ)", "CO2 (kg)"],
+    rows:     []
+  }
+};
 
 let MATERIALS = {};          // name -> {name, density, energy, co2, cost}
 let dbLabel   = "built-in";
@@ -311,7 +345,6 @@ let binderRows = [];         // [{name}]
 let fiberRows  = [];
 let lastResult = null;
 let lastInputs = null;
-let logRows    = [];
 let logWritable = true;
 
 const $ = id => document.getElementById(id);
@@ -465,24 +498,25 @@ function renderStats(el, t, unit){
 }
 
 /* ------------------------------------------------------------------- log -- */
-function loadLog(){
-  try{
-    const raw = localStorage.getItem(LOG_KEY);
-    logRows = raw ? JSON.parse(raw) : [];
-    if (!Array.isArray(logRows)) logRows = [];
-  }catch(e){
-    logRows = []; logWritable = false;
-    $("logWarn").textContent = "This browser is blocking local storage, so the history will not survive a page reload. Download the Excel file before closing the tab.";
-    $("logWarn").classList.remove("hidden");
+function loadLogs(){
+  for (const L of Object.values(LOGS)){
+    try{
+      const raw = localStorage.getItem(L.key);
+      L.rows = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(L.rows)) L.rows = [];
+    }catch(e){
+      L.rows = []; logWritable = false;
+      showErr($("logWarn"), "This browser is blocking local storage, so the history will not survive a page reload. Download the files before closing the tab.");
+    }
   }
 }
-function saveLog(){
+
+function persist(L){
   if (!logWritable) return;
-  try{ localStorage.setItem(LOG_KEY, JSON.stringify(logRows)); }
+  try{ localStorage.setItem(L.key, JSON.stringify(L.rows)); }
   catch(e){
     logWritable = false;
-    $("logWarn").textContent = "The history could not be saved in this browser (storage full or blocked). Download the Excel file to keep your data.";
-    $("logWarn").classList.remove("hidden");
+    showErr($("logWarn"), "The history could not be saved in this browser (storage full or blocked). Download the files to keep your data.");
   }
 }
 
@@ -491,51 +525,65 @@ function stamp(d){
   return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
 }
 
-function addLogRow(binder, fiber, res, note, actualVol){
+/* One row per 1 m3 design: the proportions entered, then the per-m3 totals. */
+function addMixRow(binder, fiber, res){
   const row = {[TIME_COL]: stamp(new Date())};
   for (const [n,v] of Object.entries(binder)) row[n] = v;
   for (const [n,v] of Object.entries(fiber))  row[n+FIB_SUFF] = v;
-  if (actualVol != null) row["Actual volume (m3)"] = actualVol;
   const t = res.totals;
+  row["Volume (m3)"]        = 1;
   row["Total mass (kg/m3)"] = +t.mass.toFixed(2);
   row["Cost ($/m3)"]        = +t.cost.toFixed(3);
   row["Energy (MJ/m3)"]     = +t.energy.toFixed(2);
   row["CO2 (kg/m3)"]        = +t.co2.toFixed(3);
-  if (note) row[NOTE_COL] = note;
-  logRows.push(row);
-  saveLog();
-  renderLog();
+  LOGS.mix.rows.push(row);
+  persist(LOGS.mix);
+  renderLog(LOGS.mix);
 }
 
-function logColumns(){
+/* One row per cast batch: every material column holds a mass in kilograms. */
+function addBatchRow(scaled, volume){
+  const row = {[TIME_COL]: stamp(new Date())};
+  for (const o of Object.values(scaled.binder)) row[o.name] = +o.mass.toFixed(3);
+  for (const o of Object.values(scaled.fiber))  row[o.name] = +o.mass.toFixed(3);
+  const t = scaled.totals;
+  row["Volume (m3)"]     = volume;
+  row["Total mass (kg)"] = +t.mass.toFixed(3);
+  row["Cost ($)"]        = +t.cost.toFixed(3);
+  row["Energy (MJ)"]     = +t.energy.toFixed(3);
+  row["CO2 (kg)"]        = +t.co2.toFixed(3);
+  LOGS.batch.rows.push(row);
+  persist(LOGS.batch);
+  renderLog(LOGS.batch);
+}
+
+/* Material columns keep the order they first appeared in; summary columns stay last,
+   so a material used for the first time today does not land after the totals. */
+function columnsOf(L){
   const cols = [TIME_COL];
-  logRows.forEach(r => Object.keys(r).forEach(k => {
-    if (!cols.includes(k) && !TRAILING.includes(k)) cols.push(k);
+  L.rows.forEach(r => Object.keys(r).forEach(k => {
+    if (!cols.includes(k) && !L.trailing.includes(k)) cols.push(k);
   }));
-  TRAILING.forEach(c => { if (logRows.some(r => c in r)) cols.push(c); });
+  L.trailing.forEach(c => { if (L.rows.some(r => c in r)) cols.push(c); });
   return cols;
 }
 
-function logMatrix(){
-  const cols = logColumns();
-  return logRows.map(r => {
+function matrixOf(L){
+  const cols = columnsOf(L);
+  return L.rows.map(r => {
     const o = {};
-    cols.forEach(c => {
-      if (c === TIME_COL || TRAILING.includes(c)) o[c] = r[c] ?? "";
-      else o[c] = (typeof r[c] === "number") ? r[c] : 0;
-    });
+    cols.forEach(c => { o[c] = (c === TIME_COL) ? (r[c] ?? "") : (typeof r[c] === "number" ? r[c] : 0); });
     return o;
   });
 }
 
-function renderLog(){
-  const el = $("logTable");
-  $("logCount").textContent = logRows.length
-    ? `${logRows.length} run${logRows.length===1?"":"s"} logged — newest first.`
-    : "No runs logged yet.";
-  if (!logRows.length){ el.innerHTML = ""; return; }
-  const cols = logColumns();
-  const data = logMatrix();
+function renderLog(L){
+  const el = $(L.table), n = L.rows.length;
+  $(L.count).textContent = n
+    ? `${n} ${n === 1 ? L.one : L.many} logged — newest first.`
+    : `No ${L.many} logged yet.`;
+  if (!n){ el.innerHTML = ""; return; }
+  const cols = columnsOf(L), data = matrixOf(L);
   el.innerHTML = `
     <thead><tr>${cols.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead>
     <tbody>${data.slice().reverse().map(r => `<tr>${
@@ -543,13 +591,13 @@ function renderLog(){
     }</tr>`).join("")}</tbody>`;
 }
 
-function toCsv(){
-  const cols = logColumns(), data = logMatrix();
+function toCsv(L){
+  const cols = columnsOf(L), data = matrixOf(L);
   const q = v => {
     const s = String(v ?? "");
     return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
   };
-  return "﻿" + [cols.map(q).join(","), ...data.map(r => cols.map(c => q(r[c])).join(","))].join("\r\n");
+  return "\ufeff" + [cols.map(q).join(","), ...data.map(r => cols.map(c => q(r[c])).join(","))].join("\r\n");
 }
 
 function saveBlob(content, mime, filename){
@@ -559,8 +607,8 @@ function saveBlob(content, mime, filename){
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-function downloadLog(kind){
-  if (!logRows.length){ alert("The log is empty — run a calculation first."); return; }
+function downloadLog(L, kind){
+  if (!L.rows.length){ alert(`The ${L.one} log is empty — run a calculation first.`); return; }
 
   // The Excel writer comes from a CDN; without it, fall back to CSV so no data is lost.
   if (kind === "xlsx" && typeof XLSX === "undefined"){
@@ -570,16 +618,16 @@ function downloadLog(kind){
   }
 
   if (kind === "csv"){
-    saveBlob(toCsv(), "text/csv;charset=utf-8", "MixLog.csv");
+    saveBlob(toCsv(L), "text/csv;charset=utf-8", L.file + ".csv");
     return;
   }
 
-  const cols = logColumns();
-  const ws = XLSX.utils.json_to_sheet(logMatrix(), {header:cols});
+  const cols = columnsOf(L);
+  const ws = XLSX.utils.json_to_sheet(matrixOf(L), {header:cols});
   ws["!cols"] = cols.map(c => ({wch: Math.min(Math.max(c.length + 2, 10), 24)}));
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, "MixLog");
-  XLSX.writeFile(wb, "02 MixLog.xlsx");
+  XLSX.utils.book_append_sheet(wb, ws, L.sheet);
+  XLSX.writeFile(wb, L.file + ".xlsx");
 }
 
 /* ------------------------------------------------------- Excel DB import -- */
@@ -662,7 +710,7 @@ $("calcBtn").onclick = () => {
     $("resultCard").classList.remove("hidden");
     $("batchCard").classList.remove("hidden");
     $("batchOut").classList.add("hidden");
-    addLogRow(binder, fiber, res, $("note").value.trim(), null);
+    addMixRow(binder, fiber, res);
     $("resultCard").scrollIntoView({behavior:"smooth", block:"start"});
   }catch(err){
     showErr($("calcError"), err.message);
@@ -677,16 +725,21 @@ $("batchBtn").onclick = () => {
   renderTable($("batchTable"), scaled, fmt(v,4)+" m³");
   renderStats($("batchStats"), scaled.totals, fmt(v,4)+" m³");
   $("batchOut").classList.remove("hidden");
-  addLogRow(lastInputs.binder, lastInputs.fiber, lastResult, $("note").value.trim(), v);
+  addBatchRow(scaled, v);
 };
 
-$("dlXlsx").onclick  = () => downloadLog("xlsx");
-$("dlCsv").onclick   = () => downloadLog("csv");
-$("clearLog").onclick = () => {
-  if (!logRows.length) return;
-  if (!confirm("Delete all logged runs? Download the Excel file first if you still need them.")) return;
-  logRows = []; saveLog(); renderLog();
-};
+document.addEventListener("click", e => {
+  const dl = e.target.closest("[data-dl]");
+  if (dl){ downloadLog(LOGS[dl.dataset.dl], dl.dataset.kind); return; }
+
+  const cl = e.target.closest("[data-clear]");
+  if (cl){
+    const L = LOGS[cl.dataset.clear];
+    if (!L.rows.length) return;
+    if (!confirm(`Delete all logged ${L.many}? Download the file first if you still need them.`)) return;
+    L.rows = []; persist(L); renderLog(L);
+  }
+});
 
 $("dbFile").onchange = e => {
   const file = e.target.files[0];
@@ -710,8 +763,8 @@ $("dbReset").onclick = () => { hideErr($("dbError")); setDb(DEFAULT_MATERIALS, "
 
 /* ------------------------------------------------------------------ init -- */
 setDb(DEFAULT_MATERIALS, "built-in");
-loadLog();
-renderLog();
+loadLogs();
+Object.values(LOGS).forEach(renderLog);
 </script>
 </body>
 </html>

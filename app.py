@@ -8,9 +8,12 @@ from mix_design import (
     calculate_actual_volume,
 )
 from mix_log import (
-    LOG_EXCEL_FILE,
+    MIX_LOG_FILE,
+    BATCH_LOG_FILE,
     read_mix_log,
-    save_mix_log_from_result,
+    read_batch_log,
+    save_mix_log,
+    save_batch_log,
 )
 
 st.set_page_config(
@@ -133,14 +136,6 @@ if materials_db:
                 if ratio > 0:
                     fiber_ratios[f] = ratio
 
-    # Short label identifying this mix, stored alongside the ratios in the log
-    mix_note = st.text_input(
-        "Mix ID (optional) - the name this mix carries in the history table",
-        value="",
-        placeholder="e.g. GP-FA30, M1, Trial 05",
-        key="mix_note",
-    )
-
     st.markdown("<br>", unsafe_allow_html=True)
 
     if st.button("🚀 Calculate for 1 m³ Mix Design", type="primary"):
@@ -152,14 +147,8 @@ if materials_db:
 
             # --- LOG: every successful run appends one row to 02 MixLog.xlsx ---
             try:
-                save_mix_log_from_result(
-                    binder_ratios=binder_ratios,
-                    fiber_ratios_percent=fiber_ratios,
-                    mix_result=mix_result,
-                    include_totals=True,
-                    note=mix_note,
-                )
-                st.caption(f"📝 Saved to `{LOG_EXCEL_FILE}`")
+                save_mix_log(binder_ratios, fiber_ratios, mix_result)
+                st.caption(f"📝 Saved to `{MIX_LOG_FILE}`")
             except Exception as log_err:
                 st.warning(f"Calculation is fine, but the log could not be saved: {log_err}")
 
@@ -256,60 +245,63 @@ if materials_db:
                     🌱 **CO2:** `{t_act['co2_kg']:.1f} kg`
                 """)
 
-                # Log a second row recording the actual batch volume
-                binder_in, fiber_in = st.session_state.get("mix_inputs", ({}, {}))
+                # Log the batch masses in the separate batch workbook
                 try:
-                    save_mix_log_from_result(
-                        binder_ratios=binder_in,
-                        fiber_ratios_percent=fiber_in,
-                        mix_result=res_1m3,
-                        actual_volume_m3=actual_vol,
-                        include_totals=True,
-                        note=st.session_state.get("mix_note", ""),
-                    )
-                    st.caption(f"📝 Batch saved to `{LOG_EXCEL_FILE}`")
+                    save_batch_log(actual_res, actual_vol)
+                    st.caption(f"📝 Batch saved to `{BATCH_LOG_FILE}`")
                 except Exception as log_err:
                     st.warning(f"Batch computed, but the log could not be saved: {log_err}")
 
             except Exception as e:
                 st.error(f"Error: {e}")
 
-    # --- SECTION 4: MIX DESIGN HISTORY (LOG) ---
+    # --- SECTION 4: LOGS ---
+    def show_log(title, caption, df, file_name, csv_name, key):
+        st.subheader(title)
+        st.caption(caption)
+        if df.empty:
+            st.info("Nothing logged yet.")
+            return
+        st.dataframe(df.iloc[::-1], use_container_width=True, hide_index=True)
+
+        c1, c2, c3 = st.columns([1, 1, 2], gap="small")
+        path = Path(file_name)
+        if path.exists():
+            with c1:
+                st.download_button(
+                    "Download Excel",
+                    data=path.read_bytes(),
+                    file_name=file_name,
+                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    key=f"xlsx_{key}",
+                )
+        with c2:
+            st.download_button(
+                "Download CSV",
+                data=df.to_csv(index=False).encode("utf-8-sig"),
+                file_name=csv_name,
+                mime="text/csv",
+                key=f"csv_{key}",
+            )
+        with c3:
+            if st.button("Clear", key=f"clear_{key}"):
+                if path.exists():
+                    path.unlink()
+                st.rerun()
+
     st.divider()
-    st.subheader("3. Mix Design History")
-    st.caption(
-        "Every successful calculation is appended as one row: timestamp + the ratios you entered. "
-        "On Streamlit Cloud the file is wiped whenever the app restarts — download it to keep your data."
+    show_log(
+        "3. Mix Design Log",
+        f"`{MIX_LOG_FILE}` - one row per 1 m3 design: the proportions you entered "
+        "plus the totals per cubic metre. On Streamlit Cloud the file is wiped "
+        "whenever the app restarts, so download it to keep your data.",
+        read_mix_log(), MIX_LOG_FILE, "MixLog.csv", "mix",
     )
 
-    log_df = read_mix_log()
-    if log_df.empty:
-        st.info("No runs logged yet. Run a calculation to create the first row.")
-    else:
-        st.dataframe(log_df.iloc[::-1], use_container_width=True, hide_index=True)
-
-        col_dl1, col_dl2, col_dl3 = st.columns([1, 1, 2], gap="small")
-
-        log_path = Path(LOG_EXCEL_FILE)
-        if log_path.exists():
-            with col_dl1:
-                st.download_button(
-                    "⬇️ Download Excel",
-                    data=log_path.read_bytes(),
-                    file_name=LOG_EXCEL_FILE,
-                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                )
-
-        with col_dl2:
-            st.download_button(
-                "⬇️ Download CSV",
-                data=log_df.to_csv(index=False).encode("utf-8-sig"),
-                file_name="MixLog.csv",
-                mime="text/csv",
-            )
-
-        with col_dl3:
-            if st.button("🗑️ Clear log", type="secondary"):
-                if log_path.exists():
-                    log_path.unlink()
-                st.rerun()
+    st.divider()
+    show_log(
+        "4. Actual Batch Log",
+        f"`{BATCH_LOG_FILE}` - one row per batch you compute: the mass of every "
+        "material in kilograms, for the volume actually cast.",
+        read_batch_log(), BATCH_LOG_FILE, "ActualBatch.csv", "batch",
+    )

@@ -1,24 +1,26 @@
 """
 mix_log.py
 ----------
-Logs every mix design run to an Excel file, one row per run.
+Keeps two separate Excel logs of the work done in the mix design tool.
 
-Log file layout (sheet "MixLog"):
-    - First column : "Timestamp"   -> date and time of the run (YYYY-MM-DD HH:MM:SS)
-    - Next columns : material names -> the ratio / proportion values entered by the user
-    - Each run      : appended as a new row at the bottom of the table
+02 MixLog.xlsx      sheet "MixDesign"
+    One row per 1 m3 mix design.
+    Columns : Timestamp | <material> = the proportion you entered | Volume (m3) = 1
+              | Total mass (kg/m3) | Cost ($/m3) | Energy (MJ/m3) | CO2 (kg/m3)
 
-A material used for the first time in a later run is automatically added as a new
-column; earlier rows are filled with 0 (or left blank if FILL_MISSING_WITH_ZERO is False).
+03 ActualBatch.xlsx sheet "ActualBatch"
+    One row per batch actually cast.
+    Columns : Timestamp | <material> = mass in kg | Volume (m3)
+              | Total mass (kg) | Cost ($) | Energy (MJ) | CO2 (kg)
+
+A material used for the first time in a later run becomes a new column; earlier
+rows are filled with 0. Summary columns always stay at the right-hand end.
 
 Quick start:
-    from mix_log import save_mix_log
+    from mix_log import save_mix_log, save_batch_log
 
-    binder = {"OPC": 1.0, "GGBFS": 0.5, "Sand": 2.0, "Water": 0.35}
-    fiber  = {"PVA fiber": 2.0}
-
-    save_mix_log(binder, fiber)                      # writes to "02 MixLog.xlsx"
-    save_mix_log(binder, fiber, note="Mix M1 - 28d") # with a note
+    save_mix_log(binder_ratios, fiber_ratios_percent, mix_result)
+    save_batch_log(actual_result, 0.05)
 """
 
 from __future__ import annotations
@@ -29,28 +31,46 @@ import shutil
 import tempfile
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Mapping, Optional
+from typing import Any, Mapping, Optional, Sequence
 
 import pandas as pd
 
 # ------------------------------------------------------------- settings ----
 
-LOG_EXCEL_FILE = "02 MixLog.xlsx"   # default log file name
-LOG_SHEET_NAME = "MixLog"           # sheet name
-TIME_COLUMN = "Timestamp"           # name of the date/time column
-TIME_FORMAT = "%Y-%m-%d %H:%M:%S"   # date/time format written into the cell
+MIX_LOG_FILE = "02 MixLog.xlsx"        # one row per 1 m3 design
+MIX_SHEET_NAME = "MixDesign"
 
-# Suffix appended to fiber names so they are distinguishable from binder ratios
-# (fibers are entered as % of volume, binders as mass ratios).
-# Set to "" to keep plain material names for publication-ready tables.
+BATCH_LOG_FILE = "03 ActualBatch.xlsx"  # one row per cast batch
+BATCH_SHEET_NAME = "ActualBatch"
+
+TIME_COLUMN = "Timestamp"
+TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+
+# Suffix appended to fiber names in the mix design log, where fibers are given
+# as percent of volume while binders are mass ratios. Set to "" for plain names.
 FIBER_COLUMN_SUFFIX = " (%vol)"
 
-# Auxiliary columns that are always pushed to the far right of the table
-NOTE_COLUMN = "Mix ID"
-TRAILING_COLUMNS = (NOTE_COLUMN,)
+# Summary columns, always kept at the right-hand end of each sheet
+MIX_TRAILING = (
+    "Volume (m3)",
+    "Total mass (kg/m3)",
+    "Cost ($/m3)",
+    "Energy (MJ/m3)",
+    "CO2 (kg/m3)",
+)
+BATCH_TRAILING = (
+    "Volume (m3)",
+    "Total mass (kg)",
+    "Cost ($)",
+    "Energy (MJ)",
+    "CO2 (kg)",
+)
 
 # Materials unused in a given run -> write 0 (True) or leave blank (False)
 FILL_MISSING_WITH_ZERO = True
+
+# Backwards-compatible alias, some older code imports this name
+LOG_EXCEL_FILE = MIX_LOG_FILE
 
 
 # -------------------------------------------------------------- helpers ----
@@ -67,39 +87,13 @@ def _clean_name(value: Any) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def build_log_row(
-    binder_ratios: Optional[Mapping[str, float]] = None,
-    fiber_ratios_percent: Optional[Mapping[str, float]] = None,
-    timestamp: Optional[datetime] = None,
-    note: str = "",
-    extra: Optional[Mapping[str, Any]] = None,
-) -> dict:
-    """Builds one log row as {column name: value} from the user's input ratios."""
-    ts = timestamp or datetime.now()
-    row: dict[str, Any] = {TIME_COLUMN: ts.strftime(TIME_FORMAT)}
-
-    for name, ratio in (binder_ratios or {}).items():
-        row[_clean_name(name)] = float(ratio)
-
-    for name, percent in (fiber_ratios_percent or {}).items():
-        row[f"{_clean_name(name)}{FIBER_COLUMN_SUFFIX}"] = float(percent)
-
-    for key, value in (extra or {}).items():
-        row[_clean_name(key)] = value
-
-    if note:
-        row[NOTE_COLUMN] = str(note)
-
-    return row
-
-
-def _order_columns(old_columns, new_row: Mapping[str, Any]) -> list[str]:
-    """Keeps the existing column order, appends new materials, pushes aux columns last."""
+def _order_columns(old_columns, new_row: Mapping[str, Any],
+                   trailing: Sequence[str]) -> list[str]:
+    """Keeps existing column order, appends new materials, pushes summaries last."""
     ordered = [TIME_COLUMN]
-    ordered += [c for c in old_columns if c not in ordered and c not in TRAILING_COLUMNS]
-    ordered += [c for c in new_row if c not in ordered and c not in TRAILING_COLUMNS]
-    ordered += [c for c in TRAILING_COLUMNS
-                if c in old_columns or c in new_row]
+    ordered += [c for c in old_columns if c not in ordered and c not in trailing]
+    ordered += [c for c in new_row if c not in ordered and c not in trailing]
+    ordered += [c for c in trailing if c in old_columns or c in new_row]
     return ordered
 
 
@@ -139,14 +133,9 @@ def _format_sheet(path: Path, sheet_name: str) -> None:
     wb.save(path)
 
 
-# --------------------------------------------------------- main functions ----
-
-def read_mix_log(
-    log_path: str | Path = LOG_EXCEL_FILE,
-    sheet_name: str = LOG_SHEET_NAME,
-) -> pd.DataFrame:
-    """Reads the whole mix design history. Returns an empty DataFrame if no log exists."""
-    path = Path(log_path)
+def _read_log(path: str | Path, sheet_name: str) -> pd.DataFrame:
+    """Reads a log workbook. Returns an empty DataFrame if it does not exist yet."""
+    path = Path(path)
     if not path.exists():
         return pd.DataFrame(columns=[TIME_COLUMN])
     try:
@@ -155,53 +144,21 @@ def read_mix_log(
         return pd.DataFrame(columns=[TIME_COLUMN])
 
 
-def save_mix_log(
-    binder_ratios: Optional[Mapping[str, float]] = None,
-    fiber_ratios_percent: Optional[Mapping[str, float]] = None,
-    log_path: str | Path = LOG_EXCEL_FILE,
-    sheet_name: str = LOG_SHEET_NAME,
-    timestamp: Optional[datetime] = None,
-    note: str = "",
-    extra: Optional[Mapping[str, Any]] = None,
-) -> Path:
-    """
-    Appends one mix design row to the Excel log file.
-
-    binder_ratios        : dict {material name: ratio} - exactly the calculation input
-    fiber_ratios_percent : dict {fiber name: volume percent}
-    log_path             : path to the Excel log (created if missing)
-    timestamp            : run time (defaults to the moment this function is called)
-    note                 : short label identifying this mix in the log (e.g. "GP-FA30")
-    extra                : additional columns to record (e.g. {"Actual volume (m3)": 0.05})
-
-    Returns the path to the log file.
-    """
-    if not binder_ratios and not fiber_ratios_percent:
-        raise ValueError("Nothing to log: at least one material is required.")
-
-    row = build_log_row(
-        binder_ratios=binder_ratios,
-        fiber_ratios_percent=fiber_ratios_percent,
-        timestamp=timestamp,
-        note=note,
-        extra=extra,
-    )
-
-    path = Path(log_path)
+def _append_row(row: Mapping[str, Any], path: str | Path, sheet_name: str,
+                trailing: Sequence[str]) -> Path:
+    """Appends one row to a log workbook, widening the table if needed."""
+    path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
 
-    old_df = read_mix_log(path, sheet_name)
+    old_df = _read_log(path, sheet_name)
     new_df = pd.concat([old_df, pd.DataFrame([row])], ignore_index=True)
-    new_df = new_df.reindex(columns=_order_columns(list(old_df.columns), row))
+    new_df = new_df.reindex(columns=_order_columns(list(old_df.columns), row, trailing))
 
     if FILL_MISSING_WITH_ZERO:
         for col in new_df.columns:
-            if col == TIME_COLUMN or col in TRAILING_COLUMNS:
+            if col == TIME_COLUMN:
                 continue
             new_df[col] = pd.to_numeric(new_df[col], errors="coerce").fillna(0.0)
-
-    if NOTE_COLUMN in new_df.columns:
-        new_df[NOTE_COLUMN] = new_df[NOTE_COLUMN].fillna("")
 
     # Write to a temporary file first, then replace -> the existing log is never
     # corrupted if something fails halfway through.
@@ -225,48 +182,87 @@ def save_mix_log(
     return path
 
 
-def save_mix_log_from_result(
+def _stamp(timestamp: Optional[datetime]) -> str:
+    return (timestamp or datetime.now()).strftime(TIME_FORMAT)
+
+
+# --------------------------------------------------------- main functions ----
+
+def read_mix_log(path: str | Path = MIX_LOG_FILE) -> pd.DataFrame:
+    """Reads the whole mix design history."""
+    return _read_log(path, MIX_SHEET_NAME)
+
+
+def read_batch_log(path: str | Path = BATCH_LOG_FILE) -> pd.DataFrame:
+    """Reads the whole actual-batch history."""
+    return _read_log(path, BATCH_SHEET_NAME)
+
+
+def save_mix_log(
     binder_ratios: Optional[Mapping[str, float]] = None,
     fiber_ratios_percent: Optional[Mapping[str, float]] = None,
     mix_result: Optional[dict] = None,
-    actual_volume_m3: Optional[float] = None,
-    log_path: str | Path = LOG_EXCEL_FILE,
-    note: str = "",
-    include_totals: bool = False,
-    **kwargs,
+    path: str | Path = MIX_LOG_FILE,
+    timestamp: Optional[datetime] = None,
 ) -> Path:
     """
-    Extended version: logs the input ratios plus optional summary columns from the result.
+    Appends one row to 02 MixLog.xlsx describing a 1 m3 mix design.
 
-    include_totals=True adds:
-        Total mass (kg/m3), Cost ($/m3), Energy (MJ/m3), CO2 (kg/m3)
-    actual_volume_m3, if given, is recorded in the "Actual volume (m3)" column.
+    binder_ratios        : dict {material name: ratio} - exactly the calculation input
+    fiber_ratios_percent : dict {fiber name: volume percent}
+    mix_result           : output of calculate_mix_design(), for the summary columns
     """
-    extra: dict[str, Any] = dict(kwargs.pop("extra", {}) or {})
+    if not binder_ratios and not fiber_ratios_percent:
+        raise ValueError("Nothing to log: at least one material is required.")
 
-    if actual_volume_m3 is not None:
-        extra["Actual volume (m3)"] = float(actual_volume_m3)
+    row: dict[str, Any] = {TIME_COLUMN: _stamp(timestamp)}
 
-    if include_totals and mix_result:
-        totals = mix_result.get("totals_per_m3", {})
-        extra["Total mass (kg/m3)"] = totals.get("total_material_mass_kg_m3", 0.0)
-        extra["Cost ($/m3)"] = totals.get("cost_per_m3", 0.0)
-        extra["Energy (MJ/m3)"] = totals.get("energy_mj_per_m3", 0.0)
-        extra["CO2 (kg/m3)"] = totals.get("co2_kg_per_m3", 0.0)
+    for name, ratio in (binder_ratios or {}).items():
+        row[_clean_name(name)] = float(ratio)
+    for name, percent in (fiber_ratios_percent or {}).items():
+        row[f"{_clean_name(name)}{FIBER_COLUMN_SUFFIX}"] = float(percent)
 
-    return save_mix_log(
-        binder_ratios=binder_ratios,
-        fiber_ratios_percent=fiber_ratios_percent,
-        log_path=log_path,
-        note=note,
-        extra=extra,
-        **kwargs,
-    )
+    row["Volume (m3)"] = 1.0
+    totals = (mix_result or {}).get("totals_per_m3", {})
+    row["Total mass (kg/m3)"] = round(float(totals.get("total_material_mass_kg_m3", 0.0)), 2)
+    row["Cost ($/m3)"] = round(float(totals.get("cost_per_m3", 0.0)), 3)
+    row["Energy (MJ/m3)"] = round(float(totals.get("energy_mj_per_m3", 0.0)), 2)
+    row["CO2 (kg/m3)"] = round(float(totals.get("co2_kg_per_m3", 0.0)), 3)
+
+    return _append_row(row, path, MIX_SHEET_NAME, MIX_TRAILING)
 
 
-if __name__ == "__main__":
-    demo_binder = {"OPC": 1.0, "GGBFS": 0.5, "Silica sand": 2.0, "Water": 0.35}
-    demo_fiber = {"PVA fiber": 2.0}
-    out = save_mix_log(demo_binder, demo_fiber, note="Demo batch")
-    print(f"Log written to: {out.resolve()}")
-    print(read_mix_log(out).tail())
+def save_batch_log(
+    actual_result: dict,
+    actual_volume_m3: Optional[float] = None,
+    path: str | Path = BATCH_LOG_FILE,
+    timestamp: Optional[datetime] = None,
+) -> Path:
+    """
+    Appends one row to 03 ActualBatch.xlsx: the mass of each material, in kilograms,
+    for the volume actually cast.
+
+    actual_result    : output of calculate_actual_volume()
+    actual_volume_m3 : batch volume; taken from actual_result when omitted
+    """
+    if not actual_result:
+        raise ValueError("Nothing to log: no batch result was given.")
+
+    volume = actual_volume_m3
+    if volume is None:
+        volume = actual_result.get("actual_volume_m3", 0.0)
+
+    row: dict[str, Any] = {TIME_COLUMN: _stamp(timestamp)}
+
+    for group in ("binder", "fiber"):
+        for item in actual_result.get(group, {}).values():
+            row[_clean_name(item["name"])] = round(float(item["mass_kg"]), 3)
+
+    totals = actual_result.get("totals", {})
+    row["Volume (m3)"] = float(volume)
+    row["Total mass (kg)"] = round(float(totals.get("total_material_mass_kg", 0.0)), 3)
+    row["Cost ($)"] = round(float(totals.get("cost", 0.0)), 3)
+    row["Energy (MJ)"] = round(float(totals.get("energy_mj", 0.0)), 3)
+    row["CO2 (kg)"] = round(float(totals.get("co2_kg", 0.0)), 3)
+
+    return _append_row(row, path, BATCH_SHEET_NAME, BATCH_TRAILING)
