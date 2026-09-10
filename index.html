@@ -168,7 +168,7 @@
           <button class="btn-ghost" type="button">📂 Load another Excel database</button>
           <input type="file" id="dbFile" accept=".xlsx,.xls" aria-label="Load material database from Excel">
         </span>
-        <button class="btn-ghost" type="button" id="dbReset">↺ Built-in database</button>
+        <button class="btn-ghost hidden" type="button" id="dbReset">↺ Undo — back to built-in</button>
       </div>
     </div>
     <p id="dbError" class="note err hidden" style="margin-top:12px;margin-bottom:0"></p>
@@ -375,7 +375,11 @@ function setDb(list, label){
   fillSelects();
   renderRows();
   const n = Object.keys(MATERIALS).length;
-  $("dbStatus").textContent = `${n} material${n===1?"":"s"} loaded — ${label} database.`;
+  const custom = label !== "built-in";
+  $("dbStatus").textContent = custom
+    ? `${n} material${n===1?"":"s"} loaded from ${label} — ready to use.`
+    : `${n} material${n===1?"":"s"} loaded — built-in database.`;
+  $("dbReset").classList.toggle("hidden", !custom);
 }
 
 function fillSelects(){
