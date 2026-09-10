@@ -1,21 +1,717 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Construction Materials Lab - Le Minh Hoang</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f4fbf7; color: #1b4332; }
-        h1 { color: #2563eb; }
-        .btn { display: inline-block; padding: 12px 24px; background: #22c55e; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 20px;}
-        .btn:hover { background: #16a34a; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Construction Materials Lab — Mix Design Calculator</title>
+<meta name="description" content="Mix-design calculation and optimization tool for cementitious and geopolymer composites.">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#f4fbf7;
+    --card:#ffffff;
+    --ink:#1b4332;
+    --ink-2:#456;
+    --muted:#6b8078;
+    --line:#e2f0e8;
+    --line-2:#cfe3d8;
+    --blue:#2563eb;
+    --green:#22c55e;
+    --green-d:#16a34a;
+    --sky:#38bdf8;
+    --warn-bg:#fff7ed;
+    --warn-line:#fed7aa;
+    --warn-ink:#9a3412;
+    --err-bg:#fef2f2;
+    --err-line:#fecaca;
+    --err-ink:#991b1b;
+    --radius:12px;
+    --shadow:0 4px 12px rgba(46,125,50,.06);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    line-height:1.55;
+    padding-block:32px;
+    padding-inline:20px;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+
+  header.page{text-align:center;margin-bottom:28px}
+  header.page h1{margin:0 0 6px;font-size:clamp(24px,4vw,34px);color:var(--ink);letter-spacing:-.01em}
+  header.page .sub{margin:0;color:var(--muted);font-style:italic}
+  header.page .who{margin:10px 0 0;font-size:13px;color:var(--muted)}
+  header.page .who a{color:var(--blue);text-decoration:none}
+  header.page .who a:hover{text-decoration:underline}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:20px;
+    margin-bottom:20px;
+  }
+  .card > h2{
+    margin:0 0 4px;font-size:18px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .card > .hint{margin:0 0 16px;font-size:13px;color:var(--muted)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+
+  .panel{border:1px solid var(--line);border-radius:10px;padding:16px;background:#fbfefc;height:100%}
+  .panel h3{margin:0 0 12px;font-size:15px}
+
+  label{display:block;font-size:13px;font-weight:600;margin-bottom:5px;color:var(--ink-2)}
+  select,input[type=text],input[type=number]{
+    width:100%;padding:9px 11px;border:1px solid var(--line-2);border-radius:8px;
+    font:inherit;font-size:14px;background:#fff;color:var(--ink);
+  }
+  select:focus,input:focus{outline:2px solid var(--sky);outline-offset:1px}
+
+  .addrow{display:flex;gap:8px;align-items:flex-end}
+  .addrow > div{flex:1;min-width:0}
+  .addrow button{flex:0 0 auto}
+
+  button{
+    font:inherit;font-weight:600;cursor:pointer;border-radius:8px;border:none;
+    padding:9px 16px;transition:all .2s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--sky) 0%,#4ade80 100%);
+    color:#0f172a;box-shadow:0 2px 6px rgba(0,0,0,.08);
+  }
+  .btn-primary:hover{
+    background:linear-gradient(135deg,#0ea5e9 0%,var(--green) 100%);
+    color:#fff;box-shadow:0 6px 16px rgba(34,197,94,.3);transform:translateY(-2px);
+  }
+  .btn-ghost{background:#eef6f1;color:var(--ink);border:1px solid var(--line-2)}
+  .btn-ghost:hover{background:#e2f0e8}
+  .btn-danger{background:#fff;color:var(--err-ink);border:1px solid var(--err-line)}
+  .btn-danger:hover{background:var(--err-bg)}
+  .btn-block{width:100%;height:46px;font-size:15px}
+  .btn-x{
+    background:none;color:var(--muted);padding:4px 8px;font-size:18px;line-height:1;
+    border:1px solid transparent;
+  }
+  .btn-x:hover{color:var(--err-ink);border-color:var(--err-line);background:var(--err-bg)}
+
+  .item{
+    display:grid;grid-template-columns:1fr 118px auto;gap:8px;align-items:center;
+    padding:8px 0;border-bottom:1px dashed var(--line);
+  }
+  .item:last-of-type{border-bottom:none}
+  .item .nm{font-size:13.5px;font-weight:600;overflow-wrap:anywhere}
+  .item .dn{display:block;font-size:11.5px;font-weight:400;color:var(--muted)}
+  .empty{font-size:13px;color:var(--muted);padding:12px 0;font-style:italic}
+
+  .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+  th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+  th{background:#eef6f1;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-2);position:sticky;top:0}
+  th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left;white-space:normal}
+  tbody tr:hover{background:#f7fcf9}
+  tfoot td{font-weight:700;border-top:2px solid var(--line-2);background:#f7fcf9}
+  /* Log headers keep the material names as written, on one line */
+  #logTable th{text-transform:none;letter-spacing:0;font-size:12.5px;white-space:nowrap}
+  #logTable th:first-child,#logTable td:first-child{white-space:nowrap;text-align:left}
+  #logTable th:nth-child(2),#logTable td:nth-child(2){text-align:right}
+  #logTable td:last-child,#logTable th:last-child{text-align:left;white-space:nowrap}
+  .tag{font-size:11px;padding:2px 7px;border-radius:99px;background:#e0f2fe;color:#075985;font-weight:600}
+  .tag.fib{background:#dcfce7;color:#166534}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
+  .stat{background:#f7fcf9;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .stat .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+  .stat .v{font-size:20px;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
+
+  .note{padding:11px 14px;border-radius:9px;font-size:13.5px;margin:0 0 16px}
+  .note.warn{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink)}
+  .note.err{background:var(--err-bg);border:1px solid var(--err-line);color:var(--err-ink)}
+  .note.ok{background:#f0fdf4;border:1px solid #bbf7d0;color:#166534}
+
+  .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+  .bar .l{font-size:13px;color:var(--muted)}
+  .bar .r{display:flex;gap:8px;flex-wrap:wrap}
+
+  .filebtn{position:relative;overflow:hidden;display:inline-block}
+  .filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+
+  .vol{display:grid;grid-template-columns:220px auto;gap:12px;align-items:end}
+  @media(max-width:600px){.vol{grid-template-columns:1fr}}
+
+  footer.page{text-align:center;font-size:12.5px;color:var(--muted);padding-top:8px}
+  .hidden{display:none}
+</style>
 </head>
 <body>
-    <h1>Construction Materials Lab</h1>
-    <p>Ứng dụng tính toán và tối ưu hóa cấp phối vật liệu xây dựng (Mix-Design Calculation & Optimization).</p>
-    <p>Nghiên cứu phục vụ cho định hướng chuyên ngành Kỹ thuật Địa kỹ thuật & Vật liệu.</p>
-    <br>
-    <!-- Bạn có thể đưa link ứng dụng Streamlit Cloud của bạn vào đây sau khi deploy -->
-    <a class="btn" href="https://github.com/conslmhoang/construction-materials-lab" target="_blank">Xem Source Code trên GitHub</a>
+<div class="wrap">
+
+  <header class="page">
+    <h1>🧱 Construction Materials Lab</h1>
+    <p class="sub">Mix-Design Calculation &amp; Optimization Tool</p>
+    <p class="who">Le Minh Hoang — MS student, Architecture and Civil Engineering, Chonnam National University</p>
+    <p class="who" style="margin-top:2px">Construction Materials Lab, founded by Prof. Bang Yeon Lee</p>
+  </header>
+
+  <!-- ============ DATABASE ============ -->
+  <section class="card">
+    <div class="bar">
+      <div class="l" id="dbStatus">Loading material database…</div>
+      <div class="r">
+        <span class="filebtn">
+          <button class="btn-ghost" type="button">📂 Load another Excel database</button>
+          <input type="file" id="dbFile" accept=".xlsx,.xls" aria-label="Load material database from Excel">
+        </span>
+        <button class="btn-ghost" type="button" id="dbReset">↺ Built-in database</button>
+      </div>
+    </div>
+    <p id="dbError" class="note err hidden" style="margin-top:12px;margin-bottom:0"></p>
+  </section>
+
+  <!-- ============ 1. CONFIGURATION ============ -->
+  <section class="card">
+    <h2>1. Mix-Design Configuration</h2>
+    <p class="hint">Enter the proportions exactly as you would in the lab notebook. Binder proportions are mass ratios (any base); fibers are given as percent of total volume.</p>
+
+    <div class="grid2">
+      <div class="panel">
+        <h3>🏛️ Binder + Aggregates + Activators</h3>
+        <div class="addrow">
+          <div>
+            <label for="selBinder">Add material</label>
+            <select id="selBinder"></select>
+          </div>
+          <button class="btn-ghost" type="button" id="addBinder">+ Add</button>
+        </div>
+        <div id="binderList"><p class="empty">No material selected yet.</p></div>
+      </div>
+
+      <div class="panel">
+        <h3>🧵 Fiber Types</h3>
+        <div class="addrow">
+          <div>
+            <label for="selFiber">Add fiber</label>
+            <select id="selFiber"></select>
+          </div>
+          <button class="btn-ghost" type="button" id="addFiber">+ Add</button>
+        </div>
+        <div id="fiberList"><p class="empty">No fiber selected yet.</p></div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px">
+      <label for="note">Mix ID <span style="font-weight:400;color:var(--muted)">— optional; the name this mix will carry in the history table below, so you can tell your runs apart later</span></label>
+      <input type="text" id="note" placeholder="e.g. GP-FA30, M1, Trial 05">
+    </div>
+
+    <p id="calcError" class="note err hidden" style="margin-top:16px;margin-bottom:0"></p>
+
+    <div style="margin-top:18px">
+      <button class="btn-primary btn-block" type="button" id="calcBtn">🚀 Calculate for 1 m³ Mix Design</button>
+    </div>
+  </section>
+
+  <!-- ============ 2. RESULTS ============ -->
+  <section class="card hidden" id="resultCard">
+    <h2>📊 Results for 1 m³</h2>
+    <p class="hint">Fiber volume is fixed first; the remaining volume is filled by the binder system according to your proportions.</p>
+    <div class="tablewrap"><table id="resTable"></table></div>
+    <div class="stats" id="resStats"></div>
+  </section>
+
+  <!-- ============ 3. ACTUAL BATCH ============ -->
+  <section class="card hidden" id="batchCard">
+    <h2>2. Actual Batch Volume</h2>
+    <p class="hint">Scales the 1 m³ proportions to the volume you actually need to cast.</p>
+    <div class="vol">
+      <div>
+        <label for="volInput">Target volume (m³)</label>
+        <input type="number" id="volInput" min="0.0001" step="0.001" value="0.05">
+      </div>
+      <div><button class="btn-primary" type="button" id="batchBtn" style="height:41px">📦 Compute Actual Batch</button></div>
+    </div>
+    <div id="batchOut" class="hidden" style="margin-top:18px">
+      <div class="tablewrap"><table id="batchTable"></table></div>
+      <div class="stats" id="batchStats"></div>
+    </div>
+  </section>
+
+  <!-- ============ 4. LOG ============ -->
+  <section class="card">
+    <h2>3. Mix Design History</h2>
+    <p class="hint">Every calculation is appended as one row — timestamp plus the proportions you entered. Stored in this browser only; download the Excel file to keep it.</p>
+    <div class="bar" style="margin-bottom:14px">
+      <div class="l" id="logCount">No runs logged yet.</div>
+      <div class="r">
+        <button class="btn-ghost" type="button" id="dlXlsx">⬇️ Download Excel</button>
+        <button class="btn-ghost" type="button" id="dlCsv">⬇️ Download CSV</button>
+        <button class="btn-danger" type="button" id="clearLog">🗑️ Clear log</button>
+      </div>
+    </div>
+    <p id="logWarn" class="note warn hidden"></p>
+    <div class="tablewrap"><table id="logTable"></table></div>
+  </section>
+
+  <footer class="page">
+    Runs entirely in your browser — no data leaves this page.
+  </footer>
+</div>
+
+<script>
+"use strict";
+
+/* ==========================================================================
+   MATERIAL DATABASE — auto-generated from "01 Datamix.xlsx"
+   Regenerate with:  python embed_materials.py "01 Datamix.xlsx" index.html
+   Do not edit the two marker comments below.
+   ========================================================================== */
+// >>> MATERIALS BEGIN
+const DEFAULT_MATERIALS = [
+  {"name":"OPC (Ordinary Portland Cement)","density":3150.0,"energy":5.5,"co2":0.9,"cost":0.048},
+  {"name":"GGBS (Ground-granulated blast furnace slag)","density":2900.0,"energy":1.6,"co2":0.07,"cost":0.035},
+  {"name":"FA (Fly ash)","density":2200.0,"energy":0.11,"co2":0.0074,"cost":0.03},
+  {"name":"SF (Silica fume)","density":2200.0,"energy":0.036,"co2":0.014,"cost":0.3},
+  {"name":"WG (Water glass)","density":1370.0,"energy":6.0,"co2":1.51,"cost":0.53},
+  {"name":"Metakaolin","density":2620.0,"energy":0.33,"co2":0.332,"cost":0.229},
+  {"name":"NaOH","density":2130.0,"energy":18.0,"co2":0.86,"cost":0.25},
+  {"name":"Ca(OH)2","density":2240.0,"energy":4.25,"co2":1.09,"cost":0.2},
+  {"name":"Na2SO4","density":2660.0,"energy":6.0,"co2":0.47,"cost":0.25},
+  {"name":"SSM - Na2SiO3 (Anhydrous sodium metasilicate)","density":2100.0,"energy":4.6,"co2":0.43,"cost":0.17},
+  {"name":"Limestone Powder","density":2690.0,"energy":0.0796,"co2":0.0028,"cost":0.25},
+  {"name":"SS (Silica sand)","density":2600.0,"energy":0.067,"co2":0.023,"cost":0.0639},
+  {"name":"Crumb rubber","density":1130.0,"energy":7.0,"co2":2.7,"cost":0.48},
+  {"name":"Water","density":1000.0,"energy":0.0,"co2":0.0,"cost":0.0015},
+  {"name":"SP","density":1200.0,"energy":35.0,"co2":1.667,"cost":1.211},
+  {"name":"HRWR","density":1000.0,"energy":35.0,"co2":1.667,"cost":1.211},
+  {"name":"VMA","density":1200.0,"energy":4.98,"co2":0.48,"cost":2.5},
+  {"name":"PBO fiber","density":1540.0,"energy":0.0,"co2":0.0,"cost":0.0},
+  {"name":"PE fiber","density":970.0,"energy":94.5,"co2":4.08,"cost":22.39},
+  {"name":"PVA fiber","density":1300.0,"energy":101.0,"co2":3.4,"cost":12.67},
+  {"name":"Steel fiber","density":7800.0,"energy":60.0,"co2":1.6,"cost":5.0}
+];
+// <<< MATERIALS END
+
+/* ---------------------------------------------------------------- state -- */
+const LOG_KEY   = "cml_mix_log_v1";
+const TIME_COL  = "Timestamp";
+const NOTE_COL  = "Mix ID";
+const FIB_SUFF  = " (%vol)";
+const TRAILING  = [NOTE_COL];
+
+let MATERIALS = {};          // name -> {name, density, energy, co2, cost}
+let dbLabel   = "built-in";
+let binderRows = [];         // [{name}]
+let fiberRows  = [];
+let lastResult = null;
+let lastInputs = null;
+let logRows    = [];
+let logWritable = true;
+
+const $ = id => document.getElementById(id);
+const isFiber = n => /fibre|fiber/i.test(n);
+const fmt = (v, d) => Number(v).toLocaleString("en-US", {minimumFractionDigits:d, maximumFractionDigits:d});
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* --------------------------------------------------------------- helpers -- */
+function setDb(list, label){
+  MATERIALS = {};
+  list.forEach(m => {
+    const d = Number(m.density);
+    if (!isFinite(d) || d <= 0) return;
+    const name = String(m.name).replace(/\s+/g," ").trim();
+    if (!name) return;
+    MATERIALS[name] = {
+      name, density:d,
+      energy:Number(m.energy)||0,
+      co2:Number(m.co2)||0,
+      cost:Number(m.cost)||0
+    };
+  });
+  dbLabel = label;
+  binderRows = []; fiberRows = [];
+  lastResult = null;
+  $("resultCard").classList.add("hidden");
+  $("batchCard").classList.add("hidden");
+  fillSelects();
+  renderRows();
+  const n = Object.keys(MATERIALS).length;
+  $("dbStatus").textContent = `${n} material${n===1?"":"s"} loaded — ${label} database.`;
+}
+
+function fillSelects(){
+  const names = Object.keys(MATERIALS);
+  const b = $("selBinder"), f = $("selFiber");
+  b.innerHTML = ""; f.innerHTML = "";
+  names.filter(n => !isFiber(n)).forEach(n => b.appendChild(new Option(n, n)));
+  names.filter(isFiber).forEach(n => f.appendChild(new Option(n, n)));
+  if (!b.options.length) b.appendChild(new Option("— none —",""));
+  if (!f.options.length) f.appendChild(new Option("— none —",""));
+}
+
+function renderRows(){
+  const build = (rows, host, unit, step) => {
+    if (!rows.length){ host.innerHTML = `<p class="empty">No ${unit} selected yet.</p>`; return; }
+    host.innerHTML = rows.map((r,i) => {
+      const m = MATERIALS[r.name];
+      return `<div class="item">
+        <div class="nm">${esc(r.name)}<span class="dn">ρ = ${fmt(m.density,0)} kg/m³</span></div>
+        <input type="number" min="0" step="${step}" value="${r.value ?? ""}"
+               data-kind="${unit}" data-i="${i}" aria-label="Value for ${esc(r.name)}">
+        <button class="btn-x" type="button" data-del="${unit}" data-i="${i}" title="Remove">×</button>
+      </div>`;
+    }).join("");
+  };
+  build(binderRows, $("binderList"), "binder", "0.0001");
+  build(fiberRows,  $("fiberList"),  "fiber",  "0.0001");
+}
+
+function readRows(){
+  document.querySelectorAll('input[data-kind]').forEach(inp => {
+    const arr = inp.dataset.kind === "binder" ? binderRows : fiberRows;
+    const v = parseFloat(inp.value);
+    arr[+inp.dataset.i].value = isFinite(v) ? v : 0;
+  });
+}
+
+/* ------------------------------------------------------------ calculation -- */
+function calcMix(binder, fiber){
+  if (!Object.keys(binder).length && !Object.keys(fiber).length)
+    throw new Error("Select at least one material and enter a value greater than zero.");
+
+  const out = {binder:{}, fiber:{}, totals:{}};
+  let fVol=0, fMass=0, fCost=0, fEn=0, fCo2=0;
+
+  for (const [name, pct] of Object.entries(fiber)){
+    const m = MATERIALS[name];
+    const volume = pct/100, mass = volume*m.density;
+    out.fiber[name] = {name, input:pct, volume, mass,
+      cost:mass*m.cost, energy:mass*m.energy, co2:mass*m.co2, density:m.density};
+    fVol+=volume; fMass+=mass; fCost+=mass*m.cost; fEn+=mass*m.energy; fCo2+=mass*m.co2;
+  }
+  if (fVol >= 1)
+    throw new Error(`Total fiber volume must be below 1.000 m³ (currently ${fVol.toFixed(4)} m³).`);
+
+  const remaining = 1 - fVol;
+  let bVol=0, bMass=0, bCost=0, bEn=0, bCo2=0;
+
+  const denom = Object.entries(binder)
+    .reduce((s,[n,r]) => s + r/MATERIALS[n].density, 0);
+  const base = denom > 0 ? remaining/denom : 0;
+
+  for (const [name, ratio] of Object.entries(binder)){
+    const m = MATERIALS[name];
+    const mass = ratio*base, volume = mass/m.density;
+    out.binder[name] = {name, input:ratio, volume, mass,
+      cost:mass*m.cost, energy:mass*m.energy, co2:mass*m.co2, density:m.density};
+    bVol+=volume; bMass+=mass; bCost+=mass*m.cost; bEn+=mass*m.energy; bCo2+=mass*m.co2;
+  }
+
+  out.totals = {
+    mass:bMass+fMass, volume:bVol+fVol, cost:bCost+fCost,
+    energy:bEn+fEn, co2:bCo2+fCo2, fiberVolume:fVol, remaining
+  };
+  return out;
+}
+
+function scaleResult(res, v){
+  const sc = o => ({name:o.name, volume:o.volume*v, mass:o.mass*v,
+                    cost:o.cost*v, energy:o.energy*v, co2:o.co2*v, density:o.density});
+  const map = obj => Object.fromEntries(Object.entries(obj).map(([k,o]) => [k, sc(o)]));
+  const t = res.totals;
+  return {binder:map(res.binder), fiber:map(res.fiber), totals:{
+    mass:t.mass*v, volume:t.volume*v, cost:t.cost*v, energy:t.energy*v, co2:t.co2*v}};
+}
+
+/* ------------------------------------------------------------- rendering -- */
+function renderTable(el, res, unit){
+  const rows = [
+    ...Object.values(res.binder).map(o => [o,"Binder / Aggregate / Activator","tag"]),
+    ...Object.values(res.fiber ).map(o => [o,"Fiber","tag fib"])
+  ];
+  const t = res.totals;
+  el.innerHTML = `
+    <thead><tr>
+      <th>Category</th><th>Material</th>
+      <th>Mass (kg)</th><th>Volume (m³)</th>
+      <th>Cost ($)</th><th>Energy (MJ)</th><th>CO₂ (kg)</th>
+    </tr></thead>
+    <tbody>${rows.map(([o,cat,cls]) => `<tr>
+      <td><span class="${cls}">${cat==="Fiber"?"Fiber":"Binder"}</span></td>
+      <td>${esc(o.name)}</td>
+      <td>${fmt(o.mass,1)}</td><td>${fmt(o.volume,4)}</td>
+      <td>${fmt(o.cost,2)}</td><td>${fmt(o.energy,1)}</td><td>${fmt(o.co2,1)}</td>
+    </tr>`).join("")}</tbody>
+    <tfoot><tr>
+      <td colspan="2">TOTAL${unit ? " ("+unit+")" : ""}</td>
+      <td>${fmt(t.mass,1)}</td><td>${fmt(t.volume ?? 0,4)}</td>
+      <td>${fmt(t.cost,2)}</td><td>${fmt(t.energy,1)}</td><td>${fmt(t.co2,1)}</td>
+    </tr></tfoot>`;
+}
+
+function renderStats(el, t, unit){
+  el.innerHTML = [
+    ["Total mass", fmt(t.mass,1)+" kg"],
+    ["Cost", "$"+fmt(t.cost,2)],
+    ["Embodied energy", fmt(t.energy,1)+" MJ"],
+    ["CO₂ emission", fmt(t.co2,1)+" kg"]
+  ].map(([k,v]) => `<div class="stat"><div class="k">${k}${unit?" · "+unit:""}</div><div class="v">${v}</div></div>`).join("");
+}
+
+/* ------------------------------------------------------------------- log -- */
+function loadLog(){
+  try{
+    const raw = localStorage.getItem(LOG_KEY);
+    logRows = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(logRows)) logRows = [];
+  }catch(e){
+    logRows = []; logWritable = false;
+    $("logWarn").textContent = "This browser is blocking local storage, so the history will not survive a page reload. Download the Excel file before closing the tab.";
+    $("logWarn").classList.remove("hidden");
+  }
+}
+function saveLog(){
+  if (!logWritable) return;
+  try{ localStorage.setItem(LOG_KEY, JSON.stringify(logRows)); }
+  catch(e){
+    logWritable = false;
+    $("logWarn").textContent = "The history could not be saved in this browser (storage full or blocked). Download the Excel file to keep your data.";
+    $("logWarn").classList.remove("hidden");
+  }
+}
+
+function stamp(d){
+  const p = n => String(n).padStart(2,"0");
+  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+}
+
+function addLogRow(binder, fiber, res, note, actualVol){
+  const row = {[TIME_COL]: stamp(new Date())};
+  for (const [n,v] of Object.entries(binder)) row[n] = v;
+  for (const [n,v] of Object.entries(fiber))  row[n+FIB_SUFF] = v;
+  if (actualVol != null) row["Actual volume (m3)"] = actualVol;
+  const t = res.totals;
+  row["Total mass (kg/m3)"] = +t.mass.toFixed(2);
+  row["Cost ($/m3)"]        = +t.cost.toFixed(3);
+  row["Energy (MJ/m3)"]     = +t.energy.toFixed(2);
+  row["CO2 (kg/m3)"]        = +t.co2.toFixed(3);
+  if (note) row[NOTE_COL] = note;
+  logRows.push(row);
+  saveLog();
+  renderLog();
+}
+
+function logColumns(){
+  const cols = [TIME_COL];
+  logRows.forEach(r => Object.keys(r).forEach(k => {
+    if (!cols.includes(k) && !TRAILING.includes(k)) cols.push(k);
+  }));
+  TRAILING.forEach(c => { if (logRows.some(r => c in r)) cols.push(c); });
+  return cols;
+}
+
+function logMatrix(){
+  const cols = logColumns();
+  return logRows.map(r => {
+    const o = {};
+    cols.forEach(c => {
+      if (c === TIME_COL || TRAILING.includes(c)) o[c] = r[c] ?? "";
+      else o[c] = (typeof r[c] === "number") ? r[c] : 0;
+    });
+    return o;
+  });
+}
+
+function renderLog(){
+  const el = $("logTable");
+  $("logCount").textContent = logRows.length
+    ? `${logRows.length} run${logRows.length===1?"":"s"} logged — newest first.`
+    : "No runs logged yet.";
+  if (!logRows.length){ el.innerHTML = ""; return; }
+  const cols = logColumns();
+  const data = logMatrix();
+  el.innerHTML = `
+    <thead><tr>${cols.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead>
+    <tbody>${data.slice().reverse().map(r => `<tr>${
+      cols.map(c => `<td>${typeof r[c]==="number" ? esc(fmt(r[c], Number.isInteger(r[c])?0:3)) : esc(r[c])}</td>`).join("")
+    }</tr>`).join("")}</tbody>`;
+}
+
+function toCsv(){
+  const cols = logColumns(), data = logMatrix();
+  const q = v => {
+    const s = String(v ?? "");
+    return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+  };
+  return "﻿" + [cols.map(q).join(","), ...data.map(r => cols.map(c => q(r[c])).join(","))].join("\r\n");
+}
+
+function saveBlob(content, mime, filename){
+  const url = URL.createObjectURL(new Blob([content], {type:mime}));
+  const a = Object.assign(document.createElement("a"), {href:url, download:filename});
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function downloadLog(kind){
+  if (!logRows.length){ alert("The log is empty — run a calculation first."); return; }
+
+  // The Excel writer comes from a CDN; without it, fall back to CSV so no data is lost.
+  if (kind === "xlsx" && typeof XLSX === "undefined"){
+    showErr($("logWarn"),
+      "The Excel library could not be loaded (no internet connection?). The log was downloaded as CSV instead — Excel opens it fine.");
+    kind = "csv";
+  }
+
+  if (kind === "csv"){
+    saveBlob(toCsv(), "text/csv;charset=utf-8", "MixLog.csv");
+    return;
+  }
+
+  const cols = logColumns();
+  const ws = XLSX.utils.json_to_sheet(logMatrix(), {header:cols});
+  ws["!cols"] = cols.map(c => ({wch: Math.min(Math.max(c.length + 2, 10), 24)}));
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "MixLog");
+  XLSX.writeFile(wb, "02 MixLog.xlsx");
+}
+
+/* ------------------------------------------------------- Excel DB import -- */
+const ALIASES = {
+  density:["density (kg/m3)","density (kg/m³)","density"],
+  energy :["energy (mj/kg)","energy"],
+  co2    :["co2 (kg/kg)","co₂ (kg/kg)","co2","co₂"],
+  cost   :["cost ($/kg)","cost"]
+};
+function norm(s){ return String(s??"").replace(/ /g," ").replace(/³/g,"3").replace(/\s+/g,"").toLowerCase(); }
+
+function parseWorkbook(ab){
+  const wb = XLSX.read(ab, {type:"array"});
+  const sheet = wb.Sheets[wb.SheetNames[0]];
+  const rows = XLSX.utils.sheet_to_json(sheet, {header:1, blankrows:false});
+  if (!rows.length || rows[0].length < 2) throw new Error("The sheet looks empty or has an unexpected layout.");
+
+  const names = rows[0].slice(1).map(v => String(v??"").replace(/\s+/g," ").trim());
+  const rowOf = key => {
+    const al = ALIASES[key].map(norm);
+    for (let i=1;i<rows.length;i++){
+      const label = norm(rows[i][0]);
+      if (al.includes(label)) return i;
+    }
+    for (let i=1;i<rows.length;i++){
+      const label = norm(rows[i][0]);
+      if (al.some(a => label.includes(a))) return i;
+    }
+    return -1;
+  };
+  const rIdx = {density:rowOf("density"), energy:rowOf("energy"), co2:rowOf("co2"), cost:rowOf("cost")};
+  if (rIdx.density < 0) throw new Error('No "Density" row found in the first column.');
+
+  const out = [];
+  names.forEach((name, j) => {
+    if (!name) return;
+    const num = i => { const v = i<0 ? NaN : parseFloat(rows[i]?.[j+1]); return isFinite(v) ? v : 0; };
+    const d = parseFloat(rows[rIdx.density]?.[j+1]);
+    if (!isFinite(d) || d <= 0) return;
+    out.push({name, density:d, energy:num(rIdx.energy), co2:num(rIdx.co2), cost:num(rIdx.cost)});
+  });
+  if (!out.length) throw new Error("No material with a valid density was found.");
+  return out;
+}
+
+/* ----------------------------------------------------------------- wire -- */
+function showErr(el, msg){ el.textContent = msg; el.classList.remove("hidden"); }
+function hideErr(el){ el.classList.add("hidden"); }
+
+$("addBinder").onclick = () => {
+  const v = $("selBinder").value;
+  if (!v || binderRows.some(r => r.name === v)) return;
+  readRows(); binderRows.push({name:v, value:1}); renderRows();
+};
+$("addFiber").onclick = () => {
+  const v = $("selFiber").value;
+  if (!v || fiberRows.some(r => r.name === v)) return;
+  readRows(); fiberRows.push({name:v, value:1}); renderRows();
+};
+document.addEventListener("click", e => {
+  const del = e.target.closest("[data-del]");
+  if (!del) return;
+  readRows();
+  const i = +del.dataset.i;
+  if (del.dataset.del === "binder") binderRows.splice(i,1); else fiberRows.splice(i,1);
+  renderRows();
+});
+
+$("calcBtn").onclick = () => {
+  hideErr($("calcError"));
+  readRows();
+  const binder = {}, fiber = {};
+  binderRows.forEach(r => { if (r.value > 0) binder[r.name] = r.value; });
+  fiberRows .forEach(r => { if (r.value > 0) fiber [r.name] = r.value; });
+  try{
+    const res = calcMix(binder, fiber);
+    lastResult = res; lastInputs = {binder, fiber};
+    renderTable($("resTable"), res, "1 m³");
+    renderStats($("resStats"), res.totals, "per m³");
+    $("resultCard").classList.remove("hidden");
+    $("batchCard").classList.remove("hidden");
+    $("batchOut").classList.add("hidden");
+    addLogRow(binder, fiber, res, $("note").value.trim(), null);
+    $("resultCard").scrollIntoView({behavior:"smooth", block:"start"});
+  }catch(err){
+    showErr($("calcError"), err.message);
+  }
+};
+
+$("batchBtn").onclick = () => {
+  if (!lastResult) return;
+  const v = parseFloat($("volInput").value);
+  if (!isFinite(v) || v <= 0){ showErr($("calcError"), "Target volume must be greater than 0."); return; }
+  const scaled = scaleResult(lastResult, v);
+  renderTable($("batchTable"), scaled, fmt(v,4)+" m³");
+  renderStats($("batchStats"), scaled.totals, fmt(v,4)+" m³");
+  $("batchOut").classList.remove("hidden");
+  addLogRow(lastInputs.binder, lastInputs.fiber, lastResult, $("note").value.trim(), v);
+};
+
+$("dlXlsx").onclick  = () => downloadLog("xlsx");
+$("dlCsv").onclick   = () => downloadLog("csv");
+$("clearLog").onclick = () => {
+  if (!logRows.length) return;
+  if (!confirm("Delete all logged runs? Download the Excel file first if you still need them.")) return;
+  logRows = []; saveLog(); renderLog();
+};
+
+$("dbFile").onchange = e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  hideErr($("dbError"));
+  if (typeof XLSX === "undefined"){
+    showErr($("dbError"),
+      "The Excel reader could not be loaded (no internet connection?). The built-in database still works — reconnect and reload the page to import another file.");
+    e.target.value = ""; return;
+  }
+  const fr = new FileReader();
+  fr.onload = ev => {
+    try{ setDb(parseWorkbook(ev.target.result), `"${file.name}"`); }
+    catch(err){ showErr($("dbError"), "Could not read that file: " + err.message); }
+  };
+  fr.onerror = () => showErr($("dbError"), "Could not read that file.");
+  fr.readAsArrayBuffer(file);
+  e.target.value = "";
+};
+$("dbReset").onclick = () => { hideErr($("dbError")); setDb(DEFAULT_MATERIALS, "built-in"); };
+
+/* ------------------------------------------------------------------ init -- */
+setDb(DEFAULT_MATERIALS, "built-in");
+loadLog();
+renderLog();
+</script>
 </body>
 </html>
