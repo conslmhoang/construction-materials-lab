@@ -21,3 +21,6 @@ env/
 Thumbs.db
 desktop.ini
 .idea/
+
+# --- ML spike -------------------------------------------------------------
+catboost_info/
