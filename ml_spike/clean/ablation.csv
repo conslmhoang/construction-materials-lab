@@ -1,0 +1,28 @@
+﻿target,rule,train_rows,R2_new_lab,MAE_new_lab,R2_lab_known,MAE_lab_known
+fc,baseline (all rows),2382,0.804,16.28,0.936,8.67
+fc,drop VERIFY,1898,0.799,16.49,0.938,8.49
+fc,drop natural fibre,2309,0.804,16.27,0.938,8.58
+fc,drop coarse aggregate,2311,0.805,16.2,0.938,8.61
+fc,drop exotic binder,2333,0.812,16.01,0.938,8.58
+fc,drop no-fibre rows,2008,0.817,15.66,0.938,8.63
+fc,drop missing W/B or age,2127,0.811,16.01,0.941,8.25
+fc,drop model outliers,2256,0.817,15.91,0.939,8.55
+fc,drop physics-check fails,2364,0.802,16.35,0.937,8.68
+ft,baseline (all rows),1022,0.549,1.62,0.768,1.04
+ft,drop VERIFY,997,0.534,1.63,0.769,1.03
+ft,drop natural fibre,1021,0.546,1.61,0.768,1.04
+ft,drop coarse aggregate,1021,0.56,1.59,0.768,1.04
+ft,drop exotic binder,1015,0.553,1.6,0.767,1.03
+ft,drop no-fibre rows,877,0.546,1.6,0.77,1.03
+ft,drop missing W/B or age,850,0.533,1.61,0.778,0.99
+ft,drop model outliers,973,0.547,1.6,0.775,1.04
+ft,drop physics-check fails,999,0.556,1.6,0.77,1.03
+eps,baseline (all rows),732,0.43,1.5,0.688,0.99
+eps,drop VERIFY,710,0.446,1.47,0.697,0.97
+eps,drop natural fibre,731,0.433,1.49,0.688,0.99
+eps,drop coarse aggregate,731,0.418,1.51,0.691,0.98
+eps,drop exotic binder,728,0.427,1.49,0.69,0.98
+eps,drop no-fibre rows,695,0.417,1.5,0.692,0.99
+eps,drop missing W/B or age,649,0.415,1.54,0.683,0.99
+eps,drop model outliers,694,0.457,1.48,0.697,0.97
+eps,drop physics-check fails,702,0.44,1.49,0.685,0.98

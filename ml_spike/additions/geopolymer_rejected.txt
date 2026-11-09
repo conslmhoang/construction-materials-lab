@@ -1,0 +1,7 @@
+Rejected / not used (geopolymer topic):
+- 10.3390/ma12234015 Lee et al. 2019 "Study of Strain-Hardening Behaviour of Fibre-Reinforced Alkali-Activated Fly Ash Cement" - no direct tension test; fc only in figure; activator not specified.
+- 10.3390/polym17081072 Zhang et al. 2025 slag-Yellow River sediment geopolymer with ST/PVA/PE - splitting tension only; role of YRS (sand vs precursor) ambiguous, ratios normalised to sediment.
+- 10.3390/ma17174321 Wang, Zheng, Yu 2024 EGC shrinkage (orthogonal design) - fc only, test age/curing for fc not stated, alkali-content basis undefined.
+- 10.1002/smsc.202400520 Cai et al. 2025 thermoelectric SHGC - mix proportions only in SI, tensile values approximate in text.
+- 10.1016/j.cscm.2022.e01386 Xu et al. 2022 AAS with PVA/PE/steel - full text not accessible (403).
+- 10.3390/ma17153778 Ling et al. 2024 - partially used: M1-series rows skipped (duplicate of Guo et al. 2024, 10.3390/ma17174356); only M2/M3 added.

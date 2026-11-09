@@ -1,0 +1,16 @@
+﻿target,rule,train_rows,R2_new_lab,MAE_new_lab,R2_lab_known,MAE_lab_known
+fc,baseline (all rows),2382,0.804,16.28,0.936,8.67
+fc,combo fc,1651,0.833,15.22,0.945,8.12
+fc,combo ft,2182,0.821,15.87,0.939,8.51
+fc,combo eps,1780,0.814,15.93,0.938,8.57
+fc,combo safe (outliers+physics+coarse+exotic),2133,0.821,15.7,0.938,8.59
+ft,baseline (all rows),1022,0.549,1.62,0.768,1.04
+ft,combo fc,686,0.554,1.57,0.786,0.98
+ft,combo ft,955,0.559,1.59,0.779,1.02
+ft,combo eps,939,0.555,1.59,0.779,1.03
+ft,combo safe (outliers+physics+coarse+exotic),948,0.555,1.61,0.78,1.02
+eps,baseline (all rows),732,0.43,1.5,0.688,0.99
+eps,combo fc,596,0.42,1.51,0.688,0.98
+eps,combo ft,671,0.435,1.49,0.687,0.98
+eps,combo eps,658,0.431,1.5,0.686,0.99
+eps,combo safe (outliers+physics+coarse+exotic),667,0.457,1.47,0.69,0.97

@@ -1,0 +1,20 @@
+w2_green - rejected / skipped papers (green / low-carbon ECC search)
+
+https://doi.org/10.3390/ma17102240 | ECC with Super-Sulfated Cement (Zokaei et al. 2024) | fc and flexural only in figures (text gives % differences only); no tensile test.
+https://doi.org/10.1371/journal.pone.0355961 | Sustainable ECC incorporating recycled materials + LCA (Manan et al. 2026) | only flexural results in figures; mix design taken from ref. [26].
+https://doi.org/10.3390/ma13051143 | Recycled brick powder SHCC (Wang et al. 2020) | fc only in figures, flexural only as loads (kN); no tensile values.
+https://doi.org/10.3390/ma19122533 | Thermal performance of recycled HDCC (Huang et al. 2026) | elevated-temperature study; ambient fc only derivable (53.0 MPa) and no ambient tensile values; binder not a green focus.
+https://doi.org/10.3390/ma13030679 | Recycled fine aggregate HDCC (Gao et al. 2020) | off-topic (standard 30% FA binder, recycled aggregate study); bending only in tables.
+https://doi.org/10.3390/ma16175896 | Low-cement SHCC with desert sand and ground scoria (Fares & Khan 2023) | tensile/strain only in figures, text values vague.
+https://doi.org/10.3389/fmats.2020.00065 | Sugarcane bagasse ash ECC (Amin et al. 2020) | fc only in figure; tensile given only as loads (kN) on coupons, elongation in mm (no stress/strain).
+https://doi.org/10.3389/fmats.2021.727273 | ECC with ceramic wastes under different curing (Xiong et al. 2021) | fc only in figure (Fig. 8).
+https://doi.org/10.3389/fbuil.2025.1639590 | PVA + SCM-modified UHPECC (Priyanka & Suganya 2025) | mix table inconsistent with cost table (cement 750 vs 800 kg/m3), non-fibre control reported with tensile strength; UHPECC with 90 C hot-water curing - quality doubtful.
+https://doi.org/10.3389/fbuil.2025.1603359 | Hybrid binary/ternary fibre ECC (Kouhiazar Tulun et al. 2025) | 60 mm steel/synthetic macro fibres, concrete-like mix; not green-binder ECC topic.
+https://doi.org/10.3389/fmats.2024.1378089 | Multiscale hybrid steel/PVA/CaCO3-whisker SHCC (Hou et al. 2024) | hybrid steel fibre topic, not green binder.
+https://doi.org/10.1038/s41598-025-21151-x | LCA of eco-friendly UHS-ECC with RCP and waste tyre steel fibre (Mehmood et al. 2025) | tables are images; values only in figures/text extremes.
+https://doi.org/10.3390/ma19081490 | Fly ash utilisation for CO2 reduction in cement composites (2026) | no fibres.
+https://doi.org/10.3390/ma15186192, https://doi.org/10.3390/ma16010165 | ECC carbonation / salt-frost under sustained load | durability-only, no strength values for the mixes.
+https://doi.org/10.1155/2018/7987589 | SF and GGBS to improve frost resistance of HVFA ECC (Hindawi 2018) | full text not accessible (Wiley 403, not in PMC).
+Engineered Cementitious Composites (ECC) with limestone calcined clay cement (LC3), Cem. Concr. Compos. 2020 | ScienceDirect only; not readable as text here.
+
+Note: Europe PMC and NCBI E-utilities search endpoints returned 503/500 for the whole session; discovery relied on web search + Crossref + PMC idconv, which limited the yield to 8 accepted papers.

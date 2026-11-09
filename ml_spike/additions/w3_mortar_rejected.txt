@@ -1,0 +1,36 @@
+# w3_mortar - candidate papers read and rejected (one-line reason)
+https://doi.org/10.3390/nano12030323 - extracted, but DOI already in w3_nano.csv (dropped by builder)
+https://doi.org/10.3390/ma15051657 - same carbon-fibre mixes/data as 10.3390/ma14164693 (duplicate dataset; its "corrected" mix table has swapped column labels); used only for notes
+https://doi.org/10.3390/ma13194451 - amorphous metallic fibre mortar: strengths only in figures / approximate text values
+https://doi.org/10.3390/ma15207316 - polyester fibre mortar freeze-thaw: strengths only in figures (one UCS series without per-mix values)
+https://doi.org/10.3390/ma14164700 - layered steel-fibre mortar beams (functionally graded), results only in figures
+https://doi.org/10.3390/ma19132729 - basalt geopolymer mortar: only some fc/flexural values in text, most in figures
+https://doi.org/10.3390/nano15110837 - nano-SiO2/PVA HVFA mortar: strengths in figures
+https://doi.org/10.3390/ma16072914 - PVA coral-sand composites: strengths in figures
+https://doi.org/10.3390/polym15092146 - PVA/basalt fibre cement soil (not mortar)
+https://doi.org/10.3390/ma13081952 - basalt fibre bottom-ash paste: no usable results tables in full text
+https://doi.org/10.3390/ma14092223 - 3D-printed glass-fibre paste: mix-fraction table column order ambiguous, most results in figures
+https://doi.org/10.3390/ma14081827 - steel/PVA/whisker mortar at high temperature: results in figures
+https://doi.org/10.3390/ma19143101 - steel/carbon fibre mortar: W/B 0.9 (out of range), results in figures
+https://doi.org/10.3390/ma14185441 - PP fibre fly-ash cement-stabilised silty soil (not mortar)
+https://doi.org/10.3390/ma19010212 - 3D-printed commercial premix mortar: no mix proportions, no fibre variable
+https://doi.org/10.1038/s41598-023-44591-9 - basalt fibre perlite insulation mortar: mix by ratios only, not a strength study
+https://doi.org/10.1038/s41598-026-51204-8 - PP-fibre coal-washing-waste geopolymer: binder components/activator dose not mappable
+https://doi.org/10.3389/fmats.2023.1202889 - basalt mortar salt-freezing: no absolute strength values (only % changes)
+https://doi.org/10.3390/ma14164474 - PP fibre 3D-printable slag mortar: strengths in figures only
+https://doi.org/10.3390/ma12203297 - steel fibre slurry-infiltrated thin slabs, fibres concentrated in tension zone (not homogeneous material)
+https://doi.org/10.3390/ma14133690 - PP fibre mortar sulfate attack: strengths in figures
+https://doi.org/10.3390/ma17143416 - PVA/steel + rock wool mortar: only flexural/compressive ratios tabulated
+https://doi.org/10.3390/nano8090638 - GO + PVA mortar: strengths in figures
+https://doi.org/10.3390/ma19020238 - steel fibre cementitious composite: dynamic (SHPB, elevated T) results only
+https://doi.org/10.3390/ma15238607 - 3D printable mortar without fibres
+https://doi.org/10.3390/gels8100662 - PVA-FRCC high temperature: strengths in figures (only one text value)
+https://doi.org/10.3390/ma17112542 - nano-SiO2/PVA composite contains coarse aggregate (concrete)
+https://doi.org/10.3390/ma12101708 - 3D-printed PP mortar: tiny-batch trials, no clear strength table per mix
+https://doi.org/10.3390/ma19040764 - basalt fibre recycled-powder mortar: values only partially in text and inconsistent between sections
+https://doi.org/10.3390/gels12050424 - PVA-steel epoxy-resin polymer mortar: results in figures
+https://doi.org/10.3390/ma18081830 - multi-scale carbon fibre composites: nanofiller variable only, no fc table
+https://doi.org/10.1038/s41598-026-36693-x - GNP-modified PVA FRCC: results in figures / % changes
+https://doi.org/10.3390/polym16040556 - SF in PP-fibre 3D printable mix: strengths in figures
+https://doi.org/10.3390/polym16010041 - MWCNT/PP cement-based material: strengths in figures
+https://doi.org/10.1038/s41598-024-65000-9 - PVA seawater sea-sand composite: strength grade only, mix not given as proportions

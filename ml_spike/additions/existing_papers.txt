@@ -1,0 +1,1040 @@
+# Already collected or already rejected - SKIP all of these
+https://doi.org/10.1007/s40069-016-0155-6
+https://doi.org/10.1007/s40069-016-0179-y
+https://doi.org/10.1007/s40069-017-0205-8
+https://doi.org/10.1007/s44242-022-00001-3
+https://doi.org/10.1016/j.cemconcomp.2018.02.014
+https://doi.org/10.1016/j.cemconcomp.2021.104030
+https://doi.org/10.1016/j.cemconcomp.2021.104167
+https://doi.org/10.1016/j.cemconcomp.2022.104464
+https://doi.org/10.1016/j.cemconcomp.2022.104770
+https://doi.org/10.1016/j.cemconres.2020.106200
+https://doi.org/10.1016/j.cemconres.2022.107075
+https://doi.org/10.1016/j.conbuildmat.2017.02.158
+https://doi.org/10.1016/j.conbuildmat.2018.09.196
+https://doi.org/10.1016/j.conbuildmat.2019.03.159
+https://doi.org/10.1016/j.conbuildmat.2020.119805
+https://doi.org/10.1016/j.conbuildmat.2021.125502
+https://doi.org/10.1016/j.conbuildmat.2021.126040
+https://doi.org/10.1016/j.dibe.2026.100938
+https://doi.org/10.1016/j.dibe.2026.100972
+https://doi.org/10.1016/j.heliyon.2023.e14452
+https://doi.org/10.1016/j.istruc.2021.03.104
+https://doi.org/10.1016/j.jclepro.2021.127813
+https://doi.org/10.1016/j.jclepro.2021.128379
+https://doi.org/10.1016/j.jclepro.2024.141182
+https://doi.org/10.1016/j.jclepro.2024.143357
+https://doi.org/10.1016/j.jclepro.2026.149356
+https://doi.org/10.1016/j.jobe.2024.109404
+https://doi.org/10.1016/j.matdes.2022.110876
+https://doi.org/10.1038/s41598-021-98502-x
+https://doi.org/10.1038/s41598-022-11836-y
+https://doi.org/10.1038/s41598-025-21250-9
+https://doi.org/10.1038/s41598-025-33711-2
+https://doi.org/10.1038/s41598-025-86257-8
+https://doi.org/10.1038/s41598-025-90138-5
+https://doi.org/10.1038/s41598-025-90636-6
+https://doi.org/10.1038/s41598-025-94471-7
+https://doi.org/10.1038/s41598-026-48095-0
+https://doi.org/10.1038/s41598-026-50457-7
+https://doi.org/10.1038/s41598-026-56745-6
+https://doi.org/10.1038/s41598-026-58428-8
+https://doi.org/10.1038/s41598-026-58832-0
+https://doi.org/10.1038/s41598-026-60833-y
+https://doi.org/10.1038/s41598-026-63669-8
+https://doi.org/10.1038/s41598-026-64977-9
+https://doi.org/10.1038/s41598-026-73191-6
+https://doi.org/10.1038/s41598-026-74632-y
+https://doi.org/10.1080/24705314.2020.1823558
+https://doi.org/10.1088/1757-899x/1200/1/012004
+https://doi.org/10.11159/iccste19.192
+https://doi.org/10.11159/iccste20.244
+https://doi.org/10.1139/cjce-2019-0592
+https://doi.org/10.1155/2014/713531
+https://doi.org/10.1186/s40069-018-0249-4
+https://doi.org/10.1186/s40069-018-0271-6
+https://doi.org/10.1186/s40069-018-0275-2
+https://doi.org/10.1186/s40069-019-0334-3
+https://doi.org/10.1186/s40069-019-0356-x
+https://doi.org/10.1186/s40069-019-0357-9
+https://doi.org/10.1186/s40069-019-0380-x
+https://doi.org/10.1186/s40069-020-00415-y
+https://doi.org/10.1186/s40069-020-00418-9
+https://doi.org/10.1186/s40069-021-00480-x
+https://doi.org/10.1186/s40069-023-00631-2
+https://doi.org/10.1186/s40069-023-00646-9
+https://doi.org/10.1186/s40069-024-00679-8
+https://doi.org/10.1186/s40069-024-00688-7
+https://doi.org/10.1186/s40069-024-00723-7
+https://doi.org/10.1186/s40069-025-00761-9
+https://doi.org/10.1186/s40069-025-00774-4
+https://doi.org/10.1186/s40069-025-00811-2
+https://doi.org/10.1186/s40069-026-00894-5
+https://doi.org/10.1186/s40069-026-00960-y
+https://doi.org/10.1186/s43065-022-00048-3
+https://doi.org/10.1186/s44147-024-00558-9
+https://doi.org/10.12688/f1000research.175541.2
+https://doi.org/10.13189/cea.2022.100722
+https://doi.org/10.1371/journal.pone.0301927
+https://doi.org/10.14190/jrcr.2015.3.3.206
+https://doi.org/10.14190/jrcr.2017.5.1.029
+https://doi.org/10.1590/1517-7076-rmat-2022-0181
+https://doi.org/10.1590/1517-7076-rmat-2023-0277
+https://doi.org/10.1590/s1516-14392013005000163
+https://doi.org/10.1590/s1517-707620190002.0662
+https://doi.org/10.1617/s11527-009-9549-0
+https://doi.org/10.1617/s11527-021-01621-0
+https://doi.org/10.1617/s11527-023-02283-w
+https://doi.org/10.1617/s11527-025-02857-w
+https://doi.org/10.1617/s11527-026-03165-7
+https://doi.org/10.17515/resm2025-412me0825rs
+https://doi.org/10.21012/fc9.209
+https://doi.org/10.24191/jmeche.v16i2.15332
+https://doi.org/10.2478/msp-2023-0010
+https://doi.org/10.26599/htrd.2026.9480106
+https://doi.org/10.2991/ame-16.2016.25
+https://doi.org/10.31026/j.eng.2025.12.07
+https://doi.org/10.3151/jact.1.269
+https://doi.org/10.3151/jact.16.485
+https://doi.org/10.3151/jact.2.207
+https://doi.org/10.3151/jact.21.204
+https://doi.org/10.3151/jact.21.971
+https://doi.org/10.3151/jact.23.296
+https://doi.org/10.3151/jact.8.49
+https://doi.org/10.32047/cwb.2021.26.4.5
+https://doi.org/10.32047/cwb.2021.26.6.4
+https://doi.org/10.32604/jrm.2021.013669
+https://doi.org/10.3311/ppci.21155
+https://doi.org/10.3389/fbuil.2023.1196246
+https://doi.org/10.3389/fbuil.2025.1570920
+https://doi.org/10.3389/fbuil.2025.1603359
+https://doi.org/10.3389/fmats.2019.00048
+https://doi.org/10.3389/fmats.2019.00077
+https://doi.org/10.3389/fmats.2019.00108
+https://doi.org/10.3389/fmats.2020.00277
+https://doi.org/10.3389/fmats.2020.00282
+https://doi.org/10.3389/fmats.2020.563234
+https://doi.org/10.3389/fmats.2021.673752
+https://doi.org/10.3389/fmats.2021.711872
+https://doi.org/10.3389/fmats.2021.737646
+https://doi.org/10.3389/fmats.2021.752720
+https://doi.org/10.3389/fmats.2021.769579
+https://doi.org/10.3389/fmats.2021.775188
+https://doi.org/10.3389/fmats.2021.783176
+https://doi.org/10.3389/fmats.2021.811110
+https://doi.org/10.3389/fmats.2022.1052870
+https://doi.org/10.3389/fmats.2022.1056809
+https://doi.org/10.3389/fmats.2022.836201
+https://doi.org/10.3389/fmats.2022.844268
+https://doi.org/10.3389/fmats.2022.912509
+https://doi.org/10.3389/fmats.2023.1142237
+https://doi.org/10.3389/fmats.2023.1148589
+https://doi.org/10.3389/fmats.2023.1204083
+https://doi.org/10.3389/fmats.2024.1427230
+https://doi.org/10.3389/fmats.2024.1443216
+https://doi.org/10.3389/fmats.2024.1443517
+https://doi.org/10.3389/fmats.2026.1774141
+https://doi.org/10.3389/fmats.2026.1781306
+https://doi.org/10.3389/fmats.2026.1784090
+https://doi.org/10.3389/fmats.2026.1813690
+https://doi.org/10.3390/ma11071115
+https://doi.org/10.3390/ma11081375
+https://doi.org/10.3390/ma11081445
+https://doi.org/10.3390/ma11081448
+https://doi.org/10.3390/ma11091721
+https://doi.org/10.3390/ma11102043
+https://doi.org/10.3390/ma12020329
+https://doi.org/10.3390/ma12060858
+https://doi.org/10.3390/ma12091382
+https://doi.org/10.3390/ma12152370
+https://doi.org/10.3390/ma12162607
+https://doi.org/10.3390/ma12172666
+https://doi.org/10.3390/ma12203356
+https://doi.org/10.3390/ma12213523
+https://doi.org/10.3390/ma12213615
+https://doi.org/10.3390/ma12223717
+https://doi.org/10.3390/ma12233891
+https://doi.org/10.3390/ma13010118
+https://doi.org/10.3390/ma13020325
+https://doi.org/10.3390/ma13030521
+https://doi.org/10.3390/ma13030770
+https://doi.org/10.3390/ma13051260
+https://doi.org/10.3390/ma13071757
+https://doi.org/10.3390/ma13081828
+https://doi.org/10.3390/ma13102243
+https://doi.org/10.3390/ma13102253
+https://doi.org/10.3390/ma13112612
+https://doi.org/10.3390/ma13122831
+https://doi.org/10.3390/ma13132937
+https://doi.org/10.3390/ma13143125
+https://doi.org/10.3390/ma13173822
+https://doi.org/10.3390/ma13194218
+https://doi.org/10.3390/ma13204638
+https://doi.org/10.3390/ma13245628
+https://doi.org/10.3390/ma14030698
+https://doi.org/10.3390/ma14040972
+https://doi.org/10.3390/ma14061521
+https://doi.org/10.3390/ma14071608
+https://doi.org/10.3390/ma14081856
+https://doi.org/10.3390/ma14092455
+https://doi.org/10.3390/ma14102660
+https://doi.org/10.3390/ma14123169
+https://doi.org/10.3390/ma14123272
+https://doi.org/10.3390/ma14133602
+https://doi.org/10.3390/ma14133765
+https://doi.org/10.3390/ma14143781
+https://doi.org/10.3390/ma14154260
+https://doi.org/10.3390/ma14164447
+https://doi.org/10.3390/ma14164504
+https://doi.org/10.3390/ma14164693
+https://doi.org/10.3390/ma14174779
+https://doi.org/10.3390/ma14175098
+https://doi.org/10.3390/ma14195706
+https://doi.org/10.3390/ma14206028
+https://doi.org/10.3390/ma14226944
+https://doi.org/10.3390/ma14247773
+https://doi.org/10.3390/ma15010041
+https://doi.org/10.3390/ma15031228
+https://doi.org/10.3390/ma15041607
+https://doi.org/10.3390/ma15051631
+https://doi.org/10.3390/ma15051668
+https://doi.org/10.3390/ma15051807
+https://doi.org/10.3390/ma15062226
+https://doi.org/10.3390/ma15072474
+https://doi.org/10.3390/ma15093027
+https://doi.org/10.3390/ma15093047
+https://doi.org/10.3390/ma15093067
+https://doi.org/10.3390/ma15113958
+https://doi.org/10.3390/ma15124216
+https://doi.org/10.3390/ma15144905
+https://doi.org/10.3390/ma15145085
+https://doi.org/10.3390/ma15165494
+https://doi.org/10.3390/ma15165619
+https://doi.org/10.3390/ma15176063
+https://doi.org/10.3390/ma15186183
+https://doi.org/10.3390/ma15186339
+https://doi.org/10.3390/ma15186444
+https://doi.org/10.3390/ma15196623
+https://doi.org/10.3390/ma15217666
+https://doi.org/10.3390/ma15248734
+https://doi.org/10.3390/ma16010181
+https://doi.org/10.3390/ma16020697
+https://doi.org/10.3390/ma16041570
+https://doi.org/10.3390/ma16041748
+https://doi.org/10.3390/ma16062465
+https://doi.org/10.3390/ma16072622
+https://doi.org/10.3390/ma16072672
+https://doi.org/10.3390/ma16113959
+https://doi.org/10.3390/ma16124232
+https://doi.org/10.3390/ma16124418
+https://doi.org/10.3390/ma16145077
+https://doi.org/10.3390/ma16145135
+https://doi.org/10.3390/ma16145172
+https://doi.org/10.3390/ma17010082
+https://doi.org/10.3390/ma17061446
+https://doi.org/10.3390/ma17112479
+https://doi.org/10.3390/ma17153778
+https://doi.org/10.3390/ma17164011
+https://doi.org/10.3390/ma17174201
+https://doi.org/10.3390/ma17174307
+https://doi.org/10.3390/ma17174324
+https://doi.org/10.3390/ma17174356
+https://doi.org/10.3390/ma17225668
+https://doi.org/10.3390/ma17235990
+https://doi.org/10.3390/ma18030509
+https://doi.org/10.3390/ma18040729
+https://doi.org/10.3390/ma18051068
+https://doi.org/10.3390/ma18092031
+https://doi.org/10.3390/ma18092163
+https://doi.org/10.3390/ma18102233
+https://doi.org/10.3390/ma18133081
+https://doi.org/10.3390/ma18153572
+https://doi.org/10.3390/ma19010110
+https://doi.org/10.3390/ma19010142
+https://doi.org/10.3390/ma19010213
+https://doi.org/10.3390/ma19020276
+https://doi.org/10.3390/ma19020296
+https://doi.org/10.3390/ma19020424
+https://doi.org/10.3390/ma19081643
+https://doi.org/10.3390/ma19091717
+https://doi.org/10.3390/ma19112355
+https://doi.org/10.3390/ma19132779
+https://doi.org/10.3390/ma19132908
+https://doi.org/10.3390/ma19163562
+https://doi.org/10.3390/ma19184002
+https://doi.org/10.3390/ma19184005
+https://doi.org/10.3390/ma7010508
+https://doi.org/10.3390/ma7021422
+https://doi.org/10.3390/ma8115383
+https://doi.org/10.3390/ma9100829
+https://doi.org/10.3390/nano10091718
+https://doi.org/10.3390/nano12030323
+https://doi.org/10.3390/nano16120714
+https://doi.org/10.3390/polym10040420
+https://doi.org/10.3390/polym10080879
+https://doi.org/10.3390/polym10080892
+https://doi.org/10.3390/polym13173008
+https://doi.org/10.3390/polym14071291
+https://doi.org/10.3390/polym14091760
+https://doi.org/10.3390/polym14112138
+https://doi.org/10.3390/polym14183765
+https://doi.org/10.3390/polym15040884
+https://doi.org/10.3390/polym15041013
+https://doi.org/10.3390/polym15122701
+https://doi.org/10.3390/polym15173531
+https://doi.org/10.3390/polym16121685
+https://doi.org/10.3390/polym16152110
+https://doi.org/10.3390/polym16152143
+https://doi.org/10.3390/polym17020175
+https://doi.org/10.3390/polym17070967
+https://doi.org/10.3390/polym17182471
+https://doi.org/10.3390/polym17192568
+https://doi.org/10.3390/polym17202794
+https://doi.org/10.3390/polym17233183
+https://doi.org/10.3390/polym18162023
+https://doi.org/10.3390/polym18182271
+https://doi.org/10.3390/polym18192345
+https://doi.org/10.3390/s20123513
+https://doi.org/10.3390/s21041281
+https://doi.org/10.3724/j.gyjzg25042104
+https://doi.org/10.3989/mc.2022.05521
+https://doi.org/10.5345/jkibc.2011.11.6.530
+https://doi.org/10.5762/kais.2015.16.8.5600
+https://doi.org/10.9798/kosham.2020.20.1.319
+rejected: 10.1002/smsc.202400520
+rejected: 10.1007/s11771-018-3716-9
+rejected: 10.1007/s40069-016-0125-z
+rejected: 10.1007/s40069-017-0195-6
+rejected: 10.1007/s40069-017-0214-7
+rejected: 10.1016/j.cscm.2022.e01386
+rejected: 10.1016/j.heliyon.2019.e01779
+rejected: 10.1016/j.heliyon.2020.e03755
+rejected: 10.1016/j.heliyon.2023.e17926
+rejected: 10.1016/j.heliyon.2024.e24260
+rejected: 10.1016/j.jmrt.2019.01.001
+rejected: 10.1016/j.jmrt.2021.07.001
+rejected: 10.1021/acsomega.3c10076
+rejected: 10.1038/s41529-025-00652-0
+rejected: 10.1038/s41597-026-07805-z
+rejected: 10.1038/s41598-021-82322-0
+rejected: 10.1038/s41598-022-19006-w
+rejected: 10.1038/s41598-022-25085-6
+rejected: 10.1038/s41598-023-37673-1
+rejected: 10.1038/s41598-023-44591-9
+rejected: 10.1038/s41598-024-54763-w
+rejected: 10.1038/s41598-024-59020-8
+rejected: 10.1038/s41598-024-59046-y
+rejected: 10.1038/s41598-024-65000-9
+rejected: 10.1038/s41598-024-68682-3
+rejected: 10.1038/s41598-024-75641-5
+rejected: 10.1038/s41598-025-06883-0
+rejected: 10.1038/s41598-025-09337-9
+rejected: 10.1038/s41598-025-11384-1
+rejected: 10.1038/s41598-025-14327-y
+rejected: 10.1038/s41598-025-17550-9
+rejected: 10.1038/s41598-025-18955-2
+rejected: 10.1038/s41598-025-21151-x
+rejected: 10.1038/s41598-025-24519-1
+rejected: 10.1038/s41598-025-24986-6
+rejected: 10.1038/s41598-025-26427-w
+rejected: 10.1038/s41598-025-28288-9
+rejected: 10.1038/s41598-025-32316-z
+rejected: 10.1038/s41598-025-32975-y
+rejected: 10.1038/s41598-025-33550-1
+rejected: 10.1038/s41598-025-33666-4
+rejected: 10.1038/s41598-025-33679-z
+rejected: 10.1038/s41598-025-86046-3
+rejected: 10.1038/s41598-025-88683-0
+rejected: 10.1038/s41598-025-88788-6
+rejected: 10.1038/s41598-025-89919-9
+rejected: 10.1038/s41598-025-91130-9
+rejected: 10.1038/s41598-025-92097-3
+rejected: 10.1038/s41598-025-94382-7
+rejected: 10.1038/s41598-026-36693-x
+rejected: 10.1038/s41598-026-39599-w
+rejected: 10.1038/s41598-026-43424-9
+rejected: 10.1038/s41598-026-44577-3
+rejected: 10.1038/s41598-026-46391-3
+rejected: 10.1038/s41598-026-47848-1
+rejected: 10.1038/s41598-026-48446-x
+rejected: 10.1038/s41598-026-49804-5
+rejected: 10.1038/s41598-026-51204-8
+rejected: 10.1038/s41598-026-51601-z
+rejected: 10.1038/s41598-026-53248-2
+rejected: 10.1038/s41598-026-55165-w
+rejected: 10.1038/s41598-026-55255-9
+rejected: 10.1038/s41598-026-59566-9
+rejected: 10.1038/s41598-026-60609-4
+rejected: 10.1038/s41598-026-61446-1
+rejected: 10.1038/s41598-026-63595-9
+rejected: 10.1038/s41598-026-64800-5
+rejected: 10.1038/s41598-026-70012-8
+rejected: 10.1038/s41598-026-71013-3
+rejected: 10.1038/s41598-026-72853-9
+rejected: 10.1038/s41598-026-75358-7
+rejected: 10.1038/s44296-024-00033-9
+rejected: 10.1155/2013/418734
+rejected: 10.1155/2014/387259
+rejected: 10.1155/2017/5383982
+rejected: 10.1155/2018/6727516
+rejected: 10.1155/2018/7987589
+rejected: 10.1155/2018/8159869
+rejected: 10.1155/2019/7573635
+rejected: 10.1155/2020/4752841
+rejected: 10.1177/15589250211020311
+rejected: 10.1177/23297662251387692
+rejected: 10.1186/s40069-018-0240-0
+rejected: 10.1186/s40069-018-0267-2
+rejected: 10.1186/s40069-018-0298-8
+rejected: 10.1186/s40069-018-0324-x
+rejected: 10.1186/s40069-019-0351-2
+rejected: 10.1186/s40069-019-0385-5
+rejected: 10.1186/s40069-020-00453-6
+rejected: 10.1186/s40069-022-00559-z
+rejected: 10.1186/s40069-023-00582-8
+rejected: 10.1186/s40069-023-00608-1
+rejected: 10.1186/s40069-023-00641-0
+rejected: 10.1186/s40069-023-00657-6
+rejected: 10.1186/s40069-023-00658-5
+rejected: 10.1186/s40069-024-00668-x
+rejected: 10.1186/s40069-024-00680-1
+rejected: 10.1186/s40069-024-00692-x
+rejected: 10.1186/s40069-024-00724-6
+rejected: 10.1186/s40069-025-00789-x
+rejected: 10.1186/s40069-026-00898-1
+rejected: 10.1186/s40069-026-00908-2
+rejected: 10.1186/s40069-026-00924-2
+rejected: 10.1186/s40069-026-00985-3
+rejected: 10.1371/journal.pone.0147546
+rejected: 10.1371/journal.pone.0305143
+rejected: 10.1371/journal.pone.0307103
+rejected: 10.1371/journal.pone.0314617
+rejected: 10.1371/journal.pone.0331754
+rejected: 10.1371/journal.pone.0355961
+rejected: 10.1515/ntrev-2020-0038
+rejected: 10.1590/1517-7076-rmat-2024-0646
+rejected: 10.1590/1517-7076-rmat-2024-0697
+rejected: 10.1590/1517-7076-rmat-2024-0708
+rejected: 10.1590/1517-7076-rmat-2025-0066
+rejected: 10.1590/1517-7076-rmat-2025-0222
+rejected: 10.1590/1517-7076-rmat-2025-0603
+rejected: 10.1590/1517-7076-rmat-2026-0298
+rejected: 10.1617/s11527-018-1192-1
+rejected: 10.1617/s11527-024-02340-y
+rejected: 10.1617/s11527-025-02875-8
+rejected: 10.3151/jact.21.271
+rejected: 10.3389/fbuil.2021.648220
+rejected: 10.3389/fbuil.2023.1137569
+rejected: 10.3389/fbuil.2024.1479849
+rejected: 10.3389/fbuil.2025.1603359
+rejected: 10.3389/fbuil.2025.1620385
+rejected: 10.3389/fbuil.2025.1639590
+rejected: 10.3389/fbuil.2025.1686072
+rejected: 10.3389/fbuil.2025.1721414
+rejected: 10.3389/fmats.2020.00065
+rejected: 10.3389/fmats.2020.583400
+rejected: 10.3389/fmats.2021.557355
+rejected: 10.3389/fmats.2021.633404
+rejected: 10.3389/fmats.2021.652614
+rejected: 10.3389/fmats.2021.725242
+rejected: 10.3389/fmats.2021.727273
+rejected: 10.3389/fmats.2021.752720
+rejected: 10.3389/fmats.2021.773103
+rejected: 10.3389/fmats.2021.811110
+rejected: 10.3389/fmats.2022.1025830
+rejected: 10.3389/fmats.2022.1033467
+rejected: 10.3389/fmats.2022.1049304
+rejected: 10.3389/fmats.2022.1055796
+rejected: 10.3389/fmats.2022.857874
+rejected: 10.3389/fmats.2022.860113
+rejected: 10.3389/fmats.2022.893927
+rejected: 10.3389/fmats.2023.1094864
+rejected: 10.3389/fmats.2023.1162053
+rejected: 10.3389/fmats.2023.1177189
+rejected: 10.3389/fmats.2023.1202889
+rejected: 10.3389/fmats.2024.1346140
+rejected: 10.3389/fmats.2024.1351980
+rejected: 10.3389/fmats.2024.1355647
+rejected: 10.3389/fmats.2024.1378089
+rejected: 10.3389/fmats.2024.1483446
+rejected: 10.3389/fmats.2024.1513872
+rejected: 10.3389/fmats.2024.1534658
+rejected: 10.3389/fmats.2026.1714763
+rejected: 10.3389/fmats.2026.1822806
+rejected: 10.3389/fmats.2026.1826062
+rejected: 10.3389/fmats.2026.1837370
+rejected: 10.3389/fmats.2026.1888752
+rejected: 10.3390/app11052394
+rejected: 10.3390/buildings12101690
+rejected: 10.3390/buildings13020431
+rejected: 10.3390/buildings14092868
+rejected: 10.3390/buildings14103124
+rejected: 10.3390/gels12050424
+rejected: 10.3390/gels8100662
+rejected: 10.3390/ijms23042023
+rejected: 10.3390/ma10040396
+rejected: 10.3390/ma10091106
+rejected: 10.3390/ma11071147
+rejected: 10.3390/ma11122352
+rejected: 10.3390/ma12010037
+rejected: 10.3390/ma12010113
+rejected: 10.3390/ma12030469
+rejected: 10.3390/ma12050783
+rejected: 10.3390/ma12060858
+rejected: 10.3390/ma12081210
+rejected: 10.3390/ma12101708
+rejected: 10.3390/ma12111751
+rejected: 10.3390/ma12111845
+rejected: 10.3390/ma12152402
+rejected: 10.3390/ma12172652
+rejected: 10.3390/ma12193245
+rejected: 10.3390/ma12203297
+rejected: 10.3390/ma12203337
+rejected: 10.3390/ma12203365
+rejected: 10.3390/ma12213591
+rejected: 10.3390/ma12213624
+rejected: 10.3390/ma12234015
+rejected: 10.3390/ma13020325
+rejected: 10.3390/ma13030579
+rejected: 10.3390/ma13030679
+rejected: 10.3390/ma13030683
+rejected: 10.3390/ma13051143
+rejected: 10.3390/ma13071746
+rejected: 10.3390/ma13081828
+rejected: 10.3390/ma13081865
+rejected: 10.3390/ma13081952
+rejected: 10.3390/ma13112428
+rejected: 10.3390/ma13112609
+rejected: 10.3390/ma13132948
+rejected: 10.3390/ma13143148
+rejected: 10.3390/ma13153423
+rejected: 10.3390/ma13163516
+rejected: 10.3390/ma13184189
+rejected: 10.3390/ma13194451
+rejected: 10.3390/ma13204514
+rejected: 10.3390/ma13204518
+rejected: 10.3390/ma13235539
+rejected: 10.3390/ma13245778
+rejected: 10.3390/ma14010179
+rejected: 10.3390/ma14010215
+rejected: 10.3390/ma14020349
+rejected: 10.3390/ma14081827
+rejected: 10.3390/ma14081829
+rejected: 10.3390/ma14082016
+rejected: 10.3390/ma14092223
+rejected: 10.3390/ma14092378
+rejected: 10.3390/ma14123143
+rejected: 10.3390/ma14133602
+rejected: 10.3390/ma14133690
+rejected: 10.3390/ma14143936
+rejected: 10.3390/ma14164474
+rejected: 10.3390/ma14164504
+rejected: 10.3390/ma14164599
+rejected: 10.3390/ma14164693
+rejected: 10.3390/ma14164700
+rejected: 10.3390/ma14174807
+rejected: 10.3390/ma14175025
+rejected: 10.3390/ma14185183
+rejected: 10.3390/ma14185441
+rejected: 10.3390/ma14195572
+rejected: 10.3390/ma14195741
+rejected: 10.3390/ma14205983
+rejected: 10.3390/ma14227042
+rejected: 10.3390/ma14247735
+rejected: 10.3390/ma15010041
+rejected: 10.3390/ma15020404
+rejected: 10.3390/ma15041485
+rejected: 10.3390/ma15051657
+rejected: 10.3390/ma15051807
+rejected: 10.3390/ma15072363
+rejected: 10.3390/ma15072519
+rejected: 10.3390/ma15072604
+rejected: 10.3390/ma15082880
+rejected: 10.3390/ma15093062
+rejected: 10.3390/ma15103443
+rejected: 10.3390/ma15103494
+rejected: 10.3390/ma15113964
+rejected: 10.3390/ma15134531
+rejected: 10.3390/ma15144851
+rejected: 10.3390/ma15144905
+rejected: 10.3390/ma15145059
+rejected: 10.3390/ma15145066
+rejected: 10.3390/ma15165692
+rejected: 10.3390/ma15165701
+rejected: 10.3390/ma15176123
+rejected: 10.3390/ma15186192
+rejected: 10.3390/ma15197013
+rejected: 10.3390/ma15207316
+rejected: 10.3390/ma15217552
+rejected: 10.3390/ma15227965
+rejected: 10.3390/ma15228043
+rejected: 10.3390/ma15238435
+rejected: 10.3390/ma15238512
+rejected: 10.3390/ma15238607
+rejected: 10.3390/ma15248825
+rejected: 10.3390/ma15248895
+rejected: 10.3390/ma15249009
+rejected: 10.3390/ma16010165
+rejected: 10.3390/ma16010252
+rejected: 10.3390/ma16020481
+rejected: 10.3390/ma16051999
+rejected: 10.3390/ma16062281
+rejected: 10.3390/ma16062414
+rejected: 10.3390/ma16072914
+rejected: 10.3390/ma16093518
+rejected: 10.3390/ma16103612
+rejected: 10.3390/ma16103875
+rejected: 10.3390/ma16114096
+rejected: 10.3390/ma16124244
+rejected: 10.3390/ma16124457
+rejected: 10.3390/ma16134877
+rejected: 10.3390/ma16145037
+rejected: 10.3390/ma16145077
+rejected: 10.3390/ma16155265
+rejected: 10.3390/ma16155319
+rejected: 10.3390/ma16165706
+rejected: 10.3390/ma16175896
+rejected: 10.3390/ma16176049
+rejected: 10.3390/ma16186128
+rejected: 10.3390/ma16196434
+rejected: 10.3390/ma16196573
+rejected: 10.3390/ma16206693
+rejected: 10.3390/ma16217014
+rejected: 10.3390/ma16227101
+rejected: 10.3390/ma17010212
+rejected: 10.3390/ma17010248
+rejected: 10.3390/ma17020393
+rejected: 10.3390/ma17020497
+rejected: 10.3390/ma17030629
+rejected: 10.3390/ma17040831
+rejected: 10.3390/ma17081801
+rejected: 10.3390/ma17081910
+rejected: 10.3390/ma17102240
+rejected: 10.3390/ma17102407
+rejected: 10.3390/ma17102418
+rejected: 10.3390/ma17112479
+rejected: 10.3390/ma17112498
+rejected: 10.3390/ma17112522
+rejected: 10.3390/ma17112542
+rejected: 10.3390/ma17133128
+rejected: 10.3390/ma17133225
+rejected: 10.3390/ma17133259
+rejected: 10.3390/ma17133299
+rejected: 10.3390/ma17143416
+rejected: 10.3390/ma17153778
+rejected: 10.3390/ma17153798
+rejected: 10.3390/ma17174307
+rejected: 10.3390/ma17174321
+rejected: 10.3390/ma17174356
+rejected: 10.3390/ma17194709
+rejected: 10.3390/ma17246025
+rejected: 10.3390/ma18010028
+rejected: 10.3390/ma18030509
+rejected: 10.3390/ma18030651
+rejected: 10.3390/ma18040762
+rejected: 10.3390/ma18040778
+rejected: 10.3390/ma18040842
+rejected: 10.3390/ma18050994
+rejected: 10.3390/ma18051135
+rejected: 10.3390/ma18081830
+rejected: 10.3390/ma18092047
+rejected: 10.3390/ma18092132
+rejected: 10.3390/ma18102375
+rejected: 10.3390/ma18112426
+rejected: 10.3390/ma18112661
+rejected: 10.3390/ma18122715
+rejected: 10.3390/ma18122846
+rejected: 10.3390/ma18132956
+rejected: 10.3390/ma18132990
+rejected: 10.3390/ma18133008
+rejected: 10.3390/ma18143233
+rejected: 10.3390/ma18143268
+rejected: 10.3390/ma18143278
+rejected: 10.3390/ma18143300
+rejected: 10.3390/ma18143327
+rejected: 10.3390/ma18194442
+rejected: 10.3390/ma18204656
+rejected: 10.3390/ma18204739
+rejected: 10.3390/ma18204796
+rejected: 10.3390/ma18214914
+rejected: 10.3390/ma19010212
+rejected: 10.3390/ma19020238
+rejected: 10.3390/ma19020263
+rejected: 10.3390/ma19020424
+rejected: 10.3390/ma19040764
+rejected: 10.3390/ma19050881
+rejected: 10.3390/ma19061128
+rejected: 10.3390/ma19061248
+rejected: 10.3390/ma19071463
+rejected: 10.3390/ma19081490
+rejected: 10.3390/ma19081578
+rejected: 10.3390/ma19102019
+rejected: 10.3390/ma19102079
+rejected: 10.3390/ma19102131
+rejected: 10.3390/ma19102171
+rejected: 10.3390/ma19112355
+rejected: 10.3390/ma19112428
+rejected: 10.3390/ma19122533
+rejected: 10.3390/ma19122559
+rejected: 10.3390/ma19132729
+rejected: 10.3390/ma19132770
+rejected: 10.3390/ma19143101
+rejected: 10.3390/ma19153277
+rejected: 10.3390/ma19163363
+rejected: 10.3390/ma19163553
+rejected: 10.3390/ma19173656
+rejected: 10.3390/ma19183847
+rejected: 10.3390/ma19183883
+rejected: 10.3390/ma19204263
+rejected: 10.3390/ma7032141
+rejected: 10.3390/ma8085261
+rejected: 10.3390/ma9030131
+rejected: 10.3390/ma9040294
+rejected: 10.3390/ma9060445
+rejected: 10.3390/nano12030323
+rejected: 10.3390/nano15110837
+rejected: 10.3390/nano15131051
+rejected: 10.3390/nano8090638
+rejected: 10.3390/polym10080879
+rejected: 10.3390/polym13162664
+rejected: 10.3390/polym14010142
+rejected: 10.3390/polym14050971
+rejected: 10.3390/polym14061248
+rejected: 10.3390/polym14091760
+rejected: 10.3390/polym14101933
+rejected: 10.3390/polym14101956
+rejected: 10.3390/polym14153105
+rejected: 10.3390/polym14194214
+rejected: 10.3390/polym15030621
+rejected: 10.3390/polym15030700
+rejected: 10.3390/polym15041017
+rejected: 10.3390/polym15092146
+rejected: 10.3390/polym15122701
+rejected: 10.3390/polym15163440
+rejected: 10.3390/polym15163474
+rejected: 10.3390/polym15234573
+rejected: 10.3390/polym16010041
+rejected: 10.3390/polym16040482
+rejected: 10.3390/polym16040556
+rejected: 10.3390/polym17081046
+rejected: 10.3390/polym17081049
+rejected: 10.3390/polym17081072
+rejected: 10.3390/polym17091232
+rejected: 10.3390/polym17121710
+rejected: 10.3390/polym17152067
+rejected: 10.3390/polym17152119
+rejected: 10.3390/polym17243338
+rejected: 10.3390/polym18030322
+rejected: 10.3390/polym18070873
+rejected: 10.3390/polym18162014
+rejected: 10.3390/s17112481
+rejected: 10.3390/su11051453
+rejected: 10.3390/su142013530
+
+# TITLES
+## rejected list in geopolymer_rejected.txt
+## rejected list in pvaecc_rejected.txt
+## rejected list in uhpc_steel_rejected.txt
+## rejected list in uhpecc_rejected.txt
+A Comprehensive Study on Non-Proprietary Ultra-High-Performance Concrete Containing Supplementary Cementitious Materials
+A Novel, Multifunctional, Floatable, Lightweight Cement Composite: Development and Properties
+A Study on the Effect of Different Cementitious Materials on the Mechanical Properties and Microscopic Characteristics of Alkali-Activated Green Ultra-High Performance Concrete (GUHPC)
+A Study on the Mechanical Properties of Engineered Geopolymer Composites Based on Red Mud, Fly Ash, and Slag
+A preliminary investigation of incorporating cellulose nanocrystals into engineered cementitious composites
+Acid and Sulphate Attacks on a Rubberized Engineered Cementitious Composite Containing Graphene Oxide
+An Economical Engineered Cementitious Composite (ECC) prepared with fine quarry sand and a nominal amount of PVA fibers
+An Evaluation of Elasticity Modulus and Tensile Strength of Ultra High Performance Concrete
+An Experimental Study on the Mechanical Properties and ANN-Based Prediction of a Tensile Constitutive Model of ECCs
+An Experimental and Analytical Study on a Damage Constitutive Model of Engineered Cementitious Composites under Uniaxial Tension
+An Investigation of the Mechanical Properties and Thermal Insulation of Foamed Rubberised Polypropylene Fibre Concrete That Incorporates a High Quantity of Crumb Rubber Granules
+An Investigation of the Properties of Expanded Polystyrene Concrete with Fibers Based on an Orthogonal Experimental Design
+Application of high-strength ECC in the repair and reinforcement of deep vertical shaft lining
+Application-Driven Material Design of Printable Strain Hardening Cementitious Composites (SHCC)
+Appraisal of Hybrid Fiber Reinforced Engineered Cementitious Composite
+Assessing the Seismic Performance of Exterior Precast Concrete Joints with Ultra-High-Performance Fiber-Reinforced Concrete
+Assessment of the self-healing capacity of PVA fiber-reinforced composites by chloride permeability and stiffness recovery
+Autogenous Healing in Strain-Hardening Cementitious Materials With and Without Superabsorbent Polymers: An 8-Year Study
+Autogenous shrinkage prediction models and microstructure of UHPC with single or binary addition of an expansive agent and steel fibers
+Axial Load Testing of Hybrid Concrete Columns Consisting of UHPFRC Tube and Normal-Strength Concrete Core
+Axial compression performance of GFRP-confined hybrid fiber-reinforced UHPC columns
+Bond Behavior of Pretensioned Strand Embedded in Ultra-High-Performance Fiber-Reinforced Concrete
+Bond Behavior of Steel Rebar Embedded in Cementitious Composites Containing Polyvinyl Alcohol (PVA) Fibers and Carbon Nanotubes (CNTs)
+Bond Strength and Flexural Capacity of Normal Concrete Beams Strengthened with No-Slump High-Strength, High-Ductility Concrete
+Bonding Mechanical Properties between SMA Fiber and ECC Matrix under Direct Pullout Loads
+Bonding Properties between Fly Ash/Slag-Based Engineering Geopolymer Composites and Concrete
+Carbonation curing for precast Engineered Cementitious Composites
+Characterisation of “One-part” Ambient Cured Engineered Geopolymer Composites
+Combined effect of hybrid PE-PBO fiber reinforcement on the mechanical properties of lightweight fly ash-slag-based engineered geopolymer composites at ambient temperature and after exposure to elevated temperatures
+Comparative Fracture Properties of Four Fibre Reinforced High Performance Cementitious Composites
+Comparative Thermal Performance of Ultra-High-Performance Concrete and Geopolymer Concrete: Influence of Steel Fibre Geometry on Residual Mechanical and Chemical Properties
+Comparative analysis of the effects of Nano-SiO2 and carbon nanotubes on mechanical properties of polyethylene fibre reinforced cementitious composites
+Comparative environmental footprint analysis of ultra-high-performance concrete using Portland cement and alkali-activated materials
+Comparison of Mechanical and Crack-Healing Properties of PE-PVA Hybrid Fiber-Reinforced SHCCs in Natural and Underwater Conditions
+Compressive Strength Prediction of PVA Fiber-Reinforced Cementitious Composites Containing Nano-SiO2 Using BP Neural Network
+Compressive Strength and Chloride Resistance of Slag/Metakaolin-Based Ultra-High-Performance Geopolymer Concrete
+Compressive and Tensile Properties of Fiber-Reinforced Cementless Composites According to the Combination of Sodium-Type Alkali-Activators
+Control of Tensile Behavior of Ultra-High Performance Concrete Through Artificial Flaws and Fiber Hybridization
+Corrosion Deterioration of Steel in Cracked SHCC
+Cost-Effective Engineered Cementitious Composites with Hybrid PVA and Basalt/PP Fiber: A Study on Compressive, Tensile and Impact Performance
+Crack-Width Threshold-Guided Design of Self-Healing Polyethylene Fiber-Reinforced Engineered Cementitious Composites (ECCs)
+Cross-Scale Synergistic Reinforcement of Ultra-High-Performance Concrete by Cellulose Nanofibers and Polyoxymethylene Fibers: Mechanical Behavior and Microstructural Mechanisms
+Cyclic Behavior of HPFRCC Coupling Beams with Bundled Diagonal Bars
+Cyclic Behavior of Reinforced High Strain-Hardening UHPC under Axial Tension
+Cyclic loading effects on high-strength strain-hardening cement-based composites with PE fibres (PE-SHCC): crack development and material degradation analysis
+Deformation Properties of Rubberized ECC Incorporating Nano Graphene Using Response Surface Methodology
+Developing and Testing of Strain-Hardening Cement-Based Composites (SHCC) in the Context of 3D-Printing
+Development of Engineered Cementitious Composites Using Sea Sand and Metakaolin
+Development of Sustainable Engineered Cementitious Composites by Incorporating Local Recycled Fine Aggregate
+Development of UHPC Mixtures Utilizing Natural and Industrial Waste Materials as Partial Replacements of Silica Fume and Sand
+Development of engineered cementitious composites with limestone powder and blast furnace slag
+Development of reactive MgO-based Engineered Cementitious Composite (ECC) through accelerated carbonation curing
+Durability Study on High-Performance Fiber-Reinforced Mortar under Simulated Wastewater Pipeline Environment
+Durability of Fibre-Reinforced Calcium Aluminate Cement (CAC)–Ground Granulated Blast Furnace Slag (GGBFS) Blended Mortar after Sulfuric Acid Attack
+Dynamic Mechanical Behavior of Fiber-Reinforced Seawater Coral Mortars
+Dynamic Properties of Strain-Hardening Cementitious Composite Reinforced with Basalt and Steel Fibers
+Eco-Friendly, High-Ductility Slag/Fly-Ash-Based Engineered Cementitious Composite (ECC) Reinforced with PE Fibers
+Eco-friendly high strength, high ductility engineered cementitious composites (ECC) with substitution of fly ash by rice husk ash
+Effect of Ambient Temperature on the Mechanical Properties of High Ductility Concrete
+Effect of Cementitious Capillary Crystalline Waterproofing Materials on the Mechanical and Impermeability Properties of Engineered Cementitious Composites with Microscopic Analysis
+Effect of Curing Regime on the Mechanical Strength, Hydration, and Microstructure of Ecological Ultrahigh-Performance Concrete (EUHPC)
+Effect of Curing Temperature on High-Strength Metakaolin-Based Geopolymer Composite (HMGC) with Quartz Powder and Steel Fibers
+Effect of Fiber Blending Ratio on the Tensile Properties of Steel Fiber Hybrid Reinforced Cementitious Composites under Different Strain Rates
+Effect of Fiber Content on the Mechanical Properties of Engineered Cementitious Composites with Recycled Fine Aggregate from Clay Brick
+Effect of Fibers on High-Temperature Mechanical Behavior and Microstructure of Reactive Powder Concrete
+Effect of Fibre Types on the Tensile Behaviour of Engineered Cementitious Composites
+Effect of Graphene Oxide on Mechanical Properties and Durability of Ultra-High-Performance Concrete Prepared from Recycled Sand
+Effect of Nano-SiO2/PVA Fiber on Sulfate Resistance of Cement Mortar Containing High-Volume Fly Ash
+Effect of PVA Fiber on the Mechanical Properties of Seawater Coral Sand Engineered Cementitious Composites
+Effect of Polysiloxanes on Roughness and Durability of Basalt Fibres–Reinforced Cement Mortar
+Effect of Rehydration on the Performance of Mechanically Loaded UHPC
+Effect of Sand Size on Mechanical Performance of Cement-Based Composite Containing PVA Fibers and Nano-SiO2
+Effect of Short Fibres in the Mechanical Properties of Geopolymer Mortar Containing Oil-Contaminated Sand
+Effect of Single and Synergistic Reinforcement of PVA Fiber and Nano-SiO2 on Workability and Compressive Strength of Geopolymer Composites
+Effect of Ultra-Fine Mineral Admixture on the Performance of Ultra-High-Performance Concrete
+Effect of basalt fiber content on mechanical properties of hydrophobic mortar
+Effect of fly ash and metakaolin on early-age autogenous shrinkage and mechanical properties of ultra-high-performance concrete
+Effect of polypropylene fibre on cementitious mortar early shrinkage cracking using the eccentric-ring test
+Effect of recycled tyre polymer fibre on engineering properties of sustainable strain hardening geopolymer composites
+Effect of sand types and mixing procedures on the flexural behaviour of the high ductile mortar in monotonic and cyclic loadings
+Effect of the Combination of Superabsorbent Polymers for Autogenous Shrinkage Control with Steel Fibers of High-Performance Concrete under Uniaxial Tension Using DIC
+Effects of Polyethylene Terephthalate Particle Size on the Performance of Engineered Cementitious Composites
+Effects of Steel Fiber and Specimen Geometric Dimensions on the Mechanical Properties of Ultra-High-Performance Concrete
+Effects of Temperature and Stress on Creep Behavior of PP and Hybrid Fiber Reinforced Reactive Powder Concrete
+Effects of Waste Powders of Tuff Manufactured Sand on Characteristics of Highly Ductile Polyvinyl Alcohol Fiber Engineered Cementitious Composite
+Effects of carbonation on mechanical properties of CAC-GGBFS blended strain hardening cementitious composites
+Electromechanical Response of High-Performance Fiber-Reinforced Cementitious Composites Containing Milled Glass Fibers under Tension
+Electromechanical Response of Smart Ultra-High Performance Concrete under External Loads Corresponding to Different Electrical Measurements
+Enhanced tensile ductility and sustainability of high-strength strain-hardening cementitious composites using waste cement kiln dust and oxidized polyethylene fibers
+Enhancement of Crack Distribution of UHP-SHCC under Axial Tension Using Steel Reinforcement
+Enhancement of Energy Absorption Capacity of Polyethylene Fiber-Reinforced Cementitious Composites According to Admixtures and Curing Conditions
+Enhancing Tensile Performance of Lithium Slag Geopolymers Using Hybrid Fibers and Modified Multi-Walled Carbon Nanotubes
+Enhancing UHPC Tensile Performance Using Polystyrene Beads: Significant Improvements and Mechanisms
+Evaluation of Axial Compressive and Tensile Properties of PE/PVA Hybrid Fiber Reinforced Strain-Hardening Geopolymer Composites
+Evaluation of Bonding Behavior between Engineered Geopolymer Composites with Hybrid PE/PVA Fibers and Concrete Substrate
+Evaluation of the Performance of Self-Compacting Engineered Cementitious Composites (SCC-ECC) under Standard 28-day Water Curing
+Evaluation on the Mechanical Properties of Strain Hardening Cement Composite by Mixing Method for Application at Building Construction Site
+Experimental Investigation of Hybrid Beams Utilizing Ultra-High Performance Concrete (UHPC) as Tension Reinforcement
+Experimental Investigation on Compressive Toughness of the PVA-Steel Hybrid Fiber Reinforced Cementitious Composites
+Experimental Investigation on Flexural Behavior of Reinforced Ultra High Performance Concrete Low-Profile T-Beams
+Experimental Investigation on Mechanical Properties of Engineered Cementitious Composites
+Experimental Investigation on the Blast Resistance of Fiber-Reinforced Cementitious Composite Panels Subjected to Contact Explosions
+Experimental Investigation on the Freeze–Thaw Resistance of Steel Fibers Reinforced Rubber Concrete
+Experimental Investigation on the Quasi-Static Tensile Capacity of Engineered Cementitious Composites Reinforced with Steel Grid and Fibers
+Experimental Investigations on Tensile and Shear Behavior of the Interface Between UHP-ECC and Concrete
+Experimental Research on Uniaxial Compression Constitutive Model of Hybrid Fiber-Reinforced Cementitious Composites
+Experimental Study and Theoretical Analysis on Shrinkage Properties of UHPC under Different Constraint Conditions
+Experimental Study of the Mechanical Properties and Microstructures of Lightweight Toughness Cement-Based Composites
+Experimental Study on Flexural Performance of SFCB-Reinforced ECC-Concrete Composite Beams
+Experimental Study on Lap-Spliced Performance of High-Strength Stainless Steel Wire Mesh in Engineering Cementitious Composites
+Experimental Study on Toughness of Engineered Cementitious Composites with Desert Sand
+Experimental Study on UHPC-Based Grouting Materials and Mechanical Performance of Grouted Splice Sleeve Joints
+Experimental Study on Ultra-lightweight Fire-resistive Engineered Cementitious Composite
+Experimental Study on Uniaxial Compression Stress-Strain Relationship of Hybrid Fiber-Reinforced Coral Sand Ultra-High Performance Concrete
+Experimental Study on the Flexural Behavior of Lap-Spliced Ultra-High-Performance Fiber-Reinforced Concrete Beams
+Experimental Tests on Fiber-Reinforced Alkali-Activated Concrete Beams Under Flexure: Some Considerations on the Behavior at Ultimate and Serviceability Conditions
+Experimental design and analysis of toughness and modulus of rupture (MOR) of cement mortar reinforced with PET fibers
+Experimental investigation of fiber hybridized ECC using PVA, polypropylene, and high-modulus glass fibers with class F Fly ash and OPC
+Experimental investigation on seismic performance of plain engineered cementitious composite beams
+Experimental study of mechanical and durability properties in hybrid binary and ternary fiber-reinforced ECC
+Experimental study on compressive behavior of PE-ECC under impact load
+Fatigue performance of strain hardening cementitious composites under tensile and compressive loading
+Feasibility of Using the Hollow Glass Microsphere to Develop Lightweight CAC-GGBFS-Blended Strain-Hardening Cementitious Composites
+Fiber-Reinforced One-Part Geopolymer Mortars Incorporating Red Mud, Ceramic Powder, and MgO: Performance Under Different Curing Regimes and Curing-Based Environmental Assessment
+Fire resistance of ultra-high performance strain hardening cementitious composite: residual mechanical properties and spalling resistance
+Flexural Behavior of T-Shaped UHPC Beams with Varying Longitudinal Reinforcement Ratios
+Flexural Behaviour of Reinforced Concrete Beams Strengthened with Textile-Reinforced Strain Hardening Geopolymer Composites (TR-SHGC)
+Flexural Capacity Calculation Method for Pre-Damaged RC Beam-Column Joints Strengthened with High-Strength Steel Strand Mesh-Reinforced ECC
+Flexural Fatigue Properties of Ultra-High Performance Engineered Cementitious Composites (UHP-ECC) Reinforced by Polymer Fibers
+Flexural behaviour and evaluation of ultra-high-performance fibre reinforced concrete beams cured at room temperature
+Fly ash-dominated High-Strength Engineered/Strain-Hardening Geopolymer Composites (HS-EGC/SHGC): Influence of alkalinity and environmental assessment
+Fracture Properties and Softening Curves of Steel Fiber-Reinforced Slag-Based Geopolymer Mortar and Concrete
+Fracture Properties of High-Performance High-Ductility Alkali-Activated Concrete Under Thermo-Mechanical Coupling: Effect of Fiber Hybrid Ratio
+Freeze-Thaw Durability of Strain-Hardening Cement-Based Composites under Combined Flexural Load and Chloride Environment
+Fresh and Hardened Properties of Engineered Geopolymer Composite with MgO
+Frost Resistance Investigation of Fiber-Doped Cementitious Composites
+Full-scale production and material properties of ultra-high-performance fiber-reinforced concrete (UHPFRC) for rehabilitation of bridge decks in Norway
+Green-Engineered Cementitious Composite Production with High-Strength Synthetic Fiber and Aggregate Replacement
+High-Performance Photocatalytic Cementitious Materials Containing Synthetic Fibers and Shrinkage-Reducing Admixture
+High-strength high-ductility seawater sea-sand Engineered Cementitious Composites: Mechanical properties, cracking behavior and micro-mechanics
+Hybrid Effect of Twisted Steel and Polyethylene Fibers on the Tensile Performance of Ultra-High-Performance Cementitious Composites
+Hybrid Local Fibers for Enhancing the Mechanical Properties of Engineered Cementitious Composites
+Hybrid steel and carbon fiber reinforcement enhances mechanical performance and sustainability of cementitious composites
+Ice-cooled ultra-high performance engineered geopolymer composites for ambient temperature curing: Formulation, properties, and microscale investigation
+Impact Resistance of Engineered Cementitious Composites Reinforced with Hybrid Fibers
+Impact of Rubber Content on Performance of Ultra-High-Performance Rubberised Concrete (UHPRuC)
+Improvement in Predicting the Post-Cracking Tensile Behavior of Ultra-High Performance Cementitious Composites Based on Fiber Orientation Distribution
+Improving mechanical properties and sustainability of high-strength engineered cementitious composites (ECC) using diatomite
+Incorporating Limestone Powder and Ground Granulated Blast Furnace Slag in Ultra-high Performance Concrete to Enhance Sustainability
+Influence and Mechanism of Curing Methods on Mechanical Properties of Manufactured Sand UHPC
+Influence of Frost Damage on Performance of Engineered Cementitious Composites
+Influence of High Temperature Curing and Surface Humidity on the Tensile Strength of UHPC
+Influence of Natural Wollastonite Microfibers on the Mechanical Behavior of Ultra-High-Toughness Cementitious Composites Containing Polyethylene Fibers
+Influence of Rapid Freeze-Thaw Cycling on the Mechanical Properties of Sustainable Strain-Hardening Cement Composite (2SHCC)
+Influence of Steel Fiber Content on the Long-Term Stability of Slag-Containing UHPC Under Different Environments
+Influence of elevated temperature on the engineering properties of ultra-high-performance fiber-reinforced concrete
+Influence of fly ash type on mechanical properties and self-healing behavior of Engineered Cementitious Composite (ECC)
+Influence of local raw materials on the mechanical behaviour and fracture process of PVA-SHCC
+Influence of rice husk ash on the mechanical properties of ultra-high strength engineered cementitious composites (UHS-ECC)
+Influence of ternary hybrid fibers on the mechanical properties of ultrahigh-strength concrete
+Influences of Sodium Lignosulfonate and High-Volume Fly Ash on Setting Time and Hardened State Properties of Engineered Cementitious Composites
+Interfacial Enhancement of Polyethylene Fiber-Reinforced ECC via Multi-Walled Carbon Nanotubes Functionalization
+Interfacial Friction-Controlled Fiber Failure Modes for Toughness Enhancement of Engineered Cementitious Composites
+Investigation on Shear Behavior of Precast Monolithic ECC Composite Beams
+Matrix Optimization of Ultra High Performance Concrete for Improving Strength and Durability
+Matrix design of light weight, high strength, high ductility ECC
+Mechanical Behavior of Printed Strain Hardening Cementitious Composites
+Mechanical Behavior of Reactive Powder Concrete Made From Local Material Subjected to Axial Pressure
+Mechanical Characterization of High-Performance Steel-Fiber Reinforced Cement Composites with Self-Healing Effect
+Mechanical Properties and Eco-Efficiency of Steel Fiber Reinforced Alkali-Activated Slag Concrete
+Mechanical Properties and Fracture Behavior of Crumb Rubber Basalt Fiber Concrete Based on Acoustic Emission Technology
+Mechanical Properties and Stress–Strain Relationship of PVA-Fiber-Reinforced Engineered Geopolymer Composite
+Mechanical Properties and Water Stability of High Ductility Magnesium Phosphate Cement-Based Composites (HDMC)
+Mechanical Properties of Alkali-Activated Slag Fiber Composites Varying with Fiber Volume Fractions
+Mechanical Properties of Engineered Cementitious Composites Using Local Ingredients
+Mechanical Properties of High-Volume Fly Ash Strain Hardening Cementitious Composite (HVFA-SHCC) for Structural Application
+Mechanical Properties of Hybrid Fiber Reinforced Rubber Concrete
+Mechanical Properties of Hybrid Ultra-High Performance Engineered Cementitious Composites Incorporating Steel and Polyethylene Fibers
+Mechanical Properties of Polyethylene Fiber Reinforced Ultra High Performance Concrete (UHPC)
+Mechanical Properties of Reactive Powder Concrete with Coal Gangue as Sand Replacement
+Mechanical Properties of Ultra-High Performance Concrete (UHPC) and Ultra-High Performance Fiber-Reinforced Concrete (UHPFRC) with Recycled Sand
+Mechanical Properties of Ultra-High Performance Concrete before and after Exposure to High Temperatures
+Mechanical Properties of Ultra-High-Performance Concrete with Steel and PVA Fibers
+Mechanical and Drying Shrinkage Performance Study of Ultra-High-Performance Concrete Prepared from Titanium Slag under Different Curing Conditions
+Mechanical and Material Properties of Mortar Reinforced with Glass Fiber: An Experimental Study
+Mechanical and Self-Healing Performances of Crumb Rubber Modified High-Strength Engineered Cementitious Composites
+Mechanical and self-healing behavior of low carbon engineered cementitious composites reinforced with PP-fibers
+Mechanical behaviour of a polyvinyl alcohol fibre reinforced engineered cementitious composite (PVA-ECC) using local ingredients
+Mechanical performance of basalt fiber reinforced cementitious mortars incorporating calcined red mud
+Mechanical performance of engineered cementitious composites developed with different modulus fibers
+Mechanical performance of steel, basalt and polyamide fiber-reinforced ultra-high-performance concrete evaluated by experiments and SHAP-based machine learning
+Mechanical performance of strain-hardening cementitious composites (SHCC) with bacterial addition
+Mechanical performance of strain-hardening cementitious composites incorporating reclaimed asphalt pavement and its application in bridge approach link slabs
+Mechanical properties of high-strength steel–polyvinyl alcohol hybrid fibre engineered cementitious composites
+Mechanical, Electrical, and Tensile Self-Sensing Properties of Ultra-High-Performance Concrete Enhanced with Sugarcane Bagasse Ash
+Mechanism Analysis of the Influence of Delay Period on Mechanical Properties of Reactive Powder Concrete
+Microstructural Evolution and Mechanical Response of UHPS Incorporating Steel Slag Fine Aggregate and Different Morphology Steel Fibers
+Microstructure and Mechanical Property Evaluation of Dune Sand Reactive Powder Concrete Subjected to Hot Air Curing
+Minimum Ledge Tie Reinforcement for UHPFRC Ledge Beams
+Mixture Optimization on internally Cured High Strength Engineered Cementitious Composite with pre-wetted Sand-like Zeolite
+Modified ECC by Means of Internal Impregnation
+Multi-Dimensional Assessment of Low-Carbon Engineering Cement-Based Composites Based on Rheological, Mechanical and Sustainability Factors
+Multi-Objective Optimization and Mechanical Properties Analysis of Steel–PVA Hybrid Fiber-Reinforced Cementitious Composites
+Multi-Performance Evolution and Elasto-Plastic Damage Modeling of Basalt Fiber-Reinforced EPS Geopolymer Lightweight Concrete
+Multi-response optimization of hybrid fibre engineered cementitious composite using Grey-Taguchi method and utility concept
+Multiscale Investigation on the Performance of Engineered Cementitious Composites Incorporating PE Fiber and Limstone Calcined Clay Cement (LC3)
+Nonlinear Inverse Analysis for Predicting the Tensile Properties of Strain-Softening and Strain-Hardening UHPFRC
+Numerical and experimental study of the optimal specimen geometry for direct tension strength tests in high tensile strength fiber reinforced concrete
+On the mechanical properties and crack pattern analysis of a strain-hardening cement-based composite reinforced by natural sisal fibers
+Optimisation of Mix Proportion of 3D Printable Mortar Based on Rheological Properties and Material Strength Using Factorial Design of Experiment
+Optimisation of the Mechanical Properties and Mix Proportion of Multiscale-Fibre-Reinforced Engineered Cementitious Composites
+Optimization of natural fibre length in bacterial cement mortar using TOPSIS for enhanced mechanical properties
+Optimized Alkali-Activated Slag-Based Concrete Reinforced with Recycled Tire Steel Fiber
+Optimizing the Mechanical Properties of Ultra-High-Performance Fibre-Reinforced Concrete to Increase Its Resistance to Projectile Impact
+Orthogonal Analysis on Mechanical Properties of Basalt–Polypropylene Fiber Mortar
+Performance Test and Microstructure of Modified PVC Aggregate-Hybrid Fiber Reinforced Engineering Cementitious Composite (ECC)
+Performance and Cost-Effectiveness of Short Pitch-Based Carbon Fiber Reinforced Mortar Composite
+Performance of Eco Engineered Cementitious Composites Containing Supplementary Cementitious Materials as a Binder and Recycled Concrete Fines as Fine Aggregate
+Performance of Polypropylene Fiber-Reinforced Mortar Exposed to Elevated Temperatures
+Performance of geopolymer composites reinforced with treated date palm and polypropylene fibers
+Polyethylene-steel fibre engineered cementitious composites for bridge link slab application
+Predicting the Tensile Behaviour of Ultra-High Performance Fibre-Reinforced Concrete from Single-Fibre Pull-Out Tests
+Predicting the strain-hardening behaviour of polyethylene fibre reinforced engineered cementitious composites accounting for fibre-matrix interaction
+Preliminary Exploration of Economic Polypropylene-Fiber-Reinforced ECC with Superfine River Sand (SSPP-ECC) Applied to a Bridge Pavement Leveling Overlay
+Preparation and Characterization of Calcium Sulfoaluminate Based Engineered Cementitious Composites for Rapid Repairing of Concrete Member
+Preparation and characterization of ultra-high-strength and ultra-high-ductility cementitious composites incorporating waste clay brick powder
+Preparation, mechanics and self-sensing performance of sprayed reactive powder concrete
+Properties of Rubberized Engineered Cementitious Composites Containing Nano-Silica
+Properties of ultra-high performance geopolymer concrete: influence of silica fume
+Rapid-Hardening Engineered Cementitious Composites with OPC-SAC Binder and Recycled Fine Aggregates: Mechanical Properties and Micro-Mechanisms
+Reactive Powder Concrete Mix Ratio and Steel Fiber Content Optimization under Different Curing Conditions
+Relationship between Fractal Dimension and Properties of Engineered Cementitious Composites with Different Aggregates
+Relationships among the Characteristic Tensile Strain, Curing Age, and Strength of Reactive Powder Concrete
+Research and Statistical Analysis on Impact Resistance of Steel Fiber Expanded Polystyrene Concrete and Expanded Polystyrene Concrete
+Research on Bonding and Shrinkage Properties of SHCC-Repaired Concrete Beams
+Research on Seismic and Self-Centering Performance of SMAF-ECC Prefabricated Self-Centering Frame Joints Based on Finite Element Simulation
+Research on the Effects of the Water-Binder Ratio and Fiber Content on the Tensile and Bending Mechanical Properties of ECCs
+Research on the Mechanical Properties of Strain-Hardening Geopolymer Composites Reinforced with PE Fibers
+Residual Flexural Behavior of Hybrid Fiber-Reinforced Geopolymer After High Temperature Exposure
+Residual Tensile Properties and Explosive Spalling of High-Performance Fiber-Reinforced Cementitious Composites Exposed to Thermal Damage
+Rheological and Mechanical Properties of Ultra-High-Performance Concrete Containing Fine Recycled Concrete Aggregates
+Role of polyacrylonitrile fiber diameter and aspect ratio on mechanical performance and pore structure of cementitious mortars
+Rubberized Engineered/Strain-Hardening Geopolymer Composites (EGC/SHGC) with low fiber content to enhance strength and ductility efficiencies
+Seismic Behavior of High-Performance Fiber-Reinforced Cement Composites Beam-Column Connection with High Damage Tolerance
+Seismic Performance of Corroded ECC-GFRP Spiral-Confined Reinforced-Concrete Column
+Shielding Effectiveness and Impact Resistance of Concrete Walls Strengthened by High-Strength High-Ductility Concrete
+Silica Fume as Precursor in the Development of Sustainable and High-Performance MK-Based Alkali-Activated Materials Reinforced With Short PVA Fibers
+Simplified Constitutive and Damage Plasticity Models for UHPFRC with Different Types of Fiber
+Simultaneous enhancement of ductility and sustainability of high-strength Strain-Hardening Cementitious Composites (SHCC) using recycled fine aggregates
+Size Effect on Flexural and Fracture Properties of Polypropylene Fiber-reinforced Engineered Cementitious Composite
+Static and Dynamic Performances of Chopped Carbon-Fiber-Reinforced Mortar and Concrete Incorporated with Disparate Lengths
+Strain Hardening of Polypropylene Microfiber Reinforced Composite Based on Alkali-Activated Slag Matrix
+Strain-Hardening and High-Ductile Behavior of Alkali-Activated Slag-Based Composites with Added Zirconia Silica Fume
+Strain-hardening alkali-activated fly ash/slag composites with ultra-high compressive strength and ultra-high tensile ductility
+Strength properties of engineered cementitious composites containing pond ash and steel fiber
+Stress–Strain Properties and Gas Permeability Evolution of Hybrid Fiber Engineered Cementitious Composites in the Process of Compression
+Structural Performance Improvement of Reinforced Concrete Beams by Strain-Hardening Cementitious Composite Layers
+Structural Performance of RC and R-ECC Dapped-End Beams Based on the Role of Hanger or Diagonal Reinforcements Combined by ECC
+Structural Performances of Reinforced Alkali-Activated Slag Fiber Composite Walls
+Structural Response of Steel Jacket-UHPC Retrofitted Reinforced Concrete Columns under Blast Loading
+Study on Flexural Properties of Basalt Fiber Textile Reinforced Concrete (BTRC) Sheets Including Short AR-Glass Fibers
+Study on High-Ductility Geopolymer Concrete: The Influence of Oven Heat Curing Conditions on Mechanical Properties and Microstructural Development
+Study on Mechanical Properties of Hybrid Polypropylene-Steel Fiber RPC and Computational Method of Fiber Content
+Study on impact of fiber hybridization in material properties of engineered cementitious composites
+Study on the Improvement Effect of Polypropylene Fiber on the Mechanical Properties and Freeze–Thaw Degradation Performance of High Fly Ash Content Alkali-Activated Fly Ash Slag Concrete
+Study on the Properties of Fiber/Matrix Interface and Strain-Hardening Behavior of ECC Containing Municipal Solid Waste Incineration (MSWI) Powder
+Study on the Properties of High Fly Ash Content Alkali-Activated Fly Ash Slag Pastes and Fiber-Reinforced Mortar Under Normal Temperature Curing
+Study on the mechanics and self-sensing properties of ultrahigh-performance shotcrete containing waste glass aggregates
+Surface-Functionalized Nanocelluloses as Viscosity-Modifying Agents in Engineered Cementitious Composites
+Sustainable UHPC incorporating water hyacinth ash and magnetized water with enhanced mechanical and durability performance
+Sustainable high strength, high ductility engineered cementitious composites (ECC) with substitution of cement by rice husk ash
+Synergistic use of brick and ceramic wastes with polyethylene glycol in high-performance fiber-reinforced composites
+Tailoring strain-hardening behavior of high-strength Engineered Cementitious Composites (ECC) using hybrid silica sand and artificial geopolymer aggregates
+Tensile Behavior of High-Strength Stainless Steel Wire Rope (HSSSWR)-Reinforced ECC
+Tensile Behavior of High-Strength, Strain-Hardening Cement-Based Composites (HS-SHCC) Reinforced with Continuous Textile Made of Ultra-High-Molecular-Weight Polyethylene
+Tensile Behavior of Hybrid Fiber-Reinforced Ultra-High-Performance Concrete
+Tensile Behavior of Polyetylene Fiber-Reinforced Cementless Composite
+Tensile Behavior of Strain Hardening Cementitious Composites (SHCC) Containing Reactive Recycled Powder from Various C&D Waste
+Tensile Experiments and Numerical Analysis of Textile-Reinforced Lightweight Engineered Cementitious Composites
+Tensile Performance of High Ductility Cementitious Composites With Recycled Powder From C&D Waste
+Tensile and Anti-Spalling Properties of Direct Sprayed ECC
+Tensile behaviour of ultra-high-performance steel fiber reinforced concrete
+Tensile response of Ultra High Performance PE Fiber Reinforced Concretes (PE-UHPFRC) under imposed shrinkage deformations
+Tension Stiffening Effect of Reinforced Ultra-high-Performance Concrete Members in Tension with Thin Cover Thickness
+The Basic Mechanical Properties and Shrinkage Properties of Recycled Micropowder UHPC
+The Influence and Mechanism of Curing Methods and Curing Age on the Mechanical Properties of Yellow River Sand Engineered Cementitious Composites
+The Influence of Long-Term Autoclaving on the Properties of Ultra-High Performance Concrete
+The Mechanical Properties and Damage Evolution of UHPC Reinforced with Glass Fibers and High-Performance Polypropylene Fibers
+The Preparation and Properties of Ultra-High-Performance Concrete with Aeolian Sand: A Lab Study on the Effect of the Curing Method
+The Strength and Fracture Characteristics of One-Part Strain-Hardening Green Alkali-Activated Engineered Composites
+Thermoanalytical and Tensile Strength Studies of Polypropylene Fibre-Reinforced Cement Composites Designed for Tunnel Applications
+Thermomechanical properties of slag-based engineered geopolymer composite under a series of cooling and heating cycles
+Toughening Mechanism of Directional Fabric Woven Net and/or Non-Directional Short-Cut Fiber-Reinforced Sprayed Cement Mortar Thin-Plates
+Towards greener construction: a comprehensive evaluation of eco-friendly UHPC reinforced with hybrid fibers
+Ultra-high-strength engineered/strain-hardening cementitious composites (ECC/SHCC): Material design and effect of fiber hybridization
+Ultra-high-strength geopolymer concrete influenced by mixture proportion and steel fiber: flowability, compressive strength, and flexural performance
+Uniaxial tensile behavior and mechanism characterization of multi-scale fiber-reinforced cementitious materials
+Using Green Supplementary Materials to Achieve More Ductile ECC
+Utilization of sodium carbonate activator in strain-hardening ultra-high-performance geopolymer concrete (SH-UHPGC)
+Valorization of slag and banana leaf ash in five natural fiber-reinforced sustainable cementitious composites: early age mechanical and microstructural insights
+Waste Powder Biotite as a Factor Enhancing the Flexural Strength of RPC
+Workability and Flexural Properties of Fibre-Reinforced Geopolymer Using Different Mono and Hybrid Fibres

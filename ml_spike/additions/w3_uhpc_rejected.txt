@@ -1,0 +1,25 @@
+10.1038/s41598-024-59020-8 | Huang et al. 2024, straight vs hooked steel fibre + palygorskite UHPC | basalt 3-5 mm 754 kg/m3 > 0.5 x binder (635); strengths only in figures
+10.3390/ma12081210 | Smarzewski 2019, steel/PP fibre UHPC after elevated temperature | coarse aggregate 990 kg/m3 > 0.5 x binder
+10.3390/ma10091106 | Kang et al. 2017, heat-treated UHPC curing programmes | strengths only in figures (a few summary values in text)
+10.3390/ma15010041 | Ahmed et al. 2021, dune sand RPC hot-air curing | per-mix/per-regime strengths only in figures; scattered text values
+10.3390/ma15165692 / 10.3390/ma16155265 / 10.3390/ma17020497 | RPC/UHPC with MPC, secondary Al ash, manganese slag | no steel fibre results / strengths in figures
+10.3390/ma15248895 | Ma et al. 2022, white UHPC quaternary binder (orthogonal) | only range-analysis means (K values) tabulated; per-mix values in figures
+10.3390/ma13204518 | Siwinski et al. 2020, modified UHPC design formula | only one fibre mix; per-mix fc not tabulated
+10.3390/ma13143148 | Chu et al. 2020, UHPC with aeolian sand | fc / flexural only in figures (range in text)
+10.3390/ma15051807 | Luo et al. 2022, RPC with coal gangue sand | fibre dosage per reported value ambiguous (160/80/0 kg/m3 sets); values only partly in text
+10.3390/ma17081801 etc. | reviews / ML / structural papers in search results | not experimental mix data
+10.3390/ma16196434 | RPC with waste glass and micro CaCO3 (CCD) | no fibres in the tested mixes (off-topic for steel-fibre batch)
+10.1038/s41598-026-44577-3 | Abellan-Garcia et al. 2026, EAF slag + CaCO3 UHPC (CCD, fc at 4 ages) | no fibres (off-topic for steel-fibre batch; usable for a plain-matrix batch)
+10.3390/ma18143268 | Wang et al. 2025, UHPC durability, standard vs high-temperature curing | steel fibre given only as batch grams (no batch volume) -> vol% not derivable; fc only before freeze-thaw
+10.3390/ma18051135 | Phosphogypsum in UHPC matrix | no fibres
+10.3390/ma17246025 | Granite dust + SF RPC | no fibres
+10.3389/fmats.2024.1483446 | Li et al. 2024, molybdenum tailings UHPC | commercial premix 'masterbatch', binder composition unknown
+10.3389/fbuil.2025.1686072 | Steel slag powder as SCM in UHPC | per-mix fc only in figures (3 values in text)
+10.3389/fmats.2022.1033467 | MgO expansion agents in UHPC | no fibres
+10.3389/fmats.2023.1177189 | SP role in nano-engineered UHPC | strengths only in figures
+10.1186/s40069-024-00680-1 | Ahmad et al. 2024, UHPFRC transport/corrosion | durability only, mix by volume fractions, no strength table
+10.1590/1517-7076-rmat-2024-0708 | Saravanan et al. 2024, PP + hooked steel UHPFRC | no mix proportions (only fibre %); fibre tensile strength 1050 MPa / density statements inconsistent
+10.1590/1517-7076-rmat-2025-0222 | RPC with glass fibres | glass fibres, not steel; reported fibre properties implausible (density 2.41 kg/m3, tensile 6.42 MPa)
+10.1177/23297662251387692 | Direct tensile behaviour of 3D-printable SF-UHPC | Europe PMC full text returned HTTP 500; not read
+10.3390/ma18122715 / 10.3390/ma19061248 | hybrid steel-glass UHPC penetration; coarse-aggregate hybrid steel UHPC | penetration focus / coarse aggregate; not extracted
+# Candidates found via NCBI E-utilities (db=pmc) + Crossref (prefix filters 10.1155, 10.3389, 10.1590, 10.1186). Full text: Europe PMC fullTextXML, frontiersin.org HTML, link.springer.com HTML (+ /tables/N pages). Hindawi/Wiley (10.1155) returned 403 and was not used.

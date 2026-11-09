@@ -1,0 +1,12 @@
+10.3390/ma17102418 | Luo et al. 2024, UHPC with low steel fibre volume fractions | commercial premix, no mix proportions
+10.3390/ma18204796 | Shen et al. 2025, coarse aggregate fibre dispersion in UHPC | no mix table in text, no absolute fc, no direct tension
+10.3390/ma14164504 | Son et al. 2021, hybrid steel fibre composites at different strain rates | w/b 0.4, fc ~61-66 MPa (not UHPC); mix units unclear
+10.3390/ma19071463 | Liu et al. 2026, UHPC with steel slag powder | fc/ft per mix only in figures (relative % in text)
+10.3390/ma17133259 | Meszoly & Randl 2024, tensile property derivation for UHPFRCC | no mix proportions
+10.1016/j.heliyon.2024.e24260 | Saleem et al. 2024, non-proprietary UHPC | flexural/fc only; optimized-mix cement inconsistent (750 vs 800); not extracted
+10.3390/ma15020404 | Zhao & Bo 2022, casting position effect on UHPC | fc only in bar charts; notched bending, no direct tension
+10.3390/ma19112428 | Bao et al. 2026, AE tensile model for UHPC | tables not available, no numeric per-mix results
+10.3390/ma16103612 | Li et al. 2023, hollow stainless steel fibre UHPC | no mix table in text, no direct tension, fc in figures
+10.3390/ma19102171 | Wang et al. 2026, hybrid fibre coarse-aggregate UHPC | mixes not mapped to groups; fc ~85-114 MPa; no tensile values in text
+10.3390/ma14081829 | Ling et al. 2021, iron ore tailing UHPC | no steel fibres, no tensile results
+10.3390/ma19132770 | Liu et al. 2026, lithium slag UHPC matrix | mix table not available, only flexural

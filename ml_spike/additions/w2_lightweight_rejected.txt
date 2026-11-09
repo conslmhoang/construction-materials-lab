@@ -1,0 +1,14 @@
+DOI | Paper | Reason
+https://doi.org/10.3390/ma14205983 | Sikarskas et al. 2021 expanded-glass lightweight composite + PVA | fc/flexural strength only in figures; fibre dosed by mass; no expanded-glass column in TEMPLATE
+https://doi.org/10.3390/ma16124457 | Lightweight cement composites with expanded hollow glass + nylon/amorphous-metallic hybrid fibres (2023) | fibre types (nylon, amorphous metallic) and expanded glass have no TEMPLATE columns; fc only in figures
+https://doi.org/10.3390/ma18050994 | RPECC thermal cycles, static/dynamic splitting (2025) | rubber dosed by volume, rubber mass/density not reported (Rubber/B not derivable); binder description inconsistent (SF vs FA)
+https://doi.org/10.3390/ma16093518 | Cenosphere concrete (2023) | no fibres
+https://doi.org/10.3390/ma18143233 | HGM alkali-activated slag lightweight concrete (2025) | no fibres
+https://doi.org/10.3390/ma15228043 | PP fibre + rubber tire aggregate concrete (2022) | PP dosage in kg/m3 inconsistent with stated vol% (89 kg/m3 for 1%); strengths only in figures
+https://doi.org/10.3390/ma16020481 | Basalt/PP fibre rubberised concrete permeability (2023) | strengths only in figures / constitutive fits
+https://doi.org/10.1038/s41598-024-54763-w | Fibre addition in rubberised concretes (Sci Rep 2024) | base mix (cement, water, aggregates) not tabulated; strengths only as % ratios
+https://doi.org/10.1021/acsomega.3c10076 | Basalt/PP fibre HGM + GFR-EPS macrosphere lightweight concrete (2024) | water content / W/B not reported; fibres in wt%
+https://doi.org/10.3390/buildings13020431 | PVA fibre rubber concrete (Buildings 2023) | not on PMC/Europe PMC, MDPI not readable - not read
+https://doi.org/10.3389/fmats.2021.752720 | HGM CAC-GGBFS SHCC | already in existing_papers.txt
+https://doi.org/10.3389/fmats.2021.811110 | Crumb rubber HS-ECC self-healing | already in existing_papers.txt
+https://doi.org/10.3390/ma18030509 | W/B and fibre content tensile/bending | already in existing_papers.txt

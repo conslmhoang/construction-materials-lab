@@ -1,0 +1,20 @@
+https://doi.org/10.1590/1517-7076-RMAT-2024-0697 | Viswanathan et al. 2025 PVA/PP hybrid ECC layered RC beams (Matéria) | same group as Krishnaraja 2019; ECC1/ECC2 28-d tensile values (5.53, 4.55) and HECC 1.35PVA+0.65PP (4.94) identical to the 2019 paper -> recycled data, skipped to avoid duplicates
+https://doi.org/10.3390/ma17030629 | 2024 PVA+steel HyFRCC bond behaviour | bond/pull-out only, no fc or tensile values
+https://doi.org/10.3390/ma18214914 | Wang et al. 2025 UHMWPE+basalt ECC Box-Behnken | binder composition not given; fc/flexural only in figures
+https://doi.org/10.3390/ma19102131 | Yang et al. 2026 UHMWPE + CF/PP hybrid | normal concrete with crushed stone (C30), not ECC/SHCC
+https://doi.org/10.3390/polym18030322 | Ma et al. 2026 CF+PP glass-sand ECC at elevated temperature | all strengths only in figures
+https://doi.org/10.3390/ma19020263 | 2026 SMAF-reinforced PP/PVA-ECC | Table 3 mass ratios implausible (cement 0.5, FA 2.0, sand 0.1, water 0.11 -> W/B 0.044); no fc
+https://doi.org/10.1038/s41598-026-49804-5 | Cui et al. 2026 CF/PP hybrid ECC after heating | mix in 'vol%' ambiguous, results only in figures
+https://doi.org/10.3390/ma18132990 | Maldar et al. 2025 ECC with different steel fibre types | fc/splitting only in figures (flexural table only)
+https://doi.org/10.3390/ma11071147 | Zhang et al. 2018 PP-ECC vs hydrophilic PVA-ECC | mono-fibre only (no hybrid)
+https://doi.org/10.3390/ma17133128 | Wang et al. 2024 UHTCC (steel+PVA) bending fatigue | fc only in figure
+https://doi.org/10.3390/ma15145059 | Maheswaran et al. 2022 hybrid PVA/PP ECC beams in shear | only 2 fc values in text (hybrid, steel), test age not stated, tension results not presented
+https://doi.org/10.3390/ma17153798 | 2024 hybrid fibre mortar (abrasion) | ordinary mortar with medium sand, not ECC; off-topic
+https://doi.org/10.3390/ma15113964 | 2022 glass/PP hybrid fibre mortar | mortar, not ECC; fc only in figures
+https://doi.org/10.1371/journal.pone.0355961 | 2026 RCP + waste-tyre steel/PE ECC (PLOS ONE) | flexural/DIC only, no fc or tensile test
+https://doi.org/10.1038/s41598-025-24519-1 | 2025 SHCC + steel mesh jackets | 'hybrid' refers to jacket system, mono PVA SHCC
+10.1007/s11771-018-3716-9 | J. Cent. South Univ. 2018 PVA/PP hybrid SHCC | paywalled, no text access
+Discover Civil Engineering 2024 'Synergistic fiber hybridization...' (Selvan et al.) | cement:sand 25:75 mortar, full text not accessible
+https://doi.org/10.1016/j.cscm.2022.e01386 (and other Elsevier/Springer hybrid ECC papers) | not accessible as text (ScienceDirect/Springer 403 or paywall)
+MDPI Buildings 12(11):1934 (2022) hybrid PVA-steel HDCC; Buildings 15(11):1860 | mdpi.com 403 and Buildings not in PMC/Europe PMC
+https://doi.org/10.3390/ma19020424 | Jiang et al. 2026 LC3-ECC with PVA/PE/PP hybrids | extracted, then REMOVED: identical 40 rows already in w2_green.csv (sibling agent)

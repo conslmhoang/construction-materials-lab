@@ -1,0 +1,23 @@
+10.3390/ma18092047 | Qin et al. 2025 ECC slabs different strength grades | HSECC fc only 73 MPa, curing/test age not stated; outside UHP topic
+10.1038/s41598-025-21151-x | Mehmood et al. 2025 LCA high performance composites | no direct tension; per-mix fc only in figures
+10.3390/ma14133602 | Gu et al. 2021 reinforced HSH-UHPC under axial tension | steel fibre only, tensile values only "about", 'fine filler' undefined
+10.3390/ma17133259 | Meszoly & Randl 2024 UHPFRCC tensile methods | steel fibre only, no mix proportion table, no strain capacity
+10.1617/s11527-025-02875-8 | Patino et al. 2025 fibre types in UHPC | proprietary prepacked UHPC (binder composition unknown); flexural only
+10.3390/ma17040831 | Diao et al. 2024 SHCC ductility variation | fc 72 MPa, single mix, curing/test age for tension not stated
+10.3390/ma15248825 | Lee 2022 URH-FRM masonry | no fc of mortar itself; tensile values only approximate ("about")
+10.3390/ma13112428 | Liew et al. 2020 ECC with quartz powder | PVA/steel, no direct tension, fc in figures only
+10.3390/ma16062414 | Yan et al. 2023 EVA/PVA UHP-ECC | PVA, no direct tension, fc < 100 MPa
+10.1038/s41598-025-33679-z | Hamad et al. 2025 HPDC beams | steel fibre, fc 55-65 MPa, no strain capacity values
+10.1038/s41598-025-88683-0 | Zaid et al. 2025 mine tailings UHPFRC | steel only, splitting/flexural only (no direct tension)
+10.1038/s41598-026-49804-5 | Cui et al. 2026 hybrid PP/CF ECC high temperature | no PE, no direct tension, fc only in figures
+10.3390/ma17133128 | Wang et al. 2024 UHTCC bending fatigue | steel/PVA, no direct tension, no absolute fc
+10.1371/journal.pone.0331754 | Li & Sun 2025 CFRP-confined UHTCC | no tension tests, ambiguous mix ratio
+10.3390/ma17112479 | Guo et al. 2024 UHPC with PS beads | steel only; mix table and control values not in text
+10.3390/ma19102171 | Wang et al. 2026 coarse-aggregate UHPC | steel+whisker, group-to-mix mapping missing, tension results not accessible
+10.3390/app11052394 | UHP-SHCC SCMs & curing (Appl Sci 2021) | not in PMC; MDPI returns 403
+10.3390/buildings14103124 | HS-ECC tensile/aging model (Buildings 2024) | MDPI 403, not in PMC
+10.1155/2017/5383982 | UHP mortar with PE fibre (AMSE 2017) | Hindawi/Wiley 403
+10.1016/j.jmrt.2019.01.001 | steel/PE hybrid UHPFRCC geometry (JMRT 2019) | ScienceDirect 403
+10.1016/j.jmrt.2021.07.001 | hybrid steel/polymeric UHPCC (JMRT 2021) | ScienceDirect 403
+10.1186/s40069-026-00908-2 | steel-PE hybrid dynamic compression (IJCSM 2026) | Springer cookie wall, could not read
+10.3390/polym10080879 | Kim, Kim & Yoo 2018 twisted steel + PE UHPCC | extracted (10 rows) but REMOVED: identical rows already in uhpc_steel.csv from another agent

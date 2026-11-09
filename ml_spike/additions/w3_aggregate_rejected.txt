@@ -1,0 +1,27 @@
+https://doi.org/10.1038/s41598-024-65000-9 | PVA seawater sea-sand mortar (Sci Rep 2024) | flexural toughness only; strengths in figures (no numeric fc/ft)
+https://doi.org/10.3390/ma13112609 | SSPP-ECC superfine sand factorial design | all 16 mixes' results figure-only
+https://doi.org/10.3390/ma17112498 | recycled fine aggregate ECC under salt dry-wet cycles | tensile/flexural results figure-only
+https://doi.org/10.3390/ma18143278 | Yellow River sand ECC bond to frost-damaged concrete | only interface splitting strengths, no material fc/ft
+https://doi.org/10.3390/ma19183847 | recycled brick aggregate cement composites | concrete with 0/22.4 mm aggregate (coarse > 0.5 B), no fibre
+https://doi.org/10.3390/ma19122559 | 3D-printed Yellow River sediment ECC freeze-thaw | strengths figure-only
+https://doi.org/10.3390/ma14195572 | desert sand steel-fibre mortar X-CT | fc only as % changes (figure)
+https://doi.org/10.3390/ma15176123 | seawater sea-sand mortar | no fibres
+https://doi.org/10.3390/ma18143327 | 3D-printable ECC with internal curing (pumice) | printability only, no strengths
+https://doi.org/10.3390/ma13143148 | UHPC with aeolian sand | fc/flexural only as ranges and % changes (figure)
+https://doi.org/10.3390/ma15217552 | UHPC with coal gasification slag sand | single text value (CGCS25 fc 111 / flex 29) with unstated age; rest figure-only
+https://doi.org/10.3390/ma19102079 | UHPC with spontaneous-combustion gangue sand | no fibres in mix
+https://doi.org/10.3390/ma14174807 | UHPC with iron tailings sand | no fibres in mix; strengths figure-only
+https://doi.org/10.3390/polym14153105 | seawater sea-sand UHPC vs river-sand UHPC | fibre given as mass ratio of binder only; vol% not derivable without assumed densities (cement density not given)
+https://doi.org/10.3390/polym14050971 | seawater sea-sand UHPC sulphate attack | same mix as polym14153105; fibre vol% not derivable
+https://doi.org/10.3390/ma12030469 | HVFA mortar with air-cooled slag sand + PP fibres | PP dosage 0.25% of binder mass, binder content not given -> vol% not derivable
+https://doi.org/10.3390/ma17010212 | RPC with copper slag sand, freeze-thaw | strengths figure-only
+https://doi.org/10.1038/s41598-022-19006-w | fibre recycled brick aggregate concrete | coarse aggregate concrete
+https://doi.org/10.3390/ma17081910 | fibre seawater sea-sand concrete | coarse aggregate concrete
+https://doi.org/10.1038/s41598-026-48446-x | steel-fibre sand concrete with GBFS filler | natural sand only; strengths figure-only
+https://doi.org/10.1038/s41598-025-24986-6 | PP-fibre glass-sand UHPS after high temperature | base mix proportions not reported (only PP dosage table)
+https://doi.org/10.3390/ma18132956 | PVA FRC with dune sand + steel slag | contains natural pebble coarse aggregate (448-784 kg/m3 > 0.5 B)
+https://doi.org/10.3390/ma9030131 | fibre recycled fine aggregate concrete | coarse aggregate concrete
+https://doi.org/10.3390/su142013530 | recycled sand ECC tensile properties | not in PMC; mdpi.com returns 403 - full text not readable
+https://doi.org/10.3390/ma19112355 | rapid-hardening ECC with recycled fine aggregate | extracted but dropped: already in w3_curing.csv
+https://doi.org/10.3390/ma17174307 | Yellow River sand ECC curing methods | extracted but dropped: already in w3_curing.csv
+https://doi.org/10.3390/ma13020325 | sand size PVA/nano-SiO2 composite | extracted but dropped: already in w3_nano.csv

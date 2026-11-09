@@ -1,0 +1,10 @@
+﻿target,model,mode,R2,MAE,median_err_pct
+fc (MPa),CatBoost,paper-out,0.711,19.34,19.8
+fc (MPa),CatBoost,half-paper,0.93,8.97,8.9
+fc (MPa),CatBoost,random-row,0.937,8.45,8.2
+ft direct (MPa),CatBoost,paper-out,0.484,1.81,26.3
+ft direct (MPa),CatBoost,half-paper,0.822,0.95,12.6
+ft direct (MPa),CatBoost,random-row,0.836,0.92,12.0
+eps_tu direct (%),CatBoost,paper-out,0.4,1.56,49.5
+eps_tu direct (%),CatBoost,half-paper,0.735,0.91,26.1
+eps_tu direct (%),CatBoost,random-row,0.758,0.88,25.5

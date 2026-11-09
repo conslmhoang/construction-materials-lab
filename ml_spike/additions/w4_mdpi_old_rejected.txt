@@ -1,0 +1,25 @@
+https://doi.org/10.3390/ma13204514 | SHCC impact compression/shear (Heravi 2020): only compression/shear values tabulated, no direct tension values
+https://doi.org/10.3390/ma13184189 | SHCC crack-bridging: single-fibre/crack tests only, no composite tensile strength
+https://doi.org/10.3390/ma15165701 | HPFRCC with TCPA: uniaxial tension results only in figures
+https://doi.org/10.3390/ma15134531 | SMA fibre pull-out in ECC: ECC tensile ~3.0 MPa only as approximate text value, rest pull-out
+https://doi.org/10.3390/ma15093062 | SMA-ECC beam: ECC tension only approximate ("about 3.0 MPa", ">3%") from figure
+https://doi.org/10.3390/ma14143936 | FRP grid-ECC: fibre dosage ambiguous (PVA 0.002 mass ratio) and W/B inconsistent with listed ratios
+https://doi.org/10.3390/ma14227042 | Steel grid + fibre ECC under dynamic (high strain-rate) tension only; quasi-static companion paper used instead
+https://doi.org/10.3390/ma13081865 | PP-ECC bridge piers: no tensile material data tabulated
+https://doi.org/10.3390/ma7032141 | Self-healing FRCC (watertightness): no tensile strength values
+https://doi.org/10.3390/ma16010252 | ECC bond (Pan 2022): ft tabulated but tensile test type not stated (direct tension not confirmed)
+https://doi.org/10.3390/ma15249009 | DS-ECC bond: tensile test method not stated; ft 9.8-10 MPa implausible for PVA-ECC with fc ~50 MPa
+https://doi.org/10.3390/ma15082880 | ECC with PP and RHA/WHA/GP: no direct tension data
+https://doi.org/10.3390/ma15144851 | MPC-ECC bond: mix only, no tensile results tabulated
+https://doi.org/10.3390/ma13163516 | Crumb-rubber ECC elevated temperature: fc only, no direct tension (out of scope for this wave)
+https://doi.org/10.3390/ma13071746 | Bundled aramid fibre pull-out only
+https://doi.org/10.3390/ma14010179 | Bundled aramid fibre bridging model; no composite mix/tension table
+https://doi.org/10.3390/ma15227965 | BFRP grid-ECC bond; no ECC direct tension values
+https://doi.org/10.3390/ma12203365 | Steel fibre pull-out in UHPC only
+https://doi.org/10.3390/ma13245778 | Eco-UHPC repair bond; no direct tension values
+https://doi.org/10.3390/ma14092378 | UHPC tunnel segments: structural, material tension not tabulated
+https://doi.org/10.3390/ma15041485 | UHPC beams with PVA/steel: material direct tension not tabulated
+https://doi.org/10.3390/ma12010113 | SHCC flexural parametric model; no new mix/tension data
+https://doi.org/10.3390/ma14123143 | ML on HPFRCC literature data (secondary dataset)
+https://doi.org/10.3390/ma15103443 | ANN on literature ECC data (secondary dataset)
+https://doi.org/10.3390/ma9040294 | UHPC ultrasonic setting monitoring; no direct tension

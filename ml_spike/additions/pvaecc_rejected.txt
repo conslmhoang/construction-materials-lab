@@ -1,0 +1,11 @@
+https://doi.org/10.3390/ma12060858 | Wang et al. 2019 "Using Green Supplementary Materials to Achieve More Ductile ECC" | PE fibre (not PVA) + recycled powder/crumb rubber; fc only in figures; off-topic
+https://doi.org/10.3390/ma15144905 | Dong et al. 2022 ECC with MSWI powder | no per-mix tensile table (only extremes in text), ECC test age not stated, MSWI ratio units unclear
+https://doi.org/10.3389/fmats.2024.1513872 | Li et al. 2024 AE / pore structure PVA-ECC | sulfoaluminate cement, no tensile test, fc only in figure
+https://doi.org/10.3390/ma17040831 | Diao et al. 2024 Ductility of SHCC in structures | PE fibre high-strength, single mix, values from figure
+https://doi.org/10.3390/ma12152402 | Zhong et al. 2019 PCA-Taguchi ECC | no direct tension; per-mix fc/flexural not tabulated
+https://doi.org/10.3390/polym15122701 | Zhou et al. 2023 LC3-ECC with recycled fine aggregate | PE fibre (not PVA topic); R-PC fc only in figure
+https://doi.org/10.3389/fmats.2021.633404 | Xiao et al. 2021 rebar-ECC pull-out | single average fc/ft not attributable to a specific mix
+https://doi.org/10.3389/fmats.2020.00065 | Amin et al. 2020 bagasse ash ECC | tensile given only as loads (kN)/elongation; ft and fc only in figures
+https://doi.org/10.3389/fmats.2024.1378089 | Hou et al. 2024 multiscale hybrid steel/PVA/CaCO3-whisker SHCC | hybrid steel+whisker, fibre properties and curing not reported, PVA-only control tensile values only in figures
+https://doi.org/10.3390/buildings12101690 | Solid waste-based ECC (Buildings 2022) | MDPI full text blocked (HTTP 403), not on PMC - not read
+https://www.mdpi.com/2075-5309/13/8/2116 | SMA/PVA-ECC uniaxial tension (Buildings 2023) | MDPI full text blocked (HTTP 403) - not read

@@ -1,0 +1,24 @@
+# w4_mdpi_new rejected (MDPI 2023-2026, ECC/SHCC direct tension search via Europe PMC)
+https://doi.org/10.3390/ma19102019 | RC slabs + BFRP grid/ECC: ECC fc/ft in Table 2 but no ECC mix proportions
+https://doi.org/10.3390/ma18040762 | HPFRCC precast shell beams: ft 6.85 MPa but no mix quantities
+https://doi.org/10.3390/ma17102407 | SHCC creep load-sharing: strain 2.8%/fc 132 MPa in text but no mix proportions
+https://doi.org/10.3390/ma17194709 | HSSWM-ECC tensile model: ECC parameters (Table 3) not clearly measured, PVA dosage ambiguous
+https://doi.org/10.3390/ma18030651 | VAE-modified rubber mortar: no fibres (not ECC); tension mainly in figures
+https://doi.org/10.3390/ma19183883 | Basalt-textile-reinforced ECC off-axis tension: textile composite values, no plain ECC row
+https://doi.org/10.3390/ma16206693 | Hydraulic ECC layer bonding: ECC tension only in figures
+https://doi.org/10.3390/ma16145037 | SMAF-ECC bond: ECC tension only in figure (">3%")
+https://doi.org/10.3390/ma16155319 | SMA fibre ECC beams: ECC tension only in figure (">3%")
+https://doi.org/10.3390/ma16134877 | Fibre orientation ECC transport: no direct tension values
+https://doi.org/10.3390/ma16165706 | Concrete-ECC shear beams: no numeric ECC tension
+https://doi.org/10.3390/polym17081049 | FRP strip-ECC joints: ECC tension only read from figure (~1.4 MPa first crack)
+https://doi.org/10.3390/ma18122846 | RPECC thermal cycles: compression only
+https://doi.org/10.3390/ma18204739 | Magnetically oriented steel microfibres: flexure/compression only
+https://doi.org/10.3390/ma19163363 | PE-ECC mixture-of-experts: literature database / ML, no new tests
+https://doi.org/10.3390/ma19050881 | Basalt+PE fibre mortars: splitting tension only (outside direct-tension scope)
+https://doi.org/10.3390/polym15234573 | UHP PE-fibre recycled-brick concrete: no direct tension values
+https://doi.org/10.3390/ma18112661 | Rebar-reinforced UHPC: commercial premix, no mix proportions
+https://doi.org/10.3390/ma18133008 | Recycled tire steel fibre SIFCON/UHPC: group labels contradictory between table and text; SIFCON fibre 7-10 vol%
+https://doi.org/10.3390/ma16124244 | PVA phosphogypsum composite: premixed binder of unknown composition, results mostly in figures
+https://doi.org/10.3390/ma16196573 | UHTCC-confined RAC: no UHTCC tension data
+https://doi.org/10.3390/ma16051999 | TRC/FTRC: textile-reinforced, splitting for matrix
+https://doi.org/10.3390/polym15030621 | Basalt-PVA low-heat concrete: coarse aggregate concrete, splitting tension

@@ -1,0 +1,23 @@
+10.3389/fbuil.2023.1137569 | Xie et al. 2023, PP-SACC dog-bone direct tension | peak tensile stress/strain only in figures; cenosphere content not given
+10.3389/fbuil.2025.1721414 | ECC repair mortars LCA (SBR/PEG) | no fc or material tensile values (only beam loads)
+10.3389/fbuil.2021.648220 | Recycled ultra-high durability concrete | fc and flexural strength only in figures
+10.3389/fmats.2021.725242 | Modified PCE in UHPC (N1-N7) | no fibres; Tables 5/6 both captioned M-PCE (ambiguous which superplasticizer), curing/specimen not given
+10.3389/fmats.2022.1025830 | UHPC with bentonite (fibre distribution) | strengths only in figures (approximate ranges in text)
+10.3389/fmats.2026.1714763 | FACs-UHPC cyclic loading (orthogonal design) | base mix quantities (cement/SF/FA/sand kg/m3) not given
+10.3389/fmats.2026.1837370 | Coconut fibre geopolymer mortar | strengths only in figures
+10.3389/fbuil.2024.1479849 | Polymer repair mortar with glass powder/slag/fibres | strengths only in figures (a few scattered text values)
+10.3389/fmats.2026.1822806 | Nano-TiC/nano-CaCO3 steel-fibre mortar | per-mix strengths only in figures (3 mixes in text); nano-TiC has no template column
+10.3389/fmats.2024.1355647 | 3D-printed SAC-based UHPC fibre alignment | strengths only in figures / ranges
+10.3389/fmats.2024.1534658 | ECC partial factors (shear members) | mix ratios ambiguous (water/cement 0.40, cement/sand 0.45 with C:FA:SF 1:0.8:0.2)
+10.3389/fmats.2024.1346140 | Basalt-fibre RPC beams (AE) | single mix, basalt fibre density not given (vol% not derivable); fc/flexural only as one lab value
+10.3389/fmats.2024.1351980 | Aligned steel fibre mortar (magnets) | fibre alignment study; strengths in figures
+10.3389/fmats.2023.1162053 | High-fluidity FRC with metakaolin | coarse aggregate 1080 kg/m3 > 0.5 x binder
+10.3389/fmats.2026.1888752 | Hybrid fibre HSC with pyrolysed coffee grounds | ordinary concrete with coarse aggregate
+10.3389/fmats.2023.1094864 | Fibrous high-strength concrete thermal cycles | coarse aggregate concrete
+10.3389/fmats.2022.1049304 | PP fibre recycled-aggregate concrete | coarse aggregate concrete
+10.3389/fmats.2021.652614 | Steel fibre/carbon black/graphene piezoresistive concrete | coarse aggregate concrete
+10.3389/fmats.2026.1826062 | Basalt fibre hydraulic mortar | strengths only in figures (a few text values)
+10.3389/fmats.2022.1055796 | Carbon fibre smart cement composites | no mix/strength table usable (strengths in figures)
+10.3389/fmats.2022.893927 | Quartz fibre HAC paste (EM transmission) | no mechanical strength data
+10.3389/fmats.2021.557355 | Coconut fibre magnesium phosphate cement | flexural results only in figures
+10.3389/fmats.2022.857874 / 10.3389/fmats.2022.860113 | UHPC crack model / SHCC fibre pullout model | numerical/modelling, no new mixes

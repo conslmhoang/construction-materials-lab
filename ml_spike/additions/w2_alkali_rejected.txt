@@ -1,0 +1,19 @@
+Rejected / not used (w2 alkali-activated topic):
+- 10.3390/ma16227101 Hossain, Sood, Saberian 2023 (shrinkage/freeze-thaw of one-part AAECs) - 28 d fc of the AAEC mixes are identical to rows already in geopolymer.csv (10.3390/ma16145077); no new data.
+- 10.3390/polym14010142 Xiao et al. 2021 PVA FA-slag geopolymer concrete (axial compression) - test age not reported; water 43 kg/m3 (W/B ~0.12) and fc of 3-8 MPa for some PVA mixes look anomalous.
+- 10.3390/ma12213624 Assaedi et al. 2019 PVA-FRGC + nanosilica - fc/flexural only in figures.
+- 10.1371/journal.pone.0307103 Iqbal et al. 2024 bagasse ash + PVA alkali-activated composite - results only in figures.
+- 10.3390/polym14091760 Shumuye et al. 2022 slag/FA ECC with PE - Portland-cement based (not alkali-activated), off-topic.
+- 10.3390/ma19204263 PP fibre alkali-activated slag mortar (SHPB) 2026 - static fc only in figure (could be back-calculated as peak stress / DIF but reference age not stated).
+- 10.3390/ma19061128 PVA-FRGC dynamic compression 2026 - only FA:slag ratio and fibre given; activator dosage and water not reported.
+- 10.3390/polym17152119 S-modified FA/MK geopolymer with PP - only relative changes (%) in tables; absolute values in figures.
+- 10.3390/polym17121710 GGBS/FA geopolymer concrete with PP - fibre-mix strengths in figures; only one optimum value in text with ambiguous dosage.
+- 10.3390/ma15072363 FA geopolymer + PVA fibre/powder 2022 - fibre dosed in wt% with no density to convert to vol%.
+- 10.3390/ma15197013 PVA geopolymer mortar with oyster shell - values only in figures (ranges in text).
+- 10.3390/polym18070873 steel/PP slag geopolymer concrete 2026 - flexural/fracture results only in figures.
+- 10.3390/ma13153423 torsion of steel-fibre AAC 2020 - fc and splitting measured on unreinforced (no-fibre) cylinders only.
+- 10.3390/ma17133225 Li et al. 2024 PP coal gangue/aeolian sand geopolymer mortar - fibre masses inconsistent with stated vol% (~0.16 vs 0.5 vol%); duplicated mix GMPF1.0-15 with two different values in Table 6.
+- 10.3390/polym15163440 fibre-reinforced geopolymer mortar for blast - fibres dosed in wt% (carbon/Kevlar/PE), no conversion density for composite.
+- 10.3390/ma14247735, 10.3390/ma16114096, 10.1038/s41598-025-89919-9, 10.1038/s41598-025-11384-1, 10.3390/ma14175025 - impact / high-temperature / PP studies with strength values only in figures.
+- 10.1371/journal.pone.0305143 PE alkali-activated paste - under Expression of Concern; not used.
+- Europe PMC search endpoint returned 503 throughout; searching done via NCBI E-utilities (PMC) and full text via Europe PMC fullTextXML.

@@ -1,0 +1,22 @@
+10.1007/s40069-016-0125-z | Li & Liu, hybrid-fibre RPC tensile after elevated temperature | direct tensile values only in figures (Table 2 gives only ft/fr ratios)
+10.1007/s40069-017-0195-6 | Smarzewski, fibre hybridization UHPC durability | UHPC with 2/8 mm coarse aggregate; base mix quantities not tabulated
+10.1007/s40069-017-0214-7 | AMS fibre cementitious composites | fc/ft per mix only in figures; W/B ~0.76
+10.1186/s40069-018-0240-0 | GFRP bond in ECC (RILEM beam) | ECC mix quantities (sand, admixtures) not given
+10.1186/s40069-018-0267-2 | carbon/basalt fibre fly-ash geopolymer at elevated temperature | no mix/strength tables (only oxide composition); results in figures
+10.1186/s40069-018-0298-8 | K-UHPC interface shear | no material strength results
+10.1186/s40069-018-0324-x | HDFC composite columns | no matrix mix proportions
+10.1186/s40069-019-0351-2 | cellulose nanocrystal FRCC shrinkage | mix table garbled/incomplete, strengths in figures
+10.1186/s40069-019-0385-5 | ECC-concrete beams freeze-thaw | ECC mix proportions not given
+10.1186/s40069-020-00453-6 | ductile lightweight aggregate concrete column | coarse-aggregate concrete, out of scope
+10.1186/s40069-022-00559-z | macro-PP FRCC dynamic tension | static strengths not reported numerically
+10.1186/s40069-023-00582-8 | RC beams strengthened with HPFRC | no HPFRC mix/strength table
+10.1186/s40069-023-00608-1 | modular UHPC permanent formwork | UHPC from proprietary dry premix, composition unknown
+10.1186/s40069-023-00641-0 | magnetically oriented steel-fibre mortar | no strength results
+10.1186/s40069-023-00657-6 | NC-UHPC interface shear | UHPC contains 581 kg/m3 basalt 3-5 mm (> 0.5 x binder)
+10.1186/s40069-023-00658-5 | HPFRCC strain softening in compression | measured fc only in figures (targets 120/150/170 MPa)
+10.1186/s40069-024-00668-x | graphene / hollow glass powder UHSC | no fibres; results in figures
+10.1186/s40069-024-00724-6 | alkali-activated slag SIFCON with tyre cords | continuous aligned 250 mm cords (not discrete fibres); waste-glass activator undefined
+10.1186/s40069-025-00789-x | FE of fire-damaged RC beams | numerical study
+10.1186/s40069-026-00898-1 | PVA fibre high-titanium slag concrete | coarse-aggregate concrete
+10.1186/s40069-026-00924-2 | ECC-strengthened flat plates | FE parameters only, no mix
+10.1186/s40069-026-00985-3 | rubberized ECC columns impact | numerical study, no mix

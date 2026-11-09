@@ -1,0 +1,23 @@
+# w3_nano rejected papers (DOI - reason)
+https://doi.org/10.1038/s41598-025-14327-y - rGO-ECC de-icing: fc only in Fig. 7 / % changes; no tensile data
+https://doi.org/10.1038/s41598-026-43424-9 - nano-CaCO3 + waste-mask fibre 3D-printed ECC: fibre dosage basis (vol/wt) not stated, curing/test age not stated
+https://doi.org/10.3390/polym17152067 - nano-SiO2 PVA-ECC: base matrix quantities not given; mix table and result tables inconsistent (Table 2 vs Table 5 vs Table 7)
+https://doi.org/10.1038/s41598-025-94382-7 - TiO2-ECC RSM: per-mix strengths only in figures/ANOVA; W/B (164/1195) implausible
+https://doi.org/10.1038/s41598-024-75641-5 - MWCNT-ECC RSM: only impact energy reported, no fc/tensile
+https://doi.org/10.1038/s41598-026-36693-x - GNP PVA-FRCC RSM: per-mix strengths only in figures / % changes
+https://doi.org/10.3390/ma17112542 - nano-SiO2 PVA composite: contains 1100 kg/m3 coarse aggregate (concrete), fc in figures
+https://doi.org/10.3390/polym15163474 - zeolite LECC with NS: fc and tensile only in figures
+https://doi.org/10.3390/nano15110837 - NS/PVA HVFA mortar: strengths only in figures / % changes
+https://doi.org/10.3390/nano8090638 - GO + PVA mortar: strengths only in figures
+https://doi.org/10.3390/polym16040482 - GO + PVA cement paste: only flexural loads (kN), no strengths, no aggregate
+https://doi.org/10.3390/ma15072519 - GO + crumb rubber SC-ECC: fresh properties only
+https://doi.org/10.1038/s41598-023-37673-1 - CuO-doped ECC: no per-mix strength table
+https://doi.org/10.3390/ma12213591 - MWCNT + steel fibre HPFRCC: electrical/EMI study, no strength values
+https://doi.org/10.3390/ma12193245 - nano-montmorillonite fibre pastes: permeability study, no strengths
+https://doi.org/10.3390/polym17081046 - NS/PVA geopolymer mortar: rheology only
+https://doi.org/10.3390/ma18204656 - azodicarbonamide expansive agent UHPC: strengths only in figures
+https://doi.org/10.3390/s17112481 - CNT UHPFRC self-sensing: only plain-mix fc exact (204 MPa), CNT mixes 'about' values
+https://doi.org/10.1038/s41598-026-51601-z - nano-silica/alumina PP alkali-activated mortar RSM: values approximate ('about') in text
+https://doi.org/10.1155/2018/6727516 - expansive-admixture SHCC (Adv. Civ. Eng.): publisher full text blocked (403), not in PMC
+https://doi.org/10.3390/su11051453 - CSA expansive additive SHCC (Sustainability): MDPI 403, not in PMC
+https://doi.org/10.1515/ntrev-2020-0038 - nano-CaCO3/nano-SiO2 PVA composite (De Gruyter): HTML not retrievable (405)

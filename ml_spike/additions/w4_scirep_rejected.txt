@@ -1,0 +1,32 @@
+10.1038/s41598-026-53248-2 | ordinary concrete with gravel 800 kg/m3 (coarse aggregate > 0.5 x binder)
+10.1038/s41598-026-55165-w | UHPC uniaxial tensile strengths only in Fig. 9 (% increases in text, no absolute values)
+10.1038/s41598-026-72853-9 | UHPFRC with coarse aggregate 588 kg/m3 (> 0.5 x binder); fc only in figures/% changes
+10.1038/s41598-021-82322-0 | UHPC with coarse aggregate 776 kg/m3 (> 0.5 x binder)
+10.1038/s41598-026-59566-9 | GNP mortars without fibres
+10.1038/s41598-025-88788-6 | constitutive models from literature-compiled data, no own mixes
+10.1038/s41598-025-32975-y | ML/monitoring dataset of one fixed recipe, no fibre/mix variation tabulated
+10.1038/s41597-026-07805-z | Sci Data UHPC reproducibility dataset, fixed proprietary-style recipe, no fibre data
+10.1038/s41598-025-32316-z | mostly proprietary premixes; strengths only in figures/appendices
+10.1038/s41598-024-68682-3 | finite-element pull-out study, no measured fc/ft of mixes
+10.1038/s41598-025-26427-w | SHCC layer bearing tests; no SHCC material fc/ft reported
+10.1038/s41598-025-28288-9 | SHCC jacketing bearing tests; no SHCC material fc/ft reported
+10.1038/s41598-026-46391-3 | geopolymer with GO, no fibres
+10.1038/s41598-026-60609-4 | 3D-printed nano-TiO2 composite, no fibres
+10.1038/s41598-025-33666-4 | heat-resistant composites, no fibres
+10.1038/s41598-025-17550-9 | high-strength paste, no fibres
+10.1038/s41598-024-59046-y | coal-char additive concrete/paste, no fibres
+10.1038/s41598-025-33550-1 | carbon-fibre Joule-heating study, no strength values
+10.1038/s41598-026-47848-1 | basalt-fibre red-mud paste: strengths only in figures (ANOVA tables only)
+10.1038/s44296-024-00033-9 | rCF alkali-activated slag mortar: fc/flexural only in figures (one control value in text)
+10.1038/s41529-025-00652-0 | marine mortars without fibres
+10.1038/s41598-025-91130-9 | goat-hair lightweight composite: fc only as range in text, values in figures
+10.1038/s41598-026-39599-w | sisal mortar: fibre dosed by cement mass, no fibre density -> vol% not derivable
+10.1038/s41598-025-86046-3 | sisal mortar: fibre dosed by cement mass, no fibre density -> vol% not derivable
+10.1038/s41598-025-18955-2 | fibre treatment study; only single-fibre tensile data
+10.1038/s41598-026-64800-5 | HTML is abstract-only (accelerated preview, PDF only)
+10.1038/s41598-026-71013-3 | HTML is abstract-only (accelerated preview, PDF only)
+10.1038/s41598-026-75358-7 | HTML is abstract-only (no tables)
+10.1038/s41598-026-70012-8 | HTML is abstract-only (no tables)
+10.1038/s41598-026-61446-1 | HTML is abstract-only (no tables)
+10.1038/s41598-025-09337-9 | bamboo-fibre/SBR mortar: Taguchi design, strength values only for 'ideal' mix; fibre % basis unclear (not extracted)
+10.1038/s41598-022-25085-6 | natural-fibre mortars: single mix design, fibre densities only as ranges; not extracted (results not checked in tables)

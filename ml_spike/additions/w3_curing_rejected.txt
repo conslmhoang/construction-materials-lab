@@ -1,0 +1,23 @@
+# w3_curing - candidates read and rejected (DOI - reason)
+https://doi.org/10.1155/2013/418734 - PE-HPFRCC with CSA expansive agents: curing regime/test age of strength specimens not stated; not a curing/age study
+https://doi.org/10.3390/ma12172652 - early-age PVA-ECC under vibration: tensile results only as ratios in figures; no tabulated values
+https://doi.org/10.3390/ma12203337 - early-age PVA-ECC under traffic vibration: flexural load/deflection only, no fc or tensile strength
+https://doi.org/10.3390/ma16176049 - HD rapid repair material (SAC + coal gangue): strengths in figures, optimal mix (K-3) composition not tabulated
+https://doi.org/10.3390/ma17112522 - HD-MPC concrete: freeze-thaw study, test age of 0-cycle tension not stated
+https://doi.org/10.3390/ma18143327 - 3D-printable PE-ECC with internal curing: printability only, no strength values
+https://doi.org/10.3390/ma15103494 - peridynamic simulation, no experimental mix/strength data
+https://doi.org/10.3390/ma13081828 - PE-HPCC hot-water cured: strengths only in figures except a few text values without clear mix assignment
+https://doi.org/10.1155/2014/387259 - PVA concrete with coarse aggregate (>0.5 x binder); strengths in figures
+https://doi.org/10.3390/ma12010037 - modified-PVA ECC: binder/sand proportions not quantified (only W/B), cannot build mix
+https://doi.org/10.3390/ma16103875 - AAM-UHPC matrix curing study: no fibres, strengths in figures
+https://doi.org/10.3390/ma18102375 - ECC frozen-state testing / freeze-thaw, not curing; off-topic
+https://doi.org/10.3390/ma15072604 - ECC fracture at low temperature/moisture: fracture parameters only, no fc/tensile strength
+https://doi.org/10.3390/ma13235539 - PVA-ECC after elevated-temperature exposure: off-topic (fire, not curing)
+https://doi.org/10.3390/ma15238435 - metakaolin mortar steam vs standard curing: no fibres
+https://doi.org/10.1038/s41598-026-63595-9 - HES-ECC with GGBS + nano-silica: ECC strengths only in figures
+https://doi.org/10.1617/s11527-024-02340-y - lime-pozzolana PP-fibre mortar for TRM: off-topic, single age
+https://doi.org/10.1186/s40069-024-00692-x - PVA/SAP self-healing mortar: no strength values reported in text/tables
+https://doi.org/10.1177/15589250211020311 - SHCC curing conditions (J. Eng. Fibers Fabr.): full text not retrievable (HTTP 403, not in PMC)
+https://doi.org/10.3390/buildings14092868 - early-age HS-ECC with expanding admixture: MDPI 403, not in PMC
+https://doi.org/10.1617/s11527-018-1192-1 - SHCC temperature/moisture tension: paywalled
+https://doi.org/10.1155/2018/8159869 - HES-ECC local ingredients (Hindawi/Wiley): HTTP 403, not in PMC

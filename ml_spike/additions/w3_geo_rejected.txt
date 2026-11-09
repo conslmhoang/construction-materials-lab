@@ -1,0 +1,37 @@
+Rejected / not used (w3 geopolymer / alkali-activated fibre topic):
+- 10.3390/ma19132729 basalt fibre MK-slag-FA geopolymer mortar (2D-DIC) 2026 - fibre dosed as mass % of whole mortar batch; no mortar density to convert to vol%.
+- 10.1038/s41598-026-51204-8 PP fibre CWW/RGP geopolymer mortar 2026 - fibre-mix strengths only in figures; PPF % basis not stated.
+- 10.3390/ma14164599 coir/glass/carbon fibre FA geopolymer 2021 - liquid/solid ratio and sand content not reported; fibres in wt% with no basis/density.
+- 10.3390/ma15238512 PVA/steel fibre FA geopolymer long-term deflection 2022 - activator-to-binder ratio not given; fibre "1%" basis ambiguous (weight ratio 0.01).
+- 10.3390/ma18194442 basalt fibre lunar-regolith-simulant geopolymer 2025 - only control vs optimum tabulated; fibre % basis unclear; fc 1.8-2.9 MPa at 20 C.
+- 10.1371/journal.pone.0314617 PP fibre geopolymer-cemented tailings backfill 2024 - binder:tailings ratio not reported; fibre in permille of mass.
+- 10.3390/polym14061248 PP fibre FA geopolymer elastic properties 2022 - no strength values in tables (elastic moduli only).
+- 10.3390/ma10040396 glass-fibre geopolymer sand composites 2017 - fibres wt%; strength values not tabulated.
+- 10.3390/ma14185183 long-fibre geopolymer composites 2021 - mix ratios and results not tabulated.
+- 10.3390/ma14195741 lightweight geopolymer + carbon/steel fibres 2021 - fibre-composite strengths only in figures.
+- 10.3390/ma19081578 basalt-PP hybrid red mud-coal MK geopolymer 2026 - only range analysis/ANOVA; per-mix values in figures.
+- 10.3390/polym17243338 coal-based geopolymer grout with PP 2025 - only optimum mix tabulated (fc 0.42 MPa); cement-containing grout.
+- 10.1038/s41598-026-51601-z nano-silica/alumina + PP alkali-activated mortar (RSM) 2026 - values read from figures ("about"); PPF dosed by volume of binder (not of mortar).
+- 10.3390/polym17081046 PVA + nano-SiO2 geopolymer mortar 2025 - rheology only (data from refs).
+- 10.1038/s41598-026-55255-9 basalt fibre ceramic-powder geopolymer mortar 2026 - strengths in figures (only one value in text).
+- 10.1016/j.heliyon.2020.e03755 PP fibre zeolite geopolymer mortar 2020 - results in figures; PP in wt%.
+- 10.1371/journal.pone.0147546 PP fibre FA geopolymer 2016 - no mix/result tables (figures only).
+- 10.1016/j.heliyon.2019.e01779 fabric-reinforced geopolymer laminates (~40 vol% textile) - laminate composite, not short-fibre mortar.
+- 10.3390/ma14020349 Mode II fracture of hybrid fibrous geopolymer composites 2021 - geopolymer concrete (coarse agg) and fracture toughness only.
+- 10.3390/ma16186128 steel/PVA FRGC cyclic creep 2023 - creep/shrinkage only.
+- 10.3390/polym13162664, 10.3390/polym14194214, 10.3390/nano15131051, 10.3390/ma9060445 - leaching / organic polymers (no fibres) / freeze-thaw values in figures / elevated-temperature only.
+- 10.3390/ma17010248, 10.3390/ma18040778 MiniBars basalt geopolymer composites - only ranges of values reported; MiniBars dosed up to 75 vol% of ? (macro bars).
+- 10.3390/ma11122352, 10.3390/ma13030579, 10.3390/ijms23042023 3D-printed fibre geopolymers - values only in figures / approximate text.
+- 10.3390/ma18092132 PET-modified alkali-activated EHDC with PE 2025 - fracture energies only, no fc/ft.
+- 10.3390/ma19173656 steel fibre + CNT lithium-slag geopolymer 2026 - shrinkage only.
+- 10.3390/polym18162014 PP fibre one-part hybrid geopolymer with tyre aggregate 2026 - cement-containing hybrid; per-mix strengths in figures.
+- 10.3390/polym15041017 fibre-reinforced geopolymer for masonry 2023 - only group means pooled across mixes.
+- 10.3390/polym15030700 PP fibre coal-gangue ecological material 2023 - fibre in permille of mass; binder/aggregate proportions not given.
+- 10.1038/s41598-025-06883-0 volcanic-ash fibre geopolymer mortar 2025 - strengths given only as % of reference.
+- 10.3389/fmats.2021.773103 PVA + CNT metakaolin geopolymer 2021 - strengths in figures; mix only as molar ratios.
+- 10.3389/fmats.2020.583400, 10.3389/fbuil.2025.1620385 recycled carbon-fibre geopolymers - prepreg offcuts in g / 3D printing; results in figures.
+- 10.1590/1517-7076-rmat-2025-0066 basalt fibre EGC (Materia) 2025 - fibre vol% inconsistent with kg/m3 (1% vs 3.3 kg/m3); splitting 15.5 MPa implausible.
+- 10.1590/1517-7076-rmat-2024-0646, 10.1590/1517-7076-rmat-2025-0603, 10.1590/1517-7076-rmat-2026-0298 - geopolymer / AAS concretes with coarse aggregate > 0.5 x binder.
+- 10.3151/jact.21.271, 21.405, 21.523, 21.695, 15.684 (JACT EGC/AAS fibre papers) - J-STAGE gives PDF only (no HTML full text); not read.
+- Hindawi/Wiley (e.g. 10.1155/2019/7573635, 10.1155/2020/4752841) and Elsevier OA (cscm, dibe, coco, nxmate) candidates - publisher pages return 403 and not in PMC; not read.
+Access notes: NCBI E-utilities returned HTTP 500 throughout; Europe PMC search worked later in the session; mdpi.com 403.

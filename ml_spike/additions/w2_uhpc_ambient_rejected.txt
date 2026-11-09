@@ -1,0 +1,27 @@
+10.3390/ma12111845 | Zhong et al. 2019, manufactured-sand RPC, steel fibre 0-5 %, NC/SC/CC curing | S95 slag (mineral powder) and SP dosages not reported, so binder fractions cannot be closed (data-rich: Tables 10, 12; recoverable if the sister paper's 5 % slag is accepted)
+10.3390/ma14010215 | Effects of curing conditions on UHPC with iron tailing powder | no fibres; strengths only in figures
+10.3390/ma8085261 | Early-age strength of UHPC in various curing conditions | heat-curing study; fibre dosage given as a range (1.5-2 %); most fc in figures
+10.3390/ma15145066 | Time-dependent effect in UHPC by curing method | no mix proportions (commercial 150 MPa UHPC)
+10.3390/ma17020393 | UHPC with recycled glass cullet powder and PET fibres | all strengths in figures
+10.3390/ma18143300 | Recycled tyre steel fibre UHPC | per-mix fc/flexural only in figures (2 values in text); 'breeze' constituent undefined
+10.3390/ma19153277 | Low-carbon UHPC with GGBS-calcium carbide slag + recycled plastic fibres | 90 C steam cured only (off-topic for ambient batch); good tables if a heat-cured batch is wanted
+10.3390/ma18010028 | Microsilica and fly ash UHPC | no fibres; basalt aggregate up to 2 mm
+10.3390/ma18040842 | ECO-UHPC with gold tailings sand, curing experiences | strengths only in figures
+10.3390/ma13030683 | Steel slag powder and expansive agent UHPC | only reference-mix strengths in table; rest in figures
+10.3390/ma14082016 | UHPFRC binder content, steam vs water curing | per-mix fc only in figures (extremes in text)
+10.3390/ma16062281 | Ultrafine slag + limestone UHPC rheology | no fibres / no tabulated strengths
+10.3390/polym14101956 | Fibre type/content shrinkage of UHPC | coarse aggregate > 0.5 x binder
+10.3390/ma12111751 | Steel fibre / RPC matrix matching | SF-only binder, heat-cured; outside SCM/ambient topic
+10.3390/ma17133299 | Basalt/steel fibre UHPC | strengths only in figures
+10.3390/polym17091232 | Macro-PP fibre UHPC with slag | fc ambiguous (Table 3 fcm 105-118 vs text max cube 135 MPa); splitting only in figures
+10.1617/s11527-025-02875-8 | Fibre types/mixes in UHPC | commercial premix (Argos UHPC), binder composition unknown
+10.3390/ma12050783 | Recycled/industrial steel fibre UHPC anti-spalling | coarse aggregate 930 kg/m3 > 0.5 x binder
+10.3390/ma16217014 | POM fibre UHPC | strengths only in figures; no POM column
+10.1016/j.heliyon.2023.e17926 | Steel/glass hybrid UHPC | strengths only in figures
+10.3390/ma13132948 | RPC with basalt fibres | basalt fibre density not given (cannot convert kg/m3 to vol%); curing not described
+10.3390/ma16062414 | UHP-ECC with EVA polymer and PVA | EVA polymer; batch masses in grams, fibre dosage by binder mass and mortar ratio ambiguous
+10.3390/ma19163553 | PP fibre in steel-slag UHP shotcrete | sprayed concrete, high-temperature focus; ambient fc only partially in text
+10.3390/polym14101933 | RPC and steel-RPC composite structures with different fibre parameters | steam cured, structural focus
+10.3390/ma18112426 | Hybrid fibre UHPC review | review paper
+10.1038/s41598-025-92097-3 | RPC w/c and SCMs, impact resistance | strengths only in figures
+# Note: Europe PMC search endpoint returned 503 throughout; candidates were found via NCBI E-utilities (db=pmc), full text from Europe PMC fullTextXML.
