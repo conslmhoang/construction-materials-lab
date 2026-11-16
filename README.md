@@ -5,7 +5,7 @@ Live site: https://conslmhoang.github.io/construction-materials-lab/
 A browser-only tool for fiber-reinforced cementitious and geopolymer composites (ECC/SHCC, UHPC, UHP-ECC):
 
 1. **Mix design**: proportions → kg per m³ and per batch, with cost, embodied energy and CO₂ (69 materials).
-2. **Strength prediction**: compressive strength, direct tensile strength and tensile strain capacity from the mix,
+2. **Strength prediction**: compressive strength and tensile strain capacity from the mix,
    curing method/temperature/humidity/duration and test age. It includes an 80% range, a strength-vs-age table,
    a "what changes the prediction" table and optional calibration with your own lab results.
 3. **Logs**: every mix design, batch and prediction is logged and can be downloaded as Excel/CSV.
@@ -25,7 +25,7 @@ One sheet, one row per mix and test age, and only the columns the web has:
 | Paper, DOI | source paper |
 | 69 materials | same names and units as the calculator: binders = mass fraction of the binder, others = mass ratio to the binder, fibers = vol% |
 | 5 conditions | curing method, curing temperature (°C), relative humidity (%), curing duration (days), test age (days) |
-| 3 outputs | compressive strength (MPa), direct tensile strength (MPa), tensile strain capacity (%); blank when not used |
+| 2 outputs | compressive strength (MPa), tensile strain capacity (%); blank when not used |
 
 `ml_spike/web_data.py` turns each row into the model inputs with the same rules as the web page,
 so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is the full extraction
@@ -36,7 +36,6 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
 | Compressive strength | 1456 / 190 | CatBoost | 0.95 | 6.9 MPa |
-| Direct tensile strength | 634 / 127 | CatBoost | 0.82 | 0.87 MPa |
 | Tensile strain capacity | 600 / 123 | Extra Trees | 0.76 | 0.86 % |
 
 ## Rebuilding

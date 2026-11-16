@@ -3,7 +3,7 @@ rules the web page uses (index.html: ROLES, calcMix, buildFeatures). Training an
 therefore see the same numbers for the same mix.
 
     from web_data import load
-    X, Y, groups = load()     # X: DataFrame of FEATURES, Y: {"fc","ft","eps"} Series, groups: paper
+    X, Y, groups = load()     # X: DataFrame of FEATURES, Y: {"fc","eps"} Series, groups: paper
 """
 import os, re, json
 import numpy as np, pandas as pd
@@ -18,7 +18,7 @@ FEATURES = ["OPC", "GGBS", "FA", "SF", "MK", "LP",
             "V_PE", "V_PVA", "V_Steel", "V_PBO", "V_total",
             "Cure_T", "Cure_days", "Cure_RH", "Age_days", "Cure_water", "Cure_sealed", "Cure_heat",
             "W_C", "Activator_tot", "Paste_vol", "Binder_kgm3"]
-OUTPUTS = {"fc": "Compressive strength (MPa)", "ft": "Direct tensile strength (MPa)",
+OUTPUTS = {"fc": "Compressive strength (MPa)",
            "eps": "Tensile strain capacity (%)"}
 CONDS = ["Curing method", "Curing temperature (°C)", "Relative humidity (%)", "Curing duration (days)", "Test age (days)"]
 

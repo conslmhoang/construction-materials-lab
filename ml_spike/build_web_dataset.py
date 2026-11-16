@@ -2,7 +2,7 @@
 the web calculator has:
 
   Paper, DOI | the 69 web materials | curing method, temperature, RH, duration, test age |
-  compressive strength, direct tensile strength, tensile strain capacity
+  compressive strength, tensile strain capacity
 
 Units are the web's units: binder materials = mass fraction of the binder (they sum to 1),
 other materials = mass ratio to the binder, fibers = vol%.
@@ -96,12 +96,11 @@ D["Curing duration (days)"] = N(328)
 D["Test age (days)"] = N(341).fillna(N(328))
 
 # ---- outputs: only the values the cleaning kept
-use = {k: F[f"use_{k}"].astype(bool).values for k in ("fc", "ft", "eps")}
+use = {k: F[f"use_{k}"].astype(bool).values for k in ("fc", "eps")}
 D["Compressive strength (MPa)"] = N(389).where(use["fc"])
-D["Direct tensile strength (MPa)"] = N(404).where(use["ft"])
 D["Tensile strain capacity (%)"] = N(418).where(use["eps"])
 
-keep = use["fc"] | use["ft"] | use["eps"]
+keep = use["fc"] | use["eps"]
 D = D[keep].reset_index(drop=True)
 
 # fibers with only a "total fiber" value and no type cannot be entered on the web
@@ -134,4 +133,4 @@ with pd.ExcelWriter(OUT, engine="openpyxl") as w:
     D.to_excel(w, sheet_name="Data", index=False)
     guide.to_excel(w, sheet_name="Guide", index=False)
 print("wrote", OUT, D.shape)
-print({k: int(D[c].notna().sum()) for k, c in [("fc", "Compressive strength (MPa)"), ("ft", "Direct tensile strength (MPa)"), ("eps", "Tensile strain capacity (%)")]})
+print({k: int(D[c].notna().sum()) for k, c in [("fc", "Compressive strength (MPa)"), ("eps", "Tensile strain capacity (%)")]})

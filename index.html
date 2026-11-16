@@ -308,7 +308,6 @@
           Later predictions are scaled by the same correction (it is stored in this browser only). One to three trial specimens usually halve the error.</p>
         <div class="cond">
           <div><label for="mFc">Measured compressive strength (MPa)</label><input type="number" id="mFc" min="0" step="0.1" placeholder="optional"></div>
-          <div><label for="mFt">Measured direct tensile strength (MPa)</label><input type="number" id="mFt" min="0" step="0.01" placeholder="optional"></div>
           <div><label for="mEps">Measured tensile strain capacity (%)</label><input type="number" id="mEps" min="0" step="0.01" placeholder="optional"></div>
         </div>
         <div class="bar" style="margin-top:12px;justify-content:flex-start">
@@ -667,6 +666,8 @@ function loadLogs(){
       const raw = localStorage.getItem(L.key);
       L.rows = raw ? JSON.parse(raw) : [];
       if (!Array.isArray(L.rows)) L.rows = [];
+      // tensile strength is no longer predicted: drop its columns from older prediction rows
+      if (L === LOGS.pred) L.rows.forEach(r => Object.keys(r).forEach(k => { if (k.startsWith("Direct tensile strength")) delete r[k]; }));
     }catch(e){
       L.rows = []; logWritable = false;
       showErr($("logWarn"), "This browser is blocking local storage, so the history will not survive a page reload. Download the files before closing the tab.");
@@ -1199,7 +1200,7 @@ $("calBtn").onclick = () => {
   try{
     const {binder, fiber} = currentMix();
     const {x} = featuresFor(binder, fiber, readConditions());
-    const meas = {fc: parseFloat($("mFc").value), ft: parseFloat($("mFt").value), eps: parseFloat($("mEps").value)};
+    const meas = {fc: parseFloat($("mFc").value), eps: parseFloat($("mEps").value)};
     let n = 0;
     for (const [k, m] of Object.entries(meas)){
       if (!isFinite(m) || m <= 0 || !SM.targets[k]) continue;
@@ -1215,7 +1216,7 @@ $("calBtn").onclick = () => {
 };
 $("calReset").onclick = () => {
   CAL = {}; try{ localStorage.removeItem(CAL_KEY); }catch(e){}
-  ["mFc","mFt","mEps"].forEach(id => $(id).value = "");
+  ["mFc","mEps"].forEach(id => $(id).value = "");
   if (!$("predOut").classList.contains("hidden")) runPrediction();
 };
 

@@ -72,7 +72,7 @@
       <li><b>Collection:</b> mix proportions, curing conditions and test results were extracted from published papers on fiber-reinforced cementitious and geopolymer composites (ECC/SHCC, UHPC, UHP-ECC, alkali-activated). Every value keeps a pointer to the table or page it came from; unit conversions (kg/m³ → ratio to binder) are recorded, and DOIs were checked against Crossref.</li>
       <li><b>Training file:</b> <code>04 Dataset_web.xlsx</code> has only the columns the calculator has: the 69 materials (same names and units), curing method, temperature, humidity, duration, test age, and the three measured strengths.</li>
       <li><b>Nothing is deleted:</b> each row is only flagged as used or not used for each model, with a reason.</li>
-      <li><b>Excluded from the models:</b> mixes without fibers, special tests (fire, freeze–thaw, impact), rows missing the water/binder ratio or test age, statistical outliers, and materials without a reliable density. Tensile models use direct (uniaxial / dog-bone) tension only.</li>
+      <li><b>Excluded from the models:</b> mixes without fibers, special tests (fire, freeze–thaw, impact), rows missing the water/binder ratio or test age, statistical outliers, and materials without a reliable density. Tensile strain capacity uses direct (uniaxial / dog-bone) tension tests only.</li>
     </ul>
     <h3 style="font-size:15px;margin:16px 0 4px">Compressive strength: from all rows to the training set</h3>
     <div class="funnel" id="funnel"></div>
@@ -95,7 +95,7 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const n0 = v => Number(v).toLocaleString("en-US");
 let P = [], sortKey = "rows", sortDir = -1;
-const COLS = [["#",null],["Paper","title"],["Rows","rows"],["fc","fc"],["ft","ft"],["εtu","eps"]];
+const COLS = [["#",null],["Paper","title"],["Rows","rows"],["fc","fc"],["εtu","eps"]];
 
 function renderTable(){
   const q = $("q").value.trim().toLowerCase();
@@ -104,7 +104,7 @@ function renderTable(){
   $("count").textContent = `${rows.length} of ${P.length} papers`;
   $("tbl").innerHTML = `<thead><tr>${COLS.map(([l,k]) => `<th data-k="${k||""}">${l}${k === sortKey ? (sortDir < 0 ? " ▾" : " ▴") : ""}</th>`).join("")}</tr></thead><tbody>${
     rows.map((p,i) => `<tr><td>${i+1}</td><td>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</td>
-      <td>${p.rows}</td><td>${p.fc || ""}</td><td>${p.ft || ""}</td><td>${p.eps || ""}</td></tr>`).join("")}</tbody>`;
+      <td>${p.rows}</td><td>${p.fc || ""}</td><td>${p.eps || ""}</td></tr>`).join("")}</tbody>`;
 }
 
 fetch("data/sources.json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(j => {
@@ -112,7 +112,6 @@ fetch("data/sources.json").then(r => { if (!r.ok) throw new Error(r.status); ret
   $("stats").innerHTML = [
     ["Rows (mixes × ages)", n0(s.rows), `${s.papers} papers`],
     ["Compressive strength", n0(s.use.fc), `used of ${n0(s.has.fc)} with a value`],
-    ["Direct tensile strength", n0(s.use.ft), `used of ${n0(s.has.ft)} with a value`],
     ["Tensile strain capacity", n0(s.use.eps), `used of ${n0(s.has.eps)} with a value`],
   ].map(([k,v,d]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join("");
   const steps = [["All rows", s.rows], ["With a compressive strength", s.has.fc],

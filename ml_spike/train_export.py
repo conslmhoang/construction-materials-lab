@@ -1,6 +1,6 @@
 """Train the final strength models from "04 Dataset_web.xlsx" and export them for the web.
 
-  fc  : CatBoost     ft : CatBoost     eps : Extra Trees      (best in benchmark10.py)
+  fc  : CatBoost     eps : Extra Trees      (best in benchmark10.py)
 
 Inputs = the 33 values the web computes from its materials + curing/test conditions (web_data.py).
 Headline score = random-split 10-fold CV x 3 seeds.
@@ -22,7 +22,6 @@ from catboost import CatBoostRegressor
 X, Y, groups = load()
 SPEC = {
     "fc":  dict(kind="catboost", unit="MPa", label="Compressive strength"),
-    "ft":  dict(kind="catboost", unit="MPa", label="Direct tensile strength"),
     "eps": dict(kind="et",       unit="%",   label="Tensile strain capacity"),
 }
 

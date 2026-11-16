@@ -1,6 +1,6 @@
 """Compare the 10 most-used ML models on "04 Dataset_web.xlsx".
 
-Targets : compressive strength, direct tensile strength, tensile strain capacity
+Targets : compressive strength, tensile strain capacity
 Inputs  : the 33 values the web computes (web_data.py) — same as train_export.py
 Score   : 10-fold cross-validation, random split, mean of 3 seeds
 
@@ -53,7 +53,6 @@ MODELS = {
                                                                 verbose=0, random_seed=0, thread_count=4, allow_writing_files=False)),
 }
 TARGETS = {"fc": ("Compressive strength fc", "MPa"),
-           "ft": ("Direct tensile strength ft", "MPa"),
            "eps": ("Tensile strain capacity εtu", "%")}
 
 def run(Xa, y, splits, mk):
@@ -86,7 +85,7 @@ df = pd.DataFrame(rows)
 df.to_csv(os.path.join(OUT, "benchmark10.csv"), index=False, encoding="utf-8-sig")
 json.dump(web, open(os.path.join(OUT, "benchmark10.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 
-fig, axs = plt.subplots(1, 3, figsize=(17, 5.5))
+fig, axs = plt.subplots(1, 2, figsize=(12, 5.5))
 for ax, (key, g) in zip(axs, df.groupby("target", sort=False)):
     g = g.sort_values("R2 random-row"); yy = np.arange(len(g))
     ax.barh(yy, g["R2 random-row"].clip(lower=0), 0.6, color="#2a78d6")

@@ -1,31 +1,21 @@
 ﻿target,model,family,R2 random-row,MAE random-row,RMSE random-row,fit_s
 fc,Linear Regression,Linear,0.831,14.044,18.949,0.3
-fc,KNN,Distance,0.913,8.534,13.574,0.3
-fc,SVR,Kernel,0.921,8.152,13.001,3.8
-fc,ANN (MLP),Neural,0.916,8.452,13.397,17.1
+fc,KNN,Distance,0.913,8.534,13.574,0.5
+fc,SVR,Kernel,0.921,8.152,13.001,4.7
+fc,ANN (MLP),Neural,0.916,8.452,13.397,21.1
 fc,Decision Tree,Tree,0.892,9.431,15.159,0.3
-fc,Random Forest,Bagging,0.942,7.154,11.127,14.1
-fc,Extra Trees,Bagging,0.945,6.95,10.851,10.5
-fc,Gradient Boosting,Boosting,0.947,7.468,10.639,31.0
-fc,XGBoost,Boosting,0.949,7.172,10.426,9.7
-fc,CatBoost,Boosting,0.952,6.932,10.055,24.1
-ft,Linear Regression,Linear,0.664,1.337,1.721,0.2
-ft,KNN,Distance,0.762,1.001,1.449,0.2
-ft,SVR,Kernel,0.762,1.022,1.449,0.9
-ft,ANN (MLP),Neural,0.801,0.949,1.325,8.6
-ft,Decision Tree,Tree,0.738,1.065,1.522,0.1
-ft,Random Forest,Bagging,0.81,0.898,1.293,12.7
-ft,Extra Trees,Bagging,0.823,0.876,1.248,8.3
-ft,Gradient Boosting,Boosting,0.813,0.906,1.285,15.5
-ft,XGBoost,Boosting,0.814,0.894,1.281,7.4
-ft,CatBoost,Boosting,0.824,0.874,1.246,16.7
+fc,Random Forest,Bagging,0.942,7.154,11.127,15.3
+fc,Extra Trees,Bagging,0.945,6.95,10.851,9.9
+fc,Gradient Boosting,Boosting,0.947,7.468,10.639,31.1
+fc,XGBoost,Boosting,0.949,7.172,10.426,13.5
+fc,CatBoost,Boosting,0.952,6.932,10.055,31.5
 eps,Linear Regression,Linear,0.596,1.303,1.707,0.2
-eps,KNN,Distance,0.698,0.943,1.475,0.2
-eps,SVR,Kernel,0.715,0.906,1.432,0.8
-eps,ANN (MLP),Neural,0.728,0.927,1.398,7.4
-eps,Decision Tree,Tree,0.681,0.953,1.514,0.1
-eps,Random Forest,Bagging,0.769,0.842,1.289,12.7
-eps,Extra Trees,Bagging,0.774,0.819,1.275,8.5
-eps,Gradient Boosting,Boosting,0.767,0.877,1.297,16.4
-eps,XGBoost,Boosting,0.769,0.856,1.289,8.2
-eps,CatBoost,Boosting,0.771,0.854,1.285,17.1
+eps,KNN,Distance,0.698,0.943,1.475,0.3
+eps,SVR,Kernel,0.715,0.906,1.432,1.1
+eps,ANN (MLP),Neural,0.728,0.927,1.398,10.0
+eps,Decision Tree,Tree,0.681,0.953,1.514,0.2
+eps,Random Forest,Bagging,0.769,0.842,1.289,14.9
+eps,Extra Trees,Bagging,0.774,0.819,1.275,9.1
+eps,Gradient Boosting,Boosting,0.767,0.877,1.297,16.3
+eps,XGBoost,Boosting,0.769,0.856,1.289,8.7
+eps,CatBoost,Boosting,0.771,0.854,1.285,18.5
