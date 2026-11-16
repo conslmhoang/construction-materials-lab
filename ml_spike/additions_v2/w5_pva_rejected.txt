@@ -1,0 +1,26 @@
+10.1007/s41062-024-01802-0 | ECC uses glass fiber only (not allowed); EGC mixes alkali + glass fiber
+10.1007/s42452-025-08160-1 | review paper (no own mixes)
+10.1016/j.cemconcomp.2022.104790 | PP fiber + LC3 (calcined clay) only; no PVA/allowed fiber mix
+10.1016/j.conbuildmat.2023.130672 | PVA control mix fc, ft and strain only in figures (Fig. 9, 13); others contain recycled tyre polymer fibres
+10.4236/msa.2018.93021 | quartz powder in all mixes (not allowed)
+10.17515/resm2022.491me0804 | zeolite in some mixes; all strength results only in figures
+10.1016/j.conbuildmat.2018.04.152 | Table 1 internally inconsistent (W/(C+FA) and FA/C do not match kg/m3); results mostly in figures
+10.1016/j.cemconcomp.2022.104677 | PE fiber with sulfoaluminate cement (not allowed)
+10.1016/j.jobe.2024.109733 | coral sand composites (not a standard ECC sand; uniaxial compression study)
+10.21533/pen.v9.i4.1005 | steel/carbon fiber mixes; all results only in figures
+10.17222/mit.2022.669 | cement kiln dust and foundry sand; no strength results (shrinkage only)
+10.3390/ma19173781 | foamed concrete with calcium formate and foaming agent (not an ECC; not allowed admixtures)
+10.3151/jact.13.241 | compressive strength only in a figure; no direct tension (bending only)
+10.12677/hjce.2026.159219 | cement/fly ash split not reported (only w/b and s/b); iron oxide pigments
+10.28948/ngumuh.1186020 | ECC strength results only in figures; EGC mixes alkali-activated with FA+lime
+10.3151/jact.11.301 | air-entraining agent in all mixes (not allowed admixture)
+10.3151/jact.11.35 | mix incomplete (cement/fly ash split not given); creep study
+10.33261/jaaru.2022.29.2.003 | PP fiber + PVA polymer powder (not PVA fiber); limestone cement only
+10.48084/etasr.6731 | polyvinyl alcohol solution admixture in all mixes; PP/PVA fibers; no direct tension
+10.3390/buildings12050691 | CaCO3 whisker and air-entraining agent in all mixes (not allowed)
+10.3390/buildings13082018 | graphene oxide in all tabulated mixes; control M0 only in figures
+10.1007/s44416-026-00075-3 | PVA-film based hybrid 'fibers' (not standard PVA fibers); nano additions
+10.37934/araset.31.2.6270 | results only in figures; splitting tension only
+10.30880/ijie.2022.14.09.021 | no fly ash; NaOH-treated rubber; results only in figures
+10.24191/jmeche.v20i2.22060 | no fly ash; treated crumb rubber; results only in figures
+10.3989/mc.2022.06021 | CaCO3 whisker in hybrid mixes; PVA-SHCC compressive results only in figures

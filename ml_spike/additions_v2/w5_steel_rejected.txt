@@ -1,0 +1,35 @@
+10.3390/ma10020118 | silica flour in mix; flexure only
+10.3390/ma19163531 | quartz powder (QP) in all mixes
+10.3390/ma17194885 | microspheres in mix
+10.3390/ma18102231 | electric-induced heating curing at negative temperature (non-ordinary)
+10.3390/ma13010159 | same SIFRCC mixes/specimens as 10.3390/ma12203335 (taken from that paper) - duplicate data
+10.3390/ma14164353 | no compressive strength / tensile strain reported (NDT study)
+10.3390/ma14195714 | heat curing 90 C, no fc, tensile strain only in figure
+10.3390/ma12060938 | composite fc not reported (matrix only); specimens oven-dried 70 C before testing
+10.3390/ma16010296 | no compressive strength / tensile strain reported
+10.3390/ma11020194 | quartz filler (2.65 g/cm3) in mix
+10.3390/ma15175916 | 'admixtures' 270 kg/m3 of unclear composition (silica fume flour)
+10.3390/ma18030669 | 325-mesh quartz (quartz powder) and antifoam/gypsum agent in mix
+10.3390/polym10020138 | single mix, W/B 0.10 (implausible / SP water unclear), curing and age not stated
+10.3390/ma13102356 | zeolite sand; control without steel fibers
+10.3390/ma14143982 | UHPC mix proportions not given
+10.3390/ma13173901 | quartz powder in mix
+10.3390/ma16020700 | quartz powder / glass powder in mix
+10.1371/journal.pone.0238654 | 'Silica VC2644' (silica flour) in mix
+10.21838/uhpc.25732 | workability extender admixture; per-mix fc only as range
+10.21838/uhpc.25638 | proprietary premix powder, rapid-hardening powder and retarder
+10.21838/uhpc.25683 | proprietary premix, quick-setting material and retarder
+10.21838/uhpc.16719 | proprietary CT25 premix powder
+10.21838/uhpc.16713 | premixed UHP-FRC, no mix proportions
+10.21838/uhpc.9689 | silica flour / limestone options, no full mix table
+10.21838/uhpc.9678 | proprietary premix
+10.21838/uhpc.9704 | proprietary premix
+10.21838/uhpc.9693 | proprietary premix
+10.21838/uhpc.9688 | quartz powder in mixes
+10.21838/uhpc.25664 | ASTM C494 Type G (retarding) workability-retaining admixture
+10.21838/uhpc.25731 | retarder in LS-1; LS-2 HRWR/VMA only in mL/cwt; M1/M2 without fibers
+10.21838/uhpc.25707 | accelerator (SikaSet-NC) in mix
+10.21838/uhpc.16724 | recycled glass powder in all non-proprietary mixes
+10.21838/uhpc.2016.11 | coarse basalt aggregate up to 10 mm
+10.21838/uhpc.2016.72 | pumice powder in mix
+10.21838/uhpc.25680 | mixtures without fibers

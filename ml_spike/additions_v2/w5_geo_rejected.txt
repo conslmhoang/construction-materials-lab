@@ -1,0 +1,23 @@
+https://doi.org/10.1016/j.cscm.2025.e04796 | borax in every mix (not an allowed material)
+https://doi.org/10.1016/j.clema.2026.100420 | borax retarder in every mix
+https://doi.org/10.1016/j.cscm.2025.e04857 | fly ash cenosphere as precursor/aggregate in every mix; fc only in figure
+https://doi.org/10.1016/j.cscm.2024.e03361 | Na2O powder activator; control results only approximate/in figures; self-healing (pre-cracked) study
+https://doi.org/10.1016/j.cscm.2022.e00920 | rice husk ash and copper slag in mixes
+https://doi.org/10.1016/j.cscm.2025.e05125 | KOH and potassium borate activators, calcined dolomite
+https://doi.org/10.1016/j.cscm.2026.e05800 | metakaolin + fly ash cenosphere + recycled sand
+https://doi.org/10.1016/j.jmrt.2025.01.166 | boric acid in every mix
+https://doi.org/10.1016/j.jmrt.2025.07.153 | sodium carbonate activator in every mix
+https://doi.org/10.3390/buildings15142496 | BaCl2 in every mix
+https://doi.org/10.3390/buildings14051399 | quartz powder + BaCl2 in every mix
+https://doi.org/10.3390/buildings14041088 | BaCl2 in every mix
+https://doi.org/10.3390/buildings14051438 | BaCl2 in every mix; impact study
+https://doi.org/10.3390/infrastructures9110191 | rice husk ash, glass powder, PP fibers
+https://doi.org/10.3390/buildings14071986 | metakaolin-based; splitting test only
+https://doi.org/10.3390/fib14060067 | metakaolin/copper slag geopolymer, splitting only
+https://doi.org/10.3390/jcs4030128 | review paper, no own mixes
+https://doi.org/10.3390/cryst11070760 | glass/PP fibers; no qualifying mix data found
+https://doi.org/10.1016/j.cscm.2024.e03590 | borax and recycled brick powder in every mix
+https://doi.org/10.1016/j.cscm.2025.e04984 | calcium carbide slag (CCS) in every mix
+https://doi.org/10.1016/j.cscm.2025.e05173 | shield muck precursor (not allowed)
+https://doi.org/10.1016/j.cscm.2023.e02230 | one-part geopolymer for energy piles, no fibre mixes found
+https://doi.org/10.1016/j.cscm.2024.e03988 | freeze-thaw study; unexposed control values only approximate in text (around 75 MPa / 5 MPa), rest in figures

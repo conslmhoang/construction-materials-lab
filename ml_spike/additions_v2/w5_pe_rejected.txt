@@ -1,0 +1,15 @@
+https://doi.org/10.3390/buildings14113484 | numerical/analytical study only (FE model of UHP-ECC beams); no mix proportions
+https://doi.org/10.3390/jcs5040113 | PVA-ECC with fly-ash cenospheres (FAC not an allowed material)
+https://doi.org/10.3390/jcs9090493 | coral-sand UHPC with glass microspheres (excluded); results only as regressions/figures
+https://doi.org/10.3390/buildings14051438 | PE geopolymer composite with BaCl2 retarder (excluded admixture); impact focus
+https://doi.org/10.3390/coatings16030354 | UHSDC matrix contains 10 um quartz filler (quartz powder excluded); PE/PP hybrids
+https://doi.org/10.1155/2019/4737384 | no-slump HSC with 99% SiO2 10 um filler (quartz powder excluded)
+https://doi.org/10.1155/2018/1967936 | PE-SHCC: test age/curing of material tests not stated; other mixes contain CSA expansive admixture / unidentified AE agent
+https://doi.org/10.3390/fib13100133 | HDFRCC: curing and test age of fc not reported; fiber content inconsistent (1.2 wt% vs vol); flexure only
+https://doi.org/10.3390/buildings15224058 | full text (tables) not readable in HTML
+https://doi.org/10.1007/s43452-021-00275-7 | paywalled (no access)
+https://doi.org/10.1016/j.cscm.2024.e04164 | ScienceDirect blocked by bot check (no access); Elsevier OA papers generally unreachable this session
+https://doi.org/10.3390/jcs10030117 | recycled-glass UHPC (glass excluded)
+https://doi.org/10.3390/app8020151 | PVA only (outside PE scope; fc only in figures) - lead for PVA agent
+https://doi.org/10.3390/buildings13061538 | PVA desert-sand ECC (outside PE scope; merged-cell mix table) - lead for PVA agent
+https://doi.org/10.3390/buildings12122108 | no PE (PP/PO/glass/steel); only steel mixes 7-8 would qualify - lead for steel agent

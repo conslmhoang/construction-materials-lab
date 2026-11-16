@@ -1,0 +1,17 @@
+10.1155/2018/4308084 | curing regime, test age and SP dosage not reported; unspecified 'mineral admixtures' listed among ingredients
+10.3390/app11052446 | MWCNTs in all SHCC mixes (nano material not allowed)
+10.3390/buildings13082116 | only control ECC qualifies (others contain SMA wires) and its mass-proportion row (C 1.0, FA 4.0, sand 0.20, water 0.22) has an undeterminable reference basis
+10.3390/buildings14051399 | quartz powder and BaCl2 retarder in all mixes (not allowed)
+10.3390/buildings14113679 | no direct tension test (splitting only); compressive strength only in figures
+10.3390/buildings15091479 | foamed lightweight soil with basalt fiber; not an ECC mix, no direct tension
+10.3390/buildings15142496 | BaCl2 retarder in all mixes (not allowed admixture)
+10.3390/buildings15203792 | activator only as Na2O%/modulus/liquid-solid ratio (water and water-glass amounts not determinable); tensile results only in figures
+10.3390/buildings16153053 | gold tailings in every mix (not an allowed material); fc only for some mixes
+10.3390/buildings16173375 | marble powder and crystalline waterproofing admixture (MasterLife WP 1000) in all mixes; no direct tension
+10.3390/fib11010009 | fibers are PP-PE blend, kenaf, coconut (not allowed); no direct tension; table mix errors
+10.3390/fib13050060 | structural FRP-bar study; full text tables not available as html
+10.3390/fib13060072 | no direct tension test; compressive strength not tabulated per mix (only one value for FROC-2.5%), fiber dosage unit ambiguous
+10.3390/jcs5040113 | fly ash cenospheres in all mixes (not an allowed material); tensile results only in figures
+10.3390/jcs5100283 | review paper (no own mixes)
+10.3390/jcs7070293 | no compressive strength and no direct tension results (flexure of layered plates only)
+10.3390/su151713128 | polypropylene fibers only

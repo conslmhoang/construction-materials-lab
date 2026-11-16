@@ -1,6 +1,6 @@
 """Train the final strength models from "04 Dataset_web.xlsx" and export them for the web.
 
-  fc  : CatBoost     eps : CatBoost      (best in benchmark10.py)
+  fc  : CatBoost     eps : Extra Trees   (best in benchmark10.py)
 
 Inputs = the 21 web materials + curing/test conditions + 5 values computed from them (web_data.py).
 Headline score = random-split 10-fold CV x 3 seeds.
@@ -22,7 +22,7 @@ from catboost import CatBoostRegressor
 X, Y, groups = load()
 SPEC = {
     "fc":  dict(kind="catboost", unit="MPa", label="Compressive strength"),
-    "eps": dict(kind="catboost", unit="%",   label="Tensile strain capacity"),
+    "eps": dict(kind="et",       unit="%",   label="Tensile strain capacity"),
 }
 
 NAME = {"catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest"}
@@ -33,7 +33,7 @@ def make(kind):
                                  verbose=0, random_seed=0, thread_count=4, allow_writing_files=False)
     if kind == "rf":
         return RandomForestRegressor(n_estimators=150, min_samples_leaf=3, max_features=0.5, n_jobs=-1, random_state=0)
-    return ExtraTreesRegressor(n_estimators=150, min_samples_leaf=3, max_features=0.5, n_jobs=-1, random_state=0)
+    return ExtraTreesRegressor(n_estimators=300, min_samples_leaf=2, max_features=0.5, n_jobs=-1, random_state=0)   # = benchmark10.py
 
 def prep(kind, Xa):
     return Xa if kind == "catboost" else np.where(np.isnan(Xa), -1.0, Xa)   # trees: NaN -> -1 (same in JS)
