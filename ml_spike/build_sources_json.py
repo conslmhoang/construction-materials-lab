@@ -33,7 +33,7 @@ summary = {"rows": int(len(F)), "papers": len(papers),
            "has": {t: int(F[f"has_{t}"].sum()) for t in ("fc", "ft", "eps")},
            "use": {t: int(F[f"use_{t}"].sum()) for t in ("fc", "ft", "eps")},
            "why_not_fc": F.loc[F["has_fc"].astype(bool) & ~F["use_fc"].astype(bool), "why_not_fc"]
-                          .fillna("").str.split(";").explode().str.strip().loc[lambda s: s != ""].value_counts().to_dict()}
+                          .fillna("").str.split(";").explode().str.strip().loc[lambda s: s != ""].replace("no fibre", "no fiber").value_counts().to_dict()}
 os.makedirs(os.path.join(root, "data"), exist_ok=True)
 json.dump({"summary": summary, "papers": papers}, open(os.path.join(root, "data", "sources.json"), "w", encoding="utf-8"),
           ensure_ascii=False, separators=(",", ":"))

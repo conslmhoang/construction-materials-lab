@@ -2,7 +2,7 @@
 
 Live site: https://conslmhoang.github.io/construction-materials-lab/
 
-A browser-only tool for fibre-reinforced cementitious and geopolymer composites (ECC/SHCC, UHPC, UHP-ECC):
+A browser-only tool for fiber-reinforced cementitious and geopolymer composites (ECC/SHCC, UHPC, UHP-ECC):
 
 1. **Mix design**: proportions → kg per m³ and per batch, with cost, embodied energy and CO₂ (69 materials).
 2. **Strength prediction**: compressive strength, direct tensile strength and tensile strain capacity from the mix,

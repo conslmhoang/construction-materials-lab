@@ -264,7 +264,7 @@
   <section class="card" id="predCard">
     <h2>3. Strength Prediction <span class="sub2">— machine-learning estimate</span></h2>
     <p class="hint">Uses the proportions from section 1 plus the curing and test conditions below (it updates automatically after each calculation).
-      Trained on <span id="pTrain">published fibre-reinforced mixes</span>. See <a href="benchmark.html">how 10 models were compared</a> and <a href="data.html">where the data come from</a>.</p>
+      Trained on <span id="pTrain">published fiber-reinforced mixes</span>. See <a href="benchmark.html">how 10 models were compared</a> and <a href="data.html">where the data come from</a>.</p>
     <div class="cond">
       <div>
         <label for="cMethod">Curing method</label>
@@ -480,7 +480,7 @@ let lastInputs = null;
 let logWritable = true;
 
 const $ = id => document.getElementById(id);
-const isFiber = n => /fibre|fiber/i.test(n);
+const isFiber = n => /fiber|fiber/i.test(n);
 const fmt = (v, d) => Number(v).toLocaleString("en-US", {minimumFractionDigits:d, maximumFractionDigits:d});
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
@@ -903,7 +903,7 @@ $("dbReset").onclick = () => { hideErr($("dbError")); setDb(DEFAULT_MATERIALS, "
    Mix -> the 33 model inputs, mirroring the feature engineering in ml_spike/spike.py. */
 const SM = (typeof STRENGTH_MODEL !== "undefined") ? STRENGTH_MODEL : null;
 
-/* role of each database material: binder fraction (B:x), ratio to binder (x_B), fibre type (F:x) */
+/* role of each database material: binder fraction (B:x), ratio to binder (x_B), fiber type (F:x) */
 const ROLES = [
   [/^OPC\b/i,"B:OPC"], [/^GGBS\b/i,"B:GGBS"], [/^FA \(fly/i,"B:FA"], [/^SF \(/i,"B:SF"],
   [/metakaolin/i,"B:MK"], [/^limestone powder/i,"B:LP"],
@@ -956,7 +956,7 @@ function buildFeatures(binder, fiber, cond, res){
     const r = roleOf(n); vt += v;
     if (r === "F:PE") f.V_PE += v; else if (r === "F:PVA") f.V_PVA += v;
     else if (r === "F:Steel") f.V_Steel += v; else if (r === "F:PBO") f.V_PBO += v;
-    else ignored.push(n + " (counted only in total fibre volume)");
+    else ignored.push(n + " (counted only in total fiber volume)");
   }
   f.V_total = vt;
 
@@ -981,7 +981,7 @@ function buildFeatures(binder, fiber, cond, res){
 
   if (other.length) notes.push(`The model has no separate input for ${other.join(", ")}; it is counted only as part of the binder.`);
   if (ignored.length) notes.push(`Not used by the model: ${ignored.join(", ")}.`);
-  if (vt === 0) notes.push("No fibres — the model was trained on fibre-reinforced mixes, so treat the result with care.");
+  if (vt === 0) notes.push("No fibers — the model was trained on fiber-reinforced mixes, so treat the result with care.");
   // outside the training range (1st–99th percentile)
   const out = [];
   for (const [k,[lo,hi]] of Object.entries(SM.ranges || {})){
@@ -995,7 +995,7 @@ function buildFeatures(binder, fiber, cond, res){
 const FEAT_LABEL = {OPC:"OPC share of binder", GGBS:"GGBS share", FA:"FA share", SF:"SF share", MK:"Metakaolin share", LP:"Limestone powder share",
   W_B:"Water/binder", Sand_B:"Sand/binder", QP_B:"Quartz powder/binder", Light_B:"Lightweight/binder", SP_B:"SP/binder", VMA_B:"VMA/binder",
   WG_B:"Water glass/binder", NaOH_B:"NaOH/binder", CaOH2_B:"Ca(OH)2/binder", Na2SO4_B:"Na2SO4/binder", SSM_B:"SSM/binder",
-  V_PE:"PE fibre (vol%)", V_PVA:"PVA fibre (vol%)", V_Steel:"Steel fibre (vol%)", V_PBO:"PBO fibre (vol%)", V_total:"Total fibre (vol%)",
+  V_PE:"PE fiber (vol%)", V_PVA:"PVA fiber (vol%)", V_Steel:"Steel fiber (vol%)", V_PBO:"PBO fiber (vol%)", V_total:"Total fiber (vol%)",
   Cure_T:"Curing temperature", Cure_days:"Curing duration", Cure_RH:"RH", Age_days:"Test age", W_C:"Water/cement",
   Activator_tot:"Activator/binder", Paste_vol:"Paste volume", Binder_kgm3:"Binder content (kg/m³)"};
 
@@ -1066,8 +1066,8 @@ function scenarios(binder, fiber){
   }
   const vt = Object.values(fiber).reduce((a,b) => a+b, 0);
   if (vt > 0){
-    if (vt > 0.5) out.push([`Fibre −0.5 vol% (to ${fmt(vt-0.5,1)}%)`, binder, scale(fiber, () => true, (vt-0.5)/vt)]);
-    out.push([`Fibre +0.5 vol% (to ${fmt(vt+0.5,1)}%)`, binder, scale(fiber, () => true, (vt+0.5)/vt)]);
+    if (vt > 0.5) out.push([`Fiber −0.5 vol% (to ${fmt(vt-0.5,1)}%)`, binder, scale(fiber, () => true, (vt-0.5)/vt)]);
+    out.push([`Fiber +0.5 vol% (to ${fmt(vt+0.5,1)}%)`, binder, scale(fiber, () => true, (vt+0.5)/vt)]);
   }
   if (has(binder, isS)){
     out.push(["Sand −20%", scale(binder, isS, 0.8), fiber]);
@@ -1114,7 +1114,7 @@ function runPrediction(){
           if (Math.abs(dv) < eps) return `<td>0</td>`;
           return `<td class="${dv > 0 ? "up" : "dn"}">${dv > 0 ? "+" : "−"}${fmt(Math.abs(dv), d)}</td>`;
         }).join("")}</tr>`;
-      }).join("")}</tbody>` : `<tbody><tr><td>Add water, sand or fibre to see how changing them affects the prediction.</td></tr></tbody>`;
+      }).join("")}</tbody>` : `<tbody><tr><td>Add water, sand or fiber to see how changing them affects the prediction.</td></tr></tbody>`;
 
     // notes
     $("predWarn").innerHTML = notes.length ? `<ul class="warns">${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : "";
@@ -1179,7 +1179,7 @@ $("predBtn").onclick = runPrediction;
 document.querySelector("#predCard .cond").addEventListener("change", () => {
   if (!$("predOut").classList.contains("hidden")) runPrediction();
 });
-if (SM) $("pTrain").textContent = `${SM.targets.fc.n_rows} published fibre-reinforced mixes from ${SM.targets.fc.n_papers} papers`;
+if (SM) $("pTrain").textContent = `${SM.targets.fc.n_rows} published fiber-reinforced mixes from ${SM.targets.fc.n_papers} papers`;
 
 /* ------------------------------------------------------------------ init -- */
 setDb(DEFAULT_MATERIALS, "built-in");
