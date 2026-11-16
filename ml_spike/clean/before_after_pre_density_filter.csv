@@ -1,0 +1,7 @@
+﻿target,data,rows,papers,R2_new_lab,MAE_new_lab,R2_lab_known,MAE_lab_known
+fc,before,2382,264,0.711,19.34,0.93,8.97
+fc,after,1651,200,0.827,14.88,0.947,7.16
+ft,before,1022,175,0.484,1.81,0.822,0.95
+ft,after,686,131,0.568,1.55,0.834,0.88
+eps,before,732,143,0.4,1.56,0.735,0.91
+eps,after,667,129,0.455,1.48,0.741,0.91

@@ -77,6 +77,22 @@ Quy tắc (chỉ giữ quy tắc nào làm mô hình tốt hơn trong `clean/abl
 
 Chạy lại: `clean/audit.py "../03 Dataset_ratio.xlsx" clean` → `clean/make_clean.py clean` → `clean/eval_clean.py "../03 Dataset_ratio.xlsx" clean`.
 
+## Lọc theo density + Inventory (2026-11-09/10)
+
+- Inventory of raw materials.xlsx: 19 → 69 vật liệu, mọi giá trị có nguồn (`inventory/*.json`, `inventory/merge_inventory.py`).
+  35/200 ô năng lượng/CO₂/giá chưa có nguồn (để trống). 01 Datamix.xlsx đồng bộ: 69 vật liệu, web đọc đủ.
+- 400 dòng dùng chất không có density có nguồn ("Other binder", sợi không rõ loại, phụ gia/hoạt hoá gộp) chuyển sang sheet
+  **Removed** của 03 Dataset_ratio.xlsx (kèm lý do) → Dataset còn 2619 dòng / 285 bài. `inventory/move_rows_without_density.py`.
+- Sau lọc + làm sạch (CatBoost):
+
+| Đầu ra | Trước lọc density: R² lab mới / lab đã biết | Sau lọc density |
+|---|---|---|
+| fc | 0.83 / 0.95 (1651 dòng) | 0.81 / 0.95 (1460 dòng, 191 bài) |
+| ft trực tiếp | 0.57 / 0.83 (686) | 0.52 / 0.83 (638, 128 bài) |
+| εu | 0.46 / 0.74 (667) | 0.51 / 0.73 (610, 125 bài) |
+
+- Môi trường Python: `ml_spike/.venv` (Smart App Control phải tắt, nếu không Windows chặn DLL của pandas/sklearn/catboost).
+
 ## Đã gộp vào 03 Dataset_ratio.xlsx (2026-11-06)
 
 - 2295 dòng / 219 bài từ `additions/*.csv` nằm ở hàng 727–3021; 219 dòng mới trong `03 Dataset_sources.csv`.
@@ -95,3 +111,16 @@ python spike.py "../03 Dataset_ratio.xlsx" <thư mục output> additions
 python calib.py "../03 Dataset_ratio.xlsx" . additions
 ```
 Cần: pandas, openpyxl, scikit-learn, matplotlib.
+
+## So sánh 10 mô hình (2026-11-16, `benchmark10.py`)
+
+Dữ liệu đã làm sạch (`clean/dataset_clean.csv`), 33 đầu vào web. **Chỉ số chính: 10-fold CV chia ngẫu nhiên × 3 seed.**
+
+| Đầu ra (dòng / bài) | Tốt nhất | R² 10-fold | Lab mới (giấu bài) |
+|---|---|---|---|
+| fc (1460 / 191) | CatBoost | 0.952 | 0.81 |
+| ft trực tiếp (638 / 128) | CatBoost | 0.830 | 0.52 |
+| εu (610 / 125) | XGBoost 0.782 ≈ Extra Trees 0.781 | 0.78 | 0.47 |
+
+Web dùng CatBoost (fc, ft) + Extra Trees (εu): `train_export.py "../03 Dataset_ratio.xlsx" model ../strength_model.js`.
+Trang kết quả: `benchmark.html`. Mục 5 của `index.html` thêm điều kiện bảo dưỡng + tuổi thí nghiệm.

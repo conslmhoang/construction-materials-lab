@@ -24,3 +24,7 @@ desktop.ini
 
 # --- ML spike -------------------------------------------------------------
 catboost_info/
+
+# local preview config
+.claude/
+ml_spike/*.log
