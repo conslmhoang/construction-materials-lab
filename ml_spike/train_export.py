@@ -80,6 +80,14 @@ for key, s in SPEC.items():
         for tr_, te_ in KFold(10, shuffle=True, random_state=sd).split(Xa):
             pr[te_] = make(kind).fit(prep(kind, Xa[tr_]), ya[tr_]).predict(prep(kind, Xa[te_]))
         rr2.append(r2_score(ya, pr)); rmae.append(mean_absolute_error(ya, pr))
+        if sd == 0: pr0 = pr.copy()
+    # ---- 80% prediction interval from random-split residuals, binned by predicted value (5 bins)
+    edges = np.quantile(pr0, [.2, .4, .6, .8])
+    bins = np.searchsorted(edges, pr0, side="left")          # same rule as JS: count of edges below p
+    res = ya - pr0
+    lo_ = [r4(np.quantile(res[bins == b_], .1)) for b_ in range(5)]
+    hi_ = [r4(np.quantile(res[bins == b_], .9)) for b_ in range(5)]
+    cover = float(np.mean([(lo_[b_] <= r <= hi_[b_]) for b_, r in zip(bins, res)]))
 
     # ---- stricter error estimates
     pred = np.zeros(len(ya))
@@ -112,6 +120,7 @@ for key, s in SPEC.items():
                  mae_lab_known=round(float(mean_absolute_error(ya[te], ph)), 3),
                  r2_lab_known=round(float(r2_score(ya[te], ph)), 3),
                  correction=corr,
+                 interval=dict(level=0.8, edges=[r4(v) for v in edges], lo=lo_, hi=hi_, coverage=round(cover, 3)),
                  correction_mae={k_: round(float(np.mean(v)), 3) for k_, v in err.items()},
                  y_min=r4(ya.min()), y_max=r4(ya.max()))
     if kind == "catboost":

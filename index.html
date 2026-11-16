@@ -149,7 +149,7 @@
   .hidden{display:none}
 
   /* ---- 5. prediction ---- */
-  .cond{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;align-items:end}
+  .cond{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;align-items:end}
   .pred{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
   .pcard{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#f7fcf9}
   .pcard .k{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
@@ -159,6 +159,13 @@
   .pcard.indic{background:#fffdf5;border-color:#fde68a}
   .pill{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;background:#fef3c7;color:#92400e;font-weight:600;vertical-align:middle}
   ul.warns{margin:0 0 0 18px;padding:0}
+  .sub2{font-weight:400;font-size:13px;color:var(--muted)}
+  .h3{font-size:15px;margin:22px 0 8px}
+  .pcard .ci{font-size:13px;color:var(--ink-2);margin-bottom:6px}
+  .calib{margin-top:22px;border:1px solid var(--line);border-radius:10px;padding:12px 16px;background:#fbfefc}
+  .calib summary{cursor:pointer;font-weight:600;font-size:14.5px}
+  td.up{color:#166534} td.dn{color:#991b1b}
+  #sensTable td:first-child{white-space:normal}
   .nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:14px}
   .nav a{color:var(--blue);text-decoration:none;font-weight:600}
   .nav a:hover{text-decoration:underline}
@@ -172,7 +179,7 @@
     <p class="sub">Mix-Design Calculation &amp; Optimization Tool</p>
     <p class="who">Le Minh Hoang — MS student, Architecture and Civil Engineering, Chonnam National University</p>
     <p class="who" style="margin-top:2px">Construction Materials Lab, founded by Prof. Bang Yeon Lee</p>
-    <nav class="nav"><a href="#predCard">🔮 Strength prediction</a><a href="benchmark.html">📈 10-model comparison</a></nav>
+    <nav class="nav"><a href="#predCard">🔮 Strength prediction</a><a href="benchmark.html">📈 10-model comparison</a><a href="data.html">📚 Data sources</a></nav>
   </header>
 
   <!-- ============ DATABASE ============ -->
@@ -231,7 +238,7 @@
   <!-- ============ 2. RESULTS ============ -->
   <section class="card hidden" id="resultCard">
     <h2>📊 Results for 1 m³</h2>
-    <p class="hint">Fiber volume is fixed first; the remaining volume is filled by the binder system according to your proportions.</p>
+    <p class="hint">Fiber volume is fixed first; the remaining volume is filled by the binder system according to your proportions. The predicted strength is in section 3 below.</p>
     <div class="tablewrap"><table id="resTable"></table></div>
     <div class="stats" id="resStats"></div>
   </section>
@@ -253,9 +260,68 @@
     </div>
   </section>
 
+  <!-- ============ 3. PREDICTION ============ -->
+  <section class="card" id="predCard">
+    <h2>3. Strength Prediction <span class="sub2">— machine-learning estimate</span></h2>
+    <p class="hint">Uses the proportions from section 1 plus the curing and test conditions below (it updates automatically after each calculation).
+      Trained on <span id="pTrain">published fibre-reinforced mixes</span>. See <a href="benchmark.html">how 10 models were compared</a> and <a href="data.html">where the data come from</a>.</p>
+    <div class="cond">
+      <div>
+        <label for="cMethod">Curing method</label>
+        <select id="cMethod" title="Standard moist room = 20 °C, ≥95% RH">
+          <option value="std">Standard moist room</option>
+          <option value="water">Water curing</option>
+          <option value="sealed">Sealed / wrapped</option>
+          <option value="air">Air (lab ambient)</option>
+          <option value="heat">Heat / steam curing</option>
+        </select>
+      </div>
+      <div><label for="cT">Curing temperature (°C)</label><input type="number" id="cT" value="20" step="1"></div>
+      <div><label for="cRH">Relative humidity (%)</label><input type="number" id="cRH" value="95" step="1" min="0" max="100"></div>
+      <div><label for="cDays">Curing duration (days)</label><input type="number" id="cDays" value="28" step="1" min="0"></div>
+      <div>
+        <label for="cAge">Test age (days)</label>
+        <select id="cAge">
+          <option>3</option><option>7</option><option>14</option><option selected>28</option>
+
+        </select>
+      </div>
+      <div class="hidden" id="cAgeCustomBox"><label for="cAgeCustom">Custom age (days)</label><input type="number" id="cAgeCustom" value="14" min="1" step="1"></div>
+    </div>
+    <p class="hint" style="margin:8px 0 0" id="condHint">Standard moist room: 20 °C, ≥95% RH, cured until the test age.</p>
+    <p id="predError" class="note err hidden" style="margin-top:16px;margin-bottom:0"></p>
+    <div style="margin-top:16px"><button class="btn-primary btn-block" type="button" id="predBtn">🔮 Predict strength</button></div>
+    <div id="predOut" class="hidden" style="margin-top:16px">
+      <div id="calNote" class="note ok hidden"></div>
+      <div id="predWarn" class="note warn hidden"></div>
+      <div class="pred" id="predCards"></div>
+
+      <h3 class="h3">Strength development <span class="sub2">— same mix and curing</span></h3>
+      <div class="tablewrap"><table id="ageTable"></table></div>
+
+      <h3 class="h3">What changes the prediction <span class="sub2">— one change at a time, everything else fixed</span></h3>
+      <div class="tablewrap"><table id="sensTable"></table></div>
+
+      <details class="calib" id="calBox">
+        <summary>🎯 Calibrate to your lab <span class="sub2">— optional, from a mix you have already tested</span></summary>
+        <p class="hint" style="margin-top:10px">Cast this mix under these conditions, enter what you measured, then press <b>Calibrate</b>.
+          Later predictions are scaled by the same correction (it is stored in this browser only). One to three trial specimens usually halve the error.</p>
+        <div class="cond">
+          <div><label for="mFc">Measured compressive strength (MPa)</label><input type="number" id="mFc" min="0" step="0.1" placeholder="optional"></div>
+          <div><label for="mFt">Measured direct tensile strength (MPa)</label><input type="number" id="mFt" min="0" step="0.01" placeholder="optional"></div>
+          <div><label for="mEps">Measured tensile strain capacity (%)</label><input type="number" id="mEps" min="0" step="0.01" placeholder="optional"></div>
+        </div>
+        <div class="bar" style="margin-top:12px;justify-content:flex-start">
+          <button class="btn-primary" type="button" id="calBtn">🎯 Calibrate</button>
+          <button class="btn-ghost" type="button" id="calReset">↺ Remove calibration</button>
+        </div>
+      </details>
+    </div>
+  </section>
+
   <!-- ============ 4. MIX DESIGN LOG ============ -->
   <section class="card">
-    <h2>3. Mix Design Log <span style="font-weight:400;font-size:13px;color:var(--muted)">— 02 MixLog.xlsx</span></h2>
+    <h2>4. Mix Design Log <span style="font-weight:400;font-size:13px;color:var(--muted)">— 02 MixLog.xlsx</span></h2>
     <p class="hint">One row per 1 m³ calculation: the proportions you entered, plus the totals per cubic metre.</p>
     <div class="bar" style="margin-bottom:14px">
       <div class="l" id="mixCount">No mix designs logged yet.</div>
@@ -271,7 +337,7 @@
 
   <!-- ============ 5. ACTUAL BATCH LOG ============ -->
   <section class="card">
-    <h2>4. Actual Batch Log <span style="font-weight:400;font-size:13px;color:var(--muted)">— 03 ActualBatch.xlsx</span></h2>
+    <h2>5. Actual Batch Log <span style="font-weight:400;font-size:13px;color:var(--muted)">— 03 ActualBatch.xlsx</span></h2>
     <p class="hint">One row per batch you compute: the mass of each material in kilograms, for the volume actually cast.</p>
     <div class="bar" style="margin-bottom:14px">
       <div class="l" id="batchCount">No batches logged yet.</div>
@@ -284,44 +350,6 @@
     <div class="tablewrap"><table id="batchLogTable" class="logtable"></table></div>
   </section>
 
-  <!-- ============ 5. PREDICTION ============ -->
-  <section class="card" id="predCard">
-    <h2>5. Strength Prediction <span style="font-weight:400;font-size:13px;color:var(--muted)">— machine-learning estimate</span></h2>
-    <p class="hint">Uses the proportions from section 1 plus the curing and test conditions below. Trained on <span id="pTrain">published fibre-reinforced mixes</span>.
-      See <a href="benchmark.html">how 10 models were compared</a>.</p>
-    <div class="cond">
-      <div>
-        <label for="cMethod">Curing method</label>
-        <select id="cMethod">
-          <option value="std">Standard moist room (20 °C, ≥95% RH)</option>
-          <option value="water">Water curing</option>
-          <option value="sealed">Sealed / wrapped</option>
-          <option value="air">Air (lab ambient)</option>
-          <option value="heat">Heat / steam curing</option>
-        </select>
-      </div>
-      <div><label for="cT">Curing temperature (°C)</label><input type="number" id="cT" value="20" step="1"></div>
-      <div><label for="cRH">Relative humidity (%)</label><input type="number" id="cRH" value="95" step="1" min="0" max="100"></div>
-      <div><label for="cDays">Curing duration (days)</label><input type="number" id="cDays" value="28" step="1" min="0"></div>
-      <div>
-        <label for="cAge">Test age (days)</label>
-        <select id="cAge">
-          <option>3</option><option>7</option><option selected>28</option><option>56</option><option>90</option>
-          <option value="custom">Custom…</option>
-        </select>
-      </div>
-      <div class="hidden" id="cAgeCustomBox"><label for="cAgeCustom">Custom age (days)</label><input type="number" id="cAgeCustom" value="14" min="1" step="1"></div>
-    </div>
-    <p id="predError" class="note err hidden" style="margin-top:16px;margin-bottom:0"></p>
-    <div style="margin-top:16px"><button class="btn-primary btn-block" type="button" id="predBtn">🔮 Predict strength</button></div>
-    <div id="predOut" class="hidden" style="margin-top:16px">
-      <div id="predWarn" class="note warn hidden"></div>
-      <div class="pred" id="predCards"></div>
-      <h3 style="font-size:15px;margin:20px 0 8px">Strength development (same mix and curing)</h3>
-      <div class="tablewrap"><table id="ageTable"></table></div>
-      <p class="hint" style="margin-top:10px" id="predFoot"></p>
-    </div>
-  </section>
 
   <footer class="page">
     Runs entirely in your browser — no data leaves this page.
@@ -819,6 +847,7 @@ $("calcBtn").onclick = () => {
     $("batchCard").classList.remove("hidden");
     $("batchOut").classList.add("hidden");
     addMixRow(binder, fiber, res);
+    if (SM) runPrediction();
     $("resultCard").scrollIntoView({behavior:"smooth", block:"start"});
   }catch(err){
     showErr($("calcError"), err.message);
@@ -995,51 +1024,149 @@ function predictOne(t, x){
   return s / t.trees.length;
 }
 
-const AGES = [3, 7, 14, 28, 56, 90];
-function runPrediction(){
-  hideErr($("predError"));
-  if (!SM){ showErr($("predError"), "The model file (strength_model.js) did not load."); return; }
+const AGES = [3, 7, 14, 28];
+const CAL_KEY = "cml_calib_v1";
+let CAL = {};
+try{ CAL = JSON.parse(localStorage.getItem(CAL_KEY) || "{}") || {}; }catch(e){ CAL = {}; }
+const dOf = k => SM.targets[k].unit === "%" ? 2 : 1;
+
+const raw = (k, x) => Math.max(0, predictOne(SM.targets[k], x));
+function applyCal(k, v){
+  const c = CAL[k]; if (!c) return v;
+  return Math.max(0, c.type === "mul" ? v * c.v : v + c.v);
+}
+const pred = (k, x) => applyCal(k, raw(k, x));
+/* 80% interval from cross-validation residuals in the same range of predicted values */
+function interval(k, x){
+  const t = SM.targets[k], p = raw(k, x), iv = t.interval;
+  if (!iv) return null;
+  const b = iv.edges.filter(e => p > e).length;
+  return [applyCal(k, Math.max(0, p + iv.lo[b])), applyCal(k, Math.max(0, p + iv.hi[b]))];
+}
+
+function currentMix(){
   readRows();
   const binder = {}, fiber = {};
   binderRows.forEach(r => { if (r.value > 0) binder[r.name] = r.value; });
   fiberRows .forEach(r => { if (r.value > 0) fiber [r.name] = r.value; });
+  return {binder, fiber};
+}
+const featuresFor = (binder, fiber, cond) => buildFeatures(binder, fiber, cond, calcMix(binder, fiber));
+
+/* one-at-a-time changes to the mix: [label, newBinder, newFiber] or null when not applicable */
+function scenarios(binder, fiber){
+  const out = [];
+  const scale = (obj, test, f) => Object.fromEntries(Object.entries(obj).map(([n,v]) => [n, test(n) ? v*f : v]));
+  const has = (obj, test) => Object.keys(obj).some(test);
+  const isW = n => roleOf(n) === "W_B", isS = n => roleOf(n) === "Sand_B";
+  const isSP = n => roleOf(n) === "SP_B";
+  if (has(binder, isW)){
+    out.push(["Water −10% (lower W/B)", scale(binder, isW, 0.9), fiber]);
+    out.push(["Water +10% (higher W/B)", scale(binder, isW, 1.1), fiber]);
+  }
+  const vt = Object.values(fiber).reduce((a,b) => a+b, 0);
+  if (vt > 0){
+    if (vt > 0.5) out.push([`Fibre −0.5 vol% (to ${fmt(vt-0.5,1)}%)`, binder, scale(fiber, () => true, (vt-0.5)/vt)]);
+    out.push([`Fibre +0.5 vol% (to ${fmt(vt+0.5,1)}%)`, binder, scale(fiber, () => true, (vt+0.5)/vt)]);
+  }
+  if (has(binder, isS)){
+    out.push(["Sand −20%", scale(binder, isS, 0.8), fiber]);
+    out.push(["Sand +20%", scale(binder, isS, 1.2), fiber]);
+  }
+  if (has(binder, isSP)) out.push(["Superplasticizer +20%", scale(binder, isSP, 1.2), fiber]);
+  return out;
+}
+
+function runPrediction(){
+  hideErr($("predError"));
+  if (!SM){ showErr($("predError"), "The model file (strength_model.js) did not load."); return; }
+  const {binder, fiber} = currentMix();
   try{
     const cond = readConditions();
-    const res = calcMix(binder, fiber);
-    const {x, notes} = buildFeatures(binder, fiber, cond, res);
+    const {x, notes} = featuresFor(binder, fiber, cond);
     const T = SM.targets, keys = Object.keys(T);
-    const val = k => Math.max(0, predictOne(T[k], x));
     $("predCards").innerHTML = keys.map(k => {
-      const t = T[k], v = val(k), d = t.unit === "%" ? 2 : 1;
-      const indic = k === "eps";
-      return `<div class="pcard${indic?" indic":""}">
-        <div class="k">${esc(t.label)} ${indic?'<span class="pill">indicative</span>':""}</div>
+      const t = T[k], v = pred(k, x), d = dOf(k), ci = interval(k, x);
+      return `<div class="pcard">
+        <div class="k">${esc(t.label)} ${CAL[k]?'<span class="tag fib">calibrated</span>':""}</div>
         <div class="v">${fmt(v,d)} <small>${t.unit}</small></div>
+        ${ci ? `<div class="ci">80% range: ${fmt(ci[0],d)} – ${fmt(ci[1],d)} ${t.unit}</div>` : ""}
         <div class="r">10-fold cross-validation: R² ${fmt(t.r2_random,2)}, MAE ±${fmt(t.mae_random,d)} ${t.unit}<br>
         Model: ${esc(t.model_name || t.kind)} · ${t.n_rows} mixes / ${t.n_papers} papers</div></div>`;
     }).join("");
-    // strength vs age (curing duration follows the age when it equalled the test age)
+
+    // strength vs age (curing follows the age when it equalled the test age)
     const follow = cond.days === cond.age;
     const rows = AGES.map(a => {
-      const c = {...cond, age:a, days: follow ? a : Math.min(cond.days, a)};
-      const xa = buildFeatures(binder, fiber, c, res).x;
-      return `<tr><td>${a} d</td>${keys.map(k => `<td>${fmt(Math.max(0, predictOne(T[k], xa)), T[k].unit==="%"?2:1)}</td>`).join("")}</tr>`;
+      const xa = featuresFor(binder, fiber, {...cond, age:a, days: follow ? a : Math.min(cond.days, a)}).x;
+      return `<tr${a === cond.age ? ' style="font-weight:700"' : ""}><td>${a} d</td>${keys.map(k => `<td>${fmt(pred(k, xa), dOf(k))}</td>`).join("")}</tr>`;
     });
     $("ageTable").innerHTML = `<thead><tr><th>Age</th>${keys.map(k => `<th>${esc(T[k].label)} (${T[k].unit})</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody>`;
+
+    // sensitivity
+    const base = Object.fromEntries(keys.map(k => [k, pred(k, x)]));
+    const sc = scenarios(binder, fiber);
+    $("sensTable").innerHTML = sc.length ? `<thead><tr><th>Change</th>${keys.map(k => `<th>Δ ${esc(T[k].label)} (${T[k].unit})</th>`).join("")}</tr></thead><tbody>${
+      sc.map(([lab, b2, f2]) => {
+        let xs; try{ xs = featuresFor(b2, f2, cond).x; }catch(e){ return ""; }
+        return `<tr><td>${esc(lab)}</td>${keys.map(k => {
+          const dv = pred(k, xs) - base[k], d = dOf(k), eps = d === 2 ? 0.005 : 0.05;
+          if (Math.abs(dv) < eps) return `<td>0</td>`;
+          return `<td class="${dv > 0 ? "up" : "dn"}">${dv > 0 ? "+" : "−"}${fmt(Math.abs(dv), d)}</td>`;
+        }).join("")}</tr>`;
+      }).join("")}</tbody>` : `<tbody><tr><td>Add water, sand or fibre to see how changing them affects the prediction.</td></tr></tbody>`;
+
+    // notes
     $("predWarn").innerHTML = notes.length ? `<ul class="warns">${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : "";
     $("predWarn").classList.toggle("hidden", !notes.length);
-    $("predFoot").textContent = `Model trained ${SM.version}. Scores come from 10-fold cross-validation with randomly split mixes, averaged over 3 seeds.`;
+    const ck = Object.keys(CAL).filter(k => T[k]);
+    $("calNote").textContent = ck.length ? `Calibrated to your lab (${ck.map(k => `${T[k].label}: ${CAL[k].type === "mul" ? "×" + fmt(CAL[k].v,2) : (CAL[k].v >= 0 ? "+" : "") + fmt(CAL[k].v, dOf(k)) + " " + T[k].unit}`).join("; ")}). Saved ${CAL[ck[0]].date}.` : "";
+    $("calNote").classList.toggle("hidden", !ck.length);
     $("predOut").classList.remove("hidden");
   }catch(err){
     showErr($("predError"), err.message);
   }
 }
 
+$("calBtn").onclick = () => {
+  hideErr($("predError"));
+  try{
+    const {binder, fiber} = currentMix();
+    const {x} = featuresFor(binder, fiber, readConditions());
+    const meas = {fc: parseFloat($("mFc").value), ft: parseFloat($("mFt").value), eps: parseFloat($("mEps").value)};
+    let n = 0;
+    for (const [k, m] of Object.entries(meas)){
+      if (!isFinite(m) || m <= 0 || !SM.targets[k]) continue;
+      const p = raw(k, x), type = SM.targets[k].correction === "add" ? "add" : "mul";
+      if (type === "mul" && p <= 0) continue;
+      CAL[k] = {type, v: type === "mul" ? m / p : m - p, date: stamp(new Date()).slice(0,10)};
+      n++;
+    }
+    if (!n) throw new Error("Enter at least one measured value greater than 0 to calibrate.");
+    try{ localStorage.setItem(CAL_KEY, JSON.stringify(CAL)); }catch(e){}
+    runPrediction();
+  }catch(err){ showErr($("predError"), err.message); }
+};
+$("calReset").onclick = () => {
+  CAL = {}; try{ localStorage.removeItem(CAL_KEY); }catch(e){}
+  ["mFc","mFt","mEps"].forEach(id => $(id).value = "");
+  if (!$("predOut").classList.contains("hidden")) runPrediction();
+};
+
+const COND_HINT = {
+  std:"Standard moist room: 20 °C, ≥95% RH, cured until the test age.",
+  water:"Water curing: specimens kept in water (about 20 °C) until the test age.",
+  sealed:"Sealed: specimens wrapped in film or kept in sealed moulds, no water exchange.",
+  air:"Air curing: specimens left in the lab air (about 20 °C, 50–60% RH).",
+  heat:"Heat / steam curing: high-temperature curing (e.g. 90 °C for 2 days), then stored until the test age. Set the test age separately."
+};
 $("cMethod").onchange = () => {
   const m = $("cMethod").value;
   if (m === "heat"){ $("cT").value = 90; $("cRH").value = 95; $("cDays").value = 2; }
   else if (m === "air"){ $("cT").value = 20; $("cRH").value = 55; }
   else { $("cT").value = 20; $("cRH").value = m === "water" ? 100 : 95; }
+  if (m !== "heat"){ const a = $("cAge").value; $("cDays").value = a === "custom" ? $("cAgeCustom").value : a; }
+  $("condHint").textContent = COND_HINT[m];
 };
 $("cAge").onchange = () => {
   const custom = $("cAge").value === "custom";
@@ -1048,6 +1175,10 @@ $("cAge").onchange = () => {
 };
 $("cAgeCustom").oninput = () => { if ($("cMethod").value !== "heat") $("cDays").value = $("cAgeCustom").value; };
 $("predBtn").onclick = runPrediction;
+/* keep the prediction in step with the conditions once it is showing */
+document.querySelector("#predCard .cond").addEventListener("change", () => {
+  if (!$("predOut").classList.contains("hidden")) runPrediction();
+});
 if (SM) $("pTrain").textContent = `${SM.targets.fc.n_rows} published fibre-reinforced mixes from ${SM.targets.fc.n_papers} papers`;
 
 /* ------------------------------------------------------------------ init -- */
