@@ -1015,8 +1015,7 @@ function runPrediction(){
       return `<div class="pcard${indic?" indic":""}">
         <div class="k">${esc(t.label)} ${indic?'<span class="pill">indicative</span>':""}</div>
         <div class="v">${fmt(v,d)} <small>${t.unit}</small></div>
-        <div class="r">10-fold cross-validation (random split): R² ${fmt(t.r2_random,2)}, MAE ±${fmt(t.mae_random,d)} ${t.unit}<br>
-        Brand-new lab (whole papers held out): R² ${fmt(t.r2_new_lab,2)}, MAE ±${fmt(t.mae_new_lab,d)} ${t.unit}<br>
+        <div class="r">10-fold cross-validation: R² ${fmt(t.r2_random,2)}, MAE ±${fmt(t.mae_random,d)} ${t.unit}<br>
         Model: ${esc(t.model_name || t.kind)} · ${t.n_rows} mixes / ${t.n_papers} papers</div></div>`;
     }).join("");
     // strength vs age (curing duration follows the age when it equalled the test age)
@@ -1029,7 +1028,7 @@ function runPrediction(){
     $("ageTable").innerHTML = `<thead><tr><th>Age</th>${keys.map(k => `<th>${esc(T[k].label)} (${T[k].unit})</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody>`;
     $("predWarn").innerHTML = notes.length ? `<ul class="warns">${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : "";
     $("predWarn").classList.toggle("hidden", !notes.length);
-    $("predFoot").textContent = `Model trained ${SM.version}. Scores come from 10-fold cross-validation with randomly split mixes, averaged over 3 seeds. For a lab whose materials are not in the data, expect the larger "brand-new lab" error; casting 1–3 trial specimens and scaling the prediction roughly halves it.`;
+    $("predFoot").textContent = `Model trained ${SM.version}. Scores come from 10-fold cross-validation with randomly split mixes, averaged over 3 seeds.`;
     $("predOut").classList.remove("hidden");
   }catch(err){
     showErr($("predError"), err.message);

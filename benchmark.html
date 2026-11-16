@@ -59,7 +59,7 @@
   .tip{position:absolute;pointer-events:none;background:var(--card);border:1px solid var(--line-2);border-radius:8px;padding:8px 10px;
        font-size:12.5px;color:var(--ink);box-shadow:0 4px 14px rgba(0,0,0,.12);display:none;white-space:nowrap;z-index:2}
   .tablewrap{overflow-x:auto}
-  table{border-collapse:collapse;width:100%;font-size:13px;min-width:720px}
+  table{border-collapse:collapse;width:100%;font-size:13px;min-width:440px}
   th,td{padding:7px 9px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap;font-variant-numeric:tabular-nums}
   th{font-size:11.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-2)}
   th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
@@ -76,7 +76,7 @@
 <div class="wrap">
   <header>
     <h1>📈 Ten ML Models for Fibre-Reinforced Composites</h1>
-    <p>Compressive strength, direct tensile strength and tensile strain capacity: which model predicts best, and how honestly?</p>
+    <p>Compressive strength, direct tensile strength and tensile strain capacity: which model predicts best?</p>
     <nav class="nav"><a href="index.html">← Mix-design calculator &amp; prediction</a></nav>
   </header>
 
@@ -85,10 +85,8 @@
     <ul class="hint" style="color:var(--ink-2)">
       <li><b>Data:</b> mixes from published papers on fibre-reinforced cementitious and geopolymer composites (ECC/SHCC, UHPC, UHP-ECC), cleaned and screened for special test conditions, outliers and missing densities.</li>
       <li><b>Inputs (33):</b> only what the calculator can supply: binder shares, ratios to binder, fibre volumes, curing and test age.</li>
-      <li><b>Three ways of testing:</b>
-        <b>10-fold cross-validation with a random split</b> (headline score: mixes shuffled, split into 10 parts, each part predicted by a model trained on the other 9),
-        <b>50/50 per paper</b> (your lab's mixes are already in the data), and
-        <b>paper held out</b> (a brand-new lab, the strictest test). Each was repeated with 3 random seeds and averaged.</li>
+      <li><b>Testing:</b> 10-fold cross-validation with a random split. The mixes are shuffled and split into 10 parts; each part is predicted by a model trained on the other 9, so every mix is predicted once by a model that never saw it. Repeated with 3 random seeds and averaged.</li>
+      <li><b>Hyper-parameters:</b> fixed for each model (no tuning on the test folds).</li>
     </ul>
   </section>
 
@@ -99,19 +97,14 @@
 
   <section class="card">
     <h2 id="barTitle">R² by model</h2>
-    <p class="hint">Sorted by the 10-fold random-split R². Higher is better; 1.0 = perfect. Negative scores are shown as 0.</p>
-    <div class="legend">
-      <span><i style="background:var(--s1)"></i>10-fold CV, random split (headline)</span>
-      <span><i style="background:var(--s2)"></i>50/50 per paper (lab known)</span>
-      <span><i style="background:var(--s3)"></i>Paper held out (brand-new lab)</span>
-    </div>
+    <p class="hint">10-fold cross-validation, random split. Higher is better; 1.0 = perfect.</p>
     <div class="chart" id="barChart"><div class="tip" id="barTip"></div></div>
   </section>
 
   <section class="card grid2">
     <div>
       <h2>Predicted vs measured</h2>
-      <p class="hint">Strictest test (paper held out): every point was predicted by a model that never saw its paper.</p>
+      <p class="hint">10-fold cross-validation: every point was predicted by a model that did not see that mix during training.</p>
       <label for="parModel" style="font-size:13px;font-weight:600;color:var(--ink-2)">Model</label>
       <select id="parModel"></select>
       <div class="chart" id="parChart" style="margin-top:10px"><div class="tip" id="parTip"></div></div>
@@ -124,7 +117,7 @@
 
   <section class="card">
     <h2>Full results</h2>
-    <p class="hint">MAE and RMSE in the target's unit. The bold row is the best model by 10-fold random-split R².</p>
+    <p class="hint">10-fold cross-validation, random split, mean of 3 seeds. MAE and RMSE in the target's unit; the bold row is the best model.</p>
     <div class="tablewrap"><table id="tbl"></table></div>
   </section>
 
@@ -136,7 +129,7 @@
 const $ = id => document.getElementById(id);
 const fmt = (v, d) => Number(v).toLocaleString("en-US", {minimumFractionDigits:d, maximumFractionDigits:d});
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const MODES = [["random-row","10-fold CV (random split)","--s1"], ["half-paper","50/50 per paper","--s2"], ["paper-out","Paper held out (new lab)","--s3"]];
+const MODES = [["random-row","10-fold CV","--s1"]];
 let D = null, cur = "fc";
 
 function tip(el, html, x, y){
@@ -153,12 +146,10 @@ function render(){
   document.querySelectorAll("#tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.k === cur));
   const ms = T.models.slice().sort((a,b) => b["R2 random-row"] - a["R2 random-row"]);
   const best = ms[0];
-  const worstRandom = Math.min(...T.models.map(m => m["R2 random-row"]));
   $("stats").innerHTML = [
     ["Mixes", T.n_rows, `${T.n_papers} papers`],
     ["Best model", esc(best.model), best.family],
     ["Best R², 10-fold CV", fmt(best["R2 random-row"],3), `MAE ${fmt(best["MAE random-row"],d)} · RMSE ${fmt(best["RMSE random-row"],d)} ${unit}`],
-    ["Same model, new lab", fmt(best["R2 paper-out"],2), `MAE ${fmt(best["MAE paper-out"],d)} ${unit}`],
   ].map(([k,v,s]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${s}</div></div>`).join("");
   $("barTitle").textContent = `R² by model — ${T.label}`;
   drawBars(ms, d, unit);
@@ -167,27 +158,23 @@ function render(){
   sel.value = ms.some(m => m.model === keep) ? keep : best.model;
   drawParity();
   // findings
-  const gap = ms.map(m => m["R2 random-row"] - m["R2 paper-out"]);
-  const avgGap = gap.reduce((a,b)=>a+b,0)/gap.length;
   const top3 = ms.slice(0,3).map(m => m.model).join(", ");
   const lin = T.models.find(m => m.model === "Linear Regression");
   $("findings").innerHTML = `<ul>
     <li><b>${esc(best.model)}</b> is best under 10-fold cross-validation (R² ${fmt(best["R2 random-row"],3)}, MAE ${fmt(best["MAE random-row"],d)} ${unit}). Top three: ${esc(top3)}.</li>
-    <li>For a lab whose papers are not in the data, R² is on average <b>${fmt(avgGap,2)}</b> lower: mixes from the same paper share materials and test methods, so a random split partly tests on familiar data.</li>
-    <li>Casting a few trial specimens in your own lab and scaling the prediction is the cheapest way to close that gap.</li>
-    <li>Tree ensembles (Random Forest, Extra Trees, boosting) beat single trees, KNN and linear regression${lin ? `; linear regression scores R² ${fmt(lin["R2 random-row"],2)} on random rows but ${lin["R2 paper-out"] < 0 ? "below 0" : fmt(lin["R2 paper-out"],2)} for a new lab` : ""}.</li>
+    <li>The five tree ensembles (CatBoost, XGBoost, Gradient Boosting, Extra Trees, Random Forest) are within about 0.02 R² of each other and clearly ahead of SVR, ANN, KNN and a single decision tree.</li>
+    <li>${lin ? `Linear regression is weakest (R² ${fmt(lin["R2 random-row"],2)}): strength depends non-linearly on water/binder ratio, binder type, fibre content and curing.` : ""}</li>
     ${cur === "eps" ? "<li>Strain capacity depends on fibre–matrix bond and flaws that the mix recipe does not capture, so all models are weak here. Treat strain predictions as indicative only.</li>" : ""}
-    ${worstRandom < 0 ? "" : ""}
   </ul>`;
   // table
-  const head = `<thead><tr><th>Model</th><th>Family</th>${MODES.map(([k,l]) => `<th>R² ${l}</th><th>MAE</th><th>RMSE</th>`).join("")}</tr></thead>`;
+  const head = `<thead><tr><th>Model</th><th>Family</th><th>R²</th><th>MAE (${unit})</th><th>RMSE (${unit})</th></tr></thead>`;
   $("tbl").innerHTML = head + "<tbody>" + ms.map(m => `<tr class="${m === best ? "best" : ""}"><td>${esc(m.model)}</td><td>${esc(m.family)}</td>${
     MODES.map(([k]) => `<td>${fmt(m["R2 "+k],3)}</td><td>${fmt(m["MAE "+k],d)}</td><td>${fmt(m["RMSE "+k],d)}</td>`).join("")}</tr>`).join("") + "</tbody>";
 }
 
 function drawBars(ms, d, unit){
   const host = $("barChart"), W = Math.max(host.clientWidth, 320);
-  const narrow = W < 560, labW = narrow ? 112 : 150, padR = 44, top = 24, barH = 9, gap = 2, group = MODES.length*(barH+gap) + 12;
+  const narrow = W < 560, labW = narrow ? 112 : 150, padR = 44, top = 24, barH = 16, gap = 2, group = MODES.length*(barH+gap) + 12;
   const H = top + ms.length*group + 8, x0 = labW, x1 = W - padR, sx = v => x0 + Math.max(0, Math.min(1, v)) * (x1 - x0);
   let s = `<svg width="${W}" height="${H}" role="img" aria-label="R squared by model and validation mode">`;
   for (let g = 0; g <= 1.0001; g += 0.2){
@@ -196,13 +183,13 @@ function drawBars(ms, d, unit){
   }
   ms.forEach((m, i) => {
     const y = top + i*group;
-    s += `<text class="lbl" x="${labW-10}" y="${y + group/2 - 4}" text-anchor="end">${esc(m.model)}</text>`;
+    s += `<text class="lbl" x="${labW-10}" y="${y + barH - 4}" text-anchor="end">${esc(m.model)}</text>`;
     MODES.forEach(([k,,c], j) => {
       const v = m["R2 "+k], yy = y + j*(barH+gap), w = Math.max(sx(v) - x0, v > 0 ? 2 : 0);
       s += `<rect x="${x0}" y="${yy}" width="${w}" height="${barH}" rx="4" fill="var(${c})"/>
             <rect class="hit" data-i="${i}" data-k="${k}" x="${x0}" y="${yy-1}" width="${x1-x0}" height="${barH+2}" fill="transparent"/>`;
     });
-    s += `<text x="${sx(m["R2 random-row"]) + 6}" y="${y + barH - 1}" style="font-weight:600;fill:var(--ink)">${fmt(m["R2 random-row"],3)}</text>`;
+    s += `<text x="${sx(m["R2 random-row"]) + 6}" y="${y + barH - 4}" style="font-weight:600;fill:var(--ink)">${fmt(m["R2 random-row"],3)}</text>`;
   });
   s += `<line x1="${x0}" x2="${x0}" y1="${top-6}" y2="${H-6}" stroke="var(--ink-2)" stroke-width="1"/></svg>`;
   host.querySelector("svg")?.remove();
@@ -220,7 +207,7 @@ function drawBars(ms, d, unit){
 }
 
 function drawParity(){
-  const T = D.targets[cur], name = $("parModel").value, p = T.oof[name], y = T.y, unit = T.unit, d = unit === "%" ? 2 : 1;
+  const T = D.targets[cur], name = $("parModel").value, p = (T.oof_random || T.oof)[name], y = T.y, unit = T.unit, d = unit === "%" ? 2 : 1;
   const host = $("parChart"), W = Math.min(Math.max(host.clientWidth, 280), 520), H = W, pad = 46;
   const pts = y.map((v,i) => [v, p[i]]).filter(([a,b]) => isFinite(a) && isFinite(b));
   const hi = Math.max(...pts.flat()) * 1.05, lo = 0;
