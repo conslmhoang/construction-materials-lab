@@ -350,6 +350,21 @@
     <div class="tablewrap"><table id="batchLogTable" class="logtable"></table></div>
   </section>
 
+  <!-- ============ 6. PREDICTION LOG ============ -->
+  <section class="card">
+    <h2>6. Prediction Log <span style="font-weight:400;font-size:13px;color:var(--muted)">— 04 PredictionLog.xlsx</span></h2>
+    <p class="hint">One row per prediction (section 3): the proportions, the curing and test conditions, and the predicted strengths with their 80% range.</p>
+    <div class="bar" style="margin-bottom:14px">
+      <div class="l" id="predCount">No predictions logged yet.</div>
+      <div class="r">
+        <button class="btn-ghost" type="button" data-dl="pred" data-kind="xlsx">⬇️ Download Excel</button>
+        <button class="btn-ghost" type="button" data-dl="pred" data-kind="csv">⬇️ Download CSV</button>
+        <button class="btn-danger" type="button" data-clear="pred">🗑️ Clear</button>
+      </div>
+    </div>
+    <div class="tablewrap"><table id="predLogTable" class="logtable"></table></div>
+  </section>
+
 
   <footer class="page">
     Runs entirely in your browser — no data leaves this page.
@@ -467,6 +482,18 @@ const LOGS = {
     one:      "batch",
     many:     "batches",
     trailing: ["Volume (m3)", "Total mass (kg)", "Cost ($)", "Energy (MJ)", "CO2 (kg)"],
+    rows:     []
+  },
+  pred: {
+    key:      "cml_predlog_v1",
+    file:     "04 PredictionLog",
+    sheet:    "Prediction",
+    table:    "predLogTable",
+    count:    "predCount",
+    one:      "prediction",
+    many:     "predictions",
+    plain:    true,                // show numbers as stored (no forced decimals)
+    trailing: [],                  // filled once the model is loaded (conditions + outputs)
     rows:     []
   }
 };
@@ -708,7 +735,7 @@ function matrixOf(L){
   const cols = columnsOf(L);
   return L.rows.map(r => {
     const o = {};
-    cols.forEach(c => { o[c] = (c === TIME_COL) ? (r[c] ?? "") : (typeof r[c] === "number" ? r[c] : 0); });
+    cols.forEach(c => { o[c] = (c === TIME_COL) ? (r[c] ?? "") : (typeof r[c] === "number" || typeof r[c] === "string" ? r[c] : 0); });
     return o;
   });
 }
@@ -723,7 +750,9 @@ function renderLog(L){
   el.innerHTML = `
     <thead><tr>${cols.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead>
     <tbody>${data.slice().reverse().map(r => `<tr>${
-      cols.map(c => `<td>${typeof r[c]==="number" ? esc(fmt(r[c], Number.isInteger(r[c])?0:3)) : esc(r[c])}</td>`).join("")
+      cols.map(c => `<td>${typeof r[c]!=="number" ? esc(r[c])
+        : L.plain ? esc(r[c].toLocaleString("en-US", {maximumFractionDigits:3}))
+        : esc(fmt(r[c], Number.isInteger(r[c])?0:3))}</td>`).join("")
     }</tr>`).join("")}</tbody>`;
 }
 
@@ -1123,9 +1152,46 @@ function runPrediction(){
     $("calNote").textContent = ck.length ? `Calibrated to your lab (${ck.map(k => `${T[k].label}: ${CAL[k].type === "mul" ? "×" + fmt(CAL[k].v,2) : (CAL[k].v >= 0 ? "+" : "") + fmt(CAL[k].v, dOf(k)) + " " + T[k].unit}`).join("; ")}). Saved ${CAL[ck[0]].date}.` : "";
     $("calNote").classList.toggle("hidden", !ck.length);
     $("predOut").classList.remove("hidden");
+    addPredRow(binder, fiber, cond, x);
   }catch(err){
     showErr($("predError"), err.message);
   }
+}
+
+/* Prediction log: condition and output columns stay after the material columns. */
+const PRED_COND = ["Curing method", "Curing temperature (°C)", "Relative humidity (%)", "Curing duration (days)", "Test age (days)"];
+function predOutCols(){
+  return Object.values(SM.targets).flatMap(t => {
+    const h = `${t.label} (${t.unit})`;
+    return [h, `${h} 80% low`, `${h} 80% high`];
+  });
+}
+if (SM) LOGS.pred.trailing = [...PRED_COND, ...predOutCols(), "Calibrated"];
+
+/* One row per prediction; a rerun that gives the same row as the last one is not logged again. */
+function addPredRow(binder, fiber, cond, x){
+  const row = {};
+  for (const [n,v] of Object.entries(binder)) row[n] = v;
+  for (const [n,v] of Object.entries(fiber))  row[n+FIB_SUFF] = v;
+  row["Curing method"]           = $("cMethod").selectedOptions[0].text;
+  row["Curing temperature (°C)"] = cond.T;
+  row["Relative humidity (%)"]   = isFinite(cond.RH) ? cond.RH : "";
+  row["Curing duration (days)"]  = cond.days;
+  row["Test age (days)"]         = cond.age;
+  const cols = predOutCols();
+  Object.keys(SM.targets).forEach((k, i) => {
+    const d = dOf(k), ci = interval(k, x);
+    row[cols[3*i]]   = +pred(k, x).toFixed(d);
+    row[cols[3*i+1]] = ci ? +ci[0].toFixed(d) : "";
+    row[cols[3*i+2]] = ci ? +ci[1].toFixed(d) : "";
+  });
+  row["Calibrated"] = Object.keys(CAL).some(k => SM.targets[k]) ? "yes" : "no";
+
+  const L = LOGS.pred, last = L.rows[L.rows.length - 1];
+  if (last){ const {[TIME_COL]:_, ...prev} = last; if (JSON.stringify(prev) === JSON.stringify(row)) return; }
+  L.rows.push({[TIME_COL]: stamp(new Date()), ...row});
+  persist(L);
+  renderLog(L);
 }
 
 $("calBtn").onclick = () => {
