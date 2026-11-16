@@ -158,6 +158,18 @@ def main() -> int:
     materials = extract_materials(excel)
     print(f"  Found  : {len(materials)} materials")
 
+    # Only the 21 materials the strength model knows (materials21.json), under their web names.
+    spec = Path(html).with_name("materials21.json")
+    if spec.exists():
+        by_name = {m["name"]: m for m in materials}
+        picked = []
+        for s in json.loads(spec.read_text(encoding="utf-8"))["materials"]:
+            if s["datamix"] not in by_name:
+                raise ValueError(f"'{s['datamix']}' (for {s['name']}) is not in {excel}")
+            picked.append({**by_name[s["datamix"]], "name": s["name"]})
+        materials = picked
+        print(f"  Kept   : {len(materials)} materials listed in {spec.name}")
+
     out = inject(materials, html)
     print(f"Updated  : {out}")
     print("\nNext:  git add .  &&  git commit -m \"Update material database\"  &&  git push")

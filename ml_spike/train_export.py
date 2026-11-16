@@ -1,8 +1,8 @@
 """Train the final strength models from "04 Dataset_web.xlsx" and export them for the web.
 
-  fc  : CatBoost     eps : Extra Trees      (best in benchmark10.py)
+  fc  : CatBoost     eps : CatBoost      (best in benchmark10.py)
 
-Inputs = the 33 values the web computes from its materials + curing/test conditions (web_data.py).
+Inputs = the 21 web materials + curing/test conditions + 5 values computed from them (web_data.py).
 Headline score = random-split 10-fold CV x 3 seeds.
 
 Usage:  python train_export.py [../strength_model.js]
@@ -13,7 +13,7 @@ import numpy as np, pandas as pd
 here = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(here, "model"); os.makedirs(OUT, exist_ok=True)
 HTML = sys.argv[1] if len(sys.argv) > 1 else None
-from web_data import load, FEATURES
+from web_data import load, FEATURES, M21
 from sklearn.model_selection import GroupKFold, KFold
 from sklearn.metrics import r2_score, mean_absolute_error
 from sklearn.ensemble import ExtraTreesRegressor, RandomForestRegressor
@@ -22,7 +22,7 @@ from catboost import CatBoostRegressor
 X, Y, groups = load()
 SPEC = {
     "fc":  dict(kind="catboost", unit="MPa", label="Compressive strength"),
-    "eps": dict(kind="et",       unit="%",   label="Tensile strain capacity"),
+    "eps": dict(kind="catboost", unit="%",   label="Tensile strain capacity"),
 }
 
 NAME = {"catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest"}
@@ -47,7 +47,9 @@ def half_paper(g, seed):
     return np.array(tr), np.array(te)
 
 r4 = lambda v: float(f"{v:.5g}")
-out = {"version": pd.Timestamp.now().strftime("%Y-%m-%d"), "features": FEATURES, "targets": {}}
+r7 = lambda v: float(f"{v:.8g}")              # split thresholds: keep enough digits to match Python exactly
+out = {"version": pd.Timestamp.now().strftime("%Y-%m-%d"), "features": FEATURES,
+       "materials": [{k: m[k] for k in ("name", "key", "group")} for m in M21], "targets": {}}
 tests = {"features": FEATURES, "rows": []}
 
 for key, s in SPEC.items():
@@ -113,7 +115,7 @@ for key, s in SPEC.items():
         nan_mode = {f["flat_feature_index"]: f.get("nan_value_treatment", "AsIs") for f in ff}
         trees = []
         for t in cb["oblivious_trees"]:
-            trees.append({"s": [[sp["float_feature_index"], r4(sp["border"])] for sp in t["splits"]],
+            trees.append({"s": [[sp["float_feature_index"], r7(sp["border"])] for sp in t["splits"]],
                           "v": [r4(v) for v in t["leaf_values"]]})
         sb = cb.get("scale_and_bias", [1, [0]])
         entry.update(trees=trees, scale=sb[0], bias=float(np.ravel(sb[1])[0]),
@@ -122,7 +124,7 @@ for key, s in SPEC.items():
         trees = []
         for est in mdl.estimators_:
             t = est.tree_
-            trees.append({"f": t.feature.tolist(), "t": [r4(v) for v in t.threshold],
+            trees.append({"f": t.feature.tolist(), "t": [r7(v) for v in t.threshold],
                           "l": t.children_left.tolist(), "r": t.children_right.tolist(),
                           "v": [r4(v) for v in t.value[:, 0, 0]]})
         entry.update(trees=trees)

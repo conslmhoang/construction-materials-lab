@@ -1,7 +1,7 @@
 """Compare the 10 most-used ML models on "04 Dataset_web.xlsx".
 
 Targets : compressive strength, tensile strain capacity
-Inputs  : the 33 values the web computes (web_data.py) — same as train_export.py
+Inputs  : the 21 web materials + curing/test conditions (web_data.py) — same as train_export.py
 Score   : 10-fold cross-validation, random split, mean of 3 seeds
 
 Usage:  python benchmark10.py

@@ -200,7 +200,9 @@
   <!-- ============ 1. CONFIGURATION ============ -->
   <section class="card">
     <h2>1. Mix-Design Configuration</h2>
-    <p class="hint">Enter the proportions exactly as you would in the lab notebook. Binder proportions are mass ratios (any base); fibers are given as percent of total volume.</p>
+    <p class="hint">The binder is <b>cement + fly ash + GGBS</b>: give their shares so they add up to 1 (e.g. cement 0.4, fly ash 0.6).
+      Every other material (silica fume, metakaolin, limestone powder, sand, water, SP, activators …) is a mass ratio to that binder (e.g. water 0.25).
+      Fibers are percent of the total volume. These 21 materials are the ones the strength model was trained on.</p>
 
     <div class="grid2">
       <div class="panel">
@@ -277,7 +279,6 @@
         </select>
       </div>
       <div><label for="cT">Curing temperature (°C)</label><input type="number" id="cT" value="20" step="1"></div>
-      <div><label for="cRH">Relative humidity (%)</label><input type="number" id="cRH" value="95" step="1" min="0" max="100"></div>
       <div><label for="cDays">Curing duration (days)</label><input type="number" id="cDays" value="28" step="1" min="0"></div>
       <div>
         <label for="cAge">Test age (days)</label>
@@ -381,75 +382,27 @@
    ========================================================================== */
 // >>> MATERIALS BEGIN
 const DEFAULT_MATERIALS = [
-  {"name":"OPC (Ordinary Portland Cement)","density":3150.0,"energy":5.5,"co2":0.9,"cost":0.048},
-  {"name":"GGBS (Ground-granulated blast furnace slag)","density":2900.0,"energy":1.6,"co2":0.07,"cost":0.035},
-  {"name":"FA (Fly ash)","density":2200.0,"energy":0.11,"co2":0.0074,"cost":0.03},
-  {"name":"SF (Silica fume)","density":2200.0,"energy":0.036,"co2":0.014,"cost":0.3},
-  {"name":"WG (Water glass)","density":1370.0,"energy":4.6,"co2":0.43,"cost":0.64},
-  {"name":"Metakaolin","density":2620.0,"energy":0.33,"co2":0.332,"cost":0.229},
-  {"name":"NaOH","density":2130.0,"energy":18.0,"co2":0.86,"cost":0.25},
-  {"name":"Ca(OH)2","density":2240.0,"energy":4.25,"co2":1.09,"cost":0.2},
-  {"name":"Na2SO4","density":2660.0,"energy":6.0,"co2":0.47,"cost":0.25},
-  {"name":"SSM - Na2SiO3 (Anhydrous sodium metasilicate)","density":2100.0,"energy":4.6,"co2":0.43,"cost":0.17},
-  {"name":"Limestone Powder","density":2690.0,"energy":0.0796,"co2":0.0028,"cost":0.25},
-  {"name":"SS (Silica sand)","density":2600.0,"energy":0.067,"co2":0.023,"cost":0.0639},
-  {"name":"Crumb rubber","density":1130.0,"energy":7.0,"co2":2.7,"cost":0.48},
+  {"name":"Cement (OPC)","density":3150.0,"energy":5.5,"co2":0.9,"cost":0.048},
+  {"name":"Fly ash (FA)","density":2200.0,"energy":0.11,"co2":0.0074,"cost":0.03},
+  {"name":"GGBS (slag)","density":2900.0,"energy":1.6,"co2":0.07,"cost":0.035},
+  {"name":"Silica fume (SF)","density":2200.0,"energy":0.036,"co2":0.014,"cost":0.3},
+  {"name":"Metakaolin (MK)","density":2620.0,"energy":0.33,"co2":0.332,"cost":0.229},
+  {"name":"Limestone powder (LP)","density":2690.0,"energy":0.0796,"co2":0.0028,"cost":0.25},
+  {"name":"Sand","density":2600.0,"energy":0.067,"co2":0.023,"cost":0.0639},
+  {"name":"Crumb rubber (CR)","density":1130.0,"energy":7.0,"co2":2.7,"cost":0.48},
+  {"name":"EPS beads","density":20.0,"energy":88.6,"co2":2.55,"cost":0.343},
   {"name":"Water","density":1000.0,"energy":0.0,"co2":0.0,"cost":0.0015},
-  {"name":"SP","density":1200.0,"energy":35.0,"co2":1.667,"cost":1.211},
-  {"name":"HRWR","density":1060.0,"energy":30.2,"co2":1.34,"cost":1.21},
+  {"name":"Superplasticizer (SP)","density":1200.0,"energy":35.0,"co2":1.667,"cost":1.211},
   {"name":"VMA","density":1200.0,"energy":4.98,"co2":0.48,"cost":2.5},
+  {"name":"NaOH","density":2130.0,"energy":18.0,"co2":0.86,"cost":0.25},
+  {"name":"Na2SO4","density":2660.0,"energy":6.0,"co2":0.47,"cost":0.25},
+  {"name":"Na2SiO3 (SSM / ASM / SMP)","density":2100.0,"energy":4.6,"co2":0.43,"cost":0.17},
+  {"name":"Water glass (WG)","density":1370.0,"energy":4.6,"co2":0.43,"cost":0.64},
+  {"name":"Ca(OH)2","density":2240.0,"energy":4.25,"co2":1.09,"cost":0.2},
   {"name":"PE fiber","density":970.0,"energy":94.5,"co2":4.08,"cost":22.39},
   {"name":"PVA fiber","density":1300.0,"energy":101.0,"co2":3.4,"cost":12.67},
   {"name":"Steel fiber","density":7800.0,"energy":60.0,"co2":1.6,"cost":5.0},
-  {"name":"Selvage PE fiber","density":1120.0,"energy":6.5,"co2":0.45,"cost":1.5},
-  {"name":"Quartz powder","density":2650.0,"energy":0.14,"co2":0.01,"cost":0.15},
-  {"name":"River sand","density":2605.0,"energy":0.023,"co2":0.003,"cost":0.024},
-  {"name":"PP fiber","density":910.0,"energy":99.2,"co2":3.43,"cost":0.9},
-  {"name":"Na2CO3","density":2540.0,"energy":3.61,"co2":0.29,"cost":0.16},
-  {"name":"Basalt fiber","density":2695.0,"energy":18.0,"co2":2.6,"cost":8.03},
-  {"name":"Glass fiber","density":2680.0,"energy":22.5,"co2":2.04,"cost":0.75},
-  {"name":"Nano-SiO2","density":2300.0,"energy":0.0,"co2":0.0,"cost":0.0},
-  {"name":"M-sand","density":2650.0,"energy":0.48,"co2":0.036,"cost":0.00927},
-  {"name":"Dune sand","density":2618.0,"energy":0.017,"co2":0.0013,"cost":0.00618},
-  {"name":"Sea sand","density":2630.0,"energy":0.103,"co2":0.0076,"cost":0.0082},
-  {"name":"FA cenosphere","density":800.0,"energy":0.1,"co2":0.008,"cost":0.267},
-  {"name":"HGM","density":1100.0,"energy":0.0,"co2":0.0,"cost":0.0},
-  {"name":"EPS beads","density":20.0,"energy":88.6,"co2":2.55,"cost":0.343},
-  {"name":"Stone sludge powder","density":2550.0,"energy":0.85,"co2":0.02,"cost":0.017},
-  {"name":"RCF","density":2370.0,"energy":0.0034,"co2":0.012,"cost":0.0086},
-  {"name":"SAC (calcium sulfoaluminate cement)","density":3100.0,"energy":5.99,"co2":0.64,"cost":0.1215},
-  {"name":"CAC (calcium aluminate cement)","density":3250.0,"energy":0.0,"co2":0.0,"cost":1.36},
-  {"name":"RHA (rice husk ash)","density":2200.0,"energy":0.095,"co2":0.0083,"cost":0.083},
-  {"name":"Recycled powder (construction & demolition waste powder)","density":2690.0,"energy":0.6,"co2":0.167,"cost":0.0264},
-  {"name":"Reactive MgO","density":3580.0,"energy":2.4,"co2":1.4,"cost":0.2},
-  {"name":"CKD (cement kiln dust)","density":2670.0,"energy":0.0,"co2":0.0,"cost":0.0},
-  {"name":"Borax (Na2B4O7·10H2O, sodium tetraborate decahydrate)","density":1730.0,"energy":0.0,"co2":0.566,"cost":1.13},
-  {"name":"HPMC (hydroxypropyl methyl cellulose)","density":1290.0,"energy":142.0,"co2":4.66,"cost":2.26},
-  {"name":"Expansive admixture (CSA / CaO-type expansive agent)","density":2870.0,"energy":2.2,"co2":0.36,"cost":0.0},
-  {"name":"Anti-foamer / defoamer","density":978.0,"energy":0.0,"co2":0.0,"cost":2.93},
-  {"name":"Diatomite","density":2060.0,"energy":0.0,"co2":0.0,"cost":0.59},
-  {"name":"Dolomite powder","density":2850.0,"energy":0.069,"co2":0.029,"cost":0.005},
-  {"name":"Pond ash","density":2450.0,"energy":0.0,"co2":0.0,"cost":0.0127},
-  {"name":"EAFD","density":2760.0,"energy":0.0,"co2":0.0,"cost":0.0},
-  {"name":"Calcined zeolite","density":2300.0,"energy":0.124,"co2":0.0323,"cost":0.145},
-  {"name":"Vermiculite","density":450.0,"energy":7.2,"co2":0.52,"cost":0.487},
-  {"name":"Coarse aggregate","density":2650.0,"energy":0.083,"co2":0.0048,"cost":0.0175},
-  {"name":"SRA","density":990.0,"energy":69.1,"co2":2.61,"cost":0.0},
-  {"name":"AE agent","density":1000.0,"energy":13.8,"co2":0.439,"cost":1.52},
-  {"name":"Ca(NO3)2","density":2500.0,"energy":6.28,"co2":0.978,"cost":0.364},
-  {"name":"SHMP","density":2484.0,"energy":0.0,"co2":0.0,"cost":0.97},
-  {"name":"Water repellent","density":950.0,"energy":69.2,"co2":2.67,"cost":8.0},
-  {"name":"CNT","density":2100.0,"energy":1800.0,"co2":125.0,"cost":108.0},
-  {"name":"CNF","density":1600.0,"energy":94.0,"co2":4.2,"cost":9.56},
-  {"name":"EGGA","density":950.0,"energy":6.7,"co2":0.308,"cost":0.0},
-  {"name":"GPA","density":2050.0,"energy":0.0,"co2":0.0,"cost":0.0},
-  {"name":"PBO fiber","density":1560.0,"energy":0.0,"co2":0.0,"cost":0.0},
-  {"name":"RTP fiber","density":960.0,"energy":83.1,"co2":1.94,"cost":0.5},
-  {"name":"Sisal fiber","density":1500.0,"energy":4.2,"co2":0.247,"cost":0.0},
-  {"name":"PA fiber","density":1140.0,"energy":250.0,"co2":11.03,"cost":0.0},
-  {"name":"Carbon fiber","density":1750.0,"energy":315.0,"co2":10.0,"cost":27.14},
-  {"name":"PET fiber","density":1380.0,"energy":39.0,"co2":0.81,"cost":0.0},
-  {"name":"CaCO3 whisker fiber","density":2860.0,"energy":0.0,"co2":0.0,"cost":0.23}
+  {"name":"PBO fiber","density":1560.0,"energy":0.0,"co2":0.0,"cost":0.0}
 ];
 // <<< MATERIALS END
 
@@ -930,88 +883,59 @@ $("dbReset").onclick = () => { hideErr($("dbError")); setDb(DEFAULT_MATERIALS, "
 
 /* ============================================================ prediction ==
    The trained models live in strength_model.js (written by ml_spike/train_export.py).
-   Mix -> the 33 model inputs, mirroring the feature engineering in ml_spike/spike.py. */
+   Mix -> model inputs: the 21 materials (cement + fly ash + GGBS = the binder, everything else per that
+   binder, fibers in vol%) + curing/test conditions + 5 derived values. Same rules as ml_spike/web_data.py. */
 const SM = (typeof STRENGTH_MODEL !== "undefined") ? STRENGTH_MODEL : null;
-
-/* role of each database material: binder fraction (B:x), ratio to binder (x_B), fiber type (F:x) */
-const ROLES = [
-  [/^OPC\b/i,"B:OPC"], [/^GGBS\b/i,"B:GGBS"], [/^FA \(fly/i,"B:FA"], [/^SF \(/i,"B:SF"],
-  [/metakaolin/i,"B:MK"], [/^limestone powder/i,"B:LP"],
-  [/^SAC\b|^CAC\b|^RHA\b|recycled powder|reactive mgo|^CKD\b|diatomite|dolomite powder|pond ash|nano-sio2|^EAFD$|calcined zeolite/i,"B:other"],
-  [/^WG\b/,"WG_B"], [/^NaOH$/,"NaOH_B"], [/^Ca\(OH\)2$/,"CaOH2_B"], [/^Na2SO4$/,"Na2SO4_B"], [/^SSM\b/,"SSM_B"], [/^Na2CO3$/,"Na2CO3_B"],
-  [/^water$/i,"W_B"],
-  [/sand|stone sludge|^RCF$/i,"Sand_B"], [/quartz powder/i,"QP_B"],
-  [/crumb rubber|cenosphere|^HGM$|EPS beads|vermiculite|^EGGA$|^GPA$/i,"Light_B"],
-  [/^SP$|^HRWR$/,"SP_B"], [/^VMA$|^HPMC\b/,"VMA_B"],
-  [/coarse aggregate/i,"coarse"],
-  [/selvage pe|^PE fiber/i,"F:PE"], [/^PVA fiber/i,"F:PVA"], [/^steel fiber/i,"F:Steel"], [/^PBO fiber/i,"F:PBO"], [/fib(er|re)/i,"F:other"]
-];
-const roleOf = n => (ROLES.find(([re]) => re.test(n)) || [null,"other"])[1];
-/* particle densities (g/cm3) used for the paste-volume estimate in spike.py */
-const PASTE_RHO = {OPC:3.15, GGBS:2.9, FA:2.3, SF:2.2, MK:2.5, LP:2.7};
+/* material name on the web -> {key, group} (binder / ratio / fiber), from materials21.json via the model file */
+const MAT = SM ? Object.fromEntries(SM.materials.map(m => [m.name, m])) : {};
+const keyOf = n => MAT[n] ? MAT[n].key : null;
 
 function readConditions(){
   const num = id => parseFloat($(id).value);
   const ageSel = $("cAge").value;
   const age = ageSel === "custom" ? num("cAgeCustom") : parseFloat(ageSel);
-  const c = {method:$("cMethod").value, T:num("cT"), RH:num("cRH"), days:num("cDays"), age};
+  const c = {method:$("cMethod").value, T:num("cT"), days:num("cDays"), age};
   if (!isFinite(c.age) || c.age <= 0) throw new Error("Test age must be greater than 0 days.");
   if (!isFinite(c.T)) throw new Error("Enter a curing temperature.");
   if (!isFinite(c.days) || c.days < 0) throw new Error("Curing duration cannot be negative.");
   return c;
 }
 
-/* Returns {x: {feature: value|NaN}, notes: [...]} for one mix + condition set. */
+/* Returns {x: [feature values], notes: [...]} for one mix + condition set. */
 function buildFeatures(binder, fiber, cond, res){
-  const notes = [], f = {};
+  const notes = [], f = {}, ignored = [];
   SM.features.forEach(k => f[k] = 0);
-  const bin = {}, ratio = {}, other = [], ignored = [];
-  let B = 0;
-  for (const [n,v] of Object.entries(binder)){
-    const r = roleOf(n);
-    if (r.startsWith("B:")){ B += v; const k = r.slice(2); bin[k] = (bin[k]||0) + v; if (k === "other") other.push(n); }
-    else if (r === "coarse" || r === "other" || r.startsWith("F:")) ignored.push(n);
-    else ratio[r] = (ratio[r]||0) + v;
+  const amt = {};
+  for (const [n,v] of Object.entries({...binder, ...fiber})){
+    const k = keyOf(n);
+    if (k) amt[k] = (amt[k]||0) + v; else ignored.push(n);
   }
-  if (B <= 0) throw new Error("Add at least one binder (OPC, GGBS, FA, SF, metakaolin, limestone powder …) to predict strength.");
-  ["OPC","GGBS","FA","SF","MK","LP"].forEach(k => f[k] = (bin[k]||0)/B);
-  ["WG_B","NaOH_B","CaOH2_B","Na2SO4_B","SSM_B","Sand_B","QP_B","Light_B","SP_B","VMA_B"].forEach(k => f[k] = (ratio[k]||0)/B);
-  f.W_B = ratio.W_B ? ratio.W_B/B : NaN;
-  if (!ratio.W_B) notes.push("No water in the mix — the model needs a water/binder ratio, so predictions are unreliable.");
-  f.Activator_tot = f.WG_B + f.NaOH_B + f.CaOH2_B + f.Na2SO4_B + f.SSM_B + (ratio.Na2CO3_B||0)/B;
-  f.W_C = f.OPC > 0 && isFinite(f.W_B) ? f.W_B / f.OPC : NaN;
-
-  let vt = 0;
-  for (const [n,v] of Object.entries(fiber)){
-    const r = roleOf(n); vt += v;
-    if (r === "F:PE") f.V_PE += v; else if (r === "F:PVA") f.V_PVA += v;
-    else if (r === "F:Steel") f.V_Steel += v; else if (r === "F:PBO") f.V_PBO += v;
-    else ignored.push(n + " (counted only in total fiber volume)");
-  }
-  f.V_total = vt;
-
-  // binder content per m3 from the exact volume calculation of section 1
-  const bKg = Object.values(res.binder).filter(o => roleOf(o.name).startsWith("B:")).reduce((s,o) => s + o.mass, 0);
-  f.Binder_kgm3 = bKg;
-  let vb = 0;   // litres per kg binder
-  for (const [n,v] of Object.entries(binder)){
-    const r = roleOf(n); if (!r.startsWith("B:")) continue;
-    const rho = PASTE_RHO[r.slice(2)] || MATERIALS[n].density/1000;
-    vb += (v/B)/rho;
-  }
-  f.Paste_vol = (vb + (isFinite(f.W_B) ? f.W_B : 0.3)) / 1000 * bKg;
+  const BIN = SM.materials.filter(m => m.group === "binder").map(m => m.key);
+  const B = BIN.reduce((s,k) => s + (amt[k]||0), 0);
+  if (B <= 0) throw new Error("Add cement, fly ash or GGBS: the model's binder is cement + fly ash + GGBS.");
+  if (Math.abs(B - 1) > 0.01) notes.push(`Cement + fly ash + GGBS = ${fmt(B,3)}, not 1: the model reads every proportion per their sum (the kg per m³ do not change).`);
+  for (const m of SM.materials) f[m.key] = m.group === "fiber" ? (amt[m.key]||0) : (amt[m.key]||0) / B;
+  if (!amt.Water) notes.push("No water in the mix: predictions are unreliable.");
 
   // curing / test conditions
   const m = cond.method;
-  f.Cure_T = cond.T;
-  f.Cure_RH = cond.RH; f.Cure_days = cond.days; f.Age_days = cond.age;
-  f.Cure_water = m === "water" ? 1 : 0;
-  f.Cure_sealed = m === "sealed" ? 1 : 0;
-  f.Cure_heat = (m === "heat" && cond.T > 40) ? 1 : 0;
+  f.Cure_T = cond.T; f.Cure_days = cond.days; f.Age_days = cond.age;
+  f.Cure_water = m === "water" ? 1 : 0; f.Cure_sealed = m === "sealed" ? 1 : 0;
+  f.Cure_heat = m === "heat" ? 1 : 0;   f.Cure_air = m === "air" ? 1 : 0;
 
-  if (other.length) notes.push(`The model has no separate input for ${other.join(", ")}; it is counted only as part of the binder.`);
-  if (ignored.length) notes.push(`Not used by the model: ${ignored.join(", ")}.`);
-  if (vt === 0) notes.push("No fibers — the model was trained on fiber-reinforced mixes, so treat the result with care.");
+  // derived values (computed from the inputs above, never typed in)
+  const FIB = SM.materials.filter(x => x.group === "fiber").map(x => x.key);
+  f.V_total = FIB.reduce((s,k) => s + f[k], 0);
+  f.W_C = f.Cement > 0 ? f.Water / f.Cement : NaN;
+  f.Activator_tot = ["NaOH","Na2SO4","Na2SiO3","WG","CaOH2"].reduce((s,k) => s + f[k], 0);
+  const rho = k => MATERIALS[SM.materials.find(x => x.key === k).name].density;
+  const denom = SM.materials.filter(x => x.group !== "fiber").reduce((s,x) => s + f[x.key] / rho(x.key), 0);
+  f.Binder_kgm3 = denom > 0 ? (1 - f.V_total/100) / denom : NaN;          // = binder kg in 1 m³ (section 1)
+  const vb = BIN.reduce((s,k) => s + f[k] / (rho(k)/1000), 0);             // litres per kg binder
+  f.Paste_vol = (vb + f.Water) / 1000 * f.Binder_kgm3;
+
+  if (ignored.length) notes.push(`Not used by the model (not one of its 21 materials): ${ignored.join(", ")}.`);
+  if (f.V_total === 0) notes.push("No fibers: the model was trained on fiber-reinforced mixes, so treat the result with care.");
   // outside the training range (1st–99th percentile)
   const out = [];
   for (const [k,[lo,hi]] of Object.entries(SM.ranges || {})){
@@ -1022,11 +946,12 @@ function buildFeatures(binder, fiber, cond, res){
   if (out.length) notes.push("Outside the range of the training data, extrapolation: " + out.join("; ") + ".");
   return {x:SM.features.map(k => f[k]), notes};
 }
-const FEAT_LABEL = {OPC:"OPC share of binder", GGBS:"GGBS share", FA:"FA share", SF:"SF share", MK:"Metakaolin share", LP:"Limestone powder share",
-  W_B:"Water/binder", Sand_B:"Sand/binder", QP_B:"Quartz powder/binder", Light_B:"Lightweight/binder", SP_B:"SP/binder", VMA_B:"VMA/binder",
-  WG_B:"Water glass/binder", NaOH_B:"NaOH/binder", CaOH2_B:"Ca(OH)2/binder", Na2SO4_B:"Na2SO4/binder", SSM_B:"SSM/binder",
-  V_PE:"PE fiber (vol%)", V_PVA:"PVA fiber (vol%)", V_Steel:"Steel fiber (vol%)", V_PBO:"PBO fiber (vol%)", V_total:"Total fiber (vol%)",
-  Cure_T:"Curing temperature", Cure_days:"Curing duration", Cure_RH:"RH", Age_days:"Test age", W_C:"Water/cement",
+const FEAT_LABEL = {Cement:"Cement share of binder", FA:"Fly ash share", GGBS:"GGBS share",
+  SF:"Silica fume/binder", MK:"Metakaolin/binder", LP:"Limestone powder/binder", Sand:"Sand/binder", CR:"Crumb rubber/binder",
+  EPS:"EPS beads/binder", Water:"Water/binder", SP:"SP/binder", VMA:"VMA/binder", NaOH:"NaOH/binder", Na2SO4:"Na2SO4/binder",
+  Na2SiO3:"Na2SiO3/binder", WG:"Water glass/binder", CaOH2:"Ca(OH)2/binder",
+  PE:"PE fiber (vol%)", PVA:"PVA fiber (vol%)", Steel:"Steel fiber (vol%)", PBO:"PBO fiber (vol%)", V_total:"Total fiber (vol%)",
+  Cure_T:"Curing temperature", Cure_days:"Curing duration", Age_days:"Test age", W_C:"Water/cement",
   Activator_tot:"Activator/binder", Paste_vol:"Paste volume", Binder_kgm3:"Binder content (kg/m³)"};
 
 /* --- model evaluation (same arithmetic as CatBoost / scikit-learn) --- */
@@ -1088,8 +1013,8 @@ function scenarios(binder, fiber){
   const out = [];
   const scale = (obj, test, f) => Object.fromEntries(Object.entries(obj).map(([n,v]) => [n, test(n) ? v*f : v]));
   const has = (obj, test) => Object.keys(obj).some(test);
-  const isW = n => roleOf(n) === "W_B", isS = n => roleOf(n) === "Sand_B";
-  const isSP = n => roleOf(n) === "SP_B";
+  const isW = n => keyOf(n) === "Water", isS = n => keyOf(n) === "Sand";
+  const isSP = n => keyOf(n) === "SP";
   if (has(binder, isW)){
     out.push(["Water −10% (lower W/B)", scale(binder, isW, 0.9), fiber]);
     out.push(["Water +10% (higher W/B)", scale(binder, isW, 1.1), fiber]);
@@ -1160,7 +1085,7 @@ function runPrediction(){
 }
 
 /* Prediction log: condition and output columns stay after the material columns. */
-const PRED_COND = ["Curing method", "Curing temperature (°C)", "Relative humidity (%)", "Curing duration (days)", "Test age (days)"];
+const PRED_COND = ["Curing method", "Curing temperature (°C)", "Curing duration (days)", "Test age (days)"];
 function predOutCols(){
   return Object.values(SM.targets).flatMap(t => {
     const h = `${t.label} (${t.unit})`;
@@ -1176,7 +1101,6 @@ function addPredRow(binder, fiber, cond, x){
   for (const [n,v] of Object.entries(fiber))  row[n+FIB_SUFF] = v;
   row["Curing method"]           = $("cMethod").selectedOptions[0].text;
   row["Curing temperature (°C)"] = cond.T;
-  row["Relative humidity (%)"]   = isFinite(cond.RH) ? cond.RH : "";
   row["Curing duration (days)"]  = cond.days;
   row["Test age (days)"]         = cond.age;
   const cols = predOutCols();
@@ -1229,9 +1153,8 @@ const COND_HINT = {
 };
 $("cMethod").onchange = () => {
   const m = $("cMethod").value;
-  if (m === "heat"){ $("cT").value = 90; $("cRH").value = 95; $("cDays").value = 2; }
-  else if (m === "air"){ $("cT").value = 20; $("cRH").value = 55; }
-  else { $("cT").value = 20; $("cRH").value = m === "water" ? 100 : 95; }
+  if (m === "heat"){ $("cT").value = 90; $("cDays").value = 2; }
+  else $("cT").value = 20;
   if (m !== "heat"){ const a = $("cAge").value; $("cDays").value = a === "custom" ? $("cAgeCustom").value : a; }
   $("condHint").textContent = COND_HINT[m];
 };

@@ -1,0 +1,26 @@
+{
+  "_about": "The 21 materials of the web calculator AND of the strength model (one list for both). name = what the web shows and the column in 04 Dataset_web.xlsx; key = model input; datamix = column in 01 Datamix.xlsx that gives density, cost, energy and CO2; group: binder = Cement/FA/GGBS (their shares add up to 1), ratio = mass ratio to that binder, fiber = vol% of the mix.",
+  "materials": [
+    {"name": "Cement (OPC)",            "key": "Cement", "group": "binder", "datamix": "OPC (Ordinary Portland Cement)"},
+    {"name": "Fly ash (FA)",            "key": "FA",     "group": "binder", "datamix": "FA (Fly ash)"},
+    {"name": "GGBS (slag)",             "key": "GGBS",   "group": "binder", "datamix": "GGBS (Ground-granulated blast furnace slag)"},
+    {"name": "Silica fume (SF)",        "key": "SF",     "group": "ratio",  "datamix": "SF (Silica fume)"},
+    {"name": "Metakaolin (MK)",         "key": "MK",     "group": "ratio",  "datamix": "Metakaolin"},
+    {"name": "Limestone powder (LP)",   "key": "LP",     "group": "ratio",  "datamix": "Limestone Powder"},
+    {"name": "Sand",                    "key": "Sand",   "group": "ratio",  "datamix": "SS (Silica sand)"},
+    {"name": "Crumb rubber (CR)",       "key": "CR",     "group": "ratio",  "datamix": "Crumb rubber"},
+    {"name": "EPS beads",               "key": "EPS",    "group": "ratio",  "datamix": "EPS beads"},
+    {"name": "Water",                   "key": "Water",  "group": "ratio",  "datamix": "Water"},
+    {"name": "Superplasticizer (SP)",   "key": "SP",     "group": "ratio",  "datamix": "SP"},
+    {"name": "VMA",                     "key": "VMA",    "group": "ratio",  "datamix": "VMA"},
+    {"name": "NaOH",                    "key": "NaOH",   "group": "ratio",  "datamix": "NaOH"},
+    {"name": "Na2SO4",                  "key": "Na2SO4", "group": "ratio",  "datamix": "Na2SO4"},
+    {"name": "Na2SiO3 (SSM / ASM / SMP)", "key": "Na2SiO3", "group": "ratio", "datamix": "SSM - Na2SiO3 (Anhydrous sodium metasilicate)"},
+    {"name": "Water glass (WG)",        "key": "WG",     "group": "ratio",  "datamix": "WG (Water glass)"},
+    {"name": "Ca(OH)2",                 "key": "CaOH2",  "group": "ratio",  "datamix": "Ca(OH)2"},
+    {"name": "PE fiber",                "key": "PE",     "group": "fiber",  "datamix": "PE fiber"},
+    {"name": "PVA fiber",               "key": "PVA",    "group": "fiber",  "datamix": "PVA fiber"},
+    {"name": "Steel fiber",             "key": "Steel",  "group": "fiber",  "datamix": "Steel fiber"},
+    {"name": "PBO fiber",               "key": "PBO",    "group": "fiber",  "datamix": "PBO fiber"}
+  ]
+}

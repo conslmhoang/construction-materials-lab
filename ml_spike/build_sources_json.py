@@ -34,13 +34,25 @@ for _, r in S.iterrows():
                    "fc": int(c["fc"]) if c is not None else 0,
                    "eps": int(c["eps"]) if c is not None else 0})
 papers = [p for p in papers if p["rows"] > 0]
-summary = {"rows": int(len(F)), "papers": len(papers),
+# papers added after 03 Dataset_ratio.xlsx (ml_spike/additions_v2/*.csv)
+import glob
+for f in sorted(glob.glob(os.path.join(here, "additions_v2", "*.csv"))):
+    A = pd.read_csv(f, encoding="utf-8-sig")
+    for (title, link), g in A.groupby(["Article Name", "DOI / URL"], sort=False):
+        key = norm(link)
+        if key in seen: continue
+        seen.add(key)
+        u = W[W["_doi"] == key]
+        papers.append({"title": str(title).strip(), "link": str(link), "added": "2026-11",
+                       "rows": int(len(g)), "fc": int(u["use_fc"].sum()), "eps": int(u["use_eps"].sum())})
+        F_extra = len(g); globals().setdefault("EXTRA_ROWS", 0); EXTRA_ROWS += F_extra
+summary = {"rows": int(len(F)) + globals().get("EXTRA_ROWS", 0), "papers": len(papers),
            "has": {t: int(F[f"has_{t}"].sum()) for t in ("fc", "eps")},
            "use": {t: int(W[f"use_{t}"].sum()) for t in ("fc", "eps")},
            "why_not_fc": F.loc[F["has_fc"].astype(bool) & ~F["use_fc"].astype(bool), "why_not_fc"]
                           .fillna("").str.split(";").explode().str.strip().loc[lambda s: s != ""].replace("no fibre", "no fiber").value_counts().to_dict()}
 lost = int(F["use_fc"].sum() - W["use_fc"].sum())          # passed cleaning but cannot be entered on the web
-if lost: summary["why_not_fc"]["fiber type or binder not on the web"] = lost
+if lost: summary["why_not_fc"]["uses a material outside the 21"] = lost
 os.makedirs(os.path.join(root, "data"), exist_ok=True)
 json.dump({"summary": summary, "papers": papers}, open(os.path.join(root, "data", "sources.json"), "w", encoding="utf-8"),
           ensure_ascii=False, separators=(",", ":"))

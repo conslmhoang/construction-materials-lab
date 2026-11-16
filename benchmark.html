@@ -84,7 +84,7 @@
     <h2>How the comparison was run</h2>
     <ul class="hint" style="color:var(--ink-2)">
       <li><b>Data:</b> mixes from published papers on fiber-reinforced cementitious and geopolymer composites (ECC/SHCC, UHPC, UHP-ECC), cleaned and screened for special test conditions, outliers and missing densities.</li>
-      <li><b>Inputs (33):</b> only what the calculator can supply: binder shares, ratios to binder, fiber volumes, curing and test age.</li>
+      <li><b>Inputs:</b> exactly what the calculator asks for: the 21 materials (cement, fly ash and GGBS shares of the binder, the other materials per binder, fiber vol%), curing method, temperature and duration, and test age.</li>
       <li><b>Testing:</b> 10-fold cross-validation with a random split. The mixes are shuffled and split into 10 parts; each part is predicted by a model trained on the other 9, so every mix is predicted once by a model that never saw it. Repeated with 3 random seeds and averaged.</li>
       <li><b>Hyper-parameters:</b> fixed for each model (no tuning on the test folds).</li>
     </ul>

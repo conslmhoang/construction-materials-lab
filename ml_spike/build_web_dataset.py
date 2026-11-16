@@ -1,136 +1,139 @@
-"""Build the training file "04 Dataset_web.xlsx": one row per mix x test age, and ONLY the columns
-the web calculator has:
+"""Build the training file "04 Dataset_web.xlsx" with exactly the web's inputs:
 
-  Paper, DOI | the 69 web materials | curing method, temperature, RH, duration, test age |
+  Paper, DOI | 21 materials (materials21.json) | curing method, curing temperature, curing duration, test age |
   compressive strength, tensile strain capacity
 
-Units are the web's units: binder materials = mass fraction of the binder (they sum to 1),
-other materials = mass ratio to the binder, fibers = vol%.
-Only rows that pass the cleaning (clean/dataset_clean.csv: use_fc / use_ft / use_eps) are kept,
-and an output cell is left blank when that value is not used.
+Rules
+- A row is kept only if every material in it is one of the 21 (defoamer / anti-foamer is allowed but not listed).
+  Rows of the same paper that use only the 21 materials are kept even if other rows of that paper are not.
+- Binder = cement + fly ash + GGBS; their shares add up to 1. Anything the paper counted in its binder
+  (silica fume, metakaolin, limestone powder, Ca(OH)2, Na2SiO3 ...) becomes a ratio to this binder:
+  every "x / paper binder" value is divided by (cement + FA + GGBS share of the paper binder).
+  The kg per m3 of the mix do not change; only the base of the ratios does.
+- All sands -> "Sand"; SP + HRWR + water reducer -> "Superplasticizer (SP)"; VMA + HPMC -> "VMA";
+  PE + selvage PE -> "PE fiber"; all steel fibers -> "Steel fiber". Ice is already inside W/B in the source.
+- Curing: one of the web's 5 methods. Missing temperature -> 20 °C for non-heat methods. Duration: days at high
+  temperature for heat curing (from "Heat curing duration (h)" when given), otherwise days of curing,
+  and the test age when the paper does not say. Relative humidity is not used.
+- Only rows that pass the cleaning (clean/dataset_clean.csv) plus the rows in additions_v2/*.csv.
 
 Usage:  python build_web_dataset.py
 """
-import os, re, json
+import os, re, json, glob
 import numpy as np, pandas as pd
 
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 SRC = os.path.join(root, "03 Dataset_ratio.xlsx")
 OUT = os.path.join(root, "04 Dataset_web.xlsx")
+M21 = json.load(open(os.path.join(root, "materials21.json"), encoding="utf-8"))["materials"]
+NAME = {m["key"]: m["name"] for m in M21}
 
-# ---- the 69 web materials, in the web's order
-html = open(os.path.join(root, "index.html"), encoding="utf-8").read()
-block = html.split("const DEFAULT_MATERIALS = [")[1].split("];")[0]
-WEB = [json.loads(l.strip().rstrip(","))["name"] for l in block.splitlines() if l.strip().startswith("{")]
-assert len(WEB) == 69, len(WEB)
+# ---- source columns (03 Dataset_ratio.xlsx, 0-based) for each of the 21 materials
+BINDER_FRAC = {"Cement": [4], "FA": [8], "GGBS": [7], "SF": [9], "MK": [10], "LP": [11]}   # shares of the paper binder
+PER_B = {"WG": [67], "NaOH": [68], "CaOH2": [69], "Na2SO4": [70], "Na2SiO3": [71],
+         "Sand": [86, 87, 90, 91, 92, 93, 94, 97, 181], "CR": [106], "EPS": [107],
+         "SP": [110, 116, 172], "VMA": [117, 118]}
+FIBER = {"PE": [182], "PVA": [189], "Steel": [199, 206, 207, 281, 282, 289], "PBO": [211]}
+WATER_COLS = [83, 84, 85, 131, 132, 134]          # water in any form (W/B already includes ice)
+DEFOAMER = [120, 126]
+# every other material-amount column = not allowed
+OTHER = [5, 6, 12, 13, 14, 15, 16, 17, 18, 19, 37, 55, 72, 88, 95, 96, 102, 103, 104, 105, 108, 109, 111, 119,
+         124, 125, 138, 139, 148, 156, 161, 173, 174, 217, 227, 235, 241, 242, 271, 295, 303, 313]
+assert not set(OTHER) & set(sum(list(BINDER_FRAC.values()) + list(PER_B.values()) + list(FIBER.values()), []))
 
-# ---- 03 Dataset_ratio.xlsx, read the same way as before (spike.py)
 raw = pd.read_excel(SRC, "Dataset", header=None)
+hdr = raw.iloc[1].astype(str).tolist()
 d = raw.iloc[2:].reset_index(drop=True)
 d.columns = range(raw.shape[1])
 d[0] = d[0].ffill()
 d = d[d.iloc[:, 4:].notna().any(axis=1)].reset_index(drop=True)
 F = pd.read_csv(os.path.join(here, "clean", "dataset_clean.csv"), encoding="utf-8-sig")
 assert len(F) == len(d), (len(F), len(d))
-N = lambda i: pd.to_numeric(d[i], errors="coerce")
+d["_paper"], d["_doi"] = F["paper"].values, F["doi"].fillna("").values
+d["_use_fc"], d["_use_eps"] = F["use_fc"].astype(bool).values, F["use_eps"].astype(bool).values
 
-# ---- which source columns go into which web material (values are added up)
-SRC_COLS = {
-    # binders (fraction of binder)
-    "OPC (Ordinary Portland Cement)": [4], "SAC (calcium sulfoaluminate cement)": [5],
-    "CAC (calcium aluminate cement)": [6], "GGBS (Ground-granulated blast furnace slag)": [7],
-    "FA (Fly ash)": [8], "SF (Silica fume)": [9], "Metakaolin": [10], "Limestone Powder": [11],
-    "Diatomite": [12], "Nano-SiO2": [13], "Recycled powder (construction & demolition waste powder)": [14],
-    "Dolomite powder": [15], "Pond ash": [16], "RHA (rice husk ash)": [18], "EAFD": [19],
-    "Reactive MgO": [37], "CKD (cement kiln dust)": [55],
-    # activators (ratio to binder)
-    "WG (Water glass)": [67], "NaOH": [68], "Ca(OH)2": [69], "Na2SO4": [70],
-    "SSM - Na2SiO3 (Anhydrous sodium metasilicate)": [71], "Na2CO3": [72],
-    # aggregates / fillers (ratio to binder); sand of unstated or "fine" type -> silica sand,
-    # "local" sand and SSD aggregate -> river sand
-    "SS (Silica sand)": [86, 87, 97], "River sand": [94, 90, 181], "Dune sand": [91], "M-sand": [92],
-    "Sea sand": [93], "Stone sludge powder": [95], "RCF": [161], "GPA": [174], "Quartz powder": [104],
-    "Calcined zeolite": [88], "FA cenosphere": [102], "Vermiculite": [103], "HGM": [105],
-    "Crumb rubber": [106], "EPS beads": [107], "EGGA": [139], "Coarse aggregate": [148],
-    # admixtures (ratio to binder)
-    "SP": [110], "HRWR": [116], "VMA": [117], "HPMC (hydroxypropyl methyl cellulose)": [118],
-    "CNT": [108], "CNF": [109], "Water repellent": [111], "Ca(NO3)2": [119],
-    "Anti-foamer / defoamer": [120, 126], "Expansive admixture (CSA / CaO-type expansive agent)": [124],
-    "SRA": [125], "SHMP": [138], "AE agent": [156],
-    "Borax (Na2B4O7·10H2O, sodium tetraborate decahydrate)": [173],
-    # fibers (vol%)
-    "PE fiber": [182], "PVA fiber": [189], "Steel fiber": [199, 206, 207, 281, 282, 289], "PBO fiber": [211],
-    "PP fiber": [217], "Glass fiber": [227], "PET fiber": [235], "Basalt fiber": [242], "Carbon fiber": [295],
-    "RTP fiber": [241], "CaCO3 whisker fiber": [271], "Sisal fiber": [303], "PA fiber": [313],
-}
-unknown = [k for k in SRC_COLS if k not in WEB]
-assert not unknown, unknown
+# ---- new papers (same 99-column template as the earlier additions)
+for f in sorted(glob.glob(os.path.join(here, "additions_v2", "*.csv"))):
+    a = pd.read_csv(f, encoding="utf-8-sig")
+    rows = pd.DataFrame(np.nan, index=range(len(a)), columns=d.columns, dtype=object)
+    for c in a.columns:
+        if c in hdr: rows[hdr.index(c)] = a[c].values
+    rows["_paper"], rows["_doi"] = a["Article Name"].values, a["DOI / URL"].values
+    tt = a["Tensile test type"].astype(str).str.lower()
+    ok = pd.to_numeric(a["W / B"], errors="coerce").notna() & pd.to_numeric(a["Test age (days)"], errors="coerce").notna()
+    rows["_use_fc"] = (ok & pd.to_numeric(a["Compressive strength (MPa)"], errors="coerce").notna()).values
+    rows["_use_eps"] = (ok & tt.str.contains("direct|uniaxial") & pd.to_numeric(a["Tensile strain capacity (%)"], errors="coerce").notna()).values
+    d = pd.concat([d, rows], ignore_index=True)
+    print(f"+ {len(a)} rows from {os.path.basename(f)}")
+
+N = lambda i: pd.to_numeric(d[i], errors="coerce").fillna(0)
+S = lambda idx: sum(N(i) for i in idx)
+
+other = pd.concat([N(i) != 0 for i in OTHER], axis=1).any(axis=1)
+fib = {k: S(v) for k, v in FIBER.items()}
+no_fiber_type = sum(fib.values()) == 0
+B3 = S(BINDER_FRAC["Cement"] + BINDER_FRAC["FA"] + BINDER_FRAC["GGBS"])     # share of the paper binder
+W = pd.to_numeric(d[83], errors="coerce").fillna(pd.to_numeric(d[134], errors="coerce")).fillna(pd.to_numeric(d[85], errors="coerce"))
+keep = (d["_use_fc"] | d["_use_eps"]) & ~other & ~no_fiber_type & (B3 > 0) & W.notna()
 
 D = pd.DataFrame(index=d.index)
-D["Paper"] = F["paper"].values
-D["DOI"] = F["doi"].fillna("").values
-for name in WEB:
-    if name == "Water":
-        D[name] = N(83).fillna(N(134)).fillna(N(85))           # W/B, else total water / B, else mixing liquid / B
-    elif name in SRC_COLS:
-        vals = sum(N(i).fillna(0) for i in SRC_COLS[name])
-        if name == "SP":
-            vals = vals.where(vals > 0, N(172).fillna(0))         # water reducer of unstated type
-        D[name] = vals
-    else:
-        D[name] = 0.0                                            # material on the web, not in any paper
+D["Paper"], D["DOI"] = d["_paper"], d["_doi"]
+for k, idx in BINDER_FRAC.items():
+    D[NAME[k]] = S(idx) / B3.replace(0, np.nan)
+for k in ["Sand", "CR", "EPS"]:
+    D[NAME[k]] = S(PER_B[k]) / B3.replace(0, np.nan)
+D[NAME["Water"]] = W / B3.replace(0, np.nan)
+for k in ["SP", "VMA", "NaOH", "Na2SO4", "Na2SiO3", "WG", "CaOH2"]:
+    D[NAME[k]] = S(PER_B[k]) / B3.replace(0, np.nan)
+for k, v in fib.items():
+    D[NAME[k]] = v
+D = D[["Paper", "DOI"] + [m["name"] for m in M21]]
 
-# ---- curing and test conditions, as the web asks for them
+# ---- curing and test conditions
 cm = d[327].astype(str).str.lower().where(d[327].notna(), "")
-T = N(329)
-method = np.select(
-    [cm.str.contains("heat|steam|oven|°c") & (T.fillna(20) > 40),
-     cm.str.contains("water"), cm.str.contains("seal|wrap|plastic"), cm.str.contains(r"\bair\b|ambient")],
-    ["Heat / steam curing", "Water curing", "Sealed / wrapped", "Air (lab ambient)"],
-    "Standard moist room")
+T = pd.to_numeric(d[329], errors="coerce")
+heat = cm.str.contains("heat|steam|oven|°c") & (T.fillna(20) > 40)
+method = np.select([heat, cm.str.contains("water"), cm.str.contains("seal|wrap|plastic"), cm.str.contains(r"\bair\b|ambient")],
+                   ["Heat / steam curing", "Water curing", "Sealed / wrapped", "Air (lab ambient)"], "Standard moist room")
+age = pd.to_numeric(d[341], errors="coerce").fillna(pd.to_numeric(d[328], errors="coerce"))
+days = pd.to_numeric(d[328], errors="coerce")
+heat_d = pd.to_numeric(d[345], errors="coerce") / 24
+days = np.where(heat & heat_d.notna(), heat_d, days)
+days = pd.Series(days, index=d.index).fillna(age)
 D["Curing method"] = method
-D["Curing temperature (°C)"] = T
-D["Relative humidity (%)"] = N(330)
-D["Curing duration (days)"] = N(328)
-D["Test age (days)"] = N(341).fillna(N(328))
+D["Curing temperature (°C)"] = T.where(T.notna(), np.where(heat, np.nan, 20.0))
+D["Curing duration (days)"] = days.round(3)
+D["Test age (days)"] = age
+D["Compressive strength (MPa)"] = pd.to_numeric(d[389], errors="coerce").where(d["_use_fc"])
+D["Tensile strain capacity (%)"] = pd.to_numeric(d[418], errors="coerce").where(d["_use_eps"])
 
-# ---- outputs: only the values the cleaning kept
-use = {k: F[f"use_{k}"].astype(bool).values for k in ("fc", "eps")}
-D["Compressive strength (MPa)"] = N(389).where(use["fc"])
-D["Tensile strain capacity (%)"] = N(418).where(use["eps"])
-
-keep = use["fc"] | use["eps"]
+keep &= D["Test age (days)"].notna() & D["Curing temperature (°C)"].notna()
+keep &= D["Compressive strength (MPa)"].notna() | D["Tensile strain capacity (%)"].notna()
+print("rows dropped - other material:", int(((d['_use_fc'] | d['_use_eps']) & other).sum()),
+      "| no fiber type:", int(((d['_use_fc'] | d['_use_eps']) & ~other & no_fiber_type).sum()),
+      "| no cement/FA/GGBS:", int(((d['_use_fc'] | d['_use_eps']) & ~other & ~no_fiber_type & (B3 <= 0)).sum()))
 D = D[keep].reset_index(drop=True)
+num = D.columns[2:2 + len(M21)]
+D[num] = D[num].round(5)
 
-# fibers with only a "total fiber" value and no type cannot be entered on the web
-fib = [n for n in WEB if re.search(r"fib(er|re)", n, re.I)]
-no_type = D[fib].sum(axis=1) == 0
-print("rows kept:", len(D), "| dropped, fiber type not given:", int(no_type.sum()))
-D = D[~no_type].reset_index(drop=True)
-# a mix must have at least one binder the web knows (rows with only "other binder" cannot be entered)
-from web_data import role_of
-binder_cols = [n for n in WEB if role_of(n).startswith("B:")]
-no_binder = D[binder_cols].sum(axis=1) == 0
-print("dropped, no web binder:", int(no_binder.sum()))
-D = D[~no_binder].reset_index(drop=True)
-
-# drop material columns that are 0 in every row? No: keep all 69 so the file matches the web 1:1.
 guide = pd.DataFrame({"Item": [
-    "One row", "Paper / DOI", "Binder materials", "Other materials", "Fibers", "Curing method",
-    "Curing duration", "Outputs", "Source", "Rebuild"], "Meaning": [
+    "One row", "Paper / DOI", "Cement, Fly ash, GGBS", "Other materials", "Fibers", "Curing method",
+    "Curing temperature", "Curing duration", "Outputs", "Rules", "Source", "Rebuild"], "Meaning": [
     "One mix at one test age.",
-    "Source paper (used to group rows and list sources on data.html).",
-    "OPC, GGBS, FA, SF, metakaolin, limestone powder, SAC, CAC, RHA ...: mass fraction of the binder (they add up to 1).",
-    "Water, sand, quartz powder, activators, admixtures ...: mass ratio to the binder.",
+    "Source paper (rows are grouped by paper on data.html).",
+    "Share of the binder; the binder is only cement + fly ash + GGBS, so these three add up to 1.",
+    "Mass ratio to that binder (silica fume, metakaolin and limestone powder too). Sand = any sand; SP includes HRWR; VMA includes HPMC; Na2SiO3 = SSM / ASM / SMP (anhydrous).",
     "Volume % of the mix.",
     "Standard moist room / Water curing / Sealed / wrapped / Air (lab ambient) / Heat / steam curing (same list as the web).",
-    "For heat curing: days at high temperature; otherwise days of curing before the test.",
-    "Blank when the paper did not report it or the value was excluded during cleaning (see data.html).",
-    "Built from 03 Dataset_ratio.xlsx (full extraction, 773 columns) with ml_spike/build_web_dataset.py.",
-    "python ml_spike/build_web_dataset.py, then python ml_spike/train_export.py"]})
+    "°C; 20 °C when a non-heat paper does not state it.",
+    "Heat curing: days at high temperature. Otherwise days of curing; the test age when not stated.",
+    "Blank when not reported or excluded during cleaning (see data.html).",
+    "Rows using any material outside the 21 are left out (defoamer allowed). Ratios re-expressed per cement + FA + GGBS.",
+    "Built from 03 Dataset_ratio.xlsx and ml_spike/additions_v2/*.csv by ml_spike/build_web_dataset.py.",
+    "python ml_spike/build_web_dataset.py, then python ml_spike/train_export.py ../strength_model.js"]})
 with pd.ExcelWriter(OUT, engine="openpyxl") as w:
     D.to_excel(w, sheet_name="Data", index=False)
     guide.to_excel(w, sheet_name="Guide", index=False)
-print("wrote", OUT, D.shape)
-print({k: int(D[c].notna().sum()) for k, c in [("fc", "Compressive strength (MPa)"), ("eps", "Tensile strain capacity (%)")]})
+print("wrote", OUT, D.shape, "| papers:", D["Paper"].nunique(),
+      "| fc rows:", int(D["Compressive strength (MPa)"].notna().sum()), "| strain rows:", int(D["Tensile strain capacity (%)"].notna().sum()))
