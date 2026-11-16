@@ -16,23 +16,38 @@ A browser-only tool for fiber-reinforced cementitious and geopolymer composites 
 | `benchmark.html` | 10 ML models compared (10-fold cross-validation, random split) |
 | `data.html` | The 285 source papers and how the data were cleaned |
 
+## Training data: `04 Dataset_web.xlsx`
+
+One sheet, one row per mix and test age, and only the columns the web has:
+
+| Columns | Content |
+|---|---|
+| Paper, DOI | source paper |
+| 69 materials | same names and units as the calculator: binders = mass fraction of the binder, others = mass ratio to the binder, fibers = vol% |
+| 5 conditions | curing method, curing temperature (°C), relative humidity (%), curing duration (days), test age (days) |
+| 3 outputs | compressive strength (MPa), direct tensile strength (MPa), tensile strain capacity (%); blank when not used |
+
+`ml_spike/web_data.py` turns each row into the model inputs with the same rules as the web page,
+so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is the full extraction
+(773 columns) that this file is built from.
+
 ## Models (10-fold CV, random split, mean of 3 seeds)
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 1460 / 191 | CatBoost | 0.95 | 6.9 MPa |
-| Direct tensile strength | 638 / 128 | CatBoost | 0.83 | 0.86 MPa |
-| Tensile strain capacity | 610 / 125 | Extra Trees | 0.77 | 0.84 % |
+| Compressive strength | 1456 / 190 | CatBoost | 0.95 | 6.9 MPa |
+| Direct tensile strength | 634 / 127 | CatBoost | 0.82 | 0.87 MPa |
+| Tensile strain capacity | 600 / 123 | Extra Trees | 0.76 | 0.86 % |
 
 ## Rebuilding
 
 ```
 cd ml_spike
-python benchmark10.py "../03 Dataset_ratio.xlsx" bench10              # compare 10 models
-python add_random_oof.py "../03 Dataset_ratio.xlsx" bench10           # predictions for the parity plot
-python train_export.py "../03 Dataset_ratio.xlsx" model ../strength_model.js   # models for the web
-python build_sources_json.py                                          # data/sources.json for data.html
-cd .. && python embed_materials.py "01 Datamix.xlsx" index.html        # material database
+python build_web_dataset.py              # 03 Dataset_ratio.xlsx -> 04 Dataset_web.xlsx
+python benchmark10.py                    # compare 10 models (benchmark.html)
+python train_export.py ../strength_model.js   # models for the web
+python build_sources_json.py             # data/sources.json (data.html)
+cd .. && python embed_materials.py "01 Datamix.xlsx" index.html   # material database
 ```
 
 Python environment: `ml_spike/.venv` (pandas, scikit-learn, catboost, xgboost, matplotlib, openpyxl).

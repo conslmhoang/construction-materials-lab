@@ -1,43 +1,29 @@
-"""Train the final strength models and export them for the web calculator.
+"""Train the final strength models from "04 Dataset_web.xlsx" and export them for the web.
 
-  fc  : CatBoost     (best by random-split 10-fold CV, R2 0.95 — see benchmark10.py)
-  ft  : CatBoost     (best, R2 0.83)
-  eps : Extra Trees  (R2 0.78; XGBoost 0.782 is a tie and has no browser exporter)
+  fc  : CatBoost     ft : CatBoost     eps : Extra Trees      (best in benchmark10.py)
 
-Headline score = random-split 10-fold CV x 3 seeds (the user's chosen metric);
-paper-held-out and half-paper scores are kept as secondary information.
+Inputs = the 33 values the web computes from its materials + curing/test conditions (web_data.py).
+Headline score = random-split 10-fold CV x 3 seeds.
 
-Rows: clean/dataset_clean.csv flags use_fc / use_ft / use_eps (same rows as benchmark10.py).
-
-Usage:
-  python train_export.py "../03 Dataset_ratio.xlsx" model [../index.html]
-
-Writes model/strength_model.json, model/test_vectors.json and, if index.html is given,
-replaces the block between "// >>> MODEL BEGIN" and "// <<< MODEL END" in it.
+Usage:  python train_export.py [../strength_model.js]
+Writes model/strength_model.json, model/test_vectors.json and, if given, the model block of strength_model.js.
 """
 import sys, os, json, re
+import numpy as np, pandas as pd
 here = os.path.dirname(os.path.abspath(__file__))
-HTML = sys.argv[3] if len(sys.argv) > 3 else None
-sys.argv = sys.argv[:3]                                # spike.py would read argv[3] as an additions dir
-src = open(os.path.join(here, "spike.py"), encoding="utf-8").read()
-exec(src.split("lines, curves = [], {}")[0])          # X, targets, groups_all, d
+OUT = os.path.join(here, "model"); os.makedirs(OUT, exist_ok=True)
+HTML = sys.argv[1] if len(sys.argv) > 1 else None
+from web_data import load, FEATURES
 from sklearn.model_selection import GroupKFold, KFold
+from sklearn.metrics import r2_score, mean_absolute_error
 from sklearn.ensemble import ExtraTreesRegressor, RandomForestRegressor
 from catboost import CatBoostRegressor
 
-F = pd.read_csv(os.path.join(here, "clean", "dataset_clean.csv"), encoding="utf-8-sig")
-assert len(F) == len(X), (len(F), len(X))
-COL = {"fc": 389, "ft": 404, "eps": 418}
-FEATURES = ["OPC", "GGBS", "FA", "SF", "MK", "LP",
-            "WG_B", "NaOH_B", "CaOH2_B", "Na2SO4_B", "SSM_B",
-            "W_B", "Sand_B", "QP_B", "Light_B", "SP_B", "VMA_B",
-            "V_PE", "V_PVA", "V_Steel", "V_PBO", "V_total",
-            "Cure_T", "Cure_days", "Cure_RH", "Age_days", "Cure_water", "Cure_sealed", "Cure_heat",
-            "W_C", "Activator_tot", "Paste_vol", "Binder_kgm3"]
+X, Y, groups = load()
 SPEC = {
-    "fc":  dict(target="fc (MPa)",          kind="catboost", unit="MPa", label="Compressive strength"),
-    "ft":  dict(target="ft direct (MPa)",   kind="catboost",    unit="MPa", label="Direct tensile strength"),
-    "eps": dict(target="eps_tu direct (%)", kind="et",          unit="%",   label="Tensile strain capacity"),
+    "fc":  dict(kind="catboost", unit="MPa", label="Compressive strength"),
+    "ft":  dict(kind="catboost", unit="MPa", label="Direct tensile strength"),
+    "eps": dict(kind="et",       unit="%",   label="Tensile strain capacity"),
 }
 
 NAME = {"catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest"}
@@ -61,16 +47,14 @@ def half_paper(g, seed):
         h = len(idx) // 2; tr += list(idx[:h]); te += list(idx[h:])
     return np.array(tr), np.array(te)
 
-names = list(X.columns)
-cols = [names.index(f) for f in FEATURES]
 r4 = lambda v: float(f"{v:.5g}")
 out = {"version": pd.Timestamp.now().strftime("%Y-%m-%d"), "features": FEATURES, "targets": {}}
 tests = {"features": FEATURES, "rows": []}
 
 for key, s in SPEC.items():
-    y = N(COL[key])
-    m = F[f"use_{key}"].values.astype(bool) & y.notna().values
-    Xa = X[m].values.astype(float)[:, cols]; ya = y[m].values; ga = groups_all[m].values
+    y = Y[key]
+    m = y.notna().values
+    Xa = X[m].values.astype(float); ya = y[m].values; ga = groups[m].values
     kind = s["kind"]
 
     # ---- headline: random-split 10-fold CV, 3 seeds

@@ -70,6 +70,7 @@
     <h2>How the data were collected and cleaned</h2>
     <ul class="hint" style="color:var(--ink-2);font-size:14px">
       <li><b>Collection:</b> mix proportions, curing conditions and test results were extracted from published papers on fiber-reinforced cementitious and geopolymer composites (ECC/SHCC, UHPC, UHP-ECC, alkali-activated). Every value keeps a pointer to the table or page it came from; unit conversions (kg/m³ → ratio to binder) are recorded, and DOIs were checked against Crossref.</li>
+      <li><b>Training file:</b> <code>04 Dataset_web.xlsx</code> has only the columns the calculator has: the 69 materials (same names and units), curing method, temperature, humidity, duration, test age, and the three measured strengths.</li>
       <li><b>Nothing is deleted:</b> each row is only flagged as used or not used for each model, with a reason.</li>
       <li><b>Excluded from the models:</b> mixes without fibers, special tests (fire, freeze–thaw, impact), rows missing the water/binder ratio or test age, statistical outliers, and materials without a reliable density. Tensile models use direct (uniaxial / dog-bone) tension only.</li>
     </ul>

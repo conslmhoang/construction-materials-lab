@@ -122,5 +122,7 @@ Dữ liệu đã làm sạch (`clean/dataset_clean.csv`), 33 đầu vào web. **
 | ft trực tiếp (638 / 128) | CatBoost | 0.830 | 0.52 |
 | εu (610 / 125) | XGBoost 0.782 ≈ Extra Trees 0.781 | 0.78 | 0.47 |
 
-Web dùng CatBoost (fc, ft) + Extra Trees (εu): `train_export.py "../03 Dataset_ratio.xlsx" model ../strength_model.js`.
+Web dùng CatBoost (fc, ft) + Extra Trees (εu).
+
+**Từ 2026-11-16 mô hình chỉ học từ `04 Dataset_web.xlsx`** (69 vật liệu của web + 5 điều kiện + 3 kết quả), tạo bằng `build_web_dataset.py`; đặc trưng tính trong `web_data.py` theo đúng công thức của web. Chạy: `python build_web_dataset.py` → `python benchmark10.py` → `python train_export.py ../strength_model.js`.
 Trang kết quả: `benchmark.html`. Mục 5 của `index.html` thêm điều kiện bảo dưỡng + tuổi thí nghiệm.
