@@ -1,0 +1,25 @@
+10.1016/j.buildenv.2006.03.013 - no fibre (UHSC curing study)
+10.1016/j.cemconcomp.2004.03.005 - steel fibre distribution in sections, no strength/strain data of interest
+10.1016/j.cemconcomp.2008.08.002 - flexural study of FRCC; only matrix fc (no fibre) and no direct tension
+10.1016/j.cemconcomp.2010.07.005 - RPC with bauxite/granite aggregate and quartz; coarse aggregate/quartz not allowed
+10.1016/j.cemconcomp.2010.09.006 - no fibre (FA + limestone ternary cement)
+10.1016/j.cemconcomp.2012.08.012 - LCA of ECC overlays; ECC properties quoted from earlier work, not measured here
+10.1016/j.cemconcomp.2013.03.030 - lightweight aggregate composites, no fibre
+10.1016/j.cemconcomp.2014.07.015 - rice husk ash UHPC (RHA not allowed)
+10.1016/j.cemconcomp.2014.07.016 - UHPC mixture design with quartz flour
+10.1016/j.cemconcomp.2014.09.024 - UHPC without fibre, nano-silica
+10.1016/j.cemconcomp.2015.04.013 - no fibre (UHSC paste/binder study)
+10.1016/j.cemconcomp.2016.11.008 - fibre orientation model; data from literature
+10.1016/j.cemconcomp.2016.12.009 - UHPC limestone study, no fibre in mixes (Table 2)
+10.1016/j.cemconcomp.2017.07.014 - rice husk ash mortar, no fibre
+10.1016/j.cemconcomp.2018.09.009 - cellulose filament SCC with coarse aggregate, no fibre of the allowed list
+10.1016/j.cemconcomp.2019.05.004 - EDGC: NaOH solution amount not convertible to NaOH/B and W/B without densities; fc only in figures (not entered to avoid guessing)
+10.1016/j.cemconcomp.2020.103521 - EGC PVA with metakaolin: sand content given as a range (14.3-16.1 wt%) not per mix; MK dose basis unclear; no fc per mix
+10.1016/j.cemconcomp.2020.103636 - SAP UHPC mortar rheology, no fibre
+10.1016/j.cemconcomp.2020.103638 - UHPC with CRT glass (not allowed); strength results only in figures
+10.1016/j.cemconcomp.2020.103868 - LC3 (calcined clay) and PP fibre ECC (not allowed)
+10.1016/j.cemconcomp.2021.103971 - UHPC flexural study; only 5-day fc range in text (124.8-157.3), no per-mix values, no tension
+10.1016/j.cemconcomp.2021.103976 - bottom ash geopolymer mortar, no fibre
+10.1016/j.cemconcomp.2022.104473 - centrifugal ECC with CSA cement (not allowed)
+10.1016/j.cemconcomp.2023.105428 - magnesium oxysulfate cement (MgO, not allowed)
+10.1016/j.cemconcomp.2024.105782 - QS/IS-ECC: tensile and compressive results only in figures (text gives only ranges)

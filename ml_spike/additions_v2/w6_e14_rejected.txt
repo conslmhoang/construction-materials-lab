@@ -1,0 +1,28 @@
+10.1016/j.cemconcomp.2025.106307 - review of HS-EGC, no own experiments
+10.1016/j.cemconcomp.2026.106468 - CSA (calcium sulfoaluminate) + volcanic ash + PP/PE blend in every mix
+10.1016/j.cemconres.2004.07.032 - rheology (mini-cone), no fiber
+10.1016/j.cemconres.2004.08.019 - Marsh cone rheology, no fiber
+10.1016/j.cemconres.2006.03.009 - UHPFRC: fc only as fitted curve (Table 3 asymptote), numbers per age only in figures
+10.1016/j.cemconres.2006.03.024 - coarse aggregate concrete, high-temperature study
+10.1016/j.cemconres.2007.03.012 - alkali-activated paste/aggregate chemistry, no fiber
+10.1016/j.cemconres.2007.08.018 - review (geopolymer), no data
+10.1016/j.cemconres.2008.01.002 - limestone hydration, no fiber
+10.1016/j.cemconres.2011.05.006 - N-A-S-H / C-A-S-H gels, no fiber
+10.1016/j.cemconres.2011.12.003 - printing concrete with PP micro fibre + retarder, mix/strength not tabulated
+10.1016/j.cemconres.2016.08.010 - synthetic gels, no fiber
+10.1016/j.cemconres.2017.02.009 - review of alkali-activated materials
+10.1016/j.cemconres.2017.02.024 - ECC fiber orientation modelling; experimental curve only in figure
+10.1016/j.cemconres.2017.05.013 - limestone slag cement hydration, no fiber
+10.1016/j.cemconres.2017.08.017 - LC3 review, no fiber
+10.1016/j.cemconres.2018.02.024 - ECC micro-CT flaws, no strength/strain numbers in text (ratios only)
+10.1016/j.cemconres.2018.09.004 - rice husk ash UHPC, no fiber data of interest
+10.1016/j.cemconres.2019.105786 - UHPC steel fibre, fc only in Fig. 9; tensile strength only (no fc, no strain) in table
+10.1016/j.cemconres.2019.105921 - UHPC packing density, no fiber
+10.1016/j.cemconres.2019.105962 - micro-CT fibre orientation method, no mix/strength data
+10.1016/j.cemconres.2022.107066 - crack segmentation (deep learning)
+10.1016/j.coco.2022.101081 - UHPGC contains borax in every mix (not in 21 materials)
+10.1016/j.compositesb.2012.09.080 - AASS steel-fibre mortar: heat curing only in figure, test age not stated; fc vs fibre only in Fig. 3
+10.1016/j.compositesb.2013.12.076 - high-tenacity polypropylene fibre (PP not allowed)
+10.1016/j.compositesb.2015.09.059 - UHPC with fibres: no mix proportions given
+10.1016/j.compositesb.2017.02.019 - UHPC VMA rheology: no mix table, fc only in Fig. 6
+10.1016/j.compositesb.2018.11.062 - UHS-UHDCC: silica fume dispersant in every mix (not allowed)

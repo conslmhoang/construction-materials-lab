@@ -1,0 +1,25 @@
+10.1016/j.conbuildmat.2021.123510 | UHPC steel fibre flexural crack study; fc only in figure, no tensile strain
+10.1016/j.conbuildmat.2021.125175 | cement mortar with SBR latex and MWCNT, no fibre
+10.1016/j.conbuildmat.2021.126000 | ECC microcrack photogrammetry; no mix table / no strength data
+10.1016/j.conbuildmat.2022.128090 | lightweight EGC: fly ash cenosphere (FAC) and MWCNT in every mix, not in the 21
+10.1016/j.conbuildmat.2023.132158 | alkali-activated UHPC without fibres
+10.1016/j.conbuildmat.2024.139770 | EGC with SAP: only Ref mix qualifies, curing method not stated, activator kg/m3 composition ambiguous, fc only in figure
+10.1016/j.conbuildmat.2025.140306 | seawater sea-sand ECC, fibre pull-out; no fc / tensile strain table
+10.1016/j.conbuildmat.2025.140383 | basalt/PVA hybrid fibre concrete with coarse aggregate (basalt not allowed)
+10.1016/j.conbuildmat.2025.143039 | steel fibre concrete with coarse aggregate, flexural toughness
+10.1016/j.dibe.2024.100459 | machine-learning paper (literature database)
+10.1016/j.engfailanal.2019.104157 | cavitation damage of metals, not concrete
+10.1016/j.engfracmech.2023.109677 | machine-learning paper, reinforced concrete
+10.1016/j.fuel.2012.02.059 | CFBC ash geopolymer, no fibre
+10.1016/j.jclepro.2019.03.290 | one-part geopolymer binders, no fibre
+10.1016/j.jclepro.2019.117876 | biochar UHPC with quartz powder, no fibre
+10.1016/j.jclepro.2020.120168 | incineration fly ash (IFA) in every mix, not an allowed material
+10.1016/j.jclepro.2021.129665 | ML / optimisation paper (literature database)
+10.1016/j.jclepro.2024.141065 | EGC with 10 % steel slag in every mix, not allowed
+10.1016/j.jhazmat.2018.05.046 | SHCC with PET fibre; matrix contains SAC, SRA and waterproofing admixture
+10.1016/j.jobe.2020.101915 | UHPC with quartz powder (not allowed); strength only
+10.1016/j.jobe.2022.104873 | ECC with calcium sulfate whisker and nano-CaCO3 in every mix (E5/E8 each keep one)
+10.1016/j.matdes.2014.01.064 | fly-ash geopolymer paste/mortar, no fibre
+10.1016/j.matdes.2015.06.024 | steel fibre self-compacting concrete with coarse aggregate
+10.1016/j.matpr.2022.03.088 | ANN paper, literature database only
+10.1016/j.tafmec.2025.104987 | SH-UHPC subzero temperature; room-temperature specimen has no stated test age or curing

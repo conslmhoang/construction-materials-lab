@@ -1,0 +1,28 @@
+10.1016/j.conbuildmat.2021.124921 | PVA-ECC with wollastonite: flexural/rheology only, compressive strength only in figures, no direct tension
+10.1016/j.conbuildmat.2021.125430 | ULHDCC uses fly ash cenospheres and SRA (not in 21 materials)
+10.1016/j.conbuildmat.2021.126154 | sprayable UHPC rheology only; quartz sand/microspheres, no strength numbers
+10.1016/j.conbuildmat.2022.127296 | SHCC CT/flaw study: tension numbers per specimen but no curing/test age stated
+10.1016/j.conbuildmat.2022.129029 | review (UHPC), mentions basalt
+10.1016/j.conbuildmat.2023.130318 | geopolymer artificial aggregate concrete (coarse aggregate), no fibre
+10.1016/j.conbuildmat.2023.133450 | SAC (sulfoaluminate cement) ECC + tunnel lining members
+10.1016/j.conbuildmat.2023.134626 | EGC with fly ash cenosphere; strength/strain only in figures
+10.1016/j.conbuildmat.2024.135760 | EGC: activator (NaOH 12 M + Na2SiO3 solution, ratio only) ambiguous; PP fibre in most mixes; fc/tension of PVA+steel mixes only in figures
+10.1016/j.engfailanal.2014.02.004 | historical review of concrete
+10.1016/j.fuel.2008.03.005 | RPC with FA/slag, no fibre, no tension/direct data of interest
+10.1016/j.fuel.2012.07.010 | CFBC desulfurization ash blended cement paste, no fibre
+10.1016/j.jclepro.2014.04.060 | SCC with lignite fly ash and rice husk ash, no fibre
+10.1016/j.jclepro.2016.02.125 | LCA of LC3 cement, no mix data
+10.1016/j.jclepro.2017.07.243 | alkali-activated brick waste pastes/mortar, no fibre, material outside list
+10.1016/j.jclepro.2020.122329 | PVA-ECC: every mix contains solid waste ceramic powder (not allowed), quartz sand
+10.1016/j.jclepro.2021.126193 | MK/FA geopolymer + PVA + nano-silica: fc and flexure only in figures, no tension
+10.1016/j.jclepro.2021.128200 | artificial geopolymer lightweight aggregate concrete (coarse aggregate), mentions basalt
+10.1016/j.jclepro.2022.133933 | geopolymer aggregate pelletization, no fibre concrete
+10.1016/j.jclepro.2022.134910 | ecological footprint / cost assessment, mentions basalt
+10.1016/j.matdes.2013.03.063 | steel/PVA DFRCC: four-point bending only, no fc or direct tension
+10.1016/j.matdes.2019.107651 | printable SHCC: rheology/printing; fc only for fibre-free mixes, tension only in figures
+10.1016/j.matdes.2020.108975 | thermodynamic modelling of alkali-activated phases
+10.1016/j.powtec.2016.05.054 | high-volume limestone concrete, coarse aggregate, no fibre
+10.1016/j.probengmech.2005.10.008 | modelling paper, no tables
+10.1016/j.resconrec.2021.105846 | ultrahigh-volume LC3 concrete, no fibre, coarse aggregate
+10.1016/j.tust.2019.103151 | PVA-ECC tunnel lining members (structural), mentions basalt
+10.1016/j.wasman.2015.09.018 | waste concrete recycling case study, coarse aggregate, mentions basalt

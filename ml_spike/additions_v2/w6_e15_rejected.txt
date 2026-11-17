@@ -1,0 +1,26 @@
+10.1016/j.compositesb.2021.109220 - UHPC review, no own data
+10.1016/j.compositesb.2024.111834 - all mixes use fly ash cenosphere (FAC, not allowed)
+10.1016/j.compositesb.2025.112713 - only RM00 qualifies but test age not stated (30 h + 80 C 72 h, then "until further tests"); red mud mixes not allowed
+10.1016/j.compstruct.2016.03.032 - UHPC flexure only, no fc/strain numbers
+10.1016/j.compstruct.2016.08.023 - UHPFRC flexure/impact only, no fc values
+10.1016/j.compstruct.2017.04.069 - UHPFRC flexure; fc only in figure
+10.1016/j.compstruct.2017.08.016 - permanent formwork structural members, no matrix data
+10.1016/j.compstruct.2022.115219 - magnesium phosphate cement (MgO) composites
+10.1016/j.compstruct.2023.117437 - all mixes contain BaCl2 (not allowed), PP fibre replacement
+10.1016/j.conbuildmat.2004.04.027 - crushed basalt coarse aggregate
+10.1016/j.conbuildmat.2006.01.002 - flexural/toughness only, no fc or tension numbers
+10.1016/j.conbuildmat.2008.08.003 - RPC with quartz powder (not allowed); fc only in figure
+10.1016/j.conbuildmat.2010.02.025 - coarse aggregate (gravel) concretes
+10.1016/j.conbuildmat.2010.07.003 - rice husk ash production, no fibre composite
+10.1016/j.conbuildmat.2011.07.003 - UHPCC flexure only
+10.1016/j.conbuildmat.2013.07.052 - coarse aggregate steel FRCC, micro-CT, no strength data
+10.1016/j.conbuildmat.2013.07.104 - all mixes contain iron ore tailings and/or fly ash cenosphere (not allowed)
+10.1016/j.conbuildmat.2014.04.007 - UHPFRC flexure; fc only in figure, no test age
+10.1016/j.conbuildmat.2014.05.080 - geopolymer concrete/mortar without fibre
+10.1016/j.conbuildmat.2014.06.080 - ECC flexure; fc only in figure, no tension test
+10.1016/j.conbuildmat.2014.07.085 - flexure; fc mostly in figure, potassium silicate/unclear activator compositions
+10.1016/j.conbuildmat.2015.10.146 - mix table empty in text, strain only in figures
+10.1016/j.conbuildmat.2016.02.111 - review of polymer reinforcement (PET, CFRP), no mix data
+10.1016/j.conbuildmat.2016.11.026 - RPC contains quartz powder (not allowed)
+10.1016/j.conbuildmat.2016.11.081 - steel fibre alignment in mortar; strengths are of fibre-free mortar, no fc of composite
+10.1016/j.conbuildmat.2012.09.070 - geopolymer paste without fibre

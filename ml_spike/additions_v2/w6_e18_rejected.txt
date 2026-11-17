@@ -1,0 +1,27 @@
+10.1016/j.apsusc.2009.12.015 - fibre surface plasma treatment, no mix data
+10.1016/j.apsusc.2011.03.134 - UHMWPE fibre surface modification, no mix data
+10.1016/j.autcon.2025.106241 - transfer-learning/ML design paper, data not from own tests (lightweight SH-UHPC)
+10.1016/j.biotechadv.2018.11.008 - review paper
+10.1016/j.cemconcomp.2006.08.006 - FRC/SCC with coarse aggregate, fibre dispersion
+10.1016/j.cemconcomp.2007.01.001 - GGBS concrete with coarse aggregate, no fibres
+10.1016/j.cemconcomp.2007.03.006 - high-strength concrete with coarse aggregate
+10.1016/j.cemconcomp.2009.09.003 - HPFRCC multiaxial: no mix proportions given
+10.1016/j.cemconcomp.2011.07.006 - lightweight aggregate absorption, no fibres
+10.1016/j.cemconcomp.2012.08.004 - uses quartz powder (not allowed) and PAN/PP fibres
+10.1016/j.cemconcomp.2012.08.005 - UHPC bending only, no compressive or tension numbers
+10.1016/j.cemconcomp.2013.09.006 - alkali-activated slag paste, no fibres
+10.1016/j.cemconcomp.2013.09.010 - very high volume fly ash paste, no fibres, high temperature
+10.1016/j.cemconcomp.2014.03.007 - flexural only, no compressive strength or direct tension
+10.1016/j.cemconcomp.2014.12.009 - ECC with PMHS hydrophobic admixture (not allowed)
+10.1016/j.cemconcomp.2017.02.001 - 3D-printed paste, carbon/glass/basalt fibres
+10.1016/j.cemconcomp.2017.08.019 - UHPC response surface, no fibre in mixes, quartz powder
+10.1016/j.cemconcomp.2018.01.009 - UHPC rheology, no fibres
+10.1016/j.cemconcomp.2018.03.002 - reactive MgO composites (not allowed)
+10.1016/j.cemconcomp.2018.05.018 - bleeding of steel fibre composites, no strength data, coarse aggregate
+10.1016/j.cemconcomp.2018.09.015 - extrudability, no strength data
+10.1016/j.cemconcomp.2018.11.012 - concrete with coarse aggregate and expansive cement (Type K); mortar test age not stated
+10.1016/j.cemconcomp.2019.103346 - UHPC with coarse aggregate/quartz, economical design
+10.1016/j.cemconcomp.2019.103456 - lightweight fine aggregate UHPC, no fibres
+10.1016/j.cemconcomp.2020.103691 - ECC PE size effects: fc only in figures, test age not stated
+10.1016/j.cemconcomp.2020.103716 - deep-learning design paper
+10.1016/j.cemconcomp.2022.104509 - air-entrained concrete, no fibres

@@ -81,7 +81,9 @@ DROP_DOI = {"10.1155/2022/7876056": "'elongation (%)' equals the tension displac
             "10.1016/j.cemconres.2007.12.006": "fc quoted from another paper (ref. [12]), not measured in this study"}
 drop_doi = d["_doi"].astype(str).str.lower().str.contains("|".join(map(re.escape, DROP_DOI)))
 keep = (d["_use_fc"] | d["_use_eps"]) & ~other & ~no_fiber_type & (B3 > 0) & W.notna() & ~drop_doi
-keep &= W >= 0.12                                   # W/B below 0.12 is not credible for these composites
+# W/B below 0.12 is not credible for these composites; with water glass most of the water is inside the WG
+# (W/B here is free water only), so the check applies only to mixes without water glass
+keep &= (W >= 0.12) | (S(PER_B["WG"]) > 0)
 
 D = pd.DataFrame(index=d.index)
 D["Paper"], D["DOI"] = d["_paper"], d["_doi"]

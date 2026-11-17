@@ -1,0 +1,23 @@
+10.1016/j.cemconres.2020.106165 - UHPC matrix with silica flour; no fc, no strain (direct tension only elongation in mm)
+10.1016/j.cemconres.2021.106421 - LC3 (calcined clay) HS-SHCC, flexure only, calcined clay/quartz not allowed
+10.1016/j.ceramint.2014.12.154 - no fibers (one-part geopolymer pastes/mortars)
+10.1016/j.ceramint.2022.03.103 - KOH activator, waste glass/ceramic aggregates, results only in figures
+10.1016/j.coldregions.2011.02.002 - freeze-thaw paper; mix has CSA expansive additive and acrylic polymer (not allowed)
+10.1016/j.compositesb.2012.07.012 - UHP-HFRC with silica powder (quartz), strain from tension but matrix fc as 170-210 range only
+10.1016/j.compositesb.2012.07.042 - quartz powder, bauxite/granite coarse aggregate
+10.1016/j.compositesb.2013.03.043 - fiber composites have no fc/tension numbers (flexure only), latex emulsion, limestone-only matrix fc without fibers
+10.1016/j.compositesb.2016.05.051 - expansive agent used
+10.1016/j.compositesb.2022.110183 - LC3 (calcined clay) lightweight ECC, calcined clay/hollow microspheres not allowed
+10.1016/j.conbuildmat.2005.06.032 - coarse aggregate SCC with PP/steel hybrid fibers
+10.1016/j.conbuildmat.2007.06.018 - extruded clay/cellulose ether mixes, flexure only
+10.1016/j.conbuildmat.2007.07.003 - no fibers
+10.1016/j.conbuildmat.2008.11.012 - UHPFRC, strengths only in figures (no numbers in text/tables)
+10.1016/j.conbuildmat.2009.08.023 - organic aggregate/PVB, basalt present, flexure/toughness only
+10.1016/j.conbuildmat.2010.09.026 - no fibers (dune sand powder pastes)
+10.1016/j.conbuildmat.2010.11.046 - rice husk ash, no fibers
+10.1016/j.conbuildmat.2011.04.051 - H-UHPFRC with silica powder; matrix from references; flexure only
+10.1016/j.conbuildmat.2012.12.050 - no fibers (UHPC cement type/mixing pressure)
+10.1016/j.conbuildmat.2013.01.003 - autoclave RPC with quartz powder, basalt aggregate
+10.1016/j.conbuildmat.2013.02.074 - no fibers (manufactured sand concrete, coarse aggregate)
+10.1016/j.conbuildmat.2013.05.005 - no fibers (dune sand concrete, coarse aggregate)
+10.1016/j.conbuildmat.2014.12.117 - shotcrete with coarse aggregate/polymer/AEA, no fibers

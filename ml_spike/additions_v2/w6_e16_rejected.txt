@@ -1,0 +1,23 @@
+10.1016/j.conbuildmat.2016.11.104 - UHPC with silica flour (quartz powder) in every mix; fc only in figure
+10.1016/j.conbuildmat.2016.12.175 - silica flour in all mixes, nano-additives; no tension
+10.1016/j.conbuildmat.2017.01.052 - flexural study; compressive strength only in figure
+10.1016/j.conbuildmat.2017.02.076 - all mixes contain SRA and waterproofing admixture (WPA), some SAC/PET; not allowed
+10.1016/j.conbuildmat.2017.03.173 - rheology/fibre distribution; no strength numbers
+10.1016/j.conbuildmat.2017.03.180 - volcanic ash blended cement paste/mortar, no fibre
+10.1016/j.conbuildmat.2017.07.181 - RPC with quartz powder, no fibre
+10.1016/j.conbuildmat.2017.08.130 - review (sea sand / seawater)
+10.1016/j.conbuildmat.2017.09.098 - hybrid fibre concrete with stone (coarse aggregate), basalt fibre
+10.1016/j.conbuildmat.2017.12.107 - UHPC mixture design, no fibre
+10.1016/j.conbuildmat.2018.02.033 - lightweight SHCC with glass bubbles / lightweight aggregates in all direct-tension mixes
+10.1016/j.conbuildmat.2018.02.164 - steel fibre concrete with coarse aggregate
+10.1016/j.conbuildmat.2018.03.026 - fly ash-slag geopolymer paste, no fibre
+10.1016/j.conbuildmat.2018.08.146 - UHPC; compressive strength only in Fig. 3, no tension numbers
+10.1016/j.conbuildmat.2018.11.089 - all mixes use fly ash cenosphere (not allowed) and bacterial culture
+10.1016/j.conbuildmat.2019.02.129 - high-temperature study; test age of 20 C control not stated (only curing 14 d), strain only in figure
+10.1016/j.conbuildmat.2019.03.096 - UHPC with silica flour in all mixes
+10.1016/j.conbuildmat.2019.07.162 - matrix contains unspecified 'ground filler'; reinforced members/AE; no fc/strain table
+10.1016/j.conbuildmat.2020.118112 - UHPC without fibres
+10.1016/j.conbuildmat.2020.118893 - UHPC with silica powder in all mixes (quartz powder)
+10.1016/j.conbuildmat.2020.119064 - SFRC with coarse aggregate, magnetic field exposure
+10.1016/j.conbuildmat.2020.122023 - UHPC without fibres (fc with 2 % steel only in text for one mix, no mix table)
+10.1016/j.conbuildmat.2021.123741 - review (fibre alignment)

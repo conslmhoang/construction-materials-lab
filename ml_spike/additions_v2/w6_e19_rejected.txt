@@ -1,0 +1,30 @@
+10.1016/j.cemconcomp.2024.105599 | 3DP-ECC printability; tensile/compressive results only in figures, no curing age
+10.1016/j.cemconcomp.2024.105723 | ML/data-driven geopolymer design paper, no own tests
+10.1016/j.cemconcomp.2025.106247 | HS-ECC beams; Table 2 has fc and strain but no curing/test age stated (age required)
+10.1016/j.cemconres.2003.08.005 | rheology/slump, no fiber
+10.1016/j.cemconres.2003.12.031 | fine powders rheology, no fiber
+10.1016/j.cemconres.2004.01.021 | review low-CO2 cements
+10.1016/j.cemconres.2004.06.015 | thermal analysis cement paste, no fiber
+10.1016/j.cemconres.2004.09.030 | fly ash mortar, no fiber
+10.1016/j.cemconres.2004.10.027 | hydration calorimetry, no fiber
+10.1016/j.cemconres.2005.06.002 | SCC, no fiber, coarse aggregate
+10.1016/j.cemconres.2006.05.021 | steel fiber HSC triaxial; coarse aggregate
+10.1016/j.cemconres.2007.03.014 | FR-SCC mix design; coarse aggregate, rheology only
+10.1016/j.cemconres.2007.09.008 | review
+10.1016/j.cemconres.2007.09.025 | review
+10.1016/j.cemconres.2008.03.020 | mortars no fiber
+10.1016/j.cemconres.2008.11.003 | UHPC phase analysis, no fiber
+10.1016/j.cemconres.2009.08.032 | fiber rheology, no strength
+10.1016/j.cemconres.2009.10.010 | geopolymer paste, no fiber
+10.1016/j.cemconres.2010.11.012 | review
+10.1016/j.cemconres.2010.11.014 | ternary cement hydration, no fiber
+10.1016/j.cemconres.2011.03.016 | review
+10.1016/j.cemconres.2011.06.009 | UHPC with rice husk ash, no fiber
+10.1016/j.cemconres.2012.09.006 | metakaolin-limestone, no fiber
+10.1016/j.cemconres.2013.10.002 | fibre orientation; coarse aggregate / quartz sand, no strength
+10.1016/j.cemconres.2015.04.013 | review
+10.1016/j.cemconres.2017.02.017 | UHPFRC fibre orientation; no strength numbers
+10.1016/j.cemconres.2017.03.007 | UHPFRC tension with magnetic orientation; no test age stated, no fc
+10.1016/j.cemconres.2018.05.020 | review
+10.1016/j.cemconres.2018.12.008 | RPC Cu-Zn steel fibers; quartz sand/powder, high-temperature
+10.1016/j.cemconres.2019.105828 | UHPC rheology overview

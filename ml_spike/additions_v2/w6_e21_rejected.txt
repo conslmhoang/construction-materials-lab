@@ -1,0 +1,24 @@
+10.1016/j.conbuildmat.2015.09.010 | RPC with quartz powder in every mix (not allowed); no tension test
+10.1016/j.conbuildmat.2016.01.019 | reinforced ECC members; ECC water + SP given together (no W/B), fc/ft only per member
+10.1016/j.conbuildmat.2016.05.122 | graphene oxide SHCC; flexural table only, tension/fc not tabulated
+10.1016/j.conbuildmat.2016.06.134 | UHPC flow study (silica powder); no strength table
+10.1016/j.conbuildmat.2016.06.145 | fly ash high-strength concrete with coarse aggregate, no fibre
+10.1016/j.conbuildmat.2016.07.082 | RPC without fibres, quartz powder
+10.1016/j.conbuildmat.2016.10.025 | PVA mortar, flexural strength only
+10.1016/j.conbuildmat.2017.02.073 | UHPC limestone powder study, no fibre mentioned in mix, quartz powder
+10.1016/j.conbuildmat.2017.02.093 | cenosphere (not allowed) composites; control mix has no water content/W/B or sand given
+10.1016/j.conbuildmat.2017.04.169 | coral aggregate concrete filled FRP tubes
+10.1016/j.conbuildmat.2017.04.188 | ultrahigh-volume fly ash concrete/mortar, no fibre
+10.1016/j.conbuildmat.2017.05.172 | PVA fly ash-GGBS geopolymer: activator dosage % undefined (not Na2O or solution), fibre mixes only flexure/compression with unspecified matrix; orthogonal matrix mixes fibre-free
+10.1016/j.conbuildmat.2017.06.030 | steel fibre self-compacting concrete with river gravel (coarse aggregate)
+10.1016/j.conbuildmat.2017.09.054 | hybrid fibre mortar, rheology and flexure only (fibre types incl. non-allowed)
+10.1016/j.conbuildmat.2017.09.125 | PVA ECC after high temperature, ambient strengths only in figure
+10.1016/j.conbuildmat.2017.10.074 | UHPC autoclave curing, strengths only in figures, quartz sand/defoamer
+10.1016/j.conbuildmat.2017.10.129 | fibre concrete with coarse aggregate, high temperature
+10.1016/j.conbuildmat.2017.11.104 | ultrahigh-volume fly ash paste, no fibre
+10.1016/j.conbuildmat.2017.12.184 | steel UHPCC: ultra-fine mineral admixture = undisclosed split of fly ash and slag (binder composition unknown)
+10.1016/j.conbuildmat.2017.12.227 | PVA geopolymer with SiO2 nanoparticles; flexural/split tensile only, no fc
+10.1016/j.conbuildmat.2018.03.185 | crack-bridging study; no fc or tensile strain capacity table
+10.1016/j.conbuildmat.2019.03.307 | brick powder pastes, no fibre
+10.1016/j.conbuildmat.2020.121112 | metakaolin UHPC matrix, no fibre
+10.1016/j.conbuildmat.2021.122958 | sisal fibre UHPC (not allowed fibre)
