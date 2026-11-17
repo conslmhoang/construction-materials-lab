@@ -1,0 +1,44 @@
+10.1016/j.asej.2026.104023 | carbon fibre ECC; compressive strengths only in figures
+10.1016/j.asoc.2020.106552 | machine-learning paper (database compilation), no own data
+10.1016/j.cemconcomp.2011.12.002 | proprietary UHPC premix (composition unknown)
+10.1016/j.cemconcomp.2012.02.014 | no tables, no mix/strength data (durability concept, chlorides)
+10.1016/j.cemconcomp.2012.11.010 | red mud / rice husk ash geopolymer, no fibres
+10.1016/j.cemconcomp.2014.03.004 | tension stiffening; ECC row has no test age/curing (HyFRC/concrete use coarse aggregate)
+10.1016/j.cemconcomp.2014.11.001 | nano-SiO2 UHPCC; strengths only in figures
+10.1016/j.cemconcomp.2015.11.005 | silica powder (quartz) mixes, IG cement unknown; cube test age not stated
+10.1016/j.cemconcomp.2017.06.003 | permeability of cracked SHCC; no strength/strain numbers
+10.1016/j.cemconcomp.2018.08.019 | freeze-thaw UHPC; tensile data without stated test age
+10.1016/j.cemconcomp.2019.02.010 | PCM (paraffin/perlite) SHCC; strengths only in figures
+10.1016/j.cemconcomp.2019.103425 | expansive agent UHPC; strengths only in figures
+10.1016/j.cemconcomp.2020.103512 | jute (natural) fibre UHPC
+10.1016/j.cemconcomp.2020.103602 | quartz powder in UHPC mix
+10.1016/j.cemconcomp.2020.103792 | spodumene tailings / glass wool geopolymer, no allowed fibre
+10.1016/j.cemconcomp.2020.103813 | expansive agent + LWA UHPC; strengths only in figures
+10.1016/j.cemconcomp.2021.103967 | quartz powder in all mixes (calcined bauxite UHPC)
+10.1016/j.cemconcomp.2021.103992 | nano-SiO2 / nano-CaCO3 UHPC; strengths only in figures
+10.1016/j.cemconcomp.2021.104083 | quartz powder in binder (AAS/OPC UHSC)
+10.1016/j.cemconcomp.2021.104142 | flexural study; fc only in figures; lightweight sand
+10.1016/j.cemconcomp.2022.104418 | POM fibre in all fc rows; steel-only fc not given in numbers
+10.1016/j.cemconcomp.2022.104852 | PE fibre UHS-HDCC; no test age stated, sand type "RS" undefined
+10.1016/j.cemconcomp.2022.104879 | steel-fibre UHPC damping; fc only in figures
+10.1016/j.cemconcomp.2023.105122 | proprietary premix UHPFRC
+10.1016/j.cemconcomp.2023.105129 | nanofiller UHPCC pore structure; no mix/strength numbers
+10.1016/j.cemconcomp.2023.105211 | nano-SiO2 / C-S-H seeds UHPC, fibre-free, strengths in figures
+10.1016/j.cemconcomp.2024.105471 | quartz powder UHPC, freeze-thaw
+10.1016/j.cemconcomp.2024.105890 | ferrochrome slag aggregate; river-sand mix fibre-free, fibre rows only in figures
+10.1016/j.cemconcomp.2025.106221 | lightweight UHSLC with hollow microspheres, LWA, CNT, silica powder
+10.1016/j.cemconcomp.2025.106459 | silica flour (quartz powder) and OLED glass powder
+10.1016/j.cemconcomp.2026.106700 | volcanic tuff in all mixes
+10.1016/j.cemconres.2006.02.021 | multiscale fibre composite; flexural MOR only, no fc/direct tension
+10.1016/j.cemconres.2006.12.005 | self-healing UHPC, no tables/numbers
+10.1016/j.cemconres.2009.05.002 | nanoindentation of ITZ; no strength data
+10.1016/j.cemconres.2015.05.005 | SAP in UHPC; strengths only in figures
+10.1016/j.cemconres.2015.05.026 | nano-modified ECC; strengths/strain only in figures
+10.1016/j.cemconres.2016.03.008 | carbon fabric textile composites
+10.1016/j.cemconres.2017.01.004 | concrete with coarse aggregate
+10.1016/j.cemconres.2018.04.011 | basalt coarse aggregate, PP fibre
+10.1016/j.cemconres.2019.01.004 | quartz powder UHPC; curing-regime strengths not usable
+10.1016/j.cemconres.2020.106238 | thixotropy, fibre-free, lightweight sand, nanoclay
+10.1016/j.cemconres.2021.106452 | PVA pull-out / molecular dynamics; no matrix strength numbers
+10.1016/j.cemconres.2021.106465 | quartz powder, K2CO3 / Na2CO3 activators
+duplicate: none found (no DOI of this list appears in other w5/w6 csv or existing_dois.txt)

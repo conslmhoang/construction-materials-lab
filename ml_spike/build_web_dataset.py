@@ -79,7 +79,9 @@ W = pd.to_numeric(d[83], errors="coerce").fillna(pd.to_numeric(d[134], errors="c
 DROP_DOI = {"10.1155/2022/7876056": "'elongation (%)' equals the tension displacement in mm, no gauge length, no fc",
             "10.1016/j.jobe.2020.101613": "fine aggregate is crushed basalt (basalt is not one of the 21 materials)",
             "10.1016/j.cemconres.2007.12.006": "fc quoted from another paper (ref. [12]), not measured in this study",
-            "10.1016/j.ceramint.2021.11.232": "fiber 'vol%' in the text contradicts the kg/m3 in Table 3 (wt% of binder)"}
+            "10.1016/j.ceramint.2021.11.232": "fiber 'vol%' in the text contradicts the kg/m3 in Table 3 (wt% of binder)",
+            "10.1016/j.conbuildmat.2021.122618": "fine aggregate is 100% recycled fine aggregate (not one of the 21 materials)",
+            "10.1016/j.conbuildmat.2023.131580": "no curing or test age stated for the reference specimens"}
 drop_doi = d["_doi"].astype(str).str.lower().str.contains("|".join(map(re.escape, DROP_DOI)))
 keep = (d["_use_fc"] | d["_use_eps"]) & ~other & ~no_fiber_type & (B3 > 0) & W.notna() & ~drop_doi
 # W/B below 0.12 is not credible for these composites; with water glass most of the water is inside the WG

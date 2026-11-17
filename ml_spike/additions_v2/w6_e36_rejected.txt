@@ -1,0 +1,36 @@
+10.1016/j.conbuildmat.2020.119458 - marine exposure UHPFRC; strengths only in figures
+10.1016/j.conbuildmat.2020.119917 - UHPC mortars with iron ore tailings, no fibre, fc only in figure
+10.1016/j.conbuildmat.2020.120059 - alkali-activated slag PVA self-healing; strengths only in figures
+10.1016/j.conbuildmat.2020.120339 - UHPC D-optimal design; fc only in figures
+10.1016/j.conbuildmat.2020.120487 - CaCO3 whisker/high temperature; strengths only in figures
+10.1016/j.conbuildmat.2020.120569 - coarse steel slag aggregate concrete
+10.1016/j.conbuildmat.2020.121278 - carbon fibre geopolymer
+10.1016/j.conbuildmat.2020.121714 - MPCM UHPC; control fc only as percentage/figure, coarse sand ambiguous
+10.1016/j.conbuildmat.2021.122415 - ultra-lightweight ECC with HGM/CNF/ACP; flexural/shrinkage only, no tension strain
+10.1016/j.conbuildmat.2021.123455 - UHPC contains crushed quartz powder in all mixes
+10.1016/j.conbuildmat.2021.123523 - freeze-thaw UHPC; control strengths only in figures
+10.1016/j.conbuildmat.2021.123788 - lightweight ECC with fly ash cenospheres in all mixes
+10.1016/j.conbuildmat.2021.124243 - self-curing PEG concrete with coarse aggregate
+10.1016/j.conbuildmat.2021.124491 - UHPC contains quartz powder in all mixes
+10.1016/j.conbuildmat.2021.125057 - UHPC mortar with UGGBS; no fibre, fc only in figure
+10.1016/j.conbuildmat.2021.125110 - geopolymer UHPC contains quartz flour in all mixes
+10.1016/j.conbuildmat.2021.126233 - UHPC contains quartz powder in all mixes
+10.1016/j.conbuildmat.2022.127861 - magnesium phosphate cement ECC
+10.1016/j.conbuildmat.2022.128042 - geopolymer with rice husk ash in all mixes
+10.1016/j.conbuildmat.2022.128355 - ECC with PP/polyester fibres; no tensile strain, fc of matrix only
+10.1016/j.conbuildmat.2022.129123 - nano-SiO2 ECC after heating; strengths in figures
+10.1016/j.conbuildmat.2022.129520 - concrete with coarse aggregate
+10.1016/j.conbuildmat.2022.129533 - PVA microstructure study, no strength numbers
+10.1016/j.conbuildmat.2022.129990 - red mud geopolymer concrete with coarse aggregate, nano-silica
+10.1016/j.conbuildmat.2022.130108 - RPC with CaCO3 as aggregate and glass fibre; no fibre in stages 1-2, fc not tabulated
+10.1016/j.conbuildmat.2023.130343 - ECC with PET fibres
+10.1016/j.conbuildmat.2023.130891 - calcined clay-limestone paste, no fibre
+10.1016/j.conbuildmat.2023.131180 - UHPC with quartz flour and nanomaterials
+10.1016/j.conbuildmat.2023.131233 - dynamic splitting tension only
+10.1016/j.conbuildmat.2023.132139 - alkali-activated UHSC contains quartz powder
+10.1016/j.conbuildmat.2023.132213 - UHP-AAC contains silica flour (quartz powder)
+10.1016/j.conbuildmat.2023.132477 - review paper
+10.1016/j.conbuildmat.2023.132677 - UHPGC with KOH activator and ceramic waste
+10.1016/j.conbuildmat.2023.133169 - PP fibre FRCC, deep-learning paper
+10.1016/j.conbuildmat.2024.136830 - UHPC at high temperature; absolute 20 C strengths only in figures
+duplicate: none of the 48 files had a DOI already present in another additions_v2 csv.

@@ -1,0 +1,35 @@
+# e37 rejected (DOI | reason). No DOI of this list was found in other ml_spike/additions_v2/*.csv (no "duplicate" cases).
+10.1016/j.conbuildmat.2024.139018 | all mixes contain fly ash microspheres (cenosphere-type); ultra-fine SCM unidentified
+10.1016/j.conbuildmat.2024.139612 | ECC shrinkage; tensile strain only in figure, splitting strength only
+10.1016/j.conbuildmat.2025.139920 | fire-damaged / re-curing; mixes incomplete (no sand / water given), dolomite in M1-M3
+10.1016/j.conbuildmat.2025.140014 | seawater, coral sand, coral powder; strengths only in figures
+10.1016/j.conbuildmat.2025.140504 | high-temperature SFRC with coarse aggregate
+10.1016/j.conbuildmat.2025.140678 | expanded perlite in all mixes; results in figures
+10.1016/j.conbuildmat.2025.140812 | compressive strengths in figures only (no numbers per mix)
+10.1016/j.conbuildmat.2025.141016 | seawater coral sand, POM fibre, post-fire
+10.1016/j.conbuildmat.2025.141829 | fc only in figures
+10.1016/j.conbuildmat.2025.143515 | hollow microsphere, lightweight aggregate, CNT; results in figures
+10.1016/j.conbuildmat.2025.143960 | chloride wet-dry durability; no reference numbers / fc
+10.1016/j.conbuildmat.2025.144067 | internal sulfate attack, gypsum aggregate; no MPa numbers in text
+10.1016/j.conbuildmat.2026.145161 | volcanic tuff / recycled geopolymer powder in all fibre mixes; basalt and carbon fibre
+10.1016/j.conbuildmat.2026.145165 | UHPC acid corrosion; no strength numbers
+10.1016/j.conbuildmat.2026.145548 | steel-fibre UHPC with cellulose nanomaterials; control strengths only in figures
+10.1016/j.conbuildmat.2026.145651 | EGC freeze-thaw with rubber; strengths only in figures
+10.1016/j.conbuildmat.2026.146896 | quartz powder and PET powder in all mixes
+10.1016/j.conbuildmat.2026.147257 | tensile / fc test age not stated; Ref fc only approximate (3 d)
+10.1016/j.cscm.2022.e01271 | review of UHPC durability
+10.1016/j.dibe.2024.100396 | nano-silica rheology paper, no strength values
+10.1016/j.engfracmech.2023.109210 | numerical meso-damage model
+10.1016/j.engstruct.2023.115739 | elevated temperature ECC; no absolute 20 C tensile numbers
+10.1016/j.heliyon.2025.e41900 | coarse aggregate, recycled brick powder
+10.1016/j.ijimpeng.2025.105309 | no mix proportions in text
+10.1016/j.istruc.2021.08.135 | coarse aggregate
+10.1016/j.jclepro.2017.06.017 | no numeric strengths in text
+10.1016/j.jclepro.2018.01.162 | no numeric strengths; activator composition not given
+10.1016/j.jclepro.2019.07.076 | LCA study
+10.1016/j.jclepro.2019.118157 | no fibre; no numbers in text
+10.1016/j.jclepro.2020.120673 | no fibre; no numbers in text
+10.1016/j.jclepro.2020.121231 | no fibre; dehydrated cement paste; no numbers in text
+10.1016/j.jclepro.2020.121274 | nano-SiO2 and cenospheres
+10.1016/j.jclepro.2020.124543 | coarse aggregate, glass fibre
+10.1016/j.jclepro.2022.132416 | alkali-activated UHPC without fibre

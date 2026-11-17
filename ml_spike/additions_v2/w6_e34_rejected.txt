@@ -1,0 +1,44 @@
+10.1016/j.cemconres.2021.106580 | PP fibre, CSA cement
+10.1016/j.cemconres.2021.106650 | no fc or strain (single-fibre pull-out)
+10.1016/j.cemconres.2022.106835 | flame-retardant polymer fibres; elevated temperature
+10.1016/j.cemconres.2024.107510 | results only in figures; jute hybrid
+10.1016/j.cemconres.2025.107985 | quartz powder; pre-cracked
+10.1016/j.ceramint.2010.02.012 | carbon fibre geopolymer
+10.1016/j.ceramint.2021.08.014 | cellulose nanofibre, no fc/strain table
+10.1016/j.ceramint.2022.01.243 | expanded glass aggregate
+10.1016/j.compositesb.2012.02.027 | refractory brick particles/fibres, flexural only
+10.1016/j.compositesb.2013.01.013 | cotton fibre
+10.1016/j.compositesb.2013.11.013 | air-entraining agent in all fibre mixes; freeze-thaw
+10.1016/j.compositesb.2016.01.044 | nano particles, silica flour
+10.1016/j.compositesb.2018.10.045 | coarse aggregate
+10.1016/j.compositesb.2019.107201 | nano-SiO2
+10.1016/j.compositesb.2020.107904 | nano-SiO2, no strength data
+10.1016/j.compositesb.2022.110295 | glass aggregate, results in figures
+10.1016/j.compscitech.2021.108745 | carbon fibre/PET composite, not cementitious
+10.1016/j.compstruct.2013.10.027 | review
+10.1016/j.compstruct.2021.113941 | nano-SiO2, coarse aggregate
+10.1016/j.conbuildmat.2007.07.033 | lightweight aggregate concrete
+10.1016/j.conbuildmat.2010.06.014 | fabric-cement composite
+10.1016/j.conbuildmat.2011.06.023 | results only in figures
+10.1016/j.conbuildmat.2012.11.072 | no fibre
+10.1016/j.conbuildmat.2012.12.015 | undefined filler, results in figures
+10.1016/j.conbuildmat.2013.01.012 | flexural only, CSA/crystalline additives
+10.1016/j.conbuildmat.2013.07.022 | coarse aggregate
+10.1016/j.conbuildmat.2014.04.063 | nano-silica
+10.1016/j.conbuildmat.2014.11.005 | coarse aggregate
+10.1016/j.conbuildmat.2014.12.064 | aerogel, quartz fines
+10.1016/j.conbuildmat.2014.12.092 | quartz powder, copper slag
+10.1016/j.conbuildmat.2015.03.080 | results only in figures, PBI fibre
+10.1016/j.conbuildmat.2015.03.094 | PP fibre
+10.1016/j.conbuildmat.2015.05.137 | nano-silica, no fibre
+10.1016/j.conbuildmat.2015.11.020 | nano-silica, no fibre
+10.1016/j.conbuildmat.2016.05.007 | no fibre
+10.1016/j.conbuildmat.2016.06.004 | flexural only in figures, HTPP fibre
+10.1016/j.conbuildmat.2016.06.112 | ceramic aggregate
+10.1016/j.conbuildmat.2016.08.073 | glass powder, quartz powder
+10.1016/j.conbuildmat.2016.09.026 | nano-silica, barite aggregate
+10.1016/j.conbuildmat.2016.09.123 | quartz powder, strength in figures
+10.1016/j.conbuildmat.2016.11.101 | lightweight coarse aggregate
+10.1016/j.conbuildmat.2016.12.169 | concrete with coarse aggregate
+10.1016/j.conbuildmat.2016.12.182 | SAC cement, zeolite sand
+duplicate: none found

@@ -1,0 +1,43 @@
+10.1016/j.conbuildmat.2017.02.084 | UHPC with glass powder, quartz powder in mix, no fibre
+10.1016/j.conbuildmat.2017.03.187 | quartz powder / glass sand mixes, no fibre
+10.1016/j.conbuildmat.2017.07.145 | PCE superplasticizer UHPC, no fibre, nano materials
+10.1016/j.conbuildmat.2017.07.235 | glass cenosphere (control CM: no curing, PVA vol% not derivable, mix has no sand)
+10.1016/j.conbuildmat.2017.09.093 | SFRC with 10 mm coarse aggregate
+10.1016/j.conbuildmat.2017.11.030 | X-ray CT study, no strength values
+10.1016/j.conbuildmat.2017.11.049 | UHPC paste, quartz powder, no fibre
+10.1016/j.conbuildmat.2017.12.029 | shrinkage UHPFRC with SRA and silica filler
+10.1016/j.conbuildmat.2017.12.067 | glass powder ECC; control fc only in Fig. 2
+10.1016/j.conbuildmat.2017.12.116 | SFRC with coarse aggregate, recycled tyre fibres
+10.1016/j.conbuildmat.2018.02.130 | mechanical results only in figures
+10.1016/j.conbuildmat.2018.02.214 | no fibre (chemical/thermal activation UHPC)
+10.1016/j.conbuildmat.2018.03.134 | no fibre, 300 MPa mortar
+10.1016/j.conbuildmat.2018.04.010 | rubberised concrete with coarse aggregate
+10.1016/j.conbuildmat.2018.05.152 | gravel coarse aggregate
+10.1016/j.conbuildmat.2018.05.241 | fire study; Q-S fc 20 C given but test age / curing not stated; PP and steel slag mixes not allowed
+10.1016/j.conbuildmat.2018.06.191 | shrinkage UHPC with SRA / expansive agents / lightweight sand; no strength numbers
+10.1016/j.conbuildmat.2018.07.092 | geopolymer triaxial; test age only 90-120 d range, activator quantities ambiguous
+10.1016/j.conbuildmat.2018.08.036 | review
+10.1016/j.conbuildmat.2018.08.102 | strengths only in figure
+10.1016/j.conbuildmat.2018.08.104 | EIS self-healing; strength given only as approximate value, tensile strain as a range
+10.1016/j.conbuildmat.2018.09.117 | carbonation, coarse aggregate
+10.1016/j.conbuildmat.2018.09.150 | triaxial compression after high temperature (no uniaxial strength)
+10.1016/j.conbuildmat.2018.10.117 | quartz powder in all mixes
+10.1016/j.conbuildmat.2018.11.021 | polymer concrete with carbon nanotubes
+10.1016/j.conbuildmat.2018.11.175 | freeze-thaw in salt solution, no fibre mix data
+10.1016/j.conbuildmat.2019.01.006 | nano metaclay UHPC, no fibre
+10.1016/j.conbuildmat.2019.01.193 | ground filler of unknown type; tensile strain only as range (0.35-0.47 %), no fc
+10.1016/j.conbuildmat.2019.01.205 | lightweight aggregate shrinkage, no fibre
+10.1016/j.conbuildmat.2019.02.019 | RPC creep at high temperature; specimens oven-dried at 105 C before test, age ambiguous
+10.1016/j.conbuildmat.2019.03.228 | coarse aggregate, nano-silica
+10.1016/j.conbuildmat.2019.04.089 | autogenous shrinkage, no fibre
+10.1016/j.conbuildmat.2019.06.151 | porous aggregate shrinkage, no fibre
+10.1016/j.conbuildmat.2019.07.211 | geopolymer with recycled coarse aggregate, no fibre
+10.1016/j.conbuildmat.2019.116810 | bacteria self-healing, PP/PVA mortar, no strength numbers
+10.1016/j.conbuildmat.2019.116924 | quartz powder and silicon powder in all mixes
+10.1016/j.conbuildmat.2019.117008 | UHTCC: binder composition and curing/age not given
+10.1016/j.conbuildmat.2019.117159 | reinforced ECC beams, ECC fc only in figure
+10.1016/j.conbuildmat.2019.117313 | freeze-thaw durability, only residual strengths
+10.1016/j.conbuildmat.2020.118534 | review
+10.1016/j.conbuildmat.2020.119111 | coral sand shrinkage, no fibre
+10.1016/j.conbuildmat.2020.119272 | recycled tyre steel fibre UHPC; fc given but test age / curing not stated
+duplicate: none of the 44 DOIs found in other additions_v2 csv files

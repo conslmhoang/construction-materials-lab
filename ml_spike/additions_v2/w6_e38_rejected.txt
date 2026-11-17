@@ -1,0 +1,41 @@
+10.1016/j.jclepro.2022.135335 - expanding agent in every mix
+10.1016/j.jclepro.2024.140785 - strengths only in figures
+10.1016/j.jclepro.2024.141504 - strengths only in figures (red mud alkali-activated ECC)
+10.1016/j.jclepro.2024.141941 - magnesium phosphate cement binder
+10.1016/j.jclepro.2024.143382 - borax in every mix; recycled concrete powder
+10.1016/j.jclepro.2025.144968 - review
+10.1016/j.jclepro.2026.148084 - spalling study, no ordinary-condition strength
+10.1016/j.jhazmat.2018.03.063 - no fibre
+10.1016/j.jmrt.2018.06.011 - waste glass powder, regression study
+10.1016/j.jmrt.2021.07.047 - flexural only, no fc / tensile strain
+10.1016/j.jmrt.2022.08.139 - POM fibre; static fc only in figure; dynamic tests
+10.1016/j.jmrt.2023.02.177 - KOH activator, glass / ceramic waste, high-temperature study
+10.1016/j.jmrt.2023.06.115 - fc only in figure
+10.1016/j.jnoncrysol.2018.07.027 - geopolymer without fibre, thermal study
+10.1016/j.jobe.2020.101886 - tensile results only in figures; CaCO3 whisker
+10.1016/j.jobe.2021.102905 - thermal / moisture study; mechanical data cited from other work
+10.1016/j.jobe.2024.109153 - recycled concrete powder; strengths in figures
+10.1016/j.jobe.2024.109868 - tensile test age not stated, fc in figure only
+10.1016/j.jobe.2024.110529 - MgO expansive agent, no fibre
+10.1016/j.jobe.2024.110735 - quartz powder in every mix, high temperature
+10.1016/j.jobe.2025.114152 - coarse aggregate (geopolymer concrete)
+10.1016/j.jobe.2025.114424 - static fc only in figure / derived; SHPB study
+10.1016/j.matdes.2011.09.022 - wollastonite microfibres (not allowed)
+10.1016/j.matdes.2013.08.094 - palm oil fuel ash, per-mix results not tabulated
+10.1016/j.matdes.2014.03.030 - coarse aggregate, ladle furnace slag
+10.1016/j.matdes.2016.07.016 - carbon nanotubes; reference mix has no fibre
+10.1016/j.matdes.2022.111528 - simulation study
+10.1016/j.matdes.2023.111965 - freeze-thaw; no numeric ordinary-condition strength
+10.1016/j.matlet.2021.131527 - no fibre
+10.1016/j.matpr.2020.10.711 - coarse aggregate concrete, glass fibre
+10.1016/j.mtcomm.2016.01.001 - paste, no fibre
+10.1016/j.nucengdes.2011.04.008 - quartz powder in every mix
+10.1016/j.oceaneng.2021.109734 - bentonite, sulfate / freeze-thaw
+10.1016/j.physb.2018.03.006 - flexural / micro-scale only
+10.1016/j.powtec.2025.121087 - R0 reference needs NaOH solution (8 M) conversion, strain not in text; RCP mixes
+10.1016/j.resconrec.2020.105021 - CRT glass sand; reference fibre content unclear
+10.1016/j.resconrec.2023.107096 - carbonation curing, sisal / waste fibre; results in figures
+10.1016/j.scitotenv.2020.137095 - MgO / acid mine drainage; no mechanical numbers
+10.1016/j.surfcoat.2015.01.027 - fibre surface treatment, no composite
+10.1016/j.synthmet.2011.03.004 - fibre coating, no composite
+duplicate: none (no DOI of this list was found in other additions_v2 csv / rejected / existing_dois files)
