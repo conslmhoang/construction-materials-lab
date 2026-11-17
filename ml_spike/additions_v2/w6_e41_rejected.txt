@@ -1,0 +1,44 @@
+10.1016/j.conbuildmat.2020.121102 - coarse aggregate (SCC); no strength table
+10.1016/j.conbuildmat.2021.122530 - SAP (not allowed), hydration only
+10.1016/j.conbuildmat.2021.122742 - nylon fine aggregate, fire exposure
+10.1016/j.conbuildmat.2021.123118 - geopolymer steel fibre: strengths only in figures
+10.1016/j.conbuildmat.2021.123689 - steel slag aggregate and PP fibre; triaxial/high temperature
+10.1016/j.conbuildmat.2021.124980 - flexural/chloride only, retarder, no fc
+10.1016/j.conbuildmat.2021.125144 - fc only in figure; fibre treatment study
+10.1016/j.conbuildmat.2021.125626 - coarse aggregate concrete
+10.1016/j.conbuildmat.2021.125896 - coarse aggregate, dynamic (SHPB)
+10.1016/j.conbuildmat.2021.126149 - recycled fine aggregate
+10.1016/j.conbuildmat.2022.126920 - strengths only in figures; calcined clay, quartz powder reference
+10.1016/j.conbuildmat.2022.127808 - no fibre in strength mortars (pullout study); strengths only in figure
+10.1016/j.conbuildmat.2022.128932 - no fibre; strengths only in figure
+10.1016/j.conbuildmat.2022.129430 - strengths only in figures
+10.1016/j.conbuildmat.2023.130507 - SCC/ECC high temperature; no fc numbers; quartz powder/coarse aggregate in other mixes
+10.1016/j.conbuildmat.2023.130633 - self-healing, flexural only, no fc
+10.1016/j.conbuildmat.2023.131696 - UHPC mix (silica fume, quartz powder amounts) not defined; replacement "by volume" only
+10.1016/j.conbuildmat.2023.132526 - lightweight UHPC dynamic; mix cited from another paper
+10.1016/j.conbuildmat.2023.132599 - imitation steel fibre concrete (coarse aggregate), no mix table
+10.1016/j.conbuildmat.2023.133184 - sulphoaluminate cement
+10.1016/j.conbuildmat.2023.133742 - coarse aggregate SFRC
+10.1016/j.conbuildmat.2023.133806 - self-healing; no strength numbers
+10.1016/j.conbuildmat.2023.134450 - silica powder (quartz powder) in all mixes
+10.1016/j.conbuildmat.2024.134979 - recycled polymer fibre (RTPF); dynamic split, no fc/strain numbers
+10.1016/j.conbuildmat.2024.135093 - permeability study, no fc
+10.1016/j.conbuildmat.2024.135262 - marine clay fine aggregate
+10.1016/j.conbuildmat.2024.135821 - sulfate attack SCC/ECC, no fc numbers
+10.1016/j.conbuildmat.2024.136388 - recycled powders (glass/clay/brick), no strength numbers in text
+10.1016/j.conbuildmat.2024.137217 - magnesium oxysulfide cement (MgO)
+10.1016/j.conbuildmat.2024.138064 - quartz powder in all mixes, PET particles
+10.1016/j.conbuildmat.2024.138462 - hollow glass microspheres (not in 21)
+10.1016/j.conbuildmat.2024.138508 - shrinkage study; MWCNT; no age, no activator dosage, binder amounts missing
+10.1016/j.conbuildmat.2024.138698 - no fibre, shrinkage
+10.1016/j.conbuildmat.2024.139133 - coarse aggregate geopolymer concrete
+10.1016/j.conbuildmat.2024.139156 - expanded glass aggregate, sulfate exposure
+10.1016/j.conbuildmat.2024.139570 - steel ball aggregate, impact
+10.1016/j.conbuildmat.2024.139806 - water content of mix not stated (calcium sulfate whiskers in other mixes)
+10.1016/j.conbuildmat.2025.140165 - "mineral powder" undefined; pavement structure study
+10.1016/j.conbuildmat.2025.140380 - no curing / test age stated; fc only in figure
+10.1016/j.conbuildmat.2025.140824 - strengths only in figures
+10.1016/j.conbuildmat.2025.142430 - granite powder waste filler, incomplete matrix composition
+10.1016/j.conbuildmat.2025.144653 - shale pottery aggregate
+10.1016/j.conbuildmat.2026.145869 - fibre only in pullout specimens; fc only in figure
+10.1016/j.conbuildmat.2026.146937 - fly ash cenosphere, high temperature

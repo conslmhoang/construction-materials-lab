@@ -1,0 +1,37 @@
+Wave 6 e42 rejected papers (DOI | reason). No DOI in the list was found as a duplicate in other additions_v2 CSVs (0 duplicates).
+10.1016/j.conbuildmat.2026.148377 | UHSFRC with jute / steel fibres, ring-restrained heating (spalling) only; no ordinary-condition strength data
+10.1016/j.conbuildmat.2026.148570 | modelling of tensile strain hardening; mix (Ca(OH)2 / slag / PVA) given but no test age / curing age stated ("designated curing age")
+10.1016/j.conbuildmat.2026.148766 | red mud (RM) precursor in every mix (not in the 21 materials); results only in Fig. 3
+10.1016/j.cscm.2020.e00385 | rubberized ECC: mix table present but fc / tensile results only in figures (no numbers in text or table)
+10.1016/j.cscm.2022.e01170 | UHPC with coarse aggregate, flexural toughness
+10.1016/j.cscm.2022.e01573 | four-point bending only; no compressive strength / direct tension values
+10.1016/j.cscm.2023.e02603 | PE-ECC ultra-low-temperature freeze-thaw fatigue; fc only in Fig. 8
+10.1016/j.cscm.2023.e02666 | ECC-NC interface shear; ECC contains undefined "fine ore", PE fibre dose given as a 1.0-2.0 kg/m3 range, no age / curing
+10.1016/j.cscm.2023.e02726 | freeze-thaw + chloride fatigue of PE-ECC; no ordinary-condition strength numbers
+10.1016/j.cscm.2023.e02732 | structural seismic study, ML-predicted ECC inputs only
+10.1016/j.cscm.2024.e03041 | PE-ECC fiber content (mix + fc + SHPB) but no curing / test age stated anywhere
+10.1016/j.cscm.2024.e03129 | structural seismic study, ML-predicted ECC inputs only
+10.1016/j.cscm.2024.e03442 | hybrid natural-fibre FRP bars in UHPC; UHPC mix has no fibre, bar pull-out only
+10.1016/j.cscm.2026.e06193 | UHPC shrinkage with SRA / SAP / LP; no fibre in mixes (sand mortar), fc only in Fig. 6
+10.1016/j.cscm.2026.e06490 | freeze-shaped PVA-ECC / concrete composite specimens; results in figures, no standalone ECC numbers
+10.1016/j.engstruct.2007.08.022 | analytical paper on RC structures, no mix / test data
+10.1016/j.engstruct.2017.01.037 | concrete filled steel tubes (NSC, plain UHSC, pre-blended D4 product); no fibre mixes
+10.1016/j.engstruct.2021.113591 | HSC / UHPC / FRC interface study; mixes contain quartz filler (powder) and coarse aggregate
+10.1016/j.engstruct.2023.116115 | HSSW mesh / ECC bond; ECC mix proportions not given, only Table 1 properties
+10.1016/j.heliyon.2024.e26056 | magnetically oriented FePVA ECC; flexural tests only
+10.1016/j.istruc.2023.03.153 | PVA-ECC headed studs; mix + fc + tensile given but no age / curing anywhere in the text
+10.1016/j.istruc.2025.110033 | ECC / shaped-steel interface; specimens cured 56 d outdoors, matrix cube / tensile test age and curing not stated, no SP / admixture info, matrix E2 has undefined "mineral powder"
+10.1016/j.istruc.2026.112299 | NC-ECC functionally graded columns; ECC contains undefined "mineral powder" (15 %), no tension test details
+10.1016/j.jclepro.2019.02.201 | UHPC with recycled C&D powder, no fibres
+10.1016/j.jclepro.2021.128236 | LC2 UHPC with calcined clay tailings and gypsum, no fibres
+10.1016/j.jece.2022.107492 | polyethylene pyrolysis chemistry, not a cementitious paper
+10.1016/j.jmrt.2021.07.092 | microwave-cured steel-fibre UHPC; mix table present but fc only in Fig. 5
+10.1016/j.jmrt.2023.03.036 | modelling / database paper (MEP)
+10.1016/j.jobe.2019.100970 | economical UHPC; curing regimens and fine-aggregate types defined only in figures (Fig. A1, A3); ground quartz among fines
+10.1016/j.jobe.2020.101621 | UHPFRC high temperature; basalt aggregate in all UHPFRC mixes, CC has coarse gravel
+10.1016/j.jobe.2020.101846 | LCD glass powder in UHPC plus silica flour (quartz powder); single-fibre pull-out only
+10.1016/j.jobe.2020.102124 | zeolite ECC; zeolite in every mix including the 0 % one (0.167 of binder)
+10.1016/j.jobe.2021.102486 | UHS-UHDCC (PE fibre, LP, SF): mix, fc/strain data usable, but every mix contains 0.02 % silica-fume dispersant (admixture outside the 21 materials); rejected strictly, could be reconsidered (Table 3 mix, Table 7 tension, 14 d steam + 5 d standard curing)
+10.1016/j.jobe.2021.102631 | recycled fine aggregate and coarse aggregate concrete
+10.1016/j.jobe.2022.105398 | calcium aluminate cement / FA geopolymer UHPC (CAC not allowed)
+10.1016/j.jobe.2023.105836 | UHPC with calcined clay + limestone powder; compressive results only in Fig. 4

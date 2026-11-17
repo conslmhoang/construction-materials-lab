@@ -1,0 +1,40 @@
+10.1016/j.jobe.2023.106060 | HES-ECC uses sulfoaluminate cement (SAC) in every mix
+10.1016/j.jobe.2023.106998 | ECC FA/crumb rubber: mix table only; fc and tensile results only in figures
+10.1016/j.jobe.2023.107092 | rubber UHPC: quartz powder in every mix
+10.1016/j.jobe.2023.108161 | geopolymer concrete with coarse aggregate
+10.1016/j.jobe.2024.109209 | SAP-PVA concrete (superabsorbent polymer not allowed), cyclic tension at temperatures
+10.1016/j.jobe.2024.109371 | PVA geopolymer: activator (water glass / NaOH) quantities not given (only modulus/alkali equivalent), only 3 fc values in text
+10.1016/j.jobe.2024.109372 | UHPC red mud + LP: quartz sand OK but compressive strength only normalised to 3 d, no absolute values; red mud not allowed
+10.1016/j.jobe.2024.109904 | PE-fibre geopolymer mortar, high-temperature residual strength, values only in figures
+10.1016/j.jobe.2024.110121 | coal gangue ceramsite (lightweight coarse aggregate) steel fibre concrete
+10.1016/j.jobe.2024.110924 | SHCC modelling paper, coral sand; experiment limited to one mix without strength/age data
+10.1016/j.jobe.2024.111090 | concrete with coarse aggregate (flexural)
+10.1016/j.jobe.2024.111734 | review paper
+10.1016/j.jobe.2025.115173 | LC3 ECC: calcined clay in all mixes; reference LC0 strengths only in figures
+10.1016/j.jobe.2026.115241 | Yellow River sediment geopolymer concrete with coarse aggregate, shrinkage
+10.1016/j.jobe.2026.117601 | UHPC without fibres (no fibre in any mix)
+10.1016/j.matdes.2009.11.025 | steel fibre HSC with coarse aggregate, structural beams
+10.1016/j.matdes.2017.02.052 | eco-UHPFRC calcined clay; no absolute strengths in text (figure only)
+10.1016/j.matlet.2005.05.071 | natural lightweight aggregate concrete (coarse aggregate)
+10.1016/j.matpr.2020.02.768 | review of ECC at elevated temperatures, no mix/test data
+10.1016/j.matpr.2020.07.701 | steel fibre concrete with coarse aggregate
+10.1016/j.matpr.2020.11.1022 | not cementitious (PVA electrospun membranes)
+10.1016/j.matpr.2021.12.257 | not relevant (cryptography)
+10.1016/j.matpr.2022.04.093 | reactive powder concrete with recycled fine aggregate (not allowed)
+10.1016/j.matpr.2023.03.010 | graphene oxide ECC (nano material); 0 % GO reference values only in figure
+10.1016/j.matpr.2024.04.093 | steel slag aggregate concrete (coarse aggregate)
+10.1016/j.mechmat.2008.10.004 | rock SHPB test, not cementitious composite
+10.1016/j.msea.2007.09.073 | carbon fibre cement composite (carbon fibre not allowed)
+10.1016/j.mtcomm.2023.106080 | ECC chloride penetration; only flexural strength given, no fc / tension data
+10.1016/j.mtcomm.2024.110759 | machine-learning on lightweight ceramsite aggregate UHPC (coarse lightweight aggregate)
+10.1016/j.mtcomm.2026.115478 | data-driven modelling of self-healing ECC (database paper, no new mix tables extracted)
+10.1016/j.powtec.2021.117075 | UHPC with waste concrete powder, no fibres
+10.1016/j.rineng.2025.105448 | HPC with coarse aggregate (granite), ground bottom ash
+10.1016/j.rineng.2026.110872 | alkali-activated UHPC with glass powder, waste foundry sand and recycled steel fibre (materials outside list); mix with GP = 0 still contains WFS
+10.1016/j.rineng.2026.114045 | PP/PVA ECC: strengths only in figures, PP fibre mixes not allowed
+10.1016/j.scitotenv.2022.155424 | coral waste UHPC (coral aggregate, no fibre data)
+
+Added papers (partial mixes, other mixes of the same paper skipped for disallowed materials):
+10.1016/j.jobe.2024.110793, 10.1016/j.jobe.2025.114039 (FA-0 only), 10.1016/j.jobe.2025.114110, 10.1016/j.jobe.2026.116100 (C-FAC-0% only), 10.1016/j.jobe.2026.116398 (PFA-0 only), 10.1016/j.jobe.2026.117165 (NRBP0 only), 10.1016/j.powtec.2023.118853 (C50D0 only), 10.1016/j.jobe.2024.110339 (ECC-Ref only), 10.1016/j.jobe.2025.113705 (plain UHP-ECC only), 10.1016/j.rineng.2025.108304 (ECC at 20 C only), 10.1016/j.rineng.2026.111075 (FRCC15 only)
+
+Duplicates: none (no DOI of this list found in any other w6/other additions_v2 csv).

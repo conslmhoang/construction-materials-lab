@@ -1,0 +1,44 @@
+duplicate: none of the 50 DOIs was found in other additions_v2 CSVs
+10.1016/j.aaf.2017.01.003 | PE/SiO2 nanocomposite fiber ropes, no cement mixes
+10.1016/j.cemconcomp.2008.08.001 | geopolymer with basalt/slag coarse aggregate, high-temperature exposure
+10.1016/j.cemconcomp.2011.12.001 | plasma-treated PE composite, flexural results only (no fc, no direct tension)
+10.1016/j.cemconcomp.2013.11.006 | recycled aggregate concrete (coarse aggregate)
+10.1016/j.cemconcomp.2013.11.008 | UHPC with SRA/wollastonite, control has no fiber, no strength numbers
+10.1016/j.cemconcomp.2014.11.010 | quartz powder in mix, no fiber, skinning microstructure
+10.1016/j.cemconcomp.2015.02.006 | concrete with coarse aggregate
+10.1016/j.cemconcomp.2015.09.005 | silica flour (quartz powder) and SRA, strength only in figures
+10.1016/j.cemconcomp.2016.09.005 | silica flour (quartz powder) in all mixes
+10.1016/j.cemconcomp.2018.08.017 | LCA paper, SAP + PP/PVA, no strength data of interest
+10.1016/j.cemconcomp.2019.103401 | silica flour (quartz powder) in mix; fire exposure
+10.1016/j.cemconcomp.2019.103451 | penetration model paper, no mix data
+10.1016/j.cemconcomp.2020.103805 | alkali-activated stone wool (not allowed), impact
+10.1016/j.cemconcomp.2020.103864 | silica flour (quartz powder), chelating treatment of fibers
+10.1016/j.cemconcomp.2021.104067 | flax fibers, spalling at high temperature
+10.1016/j.cemconcomp.2022.104505 | silica flour (quartz powder)
+10.1016/j.cemconcomp.2022.104555 | sisal fiber; steel-only rows have strength only in figures
+10.1016/j.cemconcomp.2022.104563 | quartz powder, flexural only
+10.1016/j.cemconcomp.2022.104830 | strength/flexural data only in figures
+10.1016/j.cemconcomp.2022.104910 | sisal fiber, strength only in figures
+10.1016/j.cemconcomp.2023.105064 | impact paper; age of static tests not stated (curing ">28 d", impact at ~180 d); fiber content inconsistent with mix table
+10.1016/j.cemconcomp.2023.105296 | lightweight/coarse aggregate concrete
+10.1016/j.cemconcomp.2024.105487 | quartz powder; vibration study
+10.1016/j.cemconcomp.2024.105726 | reactive MgO binder
+10.1016/j.cemconcomp.2025.106390 | hollow glass microspheres, high strain rate
+10.1016/j.cemconcomp.2025.106419 | quartz powder, steel slag powder, nanobubble water
+10.1016/j.cemconres.2017.09.004 | calcium aluminate cement, high temperature
+10.1016/j.cemconres.2018.10.005 | fire spalling
+10.1016/j.cemconres.2018.12.006 | chloride migration test, no strength data
+10.1016/j.cemconres.2019.04.021 | CSA expansive agent, pullout
+10.1016/j.cemconres.2019.105895 | EGC self-healing; control tensile values only in figures
+10.1016/j.cemconres.2019.105896 | concrete with coarse aggregate, high temperature
+10.1016/j.cemconres.2020.106017 | CNT (nano) and silica powder
+10.1016/j.cemconres.2020.106067 | steel fiber ~9 vol%, low temperature/strain-rate tension, no sand, no fc
+10.1016/j.cemconres.2020.106230 | freeze-thaw, concrete with aggregates
+10.1016/j.cemconres.2020.106281 | PP fibers, high temperature
+10.1016/j.cemconres.2023.107298 | CSA cement and PP fiber in all mixes, desert sand
+10.1016/j.ceramint.2004.07.006 | alumina ceramic tapes, not cementitious
+10.1016/j.ceramint.2025.11.126 | alumina-spinel castables, not in scope
+10.1016/j.clema.2024.100289 | geopolymer fireproof coating with PVA and manganese slag
+10.1016/j.coco.2018.05.005 | MOF/PVA hydrogel, not cementitious
+10.1016/j.coco.2019.05.001 | ZrC/PVA-co-PE membrane, not cementitious
+10.1016/j.coco.2025.102439 | EGC with PE fibers; test age not stated, fc only in figures

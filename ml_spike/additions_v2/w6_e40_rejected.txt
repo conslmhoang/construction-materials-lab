@@ -1,0 +1,45 @@
+w6 e40 rejected (DOI | reason). No file in the list was a duplicate of another additions_v2 csv.
+10.1016/j.compositesa.2011.06.016 | carbon fibre / polymer composites in fire, not cementitious
+10.1016/j.compositesa.2017.01.008 | review of nano fillers, no mixes/strength data
+10.1016/j.compositesa.2017.05.002 | graphene oxide cement paste, no fibre, GO not allowed
+10.1016/j.compositesb.2013.03.012 | ECC shrinkage ring tests, no strength / strain values in text
+10.1016/j.compositesb.2018.12.015 | SSW-RPC: no mix table, compressive strengths only in figures
+10.1016/j.compositesb.2020.107933 | single-fibre pull-out after high temperature, no fibre-reinforced mixes
+10.1016/j.compstruc.2025.108005 | modelling paper, literature mix data only
+10.1016/j.compstruct.2013.02.015 | single-fibre pull-out, no fibre-reinforced mixes
+10.1016/j.compstruct.2015.07.074 | single-fibre pull-out, no fibre-reinforced mixes
+10.1016/j.compstruct.2015.08.127 | single-fibre pull-out, no fibre-reinforced mixes
+10.1016/j.compstruct.2018.08.002 | steel-fibre concrete with coarse aggregate (Gmax 10 mm), flexural only
+10.1016/j.compstruct.2019.111432 | steel slag aggregate and PP fibre, temperature + impact
+10.1016/j.compstruct.2021.114403 | UHTCC/RPC interface shear, no mix proportions
+10.1016/j.compstruct.2023.117161 | recycled coarse aggregate, triaxial dynamic
+10.1016/j.conbuildmat.2007.01.005 | SFRC dynamic compression (SHPB), no tables, no mix
+10.1016/j.conbuildmat.2010.03.009 | single-fibre pull-out, no fibre mixes
+10.1016/j.conbuildmat.2010.06.059 | single-fibre pull-out, no fibre mixes
+10.1016/j.conbuildmat.2011.06.045 | RPC with quartz powder and quartz sand, pre-setting pressure, flexural
+10.1016/j.conbuildmat.2011.07.015 | steel-fibre concrete with coarse aggregate, direct shear
+10.1016/j.conbuildmat.2014.02.059 | waste bottom ash and nano-silica and PP fibre in all fibre mixes; only reference has no fibre
+10.1016/j.conbuildmat.2015.06.014 | geopolymer concrete with coarse aggregate, durability
+10.1016/j.conbuildmat.2015.12.147 | RPC with quartz, no fibre, fc only in figure
+10.1016/j.conbuildmat.2016.05.021 | ECC self-healing, only strain "as large as 7 %" for one mix in text, rest in figures
+10.1016/j.conbuildmat.2016.06.052 | UHPC thermal study, coarse granite and quartz powder
+10.1016/j.conbuildmat.2016.07.049 | flax fabric and nano-silica geopolymer
+10.1016/j.conbuildmat.2016.08.097 | geopolymer pastes/mortars without fibre
+10.1016/j.conbuildmat.2017.02.136 | recycled coarse aggregate steel-fibre concrete
+10.1016/j.conbuildmat.2017.04.090 | steel-fibre concrete with coarse aggregate (discs)
+10.1016/j.conbuildmat.2017.08.024 | RPC contains silica flour (quartz powder 10 kg/m3) in all mixes; waste-tyre steel fibres
+10.1016/j.conbuildmat.2017.09.169 | impact on plates, proprietary premix, concrete with coarse aggregate
+10.1016/j.conbuildmat.2017.11.109 | carbon microfibre geopolymer, elevated temperature
+10.1016/j.conbuildmat.2018.03.094 | ECC with SAP: reference ECC0 tensile test age not stated, fc only in figure
+10.1016/j.conbuildmat.2018.03.193 | UHPC contains silica powder (quartz powder) and SAP, fc in figures
+10.1016/j.conbuildmat.2018.06.163 | UHPFRC with PP fibre, high-temperature residual strength
+10.1016/j.conbuildmat.2018.08.062 | MK geopolymer with colemanite waste, basalt/polyolefin/polyamide fibres, results in figures
+10.1016/j.conbuildmat.2019.03.132 | ECC/mortar EIS cracking monitoring, no strength results
+10.1016/j.conbuildmat.2019.06.069 | cellular concrete with coarse aggregate and SAP
+10.1016/j.conbuildmat.2019.117142 | UHPC with SAP, compressive strength only in figures
+10.1016/j.conbuildmat.2020.118058 | steel-fibre concrete with coarse aggregate, permeability
+10.1016/j.conbuildmat.2020.118940 | review (CNT geopolymer)
+10.1016/j.conbuildmat.2020.119032 | lightweight aggregate concrete with bacteria
+10.1016/j.conbuildmat.2020.119057 | recycled PET aggregate concrete, post-fire
+10.1016/j.conbuildmat.2020.119642 | UHPC with quartz powder, dynamic tensile only
+10.1016/j.conbuildmat.2020.120334 | UHSC with coarse aggregate and PP fibre, fire spalling
