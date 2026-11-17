@@ -1,0 +1,24 @@
+10.1016/j.conbuildmat.2021.125914 - fc only in Fig. 12, tensile only in figures
+10.1016/j.conbuildmat.2021.125935 - coarse (basalt) aggregate, flexural study
+10.1016/j.conbuildmat.2021.126300 - air-entrained SHCC freeze/scaling study, strengths in figures
+10.1016/j.conbuildmat.2022.126411 - printable SHCC, no tensile numbers (figure only), fresh/flexural only
+10.1016/j.conbuildmat.2022.127170 - UHPC size effect; test age not stated, only cube values
+10.1016/j.conbuildmat.2022.127188 - aluminate cement + gypsum rapid-hardening UHPC
+10.1016/j.conbuildmat.2022.127306 - PET fiber, UPOFA binder
+10.1016/j.conbuildmat.2022.128180 - zeolite/natural pozzolan ECC, temperature study, results in figures
+10.1016/j.conbuildmat.2022.128333 - lightweight with FA cenosphere
+10.1016/j.conbuildmat.2022.128372 - hybrid PE/PP fibers, strengths in figures
+10.1016/j.conbuildmat.2022.128680 - structural beams / bond, no fiber
+10.1016/j.conbuildmat.2022.128690 - results only in figures, no test table
+10.1016/j.conbuildmat.2022.129106 - compressive strength only in figures
+10.1016/j.conbuildmat.2022.130169 - fc and tensile mostly in figures, test age not stated
+10.1016/j.conbuildmat.2023.130349 - quartz powder in matrix, water content not given
+10.1016/j.conbuildmat.2023.131669 - red mud geopolymer (material outside the 21)
+10.1016/j.conbuildmat.2023.132314 - commercial premix, no mix proportions
+10.1016/j.conbuildmat.2023.132755 - strain and fc only in figures, tensile strength alone
+10.1016/j.conbuildmat.2023.133053 - tensile size effect; no test age stated, no fc
+10.1016/j.conbuildmat.2023.133096 - modelling paper
+10.1016/j.conbuildmat.2023.133158 - polyester fiber; PVA mixes use PPC and table 8 garbled
+10.1016/j.conbuildmat.2023.133286 - stochastic model, no age
+10.1016/j.conbuildmat.2023.133431 - no tables, figure-only results
+10.1016/j.conbuildmat.2022.126879 is ADDED (1 row)

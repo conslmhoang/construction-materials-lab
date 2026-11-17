@@ -1,0 +1,26 @@
+10.1016/j.compstruct.2019.04.061 | sprayable UHTCC for RC beam strengthening; fc only in a figure, tensile numbers not in tables
+10.1016/j.compstruct.2019.110911 | meso-mechanical UHPFRC model; no compressive strength, tensile results only in figures, mix has unspecified "filler"
+10.1016/j.compstruct.2019.111795 | optimisation of continuous fibre hybrid composites; not cementitious
+10.1016/j.compstruct.2019.111810 | UHPFRC with coarse aggregate
+10.1016/j.compstruct.2021.113609 | UHMWPE polymer composite model; not cementitious
+10.1016/j.compstruct.2021.113890 | metal matrix composites; not cementitious
+10.1016/j.conbuildmat.2008.01.009 | hybrid steel-PE SHCC; strain/strength results only in figures, no numbers in text/tables
+10.1016/j.conbuildmat.2010.07.017 | PVA fibre cemented sand (soil), kPa-level UCS, no concrete/mortar mix
+10.1016/j.conbuildmat.2012.06.007 | alkali-activated slag + PVA; activator split (Ca(OH)2/Na2SO4/sodium silicate) not given (table footnotes lost), cannot fill columns
+10.1016/j.conbuildmat.2012.11.022 | fly-ash concrete with coarse aggregate, no fibre
+10.1016/j.conbuildmat.2013.05.095 | split tensile + electrical resistance of steel fibre composite; no direct tension, no mix table
+10.1016/j.conbuildmat.2013.08.020 | HVFA concrete with limestone coarse aggregate, no fibre
+10.1016/j.conbuildmat.2013.11.013 | SHCC strain-rate micromechanics; no strength or strain values in tables/text
+10.1016/j.conbuildmat.2014.01.016 | steel fibre composite, compression/split tensile resistivity; no mix proportions or strengths
+10.1016/j.conbuildmat.2014.04.022 | lightweight concrete with palm shell clinker (coarse aggregate), no fibre
+10.1016/j.conbuildmat.2014.04.055 | lightweight concrete (coarse aggregate) direct tension, no fibre
+10.1016/j.conbuildmat.2014.12.071 | PVA-ECC: tensile test age not stated (only M17/M21), fc only in a figure
+10.1016/j.conbuildmat.2015.05.030 | UHPFRC-concrete composite beams (structural members)
+10.1016/j.conbuildmat.2015.08.124 | splitting tensile strength modelling (database study)
+10.1016/j.conbuildmat.2015.11.028 | UHPC steel fibre: flexural results only, no compressive/direct tension numbers
+10.1016/j.conbuildmat.2016.02.112 | PE/PP/PVA hybrid ECC: flexural, fc only in a figure, PP fibre
+10.1016/j.conbuildmat.2016.02.228 | copper-coated steel fibre geopolymer: no mix or strength numbers in text/tables (figures only)
+10.1016/j.conbuildmat.2016.04.078 | HPFRCC frames (structural members)
+10.1016/j.conbuildmat.2016.10.030 | geopolymer mortar S/FA ratio: no fibre
+10.1016/j.conbuildmat.2017.03.020 | SHCC weakest-section analytical model, no experimental mix
+10.1016/j.conbuildmat.2017.07.130 | UHPC/UHPFRC steel fibre: mix contains ground quartz powder (not allowed)

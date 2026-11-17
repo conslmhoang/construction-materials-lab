@@ -1,0 +1,26 @@
+10.1016/j.istruc.2023.06.019 - computational tensile study of ordinary concrete, no fibre mixes
+10.1016/j.jmrt.2022.07.011 - metal (Zircaloy) paper, not cementitious
+10.1016/j.jmrt.2022.07.040 - metal (stainless steel) paper
+10.1016/j.jmrt.2022.07.189 - metal constitutive model
+10.1016/j.jmrt.2023.12.154 - steel magnetization study
+10.1016/j.jobe.2022.105006 - FRP bar tensile model, not cementitious mixes
+10.1016/j.jobe.2023.106228 - SCC with glass powder, no fibre
+10.1016/j.jobe.2023.106913 - PVA/PE ECC with coarse silica sand: tensile results only in figures, no compressive, test age not stated
+10.1016/j.jobe.2023.107711 - PE-ECC energy study: strengths/strain for only a few mixes in text (rest in figures); test age not stated
+10.1016/j.jobe.2023.107738 - UHPC with fly-ash microsphere: strengths only in figures; FAM outside the 21
+10.1016/j.jobe.2024.109128 - HSHDC PE fiber parameters: no mix proportions in text or tables
+10.1016/j.jobe.2024.109215 - glass/PP fibres (not allowed)
+10.1016/j.jobe.2024.109353 - UHPC tube columns; UHPC mix has mineral powder (not in 21), structural members
+10.1016/j.jobe.2024.109976 - UHPC with coarse aggregate, low temperature
+10.1016/j.jobe.2024.110128 - UHPC with coarse aggregate, fiber/aggregate distribution
+10.1016/j.jobe.2024.110533 - steel fibre concrete with coarse aggregate, flexural/DIC
+10.1016/j.jobe.2024.111092 - aligned steel fibre UHPC: same cube data as 109854 but conflicting mix (sand 1.7, water 0.32); skipped to avoid double entry
+10.1016/j.jobe.2024.111409 - ultra-lightweight ECC with FA cenosphere and carbon fibre (not allowed)
+10.1016/j.marstruc.2022.103205 - steel holes/stress concentration
+10.1016/j.matpr.2021.11.177 - steel
+10.1016/j.matpr.2021.11.225 - bone 3D model
+10.1016/j.matpr.2022.02.129 - concrete with coarse aggregate and sugarcane bagasse ash
+10.1016/j.matpr.2022.11.004 - natural fibre polymer laminate
+10.1016/j.matpr.2023.02.032 - SCC with rubber/PET coarse aggregate, no fibre
+10.1016/j.matpr.2023.03.121 - natural fibre (corn husk, cow hair) composite
+10.1016/j.mtcomm.2024.109521 - steel hole expansion

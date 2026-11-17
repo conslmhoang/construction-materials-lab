@@ -1,0 +1,25 @@
+10.1016/j.conbuildmat.2017.12.186 - ECC with limestone powder + HVFA: flexural tests only; fc only in Fig. 3
+10.1016/j.conbuildmat.2018.02.095 - fibre geometry in high-strength concrete: coarse aggregate + nano-silica, flexural
+10.1016/j.conbuildmat.2018.04.038 - HTPP (polypropylene) fibre ECC: fibre outside the list
+10.1016/j.conbuildmat.2018.04.203 - UHPFRC compressive vs age: ground quartz powder in all mixes
+10.1016/j.conbuildmat.2018.05.167 - silane-treated steel microfibre UHPFRC: nano-silica + CaCO3, pullout only
+10.1016/j.conbuildmat.2018.05.191 - SCC with hooked-end steel fibres: coarse aggregate
+10.1016/j.conbuildmat.2018.09.111 - G-UHP-FRC: glass powder in all mixes (outside the 21)
+10.1016/j.conbuildmat.2018.11.072 - PVA fibre oiling-agent pullout/flexure: no compressive or tensile-strain data
+10.1016/j.conbuildmat.2018.11.082 - rebar steel hardening exponent: not a cementitious composite
+10.1016/j.conbuildmat.2018.12.067 - hybrid steel fibre SCC: coarse aggregate (gravel)
+10.1016/j.conbuildmat.2019.03.113 - bilinear constitutive model for SHCC: modelling only, no mix table
+10.1016/j.conbuildmat.2019.04.047 - age dependence of SHCC: contains stabilizer (outside the 21); results only in figures
+10.1016/j.conbuildmat.2019.04.069 - SHCC with SAP at different temperatures: SAP in mixes, results only in figures
+10.1016/j.conbuildmat.2019.117423 - SH-UHPC particle packing CCD: ground silica (quartz powder) in all mixes
+10.1016/j.conbuildmat.2020.118000 - hybrid steel-PVA fibre concrete: coarse aggregate
+10.1016/j.conbuildmat.2020.118054 - rebar-reinforced UHPFRC direct tension: quartz powder in mix
+10.1016/j.conbuildmat.2020.118110 - PVA-SHCC beams: mix and fc/tensile strain given, but no test age stated anywhere (cannot derive)
+10.1016/j.conbuildmat.2020.118558 - Na/K metakaolin geopolymer + PVA: water glass made from NaOH + fumed silica (composition not given as quantities, only derivable), no test age
+10.1016/j.conbuildmat.2020.119311 - rebar-reinforced UHPC direct tension: silica powder (quartz) in mix
+10.1016/j.conbuildmat.2020.120183 - ECC with stone slurry powder: results only in figures (no numbers)
+10.1016/j.conbuildmat.2020.120428 - corroded steel fibres in UHPC: silica flour in mix, corrosion exposure
+10.1016/j.conbuildmat.2020.120668 - UHS-UHDCC (PE fibre): contains silica fume dispersant (extra admixture, outside the 21); doubtful, could be added if dispersant is allowed
+10.1016/j.conbuildmat.2020.120927 - UHPFRC AE damage/permeability: filler of unspecified type, no strength numbers in text
+10.1016/j.conbuildmat.2020.121438 - ECC flexural toughness with silica sand/LSF: no compressive or tensile numbers
+10.1016/j.conbuildmat.2020.121844 - confined UHPC compression: proprietary Ductal premix (composition unknown)

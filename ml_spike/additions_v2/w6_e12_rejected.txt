@@ -1,0 +1,31 @@
+10.1016/j.conbuildmat.2020.122033 | crumb-rubber ECC: fc and tensile strain only in figures (Fig. 6, 14), Tables 3/5 give only % changes
+10.1016/j.conbuildmat.2021.122807 | ensemble ML prediction paper, no own mixes
+10.1016/j.conbuildmat.2021.123625 | meso-mechanical model of steel fiber concrete (coarse aggregate), no qualifying mix data
+10.1016/j.conbuildmat.2021.124104 | UHPFRC steel fibers; every mix contains quartz powder (P/C 0.09)
+10.1016/j.conbuildmat.2021.125074 | inverse analysis of 3D/4D/5D steel fiber concrete (coarse aggregate, flexural)
+10.1016/j.conbuildmat.2022.127956 | review of HS/UHS-ECC
+10.1016/j.cscm.2021.e00582 | nitinol fibre/powder composite: nitinol not in the 21 materials
+10.1016/j.engstruct.2021.111914 | review of UHPFRC as strengthening material
+10.1016/j.ijsolstr.2014.09.023 | PE fiber laminates (polymer composite), not cementitious
+10.1016/j.ijsolstr.2015.04.038 | sheet metals, not cementitious
+10.1016/j.ijsolstr.2016.10.004 | cellular solids theory, not cementitious
+10.1016/j.istruc.2016.08.005 | steel design with strain hardening, not cementitious composites
+10.1016/j.istruc.2021.02.001 | push-out tests of steel-concrete-steel sandwich members, structural
+10.1016/j.istruc.2021.03.114 | E-UHPC recycled tyre steel fibers: fc only in normalised figure, water content not stated, flexural tests
+10.1016/j.jclepro.2017.02.117 | HTPP (polypropylene) fiber ECC, flexural only
+10.1016/j.jclepro.2020.121343 | limestone-calcined clay (LCC) blend binder not in the 21 materials; reference mixes taken from literature
+10.1016/j.jmrt.2016.05.004 | stainless steel tensile test, not cementitious
+10.1016/j.jmrt.2020.01.042 | UHPC with silica flour (quartz powder) in every mix
+10.1016/j.jmrt.2020.05.072 | UHPC with silica flour (quartz powder) in every mix
+10.1016/j.jmrt.2021.05.093 | already in existing_dois.txt
+10.1016/j.jobe.2020.101243 | PET FRP-confined concrete columns
+10.1016/j.jobe.2020.101951 | fly ash-slag SHGC: fc only in Fig. 6, only flexural data in tables
+10.1016/j.matpr.2019.11.264 | UHMWPE 3D scaffold (polymer), not cementitious
+10.1016/j.matpr.2020.02.146 | rubberised ECC with M-sand: PP fibers, strengths only in figures
+10.1016/j.matpr.2020.02.666 | PVA/Al2O3 electrochemistry, not cementitious
+10.1016/j.matpr.2020.03.743 | ECC masonry wall strengthening: structural, no fc/strain
+10.1016/j.matpr.2020.06.049 | glass/carbon/Kevlar polymer composites
+10.1016/j.matpr.2021.01.896 | ZA-27 metal matrix composite
+10.1016/j.mattod.2016.04.001 | metallic glasses review, not cementitious
+10.1016/j.mtcomm.2017.10.018 | Ti-6Al-4V alloy
+10.1016/j.mtcomm.2020.101356 | geopolymer concrete with coarse aggregate, splitting tensile only

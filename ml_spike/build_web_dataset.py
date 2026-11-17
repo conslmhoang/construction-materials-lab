@@ -76,7 +76,9 @@ no_fiber_type = sum(fib.values()) == 0
 B3 = S(BINDER_FRAC["Cement"] + BINDER_FRAC["FA"] + BINDER_FRAC["GGBS"])     # share of the paper binder
 W = pd.to_numeric(d[83], errors="coerce").fillna(pd.to_numeric(d[134], errors="coerce")).fillna(pd.to_numeric(d[85], errors="coerce"))
 # papers checked by hand and left out (DOI -> reason)
-DROP_DOI = {"10.1155/2022/7876056": "'elongation (%)' equals the tension displacement in mm, no gauge length, no fc"}
+DROP_DOI = {"10.1155/2022/7876056": "'elongation (%)' equals the tension displacement in mm, no gauge length, no fc",
+            "10.1016/j.jobe.2020.101613": "fine aggregate is crushed basalt (basalt is not one of the 21 materials)",
+            "10.1016/j.cemconres.2007.12.006": "fc quoted from another paper (ref. [12]), not measured in this study"}
 drop_doi = d["_doi"].astype(str).str.lower().str.contains("|".join(map(re.escape, DROP_DOI)))
 keep = (d["_use_fc"] | d["_use_eps"]) & ~other & ~no_fiber_type & (B3 > 0) & W.notna() & ~drop_doi
 keep &= W >= 0.12                                   # W/B below 0.12 is not credible for these composites

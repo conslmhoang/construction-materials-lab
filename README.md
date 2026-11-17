@@ -35,8 +35,8 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 888 / 159 | CatBoost | 0.95 | 7.2 MPa |
-| Tensile strain capacity | 410 / 102 | Extra Trees | 0.80 | 0.94 % |
+| Compressive strength | 1,130 / 209 | CatBoost | 0.94 | 7.7 MPa |
+| Tensile strain capacity | 681 / 161 | Extra Trees | 0.79 | 0.96 % |
 
 ## Rebuilding
 

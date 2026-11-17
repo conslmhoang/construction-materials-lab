@@ -1,0 +1,19 @@
+10.1016/j.istruc.2025.109931 | UHPC from a commercial dry mix of unknown composition (no mix proportions); compression only
+10.1016/j.istruc.2025.110198 | adobe (earth) material, not cementitious composite with allowed fibers
+10.1016/j.istruc.2026.111746 | steel-reinforced concrete column confined by UHPC jacket, structural members, coarse aggregate
+10.1016/j.istruc.2026.112490 | UHPC steel fiber: no mix proportions given, strengths only as figures/summary
+10.1016/j.jmrt.2025.11.146 | lightweight steel alloy, not cementitious
+10.1016/j.jmrt.2026.06.268 | PLA/chitosan bone scaffolds, not cementitious
+10.1016/j.jobe.2024.110521 | natural bio-fibers ECC (not allowed fibers)
+10.1016/j.jobe.2024.111680 | hooked-end steel fiber concrete with coarse aggregate, flexural notched beams
+10.1016/j.jobe.2024.111752 | UHPC with quartz sand AND quartz powder in all mixes, POM fiber, no direct tension numbers
+10.1016/j.jobe.2025.112536 | steel balls replace sand (not allowed) in all fiber mixes; fiber-free mix B00S0 has no fiber
+10.1016/j.jobe.2025.114863 | UHPC with quartz flour in the only matrix
+10.1016/j.jobe.2026.116665 | 3D mesoscale numerical model, coarse aggregate HSC
+10.1016/j.jobe.2026.117457 | all mixes use KH550 silane dispersant for silica fume (chemical admixture not in the 21); borderline, 0.2 % of B; PE/PVA 2 vol%, fc and strain at 4 mixes would otherwise qualify (Table 3, Table 4)
+10.1016/j.jobe.2026.117586 | carbon/aramid FRP bars
+10.1016/j.jobe.2026.117787 | geopolymer PVA: activator composition (Na2O content, NaOH, silicate) not given, only modulus 1.6 and activator/B; fc only in figure
+10.1016/j.mtcomm.2024.111187 | Cu-Al metal foils
+10.1016/j.mtcomm.2025.112028 | machine-learning paper on literature database
+10.1016/j.rineng.2025.106634 | PP fiber SHCC (PP not allowed), testing-method comparison
+10.1016/j.rineng.2026.112620 | ML on geopolymer concrete (no fibers, coarse aggregate)

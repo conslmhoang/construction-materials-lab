@@ -1,0 +1,25 @@
+10.1016/j.cemconcomp.2007.05.008 | PVA fly ash hot-pressed composite: splitting tensile only, no compressive strength, no direct-tension strain
+10.1016/j.cemconcomp.2008.01.007 | analytical model of tensile/flexural correlation, no mix or test data
+10.1016/j.cemconcomp.2009.04.002 | PVA fiber dispersion image method, no mix/strength data
+10.1016/j.cemconcomp.2011.09.009 | UHP-HFRC matrix contains glass (silica) powder (not in the 21 materials); test age not stated
+10.1016/j.cemconcomp.2011.11.001 | self-compacting HPC/UHPC rheology only, no strength results; coarse aggregate in HPC mixes
+10.1016/j.cemconcomp.2013.12.015 | UHPC matrix contains glass powder (not in the 21 materials)
+10.1016/j.cemconcomp.2015.07.011 | UHPFRC contains silica flour (quartz powder); flexure paper
+10.1016/j.cemconcomp.2016.10.005 | SHCC image-processing paper, no strength or strain numbers
+10.1016/j.cemconcomp.2017.01.008 | UHPC with silica powder; high strain rate tension
+10.1016/j.cemconcomp.2017.07.007 | premixed cement of unknown composition; bending tests only
+10.1016/j.cemconcomp.2017.08.014 | every UHPC mix contains silica powder / coal bottom ash / dolomite / basalt fillers (not in the 21)
+10.1016/j.cemconcomp.2017.11.002 | UHPC with silica filler/flour; flexure and impact tests only
+10.1016/j.cemconcomp.2018.01.007 | UHPC matrix contains ground quartz
+10.1016/j.cemconcomp.2018.05.003 | modelling paper, mixes compiled from other papers
+10.1016/j.cemconcomp.2018.07.012 | steel fiber concrete with coarse aggregate (gravel)
+10.1016/j.cemconcomp.2019.103423 | SHCC fiber type not stated (cannot be assigned to PVA/PE), reinforced slabs
+10.1016/j.cemconcomp.2019.103458 | UHPC contains silica "filler" (99.6 % SiO2, quartz powder) and results mostly in figures
+10.1016/j.cemconcomp.2019.103459 | PE-ECC: tensile strain only in figures, fc only two values, curing/test age only in a figure
+10.1016/j.cemconcomp.2020.103669 | fiber pull-out study; UHPC contains silica flour
+10.1016/j.cemconcomp.2020.103722 | PVA surface modification; test age and curing of the SHCC not stated
+10.1016/j.cemconcomp.2020.103854 | UHPFRC inverse analysis of bending tests, mix not given
+10.1016/j.cemconcomp.2020.103919 | crack spacing model; mixes contain EVA / cenosphere / carbon black, no strain or strength numbers
+10.1016/j.cemconcomp.2021.104277 | lightweight aggregate concrete (lightweight aggregates not in the 21)
+10.1016/j.cemconcomp.2023.104998 | EGC with borax retarder, seawater and sea sand in all mixes (borax not in the 21)
+10.1016/j.cemconres.2011.05.009 | UHPFRCC contains filler (silica flour), notched direct tension (CMOD only)

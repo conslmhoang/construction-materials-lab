@@ -1,0 +1,22 @@
+https://doi.org/10.1016/j.cemconcomp.2021.104281 | UHPFRC 3D printing; compressive strength only in Fig. 12, no tensile strain; nanoclay in print mixes
+https://doi.org/10.1016/j.cemconcomp.2021.104296 | artificial geopolymer aggregate (GPA) in every mix
+https://doi.org/10.1016/j.cemconcomp.2021.104373 | UHPC splitting damage / transport; no compressive or tensile numbers
+https://doi.org/10.1016/j.cemconcomp.2021.104395 | UHPC contains lightweight sand (LWS, not in 21 materials); fiber-orientation model paper, fc only
+https://doi.org/10.1016/j.cemconcomp.2022.104735 | calcined cutter-soil-mixing residue precursor in every mix
+https://doi.org/10.1016/j.cemconcomp.2022.104780 | sucrose retarder and nano clay in every mix
+https://doi.org/10.1016/j.cemconcomp.2022.104878 | UHPC with coarse aggregate
+https://doi.org/10.1016/j.cemconcomp.2022.104896 | quartz powder and/or GPA in every UHS-ECC mix
+https://doi.org/10.1016/j.cemconcomp.2023.105055 | LCD glass powder in every mix
+https://doi.org/10.1016/j.cemconcomp.2023.105060 | UHPC database/ML paper; no mix proportions, strain at peak only for steel/HE/PP fibers of unknown matrix
+https://doi.org/10.1016/j.cemconcomp.2023.105084 | fly ash cenospheres in every mix
+https://doi.org/10.1016/j.cemconcomp.2023.105209 | silica flour (quartz) in the matrix
+https://doi.org/10.1016/j.cemconres.2023.107190 | fiber orientation in SHCC; no strength or strain numbers
+https://doi.org/10.1016/j.compositesb.2022.110096 | crack detection with deep learning, no mix data
+https://doi.org/10.1016/j.compositesb.2022.110455 | PEEK polymer composites, not cementitious
+https://doi.org/10.1016/j.compositesb.2023.110625 | polymer composites, not cementitious
+https://doi.org/10.1016/j.compstruct.2021.114835 | UHPC with quartz flour and basalt aggregate; multi-scale model
+https://doi.org/10.1016/j.compstruct.2021.115142 | fiber metal laminates, not cementitious
+https://doi.org/10.1016/j.compstruct.2022.116472 | aluminium auxetic structures, not cementitious
+https://doi.org/10.1016/j.compstruct.2023.117084 | UHPC with coarse aggregate, local compression
+https://doi.org/10.1016/j.compstruct.2024.117935 | UHMWPE fiber surface modification, no concrete data
+https://doi.org/10.1016/j.compstruct.2024.118065 | composite pressure vessels, not cementitious

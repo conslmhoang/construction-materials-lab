@@ -1,0 +1,14 @@
+10.1016/j.cemconcomp.2024.105844 - single-fiber pullout/slip hardening of bundled steel fibers; no mix-level fc or tensile strain table
+10.1016/j.cemconcomp.2025.106207 - every mix contains silica flour (quartz powder) and nano-silica-coated fibers
+10.1016/j.cemconcomp.2025.106285 - HS-ECC mix OK, but fc and strain per mix only in contour figures (Fig. 14, 17), none in tables
+10.1016/j.cemconcomp.2026.106482 - statistical study of crack localization (stress ratio), no own mix/strain table
+10.1016/j.cemconcomp.2026.106546 - all mixes contain glass powder (not allowed); long-term UHP-FRC
+10.1016/j.compositesb.2025.112639 - UHPFRC with silica flour (quartz powder) in all mixes
+10.1016/j.compositesb.2025.112967 - mix has recycled powder (RP); results mostly in figures
+10.1016/j.compositesb.2026.113398 - FRP bars, not cementitious
+10.1016/j.compositesb.2026.113639 - modelling paper; one UHMWPE-ECC mix with no fc/strain table
+10.1016/j.compositesb.2026.113696 - continuous-fiber additively manufactured polymer composites
+10.1016/j.compstruct.2023.117666 - FRCM coupons / analytical model (textile reinforcement)
+10.1016/j.compstruct.2025.119561 - needled polymer composites, not cementitious
+10.1016/j.compstruct.2025.119728 - CFRTP laminates, not cementitious
+10.1016/j.conbuildmat.2023.134812 - computer-vision crack characterization, no mix/strength data

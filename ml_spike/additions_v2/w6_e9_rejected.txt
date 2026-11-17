@@ -1,0 +1,28 @@
+10.1016/j.cemconres.2012.03.006 - all mixes contain quartz powder (and PP/PAN fibers); not allowed
+10.1016/j.cemconres.2014.11.005 - HSHDC matrix with silica flour (quartz powder)
+10.1016/j.cemconres.2014.12.003 - SHCC with air-entraining agent (not allowed); only tensile + fc of one mix
+10.1016/j.cemconres.2014.12.008 - matrix with silica powder; high strain rate focus
+10.1016/j.cemconres.2015.10.009 - PVA-SHCC model paper; no test age / curing stated
+10.1016/j.cemconres.2017.04.003 - silica flour (quartz powder) in all mixes
+10.1016/j.cemconres.2019.105940 - steel fibres 706 kg/m3 (~9 vol%, incl. steel wool) outside range; restrained tests at several temperatures
+10.1016/j.cemconres.2020.106042 - premix of unspecified composition (cement, additions, quartz sand); fibre-distribution study
+10.1016/j.cemconres.2020.106222 - lightweight sand in all mixes; flexural / rheology focus, no direct tension
+10.1016/j.cemconres.2021.106462 - glass powder and hollow glass microspheres in all mixes
+10.1016/j.ceramint.2013.09.033 - PVA/bioactive glass scaffolds, not concrete
+10.1016/j.coco.2020.04.019 - seawater sea-sand ECC; compressive and tensile values only in figures
+10.1016/j.coco.2021.100775 - quartz powder in both mixes
+10.1016/j.compositesb.2008.11.009 - kenaf fibre composites, not cementitious
+10.1016/j.compositesb.2009.12.003 - steel fibre concrete with coarse aggregate
+10.1016/j.compositesb.2013.10.072 - glass powder in matrix
+10.1016/j.compositesb.2014.06.031 - fibre metal laminate, not cementitious
+10.1016/j.compositesb.2014.10.026 - slate fibre HDPE composites, not cementitious
+10.1016/j.compositesb.2014.11.041 - short-fibre polymer composites, not cementitious
+10.1016/j.compositesb.2016.08.004 - UHPC with steel/glass fibres: results only in figures, no direct tension
+10.1016/j.compositesb.2020.107741 - review of fibres for ECC
+10.1016/j.compstruc.2017.03.002 - discrete model paper, no tables
+10.1016/j.compstruct.2014.05.020 - wavy-ply sandwich laminate, not cementitious
+10.1016/j.compstruct.2016.01.101 - viscoelastic laminate model, not cementitious
+10.1016/j.compstruct.2016.02.075 - expansive agent and SRA in matrix, filler; basalt/PVA/PE hybrid UHPC
+10.1016/j.compstruct.2017.01.085 - geopolymer with potassium silicate (not allowed)
+10.1016/j.compstruct.2018.06.061 - woven fabric model, not cementitious
+10.1016/j.compstruct.2018.07.039 - polymer composites high-rate fracture, not cementitious

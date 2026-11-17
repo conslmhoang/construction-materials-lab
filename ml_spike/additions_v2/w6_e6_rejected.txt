@@ -1,0 +1,16 @@
+10.1016/j.conbuildmat.2023.133867 | UHP-AAC steel fibers: fc and tensile strain only in figures (Fig. 8, 10)
+10.1016/j.conbuildmat.2023.134163 | PVA fiber/cement paste interface and pull-out study, no fc or tension strain
+10.1016/j.conbuildmat.2024.134995 | Brazilian tensile test of limestone rock, not cementitious composite
+10.1016/j.conbuildmat.2024.135051 | Overlay adhesion on UHPC substrate (pull-off bond), no fc/strain of mixes
+10.1016/j.conbuildmat.2024.135846 | SFRUHPC penetration paper; mix contains quartz powder
+10.1016/j.conbuildmat.2024.136716 | Hybrid steel/UHMWPE UHPC; every mix contains 0.2 % nano silica
+10.1016/j.conbuildmat.2024.137338 | Rubber powder SHAAM; every mix has quartz powder and BaCl2 retarder
+10.1016/j.conbuildmat.2024.138377 | Aligned steel fiber mortar: only tensile strength reported, no fc/strain/age
+10.1016/j.conbuildmat.2024.138681 | Foamed concrete (foaming agent, modified UHMWPE), foam not an allowed material
+10.1016/j.conbuildmat.2024.139010 | Aligned steel fiber UHPC: strength results only in figures
+10.1016/j.cscm.2022.e01395 | PET fibre and coarse aggregate concrete
+10.1016/j.cscm.2023.e02413 | Hook/copper-coated steel/PP fibre HPC: direct tension strength only (no strain), fc of unreinforced matrix only
+10.1016/j.engstruct.2023.115989 | Modelling paper (literature database of UHPFRC tension)
+10.1016/j.engstruct.2023.116734 | 3D-printed ABS shell auxetic composite, structural form, not material mixes
+10.1016/j.istruc.2022.01.018 | Low-strength plain concrete (coarse aggregate), no fibre
+10.1016/j.istruc.2023.04.113 | UHPFRC barge model; no mix proportions

@@ -1,0 +1,18 @@
+10.1016/j.conbuildmat.2024.134862 - sprayed HS-SHCC: no mix proportions, only compressive/flexural summary, no direct tension
+10.1016/j.conbuildmat.2025.139974 - ECC fiber-distribution imaging paper: mix ratios only, no strength or strain numbers
+10.1016/j.conbuildmat.2025.140539 - steel fiber concrete (coarse aggregate), tensile constitutive study
+10.1016/j.conbuildmat.2025.141160 - hybrid steel fiber UHPC: every mix contains quartz powder (not allowed)
+10.1016/j.conbuildmat.2025.142189 - SAP-PVA concrete after high-temperature exposure, coarse aggregate
+10.1016/j.conbuildmat.2025.142423 - natural-fiber EGC: only reference J-0% (PE only) qualifies but its fc/strain are only in figures and activator composition is ambiguous (modulus 1.4, alkalinity 5.75%)
+10.1016/j.conbuildmat.2025.144960 - triaxial compression of SH-UHPC; all mixes contain nano-silica
+10.1016/j.conbuildmat.2026.147938 - lightweight UHS-ECC: all mixes contain quartz powder and glass microspheres
+10.1016/j.conbuildmat.2026.147985 - expandable-graphite EGC: all mixes contain PP fiber (and MEA/EG), not allowed
+10.1016/j.conbuildmat.2026.148827 - UHPFRC ML paper: coarse aggregate in all mixes
+10.1016/j.cscm.2024.e04173 - UHPC after high-temperature exposure; ambient values only ft 7.0 / fcr 6.0 in text, no fc or strain
+10.1016/j.cscm.2025.e04243 - rebar-reinforced UHPC; UHPC matrix mix not given (reference only)
+10.1016/j.cscm.2025.e05204 - slag/FA SHCC activated with reactive MgO (not allowed)
+10.1016/j.cscm.2026.e06337 - L-shaped steel fiber UHPC: mix given but tensile/strain results only in figures
+10.1016/j.cscm.2026.e06644 - industrial ECC batch quality study: no mix proportions, only batch statistics
+10.1016/j.istruc.2025.108923 - local bearing capacity of UHPC-CA (coarse aggregate, structural)
+10.1016/j.istruc.2025.109478 - retarder-modified SHAASC (H3BO3/BaCl2); reference strain only in figure, fc "60 MPa" in text only, retarders not allowed
+10.1016/j.istruc.2025.109626 - PVA-EGC: all mixes contain borax retarder (not allowed)
