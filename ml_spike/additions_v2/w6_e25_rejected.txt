@@ -1,0 +1,25 @@
+10.1016/j.conbuildmat.2018.11.002 - coarse aggregate concrete; fc only in figure
+10.1016/j.conbuildmat.2018.12.084 - no compressive strength or tension strain data (flexural only)
+10.1016/j.conbuildmat.2019.01.052 - foamed concrete without fibres
+10.1016/j.conbuildmat.2019.01.190 - coarse aggregate; fc only in figure; flexural table only
+10.1016/j.conbuildmat.2019.03.162 - no fibres, no strength (fluidity of UHPC)
+10.1016/j.conbuildmat.2019.05.152 - proprietary Ductal premix (powder composition unknown), high strain-rate tests
+10.1016/j.conbuildmat.2019.116965 - steel slag in all mixes (or plain FA mix without strength data); tension/fc only for FASS21
+10.1016/j.conbuildmat.2019.117043 - gravel concrete (coarse aggregate), CFRP confinement
+10.1016/j.conbuildmat.2019.117129 - strength results only in figures (RPC curing regimes)
+10.1016/j.conbuildmat.2019.117559 - TiO2 photocatalysis; no strength data
+10.1016/j.conbuildmat.2019.117832 - coarse aggregate, heated CFST cores
+10.1016/j.conbuildmat.2020.118491 - no mix proportions given (only tension/bending results)
+10.1016/j.conbuildmat.2020.118999 - gravel concrete, calcium aluminate cement, acid attack
+10.1016/j.conbuildmat.2020.119454 - no fibres (UHPC mortar)
+10.1016/j.conbuildmat.2020.119944 - all mixes contain quartz powder
+10.1016/j.conbuildmat.2020.121169 - expansive agent; flexural strength only, no fc / strain
+10.1016/j.conbuildmat.2021.122977 - no fibres (UHPC with fly ash cenospheres, quartz sand only)
+10.1016/j.conbuildmat.2021.124961 - fc only in figure; carbon nanofibres/seawater; mix not tabulated
+10.1016/j.conbuildmat.2021.125406 - quartz powder and calcined bauxite aggregate in all mixes
+10.1016/j.conbuildmat.2021.125673 - sulfate dry-wet attack, bentonite; strength only in figures
+10.1016/j.conbuildmat.2021.125777 - quartz powder in all mixes
+10.1016/j.conbuildmat.2022.126518 - powder composition not given; confined columns
+10.1016/j.conbuildmat.2022.126996 - quartz/glass powder mixes; fc only as improvement ratios and figures
+10.1016/j.conbuildmat.2022.127733 - no fibres (seawater UHPC)
+10.1016/j.conbuildmat.2022.128065 - fc only in figures; Table 3 early cracking only

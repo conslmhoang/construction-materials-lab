@@ -1,0 +1,28 @@
+10.1016/j.conbuildmat.2022.128271 | PP fibre, seawater mixes
+10.1016/j.conbuildmat.2022.128339 | fc only in figures; only mix ratios, no numeric results table
+10.1016/j.conbuildmat.2022.130130 | UHPC with nanoclay; fc in figures only
+10.1016/j.conbuildmat.2023.132786 | coarse aggregate; high-temperature
+10.1016/j.conbuildmat.2023.133537 | fibre coating / pullout study; no composite fc or strain
+10.1016/j.conbuildmat.2023.133576 | MgO binder (M-S-H)
+10.1016/j.conbuildmat.2023.134011 | no mix proportions given; durability/shrinkage of scrap tyre steel fibre concrete
+10.1016/j.conbuildmat.2024.137856 | binder LCC = limestone + calcined clay blend, limestone:clay ratio not stated (cannot split)
+10.1016/j.conbuildmat.2024.137900 | flocculant + early-strength additive + sea sand in all mixes
+10.1016/j.conbuildmat.2024.139810 | UHPC toughness; no fc/strain table, polymer surfactant, no mix masses
+10.1016/j.conbuildmat.2025.139861 | seawater and sea sand
+10.1016/j.conbuildmat.2025.140759 | tuff powder + coarse aggregate (SCC)
+10.1016/j.conbuildmat.2025.142047 | steel slag aggregate; tensile values only in figures
+10.1016/j.conbuildmat.2025.142366 | coarse aggregate, flexural residual strength
+10.1016/j.conbuildmat.2025.143147 | seawater / sea sand LC3-ECC
+10.1016/j.conbuildmat.2025.144227 | red mud (RM) precursor; fc in figure
+10.1016/j.cscm.2021.e00559 | review
+10.1016/j.cscm.2022.e01153 | fc only in figures
+10.1016/j.cscm.2022.e01245 | fc/splitting only in figures, flexure table only
+10.1016/j.cscm.2022.e01265 | review
+10.1016/j.cscm.2022.e01289 | review
+10.1016/j.cscm.2022.e01290 | review
+10.1016/j.cscm.2022.e01363 | review
+10.1016/j.cscm.2024.e03351 | MgO / magnesium ammonium phosphate cement
+10.1016/j.engfailanal.2026.111157 | POM fibre, early-strength agent; 3D-printed arches
+10.1016/j.engstruct.2020.110374 | sleeper; silica powder + dolomite aggregate, no fc table
+10.1016/j.engstruct.2023.116125 | ground quartz powder in mix; tube members
+10.1016/j.hybadv.2024.100371 | glass fibre

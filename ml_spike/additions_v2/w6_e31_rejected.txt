@@ -1,0 +1,41 @@
+10.1016/j.conbuildmat.2026.147437 | ECC with geopolymer-aggregate sand, salt freeze-thaw; reference F100S0 was pre-immersed 4 d in salt solution, no fc at 0 cycles in a table
+10.1016/j.conbuildmat.2026.147730 | self-healing ECC with crystalline admixture; control strength/strain only in figures
+10.1016/j.conbuildmat.2026.147852 | carbonation-cured UHPC, no fibre, microstructure only
+10.1016/j.conbuildmat.2026.148817 | red mud UHPC (red mud not allowed), microstructure
+10.1016/j.conbuildmat.2026.148950 | geopolymer paste, no fibre, rheology/microstructure
+10.1016/j.cscm.2022.e01393 | UHPGC with recycled waste glass (WG) in mixes, no usable tables
+10.1016/j.cscm.2023.e02436 | ultra-low carbon ECC based on CSA-SSC (sulfoaluminate) binder, not allowed
+10.1016/j.cscm.2023.e02760 | steam-cured UHPC with basalt aggregate (B) in every mix; recycled glass powder
+10.1016/j.cscm.2024.e02960 | ECC with LC2 (limestone calcined clay); fc results only in figures
+10.1016/j.cscm.2024.e04049 | ECC after high temperature, fracture tests; no ordinary strength numbers in text/tables
+10.1016/j.cscm.2024.e04124 | one-part alkali-activated slag concrete with coarse aggregate
+10.1016/j.cscm.2025.e04380 | ECC with glass powder; control M-C0 has no test age and no fc number in text
+10.1016/j.cscm.2025.e05602 | coral sand geopolymer UHPC (coral sand not allowed)
+10.1016/j.cscm.2026.e06088 | ML prediction paper
+10.1016/j.cscm.2026.e06137 | high-temperature geopolymer UHPC paste/mortar, no fibre, no numbers in text
+10.1016/j.cscm.2026.e06253 | ML prediction paper
+10.1016/j.cscm.2026.e06358 | PVA/steel mortar; strengths only in figures
+10.1016/j.dibe.2023.100277 | eigen-stress / drying study of NSC, HSC, UHPFRC; strengths only in figures
+10.1016/j.engstruct.2018.11.076 | fiber-hinge modelling of ECC flexural members
+10.1016/j.engstruct.2022.113961 | shear strength of UHPC members (structural)
+10.1016/j.engstruct.2022.115047 | RC corbels strengthened with SHCC (structural), SHCC mix cement 1342 kg/m3 implausible, age of fc not given
+10.1016/j.engstruct.2023.116073 | UHPFRC-filled steel tubes (structural)
+10.1016/j.engstruct.2023.116584 | SHCC layer in RC beams; CEM III/B binder not allowed to split, dog-bone test age not stated
+10.1016/j.engstruct.2024.119181 | perfobond shear connectors (structural)
+10.1016/j.engstruct.2025.119654 | UHPC shear model / database
+10.1016/j.engstruct.2025.121245 | R/ECC ties; ECC tensile strain not given in text or table
+10.1016/j.istruc.2021.03.112 | UHPGC with NaOH and sodium silicate solutions of unstated concentration; steel-fibre fc rows cannot be converted to the 21-material activators
+10.1016/j.istruc.2021.10.047 | flexural prediction models for UHPC members
+10.1016/j.istruc.2022.05.038 | impact of RC fences strengthened with SHCC (structural / simulation)
+10.1016/j.istruc.2023.05.140 | ML prediction of self-healing
+10.1016/j.istruc.2023.06.067 | sandwich steel-concrete-steel with ECC (structural); ECC fc 50 MPa only as a mean, no age, no strain
+10.1016/j.istruc.2024.106257 | UHPFRC strengthening, numerical modelling
+10.1016/j.istruc.2025.108686 | UHPECC with LC3 seawater sea-sand; fc and strain only in figures
+10.1016/j.istruc.2025.109751 | slag-fly ash engineered geopolymer, only parameters (Table 5) and single-fibre pull-out; no fc or strain number
+10.1016/j.istruc.2025.110221 | SHAAC with rubber, QP (quartz powder) and BaCl2 in every mix
+10.1016/j.istruc.2026.111803 | seawater sea-sand ECC with CNT and early-strength agent (not allowed), dynamic test
+10.1016/j.jclepro.2019.02.241 | fire-resistant ECC with HGM / carbon nanofibres; fire exposure study
+10.1016/j.jclepro.2021.130222 | ECC with waste glass powder in every mix
+10.1016/j.jclepro.2024.141921 | UHP-ECC with coal furnace slag; control mix proportions only in Fig. 4
+10.1016/j.jobe.2020.101988 | PVA fibre sulfoaluminate cement mortar (SAC not allowed)
+10.1016/j.jobe.2021.102267 | UHP geopolymer concrete with quartz powder and sodium silicate solution; results only in regression/figures

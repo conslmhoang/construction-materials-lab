@@ -1,0 +1,28 @@
+10.1016/j.coco.2021.100656 - tensile test age not stated, fc only in figure; polymer (SBR/EVA) mixes not allowed, only M1 reference would remain
+10.1016/j.coco.2023.101657 - mix proportions and all strength/strain results only in figures
+10.1016/j.compositesb.2011.08.017 - uniaxial tensile results in figures only; fc age not stated; strength age not given
+10.1016/j.compositesb.2016.01.026 - inverse-analysis method paper, no usable mix table
+10.1016/j.compositesb.2017.07.058 - concrete with coarse aggregate
+10.1016/j.compositesb.2019.107010 - strengths only in figure; GO-coated fibres
+10.1016/j.compositesb.2022.109694 - magnesium phosphate cement (MPC), no fibre strength data in scope
+10.1016/j.compstruct.2008.03.006 - review
+10.1016/j.compstruct.2023.117637 - freeze-thaw geopolymer, activator not specified, no strength numbers
+10.1016/j.conbuildmat.2006.10.010 - lightweight / aerated concrete (lightweight aggregate, foam)
+10.1016/j.conbuildmat.2007.10.027 - alkali-activated slag concrete with coarse aggregate, strengths in figure
+10.1016/j.conbuildmat.2009.08.017 - database / correlation review
+10.1016/j.conbuildmat.2010.12.051 - coarse aggregate concrete
+10.1016/j.conbuildmat.2010.12.063 - FRC confinement system, glass/carbon sheets, no usable mix
+10.1016/j.conbuildmat.2013.10.019 - UHPC with iron ore tailings, results only in figures
+10.1016/j.conbuildmat.2013.12.102 - UHPC contains quartz powder in all mixes, fc only in figure
+10.1016/j.conbuildmat.2014.08.068 - polypropylene fibres only
+10.1016/j.conbuildmat.2015.01.050 - nano-silica in all mixes, results in figures
+10.1016/j.conbuildmat.2015.03.087 - paste/UHPC material-efficiency study, no fc per mix in text
+10.1016/j.conbuildmat.2015.07.143 - bagasse (natural) fibre in all mixes
+10.1016/j.conbuildmat.2015.12.106 - rheology paper; expansive agent and SRA in mixes
+10.1016/j.conbuildmat.2016.05.039 - coarse aggregate UHPC
+10.1016/j.conbuildmat.2016.10.109 - bottom ash / silica powder in all mixes, ambiguous table
+10.1016/j.conbuildmat.2017.01.093 - manufactured-sand concrete, no fibre
+10.1016/j.conbuildmat.2017.06.018 - silica flour (quartz powder) in matrix
+10.1016/j.conbuildmat.2018.03.260 - EPS RPC, no fibre
+10.1016/j.conbuildmat.2018.06.178 - expanded shale lightweight aggregate concrete
+10.1016/j.conbuildmat.2018.07.042 - coarse aggregate concrete

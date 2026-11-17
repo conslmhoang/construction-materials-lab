@@ -1,0 +1,33 @@
+10.1016/j.compstruct.2018.06.039 | concrete with coarse aggregate, SMA/steel fibre; cyclic flexure
+10.1016/j.compstruct.2018.08.066 | pull-out test, mortar/concrete with gravel
+10.1016/j.compstruct.2023.116942 | ELS interlaminar fracture test, no mix/strength data
+10.1016/j.compstruct.2023.117346 | numerical (lattice discrete particle) modelling paper
+10.1016/j.compstruct.2025.119802 | bio-ECC; fc only in figures (Fig. 5-9)
+10.1016/j.compstruct.2025.119966 | UHPC with quartz powder in every mix; fibre pull-out
+10.1016/j.conbuildmat.2007.11.002 | steel-fibre concrete with coarse aggregate
+10.1016/j.conbuildmat.2010.07.008 | steel-fibre concrete with coarse aggregate; bleeding
+10.1016/j.conbuildmat.2010.11.057 | UHSC flexural only; unspecified filler
+10.1016/j.conbuildmat.2011.11.031 | numerical constitutive-model paper, no mix table
+10.1016/j.conbuildmat.2012.01.006 | UHPFRCC flexural tests only; unspecified filler
+10.1016/j.conbuildmat.2015.02.014 | superhydrophobic ECC; fc only in Fig. 6, PMHS admixture
+10.1016/j.conbuildmat.2016.08.046 | SCC with coarse aggregate, recycled steel fibre
+10.1016/j.conbuildmat.2016.09.001 | geopolymer concrete with coarse aggregate; high temperature, fc only in figure
+10.1016/j.conbuildmat.2017.04.160 | FRC with coarse aggregate; toughness only
+10.1016/j.conbuildmat.2017.06.023 | SMA/PVA ECC; fc per mix only in figure (ranges in text), SMA fibre not allowed
+10.1016/j.conbuildmat.2017.11.172 | UHPC with quartz powder, no fibre in shrinkage mixes
+10.1016/j.conbuildmat.2017.12.203 | UHPCC dynamic compression; unspecified ultra-fine mineral admixture
+10.1016/j.conbuildmat.2018.10.063 | RPC with ground quartz (quartz powder); shear connectors
+10.1016/j.conbuildmat.2018.11.203 | steel-PVA fibre concrete with coarse aggregate
+10.1016/j.conbuildmat.2019.01.097 | geopolymer coating, flame resistance; no strength data
+10.1016/j.conbuildmat.2019.116706 | hybrid fibre concrete with coarse aggregate; flexural
+10.1016/j.conbuildmat.2020.118199 | ECC with glass powder; fc only in Fig. 6 (no control numbers in table)
+10.1016/j.conbuildmat.2020.118530 | steel-fibre concrete with coarse aggregate, bottom ash
+10.1016/j.conbuildmat.2020.119970 | magnesium oxychloride cement SHCC (MgO not allowed)
+10.1016/j.conbuildmat.2020.120610 | fibre concrete with coarse aggregate; cellulose/polyolefin fibres
+10.1016/j.conbuildmat.2020.121963 | geopolymer composites with lightweight aggregate, no fibre
+10.1016/j.conbuildmat.2021.122571 | geopolymer concrete with coarse aggregate, crumb rubber, sulfuric acid
+10.1016/j.conbuildmat.2021.124903 | UHPC with coarse aggregate and carbonated steel slag
+10.1016/j.conbuildmat.2021.125281 | ECC rheology regression; fc only 3/7 d in figures, no strain
+10.1016/j.conbuildmat.2021.125313 | alkali-activated concrete with coarse aggregate, dune sand
+10.1016/j.conbuildmat.2022.126921 | sulphoaluminate cement UHPC (SAC not allowed); fc only in figure
+10.1016/j.conbuildmat.2022.127201 | ECC ferrocement with steel mesh; matrix E0 only has ambiguous peak/post-peak strain, no fc

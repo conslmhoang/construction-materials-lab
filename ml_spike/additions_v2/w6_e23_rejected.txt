@@ -1,0 +1,28 @@
+10.1016/j.aeue.2020.153383 | electronics (GF multiplier), not concrete
+10.1016/j.cemconcomp.2008.02.002 | functionally graded PVA FRCC, bending tests only, no fc / tension numbers for the mixes
+10.1016/j.cemconcomp.2009.07.004 | sisal fibre composite (natural fibre not allowed)
+10.1016/j.cemconcomp.2011.11.005 | UHPC with coarse aggregate, no fibre
+10.1016/j.cemconcomp.2012.12.005 | UHPC without fibre, quartz powder in every mix
+10.1016/j.cemconcomp.2013.12.002 | SCC with steel fibres and coarse aggregate (crushed stone)
+10.1016/j.cemconcomp.2018.09.013 | UHPFRC with QP/limestone filler: strength only in figure (Fig. 2), no table numbers
+10.1016/j.cemconcomp.2019.01.015 | UHPC with coarse aggregate (6.3/4.75/2.36 mm)
+10.1016/j.cemconcomp.2019.03.023 | alkali-activated UHPC mortar without fibre
+10.1016/j.cemconcomp.2020.103815 | UHPC + polymer fibres at high temperature; fc in Table 1 but column mapping of sand/SP/fine aggregate ratios ambiguous (and PP/PA/PET mixes) - skipped
+10.1016/j.cemconcomp.2020.103852 | UHDC size effect, bending only; fc quoted from another paper
+10.1016/j.cemconcomp.2021.104171 | UHPC AI mix design, no fibre, strength/porosity in figures
+10.1016/j.cemconcomp.2022.104484 | UHPFRC microwave pre-curing, strength only in figures
+10.1016/j.cemconcomp.2022.104573 | PE fibre surface modification, single-fibre pullout, no mix strength data
+10.1016/j.cemconcomp.2022.104812 | PE SHCC at negative temperature, results only in figures (no ordinary-condition table numbers)
+10.1016/j.cemconcomp.2024.105655 | RPC with basalt gravel (basalt not allowed) and quartz sand/low temperature
+10.1016/j.cemconcomp.2025.106155 | ECC water permeation (LBM/CT), no strength data
+10.1016/j.cemconcomp.2025.106220 | ECC rheology: tensile results (Table 5) but test age/curing not stated, fc only in figure; quartz sand fine but age missing
+10.1016/j.cemconres.2006.10.015 | rheology of steel fibre pastes, no strength
+10.1016/j.cemconres.2007.05.005 | steel fibre concrete with gravel
+10.1016/j.cemconres.2009.08.018 | plastic viscosity model of SCC steel fibre concrete, no strength
+10.1016/j.cemconres.2014.01.006 | UHPC paste/mortar without fibre, quartz powder
+10.1016/j.cemconres.2017.11.002 | UHPC without fibre, silica powder (quartz) in mixes, strength not tabulated
+10.1016/j.cemconres.2018.03.008 | UHPC with SAP and silica powder (quartz powder), strength not tabulated
+10.1016/j.cemconres.2019.105784 | UHPFRC paste, fibres omitted from the strength mix
+10.1016/j.clay.2017.06.029 | calcined kaolin matrices rheology, no strength
+10.1016/j.clema.2023.100183 | review of UHPC sustainability
+10.1016/j.clet.2021.100176 | UHPC with gold-mine tailings, no fibre, strength in figures

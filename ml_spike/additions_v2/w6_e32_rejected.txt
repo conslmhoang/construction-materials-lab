@@ -1,0 +1,36 @@
+10.1016/j.jobe.2021.103220 - SHPB impact paper; mixes contain coarse aggregate (geopolymer concrete)
+10.1016/j.jobe.2022.104912 - HS-SHCC curing paper; strength and strain results only in figures (CKD mixes also not allowed)
+10.1016/j.jobe.2022.105471 - ECC self-healing with crystalline waterproofing agent; no numbers for unconditioned mixes (figures only), pre-cracked exposure study
+10.1016/j.jobe.2022.105669 - steel fibre carbon/glass hybrid FRP bars; not a cementitious mix
+10.1016/j.jobe.2023.105858 - PVA fibre ultrafine FA concrete; coarse aggregate (gravel)
+10.1016/j.jobe.2023.107512 - CSA cement ECC (not allowed binder); all mixes CSA
+10.1016/j.jobe.2023.107743 - AAS + steel fibre after high temperature; no numeric results in text or tables (figures only)
+10.1016/j.jobe.2023.107883 - carbon fibre fly-ash geopolymer; carbon fibre not allowed
+10.1016/j.jobe.2023.107903 - ECC tensile prediction model (simulation); no measured mixes
+10.1016/j.jobe.2024.109732 - ECC self-healing study; strength/strain results only in figures
+10.1016/j.jobe.2024.109833 - UHPC with glass powder / shell powder; fc only in figures; powders not allowed
+10.1016/j.jobe.2024.110540 - dynamic fracture of UHPC; only relative mix, no static fc / strain numbers
+10.1016/j.jobe.2024.110746 - UHPC steel fibre content; fc / shrinkage results only in figures (and coarse aggregate in some groups)
+10.1016/j.jobe.2024.110795 - POFA / crumb rubber ECC; fc and tensile only in figures, flexural table only
+10.1016/j.jobe.2024.111504 - ECC with steel slag aggregate (capillary); no strength numbers
+10.1016/j.jobe.2025.112433 - geopolymer UHPC at high temperature; alkali activator mass not split into NaOH / Na2SiO3 (cannot enter), curing method not given
+10.1016/j.jobe.2025.112551 - HBCSA / OPC ECC; HBCSA (sulphoaluminate) not allowed, OPC reference results only in figures
+10.1016/j.jobe.2025.112817 - dynamic compression of seawater sea-sand ECC; early strength agent (not allowed) in all mixes, dynamic loading only
+10.1016/j.jobe.2025.114081 - LE-ECC with seawater; all mixes contain FA cenosphere, results only in figures
+10.1016/j.jobe.2026.115679 - UHPC for 3D printing; no fibres
+10.1016/j.jobe.2026.116704 - lightweight UHPC (cenosphere, hollow glass microspheres, quartz powder); not allowed
+10.1016/j.jobe.2026.116940 - ECC with carbonated recycled concrete fines after heating; strength/strain results only in figures
+10.1016/j.matpr.2020.04.062 - PVA fibre concrete with coarse aggregate
+10.1016/j.matpr.2020.09.424 - ECC with silica sand / Zone II sand; fc and split tensile only in figures
+10.1016/j.matpr.2022.06.451 - PE-ECC at elevated temperature; test age / curing duration not stated (fc 59.1, strain 6.40 at 25 C unusable)
+10.1016/j.matpr.2022.12.121 - bamboo + steel hybrid fibre concrete; coarse aggregate, bamboo fibre
+10.1016/j.matpr.2023.01.373 - steel fibre concrete impact vs strength; concrete with coarse aggregate
+10.1016/j.matpr.2023.10.155 - PVA fibre concrete with glass powder; coarse aggregate
+10.1016/j.matpr.2023.11.119 - steel fibre in pure gypsum; not cementitious binder
+10.1016/j.mtcomm.2024.108832 - ML prediction (SFRC at high temperature); no own experiments
+10.1016/j.mtcomm.2024.109222 - ML prediction of ECC strain; database paper, no own mixes
+10.1016/j.mtcomm.2024.109915 - ML prediction of UHPGC strength; no own mixes
+10.1016/j.rineng.2026.109288 - deep learning for UHPGC strength; no own experiments
+10.1016/j.tws.2021.108419 - ultra-high-strength steel tubes compression at low temperature; not cementitious
+duplicate: none (no DOI of this list found in other ml_spike/additions_v2/*.csv)
+Partially skipped mixes inside ADDED papers: 107254 (cenosphere / lightweight sand mixes), 107277 (recycled fine aggregate mixes), 107835 (KOH geopolymer UHPGC, fibre-free UHPC), 110272 (iron sand), 111282 (ETTS)

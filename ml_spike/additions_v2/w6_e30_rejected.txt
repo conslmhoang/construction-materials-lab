@@ -1,0 +1,38 @@
+10.1016/j.conbuildmat.2022.127845 | high-temperature test of mortar; every mix contains PP fibre and SRA
+10.1016/j.conbuildmat.2022.128587 | ECC with coarse aggregate
+10.1016/j.conbuildmat.2022.129234 | UHPC-NC bond strength only; no fc / tension strain, material unclear
+10.1016/j.conbuildmat.2022.129883 | UHPC with zirconium + unspecified filler (not allowed); no tension strain
+10.1016/j.conbuildmat.2022.130278 | PP-ECC (PP fibre), freeze-thaw durability
+10.1016/j.conbuildmat.2023.130481 | geopolymer concrete with coarse aggregate
+10.1016/j.conbuildmat.2023.130630 | UHP-FRGC contains silica flour (quartz powder) in all mixes
+10.1016/j.conbuildmat.2023.132224 | ECC with MSWI bottom ash powder in every mix (not allowed)
+10.1016/j.conbuildmat.2023.132370 | UHPC silica fume study without fibres
+10.1016/j.conbuildmat.2023.132560 | OPC / geopolymer concrete with coarse aggregate, high-temperature study
+10.1016/j.conbuildmat.2023.132567 | dynamic splitting test of ECC with recycled tyre steel fibre; no static fc / tension numbers
+10.1016/j.conbuildmat.2023.133060 | MSWI fly ash geopolymer, no fibres
+10.1016/j.conbuildmat.2023.133883 | ECC with granite fine powder; strengths only in figures
+10.1016/j.conbuildmat.2023.133884 | LECC with diatomite (not allowed) in all mixes
+10.1016/j.conbuildmat.2024.136477 | UHPC with quartz powder (QP) in all mixes
+10.1016/j.conbuildmat.2024.138271 | desert-sand ECC with redispersible polymer powder (RDP) in all mixes
+10.1016/j.conbuildmat.2024.138301 | UHPC-filled stainless steel tubes; structural members, UHPC mix not given
+10.1016/j.conbuildmat.2024.138819 | SCUHPGC without fibres
+10.1016/j.conbuildmat.2024.139038 | steel slag powder RPC (not allowed)
+10.1016/j.conbuildmat.2024.139237 | WECC with flocculant and early-strength additive; interface shear study
+10.1016/j.conbuildmat.2025.140092 | SCUHPGC with stainless steel fibre; fc / tensile results mainly in figures (few values in text), solution-based activators
+10.1016/j.conbuildmat.2025.140115 | strain-hardening AAC with LCD glass powder (not allowed) in all mixes
+10.1016/j.conbuildmat.2025.140238 | CA-ECC with coarse aggregate
+10.1016/j.conbuildmat.2025.140856 | push-out tests; UHPC fc given without test age, structural members
+10.1016/j.conbuildmat.2025.141443 | geopolymer aggregate ECC, dynamic tension; mixes with GPA aggregate
+10.1016/j.conbuildmat.2025.141902 | SHAAC activated by calcium carbide slag (not allowed)
+10.1016/j.conbuildmat.2025.142103 | SH-AAC with LCD glass powder and tyre powder; control is cement-based without fibre
+10.1016/j.conbuildmat.2025.142549 | UHPECC tensile fatigue test; no static strength / strain numbers
+10.1016/j.conbuildmat.2025.142978 | coral sand powder ECC with quartz powder, high-temperature study
+10.1016/j.conbuildmat.2025.143275 | flax tow natural fibre geopolymer
+10.1016/j.conbuildmat.2025.143607 | UHPC with waste tyre steel fibre; fc only in figures
+10.1016/j.conbuildmat.2025.143860 | coral sand ECC; strengths only in figures
+10.1016/j.conbuildmat.2025.144249 | magnetically aligned L-shaped steel fibres, direction-dependent fc (anisotropic specimens)
+10.1016/j.conbuildmat.2025.145052 | PE-only mix has strengths but test age / curing not stated; other mixes use carbon / basalt / PP fibre
+10.1016/j.conbuildmat.2025.145059 | seawater coral sand ECC dynamic compression; quasi-static fc only in figures
+10.1016/j.conbuildmat.2026.145276 | UHPC with sisal fibre, high-temperature study; fc only in figures
+10.1016/j.conbuildmat.2026.145971 | ECC-concrete interface sulfate erosion; ECC has PP + basalt fibre; concrete with coarse aggregate
+10.1016/j.conbuildmat.2026.146822 | cementless SHSC with crumb rubber; fc / strain only in figures

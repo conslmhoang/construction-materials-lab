@@ -1,0 +1,29 @@
+10.1016/j.ijimpeng.2019.103434 | bullet-impact UHPFRC; fc / tensile strengths only in figures (Fig. 7, 10), coarse aggregate mixes
+10.1016/j.istruc.2021.01.061 | HSC with coarse aggregate and steel fibre
+10.1016/j.istruc.2023.105398 | geopolymer mortar with waste iron powder (not allowed) / control has no fibre; high-temperature study
+10.1016/j.istruc.2023.105472 | UHPC with quartz powder in every mix; fc only in figure
+10.1016/j.istruc.2025.109978 | ECC beam stiffness; no strength or strain numbers in text/tables
+10.1016/j.istruc.2025.110393 | steel fibre rubber SCC with coarse aggregate, high-temperature exposure
+10.1016/j.jclepro.2018.06.058 | UHPC with lead-zinc tailings; strengths only in figure
+10.1016/j.jclepro.2020.121112 | UHPC with quarry stone powders; strengths only in figure
+10.1016/j.jclepro.2021.129911 | SHCC with recycled concrete powder and basalt fibre in every mix
+10.1016/j.jobe.2021.103275 | magnesium phosphate cement (MgO) composite
+10.1016/j.jobe.2022.105024 | banana stem fibre concrete (natural fibre, coarse aggregate)
+10.1016/j.jobe.2022.105348 | hybrid steel-PVA ECC; tensile and compressive results only in figures
+10.1016/j.jobe.2022.105456 | EGC from calcined clay + slag; tensile strain only in figure (Fig. 8)
+10.1016/j.jobe.2023.105870 | PE fibre HSCC contains quartz powder; SCA-treated fibre
+10.1016/j.jobe.2023.107099 | UHTCC at different moisture contents; strengths mostly in figures, mix table doubtful (fly ash 1145 vs cement 270)
+10.1016/j.jobe.2024.110136 | ECC mixer comparison; results mostly in figures (only a few values in text)
+10.1016/j.jobe.2024.110637 | EGC with BOF slag / iron ore tailings, elevated temperature study
+10.1016/j.jobe.2024.110820 | ECC with basalt fibre in every mix, crumb rubber / quarry dust
+10.1016/j.jobe.2024.111262 | UHPC with coarse aggregate
+10.1016/j.jobe.2024.111332 | PE/PP hybrid alkali-activated composite with BaCl2 in every mix, PP fibre, high temperature
+10.1016/j.jobe.2025.112450 | seawater + coral sand ECC (seawater not plain water; BF in several mixes) - doubtful, skipped
+10.1016/j.jobe.2025.112828 | LC3-ECC with gypsum and calcined clay (not in the 21 materials)
+10.1016/j.jobe.2025.114253 | data-driven UHPC mix optimisation (modelling paper)
+10.1016/j.matpr.2021.01.149 | ECC cubes; fibre content stated as 0.02 vol% (implausible), PVA/PP, no strain
+10.1016/j.matpr.2022.02.329 | concrete with coarse aggregate (metakaolin + steel fibre)
+10.1016/j.matpr.2022.11.352 | steel fibre geopolymer concrete with coarse aggregate
+10.1016/j.msea.2010.06.069 | geopolymer with resin, no fibre
+10.1016/j.mtadv.2026.100944 | neural-network mix optimisation (modelling paper)
+10.1016/j.oceram.2026.101017 | PE fibre geopolymer with crusher dust: curing of tensile specimens unclear (CS cubes 60 C 28 d vs ambient), SS/SH water content unknown; CCR mixes not allowed - doubtful, skipped

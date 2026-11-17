@@ -1,0 +1,43 @@
+Wave 6, agent e28: rejected papers (DOI | reason). No DOI of this list was found in other additions_v2 CSVs or existing_dois.txt (0 duplicates).
+10.1016/j.cemconcomp.2011.02.007 | coarse aggregate in mix (FR-SCC), triaxial compression
+10.1016/j.cemconcomp.2013.11.014 | silica flour (quartz powder) in mix; bond / shrinkage with rebars
+10.1016/j.cemconcomp.2013.12.012 | single-fibre pullout; glass powder + SRA in matrix
+10.1016/j.cemconcomp.2015.07.006 | corrosion study; tensile values only after chloride cycles (pre-exposure values not given as numbers)
+10.1016/j.cemconcomp.2016.03.014 | single-fibre pullout; glass powder, no composite fc / strain
+10.1016/j.cemconcomp.2018.03.006 | natural (curaua) fibre, no allowed fibre
+10.1016/j.cemconcomp.2018.04.011 | single-fibre pullout; silica flour
+10.1016/j.cemconcomp.2019.103335 | silica flour; flexural / self-healing after cryogenic exposure
+10.1016/j.cemconcomp.2019.103387 | corundum aggregate; strain capacity derived inversely from four-point bending (not direct tension)
+10.1016/j.cemconcomp.2020.103566 | silica flour; corrosion
+10.1016/j.cemconcomp.2020.103749 | coarse aggregate and glass powder; tension-stiffening with rebar
+10.1016/j.cemconcomp.2021.103936 | CSA cement and expansive agent (self-stressing ECC)
+10.1016/j.cemconcomp.2021.103965 | single-fibre pullout; silica flour
+10.1016/j.cemconcomp.2021.104255 | reactive MgO binder (carbonated MgO ECC)
+10.1016/j.cemconcomp.2021.104259 | shrinkage / diffusion inverse analysis; no strength or strain data
+10.1016/j.cemconcomp.2021.104338 | bond of rebar in UHPC; no mix proportions
+10.1016/j.cemconcomp.2022.104500 | sewage exposure; mix ratios ambiguous (all by cement mass: water 0.25 would give W/B 0.056); fc at 0 cycles only in figure
+10.1016/j.cemconcomp.2022.104883 | seawater and sea-sand mixes; hybrid mixes contain basalt fibre; results mostly flexural
+10.1016/j.cemconcomp.2023.104947 | quartz powder; steel-UHPC interface
+10.1016/j.cemconcomp.2023.105208 | paste only, corrosion study, no tensile / strain data
+10.1016/j.cemconcomp.2023.105323 | tensile creep; crushed quartz (powder or sand not clear), SP 180 kg/m3 implausible, no strain capacity
+10.1016/j.cemconcomp.2025.105988 | coarse aggregate (geopolymer and Portland concrete), pullout / crack bridging
+10.1016/j.cemconcomp.2025.106016 | sulphoaluminate cement (SAC-ECC)
+10.1016/j.cemconcomp.2025.106219 | biochar in all mixes
+10.1016/j.cemconcomp.2025.106354 | MgO-doped ECC; control mix fc and strain only in figures
+10.1016/j.cemconcomp.2025.106423 | interface inverse analysis, no composite fc / strain data
+10.1016/j.cemconcomp.2025.106447 | self-healing study; no virgin tensile / fc numbers in text or tables
+10.1016/j.cemconcomp.2026.106467 | nanoclay in all mixes (3D-printed UHP-SHCC)
+10.1016/j.cemconcomp.2026.106513 | fc and strain only in figures (recycled fine aggregate HS-ECC)
+10.1016/j.cemconcomp.2026.106593 | PP fibre and MgO
+10.1016/j.cemconcomp.2026.106835 | LCP fibre (not allowed)
+10.1016/j.cemconcomp.2026.106861 | 3D-printed ECC; test age / curing not stated (cast tensile values exist but age required)
+10.1016/j.cemconres.2004.07.021 | impact resistance of HSC with coarse aggregate; no fc / strain
+10.1016/j.cemconres.2011.04.010 | stress-crack opening by inverse analysis from bending; special composited cement
+10.1016/j.cemconres.2013.09.008 | gas permeability study; coarse aggregate concrete comparison, no mix table
+10.1016/j.cemconres.2020.106091 | silica flour; corrosion / self-healing
+10.1016/j.cemconres.2025.108126 | magnesium potassium phosphate cement
+10.1016/j.cemconres.2026.108265 | 3D-printed UHPC; no fc / strain data in text or tables
+10.1016/j.ceramint.2015.05.002 | split tensile test only (no direct tension), Taguchi design, no fc table
+10.1016/j.compositesb.2022.110171 | high-temperature study; fc only in figures
+10.1016/j.compositesb.2025.113250 | wollastonite micro-fibre; fc only in figures
+10.1016/j.compstruct.2015.08.092 | coarse aggregate concrete, flexural tests only
