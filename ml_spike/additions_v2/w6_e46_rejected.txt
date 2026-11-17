@@ -1,0 +1,43 @@
+10.1016/j.conbuildmat.2024.138036 | quartz powder (QP) and nano clay in every mix
+10.1016/j.conbuildmat.2024.139632 | quartz powder in the matrix of every mix
+10.1016/j.conbuildmat.2024.138208 | steel+PP UHPC at elevated temperature; ambient fc only as an average in text (120 MPa), tensile values in figures, no SP dose; PP fiber in other mixes
+10.1016/j.conbuildmat.2024.139735 | coarse aggregate (crushed stone)
+10.1016/j.conbuildmat.2025.140099 | same UHPC specimens (SF/PP0 cube strengths) as conbuildmat.2026.145605, which also has SP and tensile values; added from 145605 only
+10.1016/j.conbuildmat.2025.141240 | compressive/flexural strength only in Fig. 8 (no numbers); desert sand series
+10.1016/j.conbuildmat.2025.141487 | cement stabilized macadam, coarse aggregate
+10.1016/j.conbuildmat.2025.141643 | ceramic waste powder / ceramic sand in all mixes (not allowed)
+10.1016/j.conbuildmat.2025.141664 | compressive strength only in figure, no tensile values; recycled sand mixes
+10.1016/j.conbuildmat.2025.142296 | coarse aggregate, EMI sensing, strength vs age of normal concrete
+10.1016/j.conbuildmat.2025.142619 | coarse aggregate UHPFRC
+10.1016/j.conbuildmat.2025.143843 | coral coarse aggregate concrete, high strain rate
+10.1016/j.conbuildmat.2025.144059 | coarse aggregate, freeze-thaw
+10.1016/j.conbuildmat.2025.144397 | PVA content given only as wt% of total mass (no densities to convert to vol%); coal gangue powder in other mixes
+10.1016/j.conbuildmat.2025.144731 | recycled coarse aggregate creep study
+10.1016/j.conbuildmat.2026.145371 | heavy-slag coarse aggregate concrete
+10.1016/j.conbuildmat.2026.145670 | flexural / spalling study, compressive strengths only in figure; PP fibre mixes
+10.1016/j.conbuildmat.2026.145816 | coarse aggregate (crushed gravel), LC3 concrete
+10.1016/j.conbuildmat.2026.146326 | coarse aggregate UHPC, flexural
+10.1016/j.conbuildmat.2026.147181 | compressive strengths only in figure, flexural/toughness focus
+10.1016/j.conbuildmat.2026.147228 | magnesium oxychloride cement (MgO binder)
+10.1016/j.conbuildmat.2026.147602 | borax in the EGC mixes (not allowed); interface bond tests
+10.1016/j.conbuildmat.2026.148194 | cellulose fiber, quartz powder
+10.1016/j.conbuildmat.2026.148450 | palm fiber (natural fiber) PVA composites, shrinkage study
+10.1016/j.conbuildmat.2026.148913 | durability / impact study, no compressive or tensile result tables
+10.1016/j.cscm.2018.e00202 | UHPC without any fiber, quarry dust
+10.1016/j.cscm.2022.e01228 | machine-learning paper on UHPC database
+10.1016/j.cscm.2023.e02122 | geopolymer concrete with coarse aggregate
+10.1016/j.cscm.2024.e04020 | high-temperature PVA-FRCC: w/c 0.26 ambiguous versus w/b (cement:FA:sand 8:12:7), compressive strength only in figure, no SP data
+10.1016/j.cscm.2025.e05208 | no test age stated (specimens stored in laboratory), reference ECC has no fc; nano materials in other mixes
+10.1016/j.cscm.2026.e06716 | machine-learning paper
+10.1016/j.dibe.2024.100341 | sprayed ECC with expansion agent, SRA, accelerator, PP fiber (not allowed), chloride exposure
+10.1016/j.engstruct.2015.01.049 | tensile fatigue study, commercial UHPFRC without mix proportions
+10.1016/j.engstruct.2023.116147 | perfobond connector push-out tests, commercial UHPC mix
+10.1016/j.engstruct.2023.116390 | bond of rebar in concrete with coarse aggregate and expansive agent
+10.1016/j.engstruct.2023.117146 | UHPFRC I-girders, all mixes contain polyester fiber (not allowed)
+10.1016/j.engstruct.2024.118065 | steel tubular members, structural
+10.1016/j.engstruct.2025.120805 | steel tubular members, structural
+10.1016/j.ijsolstr.2020.03.011 | amorphous thin films (not cementitious)
+10.1016/j.istruc.2021.04.008 | geopolymer concrete with coarse aggregate
+10.1016/j.istruc.2023.105062 | machine-learning paper
+10.1016/j.istruc.2023.105118 | rubber self-compacting concrete with coarse aggregate, high temperature
+10.1016/j.istruc.2023.105502 | steel fibre concrete with coarse aggregate, dynamic splitting

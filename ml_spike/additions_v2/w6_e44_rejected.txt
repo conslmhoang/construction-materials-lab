@@ -1,0 +1,41 @@
+10.1016/j.cemconcomp.2014.12.010 | SFRSCC splitting-test inverse analysis; concrete with coarse aggregate, no direct tension
+10.1016/j.cemconcomp.2016.01.001 | UHPFRC S3-13 orientation study; mix proportions not given in the paper
+10.1016/j.cemconcomp.2016.12.014 | MK geopolymer repair mortar bond (slant shear) only; no fc / tensile strain, no complete mix
+10.1016/j.cemconcomp.2020.103866 | UHPFRC with coarse aggregate (impact)
+10.1016/j.cemconcomp.2021.104196 | Steel-PVA fibre concrete with coarse aggregate
+10.1016/j.cemconcomp.2023.104978 | UHPC with phosphorus slag powder (not allowed); no fibre; strengths in figures
+10.1016/j.cemconcomp.2024.105518 | Steel fibre pullout, cryogenic cycles; quartz powder in matrix
+10.1016/j.cemconcomp.2024.105672 | EGC with recycled concrete / paste powder; only the Ref fc quoted, no age, strain in figures, activator unclear
+10.1016/j.cemconcomp.2024.105849 | EGC with nano-silica; control strengths only in figures / relative values
+10.1016/j.cemconcomp.2025.105923 | LC3-ECC with calcined clay and nano CaCO3 (not allowed); strengths in figures
+10.1016/j.cemconcomp.2025.106019 | Reinforced UHPC; matrix contains quartz powder, expansive agent, SRA
+10.1016/j.cemconcomp.2025.106071 | SHCC OPC / MgO healing study; no fc or strain numbers
+10.1016/j.cemconcomp.2025.106157 | Roller-compacted ECC with CSA cement, PP+PE fibres, desert sand (not allowed)
+10.1016/j.cemconres.2010.11.001 | Nanoindentation of ECC; no strength data
+10.1016/j.cemconres.2015.09.011 | UHPFRC high strain rate; matrix contains silica powder (quartz powder)
+10.1016/j.cemconres.2016.09.019 | Compressive fatigue of UHTCC; no mix proportions, no tensile data
+10.1016/j.cemconres.2017.03.013 | HSHDC impact; mix contains silica flour (quartz powder), tension only in figure
+10.1016/j.cemconres.2019.105821 | UHPFRC bending / DIC; no fc or tensile strain
+10.1016/j.cemconres.2021.106354 | Mg-silicate-hydrate composites (MgO binder, not allowed)
+10.1016/j.cemconres.2023.107308 | Single-fibre pullout in AAS/FA pastes; no fc or tensile strain
+10.1016/j.ceramint.2014.05.128 | Cotton fabric reinforced geopolymer (natural fibre)
+10.1016/j.ceramint.2021.12.133 | ECC / EGC impact; ECC water ratio ambiguous (0.25 vs 780 kg/m3 cement), EGC activator masses not derivable
+10.1016/j.ceramint.2024.04.177 | False banana fibre geopolymer (natural fibre)
+10.1016/j.ceramint.2024.12.015 | EGC with red mud activator (not allowed); 0 %RM strengths only in figures
+10.1016/j.clay.2026.108161 | SHGC with recycled brick powder; Ref mix activator (modulus 1.3, Na2O 7 %, l/b 0.30) not consistently derivable, no age/curing for tensile
+10.1016/j.compositesb.2022.110259 | UHPC SHTB high strain rate; matrix contains silica powder (quartz powder)
+10.1016/j.compositesb.2024.111730 | X-ray CT crack segmentation of ECC; no strength data
+10.1016/j.compstruct.2016.05.099 | Arch-type fibre pullout in shotcrete; no fc / tensile strain
+10.1016/j.compstruct.2017.11.009 | High-strength concrete with coarse aggregate
+10.1016/j.compstruct.2018.04.075 | UHPFRC shear; matrix contains silica powder (quartz powder)
+10.1016/j.compstruct.2018.10.048 | AFRP belt retrofitting of RC buildings (structural, modelling)
+10.1016/j.compstruct.2018.10.071 | UHPFRC with basalt aggregate (not allowed), impact
+10.1016/j.compstruct.2020.113059 | Honeycomb sandwich structures (not cementitious)
+10.1016/j.compstruct.2021.115155 | CFRP-confined UHPC dynamic splitting; no usable mix
+10.1016/j.compstruct.2023.116694 | Fibre placement grid structure (not cementitious)
+10.1016/j.compstruct.2023.117274 | Dry UHPC impact / flexure; no fc or tensile strain
+10.1016/j.compstruct.2023.117805 | CNT/PVA aerogel (not cementitious)
+10.1016/j.compstruct.2024.117922 | Analytical model of UHPFRC beam fracture; no usable mix / strength table
+10.1016/j.conbuildmat.2010.02.011 | Steel fibre grouts contain bentonite (not allowed); fc only in figure
+10.1016/j.conbuildmat.2014.05.064 | SCUHPC RSM model; mix contains crushed quartz (quartz powder), no fc numbers
+10.1016/j.conbuildmat.2014.06.033 | Green UHPHFRC; all mixes contain nano-silica

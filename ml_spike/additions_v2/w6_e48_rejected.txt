@@ -1,0 +1,39 @@
+10.1016/j.cemconcomp.2011.07.003 | no mix table, steel fibre concrete with coarse aggregate (AE study)
+10.1016/j.cemconcomp.2012.02.015 | chloride durability modelling; mix only, no strength/strain measured
+10.1016/j.cemconcomp.2025.106281 | recycled fine aggregate (not allowed)
+10.1016/j.cemconcomp.2026.106856 | all mixes contain a retarder (not allowed); control B00 included; biochar mixes not allowed
+10.1016/j.cemconres.2009.08.020 | literature-data modelling paper
+10.1016/j.cemconres.2010.09.007 | coarse aggregate (crushed calcareous); pullout/tensile of SFRSCC
+10.1016/j.compstruct.2019.111367 | structural piers; no fc/strain for UHPFRC mix, only powder premix
+10.1016/j.compstruct.2020.112983 | basalt / ceramic ball coarse aggregate, G-UHPC impact
+10.1016/j.compstruct.2022.115690 | meso-scale model; coarse aggregate concrete
+10.1016/j.conbuildmat.2010.06.056 | quartz powder RPC (not allowed)
+10.1016/j.conbuildmat.2012.09.016 | lightweight coarse aggregate concrete
+10.1016/j.conbuildmat.2013.07.103 | RPC bearing capacity; no fc / tensile strength measured
+10.1016/j.conbuildmat.2014.02.040 | coarse aggregate concrete, freeze-thaw fatigue
+10.1016/j.conbuildmat.2016.01.033 | palm oil fuel ash geopolymer (material not allowed)
+10.1016/j.conbuildmat.2016.05.130 | coarse aggregate PVA concrete
+10.1016/j.conbuildmat.2017.02.094 | coarse aggregate (gravel) steel fibre concrete
+10.1016/j.conbuildmat.2017.03.009 | quartz powder RPC (not allowed)
+10.1016/j.conbuildmat.2018.06.194 | steel frame seismic study, not a material study
+10.1016/j.conbuildmat.2018.06.217 | basalt coarse aggregate steel fibre concrete
+10.1016/j.conbuildmat.2018.11.024 | RPC with PP fibre (not allowed), dynamic high strain rate
+10.1016/j.conbuildmat.2019.117316 | coarse aggregate steel fibre concrete
+10.1016/j.conbuildmat.2020.118438 | PET fibre (not allowed)
+10.1016/j.conbuildmat.2020.120664 | coarse aggregate, recycled steel fibre
+10.1016/j.conbuildmat.2020.121149 | coarse aggregate steel fibre concrete
+10.1016/j.conbuildmat.2021.122506 | pullout/simulation; no fc or tensile strength measured
+10.1016/j.conbuildmat.2021.123189 | basalt fibre G-UHPC, impact
+10.1016/j.conbuildmat.2021.123541 | coarse aggregate SFRC, AE study, no mix table
+10.1016/j.conbuildmat.2021.125370 | coarse aggregate SCC (stone), recycled materials
+10.1016/j.conbuildmat.2021.125500 | epoxy polymer concrete (material not allowed)
+10.1016/j.conbuildmat.2021.126254 | coarse aggregate (14 mm gravel) SFRC
+10.1016/j.conbuildmat.2022.129098 | quartz powder in mix (not allowed)
+10.1016/j.conbuildmat.2022.129267 | recycled coarse aggregate geopolymer concrete
+10.1016/j.conbuildmat.2022.130221 | crushed granite coarse aggregate, elevated temperature
+10.1016/j.conbuildmat.2023.131043 | quartz powder UHPC, pullout/flexure only, no fc
+10.1016/j.conbuildmat.2023.131616 | recycled coarse aggregate
+10.1016/j.conbuildmat.2023.131684 | only PP fibre mixes (not allowed) or no-fibre mixes
+10.1016/j.conbuildmat.2023.133243 | quartz powder used as aggregate (not allowed)
+10.1016/j.conbuildmat.2023.134492 | sisal fibre (natural, not allowed), nano-silica
+10.1016/j.conbuildmat.2024.135668 | quartz powder used as aggregate (not allowed)

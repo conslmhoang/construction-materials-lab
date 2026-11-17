@@ -1,0 +1,36 @@
+10.1016/j.conbuildmat.2024.136372 | steel fibre recycled aggregate concrete, biaxial; coarse/recycled aggregate
+10.1016/j.conbuildmat.2024.138181 | ECC-concrete interface after high temperature; ECC test age not stated; concrete has gravel; no tension strain
+10.1016/j.conbuildmat.2024.138259 | HSHDC dynamic tensile; no mix proportion table, no curing/age, no fc
+10.1016/j.conbuildmat.2024.139387 | lightweight engineered geopolymer with ceramsite aggregate + MWCNT, high-temperature dynamic tests
+10.1016/j.conbuildmat.2024.139697 | lightweight concrete with crushed stone / basalt
+10.1016/j.conbuildmat.2024.139772 | geopolymer recycled aggregate concrete, coarse aggregate, nano-silica
+10.1016/j.conbuildmat.2025.141344 | SMA-ECC freeze-thaw/chloride; flexural only, no fc or direct tension numbers
+10.1016/j.conbuildmat.2025.142396 | steel fibre concrete with coarse aggregate, salt/freeze-thaw
+10.1016/j.conbuildmat.2025.142515 | rubber + steel fibre concrete with gravel / crushed stone
+10.1016/j.conbuildmat.2025.144591 | SAP-PVA concrete with coarse aggregate (crushed stone/basalt)
+10.1016/j.conbuildmat.2025.145060 | PVA concrete with coal gangue coarse aggregate, chloride penetration
+10.1016/j.conbuildmat.2026.147083 | SHCC with recycled powders; control strain/strength only in figures, test age not stated
+10.1016/j.conbuildmat.2026.147379 | hooked steel fibre rubberised concrete, coarse aggregate, dynamic
+10.1016/j.conbuildmat.2026.147991 | SHCC ANN database; per-mix results only in figures; inverse-design mixes contain PP/basalt fibre
+10.1016/j.cscm.2022.e01308 | UHPC with recycled glass powder in all matrices (not allowed); quartz powder
+10.1016/j.cscm.2022.e01325 | PVA-FRCC wet-thermal + chloride coupling; fc only in figures, age at test unclear
+10.1016/j.cscm.2022.e01552 | RPC with sulfoaluminate cement; no fibre in any mix
+10.1016/j.cscm.2025.e04242 | pullout/strength database model (literature data), no mix table
+10.1016/j.cscm.2026.e06052 | recycled steel fibre recycled aggregate SCC, coarse aggregate
+10.1016/j.engstruct.2017.05.062 | anchor bolts in steel fibre concrete with coarse aggregate, no tension strain
+10.1016/j.engstruct.2023.116088 | bonded anchors in steel fibre concrete with coarse aggregate
+10.1016/j.engstruct.2024.118434 | UHPC cross-section moment-curvature modelling; no mix table
+10.1016/j.istruc.2020.08.007 | directional steel fibre rubberised concrete, coarse aggregate, flexural
+10.1016/j.istruc.2024.105958 | steel fibre recycled coarse aggregate concrete
+10.1016/j.istruc.2026.111372 | UHPSSC seawater/sea-sand; axial fc test age not stated, cube strengths only in figure
+10.1016/j.jmrt.2023.08.153 | steel fibre + MgO expansive agent, coarse aggregate concrete
+10.1016/j.jobe.2020.101842 | UHPC with quartz powder; anchor pull-out; ordinary concrete with coarse aggregate
+10.1016/j.jobe.2022.105500 | steel fibre concrete with nylon aggregate, recycled/coarse aggregate, acid attack
+10.1016/j.jobe.2021.102734 | PVA fibre sulfoaluminate cement mortar (CSAM); not allowed, flexural AE
+10.1016/j.jobe.2023.106790 | steel fibre SCC with coarse aggregate after heating
+10.1016/j.jobe.2024.109385 | steel fibre recycled aggregate concrete, dynamic
+10.1016/j.jobe.2026.117231 | 3D-printed seawater sea-sand sulfoaluminate cement PVA composite
+10.1016/j.jobe.2026.117296 | confined ECC compression; ECC cube fc / direct tension given but no age or curing stated
+10.1016/j.matpr.2020.03.558 | glass + steel fibre concrete with coarse aggregate (M30)
+10.1016/j.matpr.2022.10.195 | waste tyre fibre + steel fibre concrete with coarse aggregate
+10.1016/j.matpr.2024.01.028 | steel fibre recycled aggregate concrete

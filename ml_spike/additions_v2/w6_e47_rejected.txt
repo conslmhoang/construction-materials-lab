@@ -1,0 +1,41 @@
+10.1016/j.istruc.2023.105811 - rubber concrete with coarse aggregate, frame structure paper
+10.1016/j.istruc.2024.107874 - recycled steel fibre geopolymer: marble powder filler, no water/age/curing stated, fc has no age
+10.1016/j.istruc.2025.110040 - coarse aggregate (RAC), stirrup-confined
+10.1016/j.istruc.2025.110402 - lightweight aggregate concrete (ceramsite)
+10.1016/j.istruc.2025.110861 - HHP-ECC contains CSA expansion agent and gypsum in all mixes
+10.1016/j.istruc.2026.111835 - PP fibre in all mixes, high-temperature exposure, fc and tensile strength only in figures
+10.1016/j.istruc.2026.112206 - borax additive and recycled concrete powder in mixes (REF also has borax)
+10.1016/j.istruc.2026.112567 - quartz powder in the only mix, sustained load / seawater
+10.1016/j.jclepro.2018.05.158 - RSM paper, per-run results only in figures, optimum mix parameters and test age not stated
+10.1016/j.jclepro.2020.121281 - machine-learning / embodied carbon, no measured data
+10.1016/j.jclepro.2022.130492 - recycled fine aggregate in all mixes
+10.1016/j.jclepro.2023.137276 - LCA of railway ties, no strength data table
+10.1016/j.jclepro.2023.137735 - UHPC fly ash study, compressive strength only in figure
+10.1016/j.jclepro.2023.139200 - hybrid recycled aggregates geopolymer mortar
+10.1016/j.jclepro.2023.139872 - concrete with crushed stone coarse aggregate
+10.1016/j.jobe.2018.08.004 - no fibre, pressed geopolymer stone
+10.1016/j.jobe.2023.107173 - quartz powder in all mixes, high-temperature exposure
+10.1016/j.jobe.2024.109382 - nano-silica in the mix
+10.1016/j.jobe.2024.110467 - recycled coarse aggregate concrete
+10.1016/j.jobe.2025.111980 - no strength data (fibre homogeneity by ultrasound)
+10.1016/j.jobe.2025.113680 - coral coarse aggregate concrete, high strain rate
+10.1016/j.jobe.2025.114335 - flexural / AE study, no compressive or tensile strength values
+10.1016/j.jobe.2026.115805 - recycled aggregate concrete
+10.1016/j.jobe.2026.116013 - coarse aggregate rubberized concrete, triaxial
+10.1016/j.jobe.2026.116099 - citric acid retarder in mixes, no fibre-free ordinary reference with numbers in text
+10.1016/j.jobe.2026.116454 - MgO-phosphate binder
+10.1016/j.jobe.2026.116494 - MgO ECC; control results only in figures, 60 d curing
+10.1016/j.jobe.2026.117110 - rebar bond study, no fc values
+10.1016/j.matdes.2012.05.047 - coarse aggregate concrete, split tension
+10.1016/j.matdes.2014.02.051 - nano-silica study, no fibre
+10.1016/j.matpr.2019.12.077 - copper slag fine aggregate (not allowed), results not tabulated per mix
+10.1016/j.matpr.2020.12.1081 - coarse aggregate concrete
+10.1016/j.matpr.2023.09.062 - RPC with incoherent binder composition (chloride ion content as binder), no usable quantities
+10.1016/j.matpr.2024.05.111 - geopolymer concrete with coarse aggregate, ANFIS
+10.1016/j.mtcomm.2025.112405 - ML database paper, no new measured data
+10.1016/j.mtcomm.2025.113842 - ML database paper, no new measured data
+10.1016/j.oceram.2026.101048 - iron powder replacement, no fibre in control
+10.1016/j.pce.2022.103253 - ECC salt freeze-thaw, no numeric strength in text/tables
+10.1016/j.psep.2025.107033 - solid-waste reactive powder in all mixes
+10.1016/j.solmat.2011.01.022 - phase change material, not a cementitious composite
+10.1016/j.tafmec.2025.104847 - flexural study with coarse aggregate; ECC matrix has no strength values

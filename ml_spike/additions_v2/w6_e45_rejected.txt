@@ -1,0 +1,46 @@
+# w6 e45 rejected (DOI: reason). No duplicates found against other additions_v2 CSVs.
+10.1016/j.conbuildmat.2014.08.012: recycled coarse aggregate concrete, elevated temperature
+10.1016/j.conbuildmat.2015.03.034: review of recycled aggregate tensile strength
+10.1016/j.conbuildmat.2015.11.044: SCC with coarse aggregate
+10.1016/j.conbuildmat.2015.12.157: impact test, all mixes contain nano-silica
+10.1016/j.conbuildmat.2016.04.022: coarse aggregate rubberized SFRC
+10.1016/j.conbuildmat.2016.11.027: foam concrete with nanotubes/nano-silica, quartz flour, no fibre
+10.1016/j.conbuildmat.2016.11.068: UHPFRC NDT, strengths only in figures
+10.1016/j.conbuildmat.2017.04.098: incineration fly ash (IFA) in all binders, outside 21 materials
+10.1016/j.conbuildmat.2017.10.059: SCUHPFRC, compressive strengths only in figures (approximate text values)
+10.1016/j.conbuildmat.2018.06.065: SFRC with coarse aggregate
+10.1016/j.conbuildmat.2018.07.099: proprietary premix, composition unknown
+10.1016/j.conbuildmat.2018.11.103: freeze-thaw, coarse aggregate
+10.1016/j.conbuildmat.2020.118432: geopolymer with natural/carbon fibre mats, no usable mix data
+10.1016/j.conbuildmat.2020.120048: lightweight aggregate series; fc only in figure (one value in text)
+10.1016/j.conbuildmat.2020.120944: SCC with coarse aggregate
+10.1016/j.conbuildmat.2020.121176: marine durability, coarse aggregate
+10.1016/j.conbuildmat.2020.122044: EPS geopolymer, no fibre
+10.1016/j.conbuildmat.2021.122266: heavyweight geopolymer concrete, coarse aggregate
+10.1016/j.conbuildmat.2021.122862: nano-silica coated PVA, mix in grams with unclear matrix, results figures
+10.1016/j.conbuildmat.2021.123246: nano-silica and high-volume zeolite
+10.1016/j.conbuildmat.2021.124055: UHPFRC with coarse aggregate, flexural
+10.1016/j.conbuildmat.2021.124344: SCC with coarse aggregate, pullout
+10.1016/j.conbuildmat.2021.124435: microwave curing RPC, strengths only in figures
+10.1016/j.conbuildmat.2021.124752: UHPFRC tensile creep; no fc/strain in text, fc only in figure
+10.1016/j.conbuildmat.2021.125082: UHPC with MK, strengths only in figures; slag-type SCMs (BS, GP, SP) outside list
+10.1016/j.conbuildmat.2021.125306: damage detection, flexural only, no fc
+10.1016/j.conbuildmat.2021.125421: ECC water basis ambiguous (ratios to cement=1, w/b unclear); EGC uses unspecified activator
+10.1016/j.conbuildmat.2021.125769: fc age not stated, corrosion study
+10.1016/j.conbuildmat.2022.127395: magnesium phosphate cement
+10.1016/j.conbuildmat.2022.128346: SMA fibre
+10.1016/j.conbuildmat.2022.128789: construction waste powder UHP-ECC, control fc/tension only in figures
+10.1016/j.conbuildmat.2022.129030: chloride penetration, no strength data
+10.1016/j.conbuildmat.2022.129373: totally recycled fine aggregate
+10.1016/j.conbuildmat.2022.129972: EM wave absorbing, iron ore tailings, carbon black
+10.1016/j.conbuildmat.2023.130950: UHPSSC no fibre, sea sand/seawater, strengths normalized/figures
+10.1016/j.conbuildmat.2023.132013: freeze-thaw ECC, specimen age/curing not stated
+10.1016/j.conbuildmat.2023.132184: coarse aggregate concrete with PVA
+10.1016/j.conbuildmat.2023.132548: PC/MgO matrix carbonation
+10.1016/j.conbuildmat.2023.132622: fly ash cenosphere EGC, strain/fc only in figures
+10.1016/j.conbuildmat.2023.133185: recycled powder ECC, reference fc only in figure (derived), tensile in figure
+10.1016/j.conbuildmat.2023.133695: coarse-aggregate UHPC, glass microsphere
+10.1016/j.conbuildmat.2024.134988: FRP hybrid bars
+10.1016/j.conbuildmat.2024.135399: PVA UHPC, fc only in figures
+10.1016/j.conbuildmat.2024.135800: expanded clay geopolymer, no fibre
+10.1016/j.conbuildmat.2024.137520: recycled concrete powder UHPC, strengths only in figures
