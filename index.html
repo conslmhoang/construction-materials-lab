@@ -168,7 +168,6 @@
   .calib{margin-top:22px;border:1px solid var(--line);border-radius:10px;padding:12px 16px;background:#fbfefc}
   .calib summary{cursor:pointer;font-weight:600;font-size:14.5px}
   td.up{color:#166534} td.dn{color:#991b1b}
-  #sensTable td:first-child{white-space:normal}
   .nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:14px}
   .nav a{color:var(--blue);text-decoration:none;font-weight:600}
   .nav a:hover{text-decoration:underline}
@@ -268,7 +267,7 @@
   <!-- ============ 3. PREDICTION ============ -->
   <section class="card" id="predCard">
     <h2>3. Strength Prediction <span class="sub2">— machine-learning estimate</span></h2>
-    <p class="hint">Uses the proportions from section 1 plus the curing and test conditions below (it updates automatically after each calculation).
+    <p class="hint">Uses the proportions from section 1 plus the curing and test conditions below (it updates automatically after each calculation and when you change the conditions). Press <b>Save</b> at the end of this section to keep a result you are happy with.
       Trained on <span id="pTrain">published fiber-reinforced mixes</span>. See <a href="benchmark.html">how 10 models were compared</a> and <a href="data.html">where the data come from</a>.</p>
     <div class="cond">
       <div>
@@ -294,7 +293,6 @@
     </div>
     <p class="hint" style="margin:8px 0 0" id="condHint">Standard moist room: 20 °C, ≥95% RH, cured until the test age.</p>
     <p id="predError" class="note err hidden" style="margin-top:16px;margin-bottom:0"></p>
-    <div style="margin-top:16px"><button class="btn-primary btn-block" type="button" id="predBtn">🔮 Predict strength</button></div>
     <div id="predOut" class="hidden" style="margin-top:16px">
       <div id="calNote" class="note ok hidden"></div>
       <div id="predWarn" class="note warn hidden"></div>
@@ -302,9 +300,6 @@
 
       <h3 class="h3">Strength development <span class="sub2">— same mix and curing</span></h3>
       <div class="tablewrap"><table id="ageTable"></table></div>
-
-      <h3 class="h3">What changes the prediction <span class="sub2">— one change at a time, everything else fixed</span></h3>
-      <div class="tablewrap"><table id="sensTable"></table></div>
 
       <details class="calib" id="calBox">
         <summary>🎯 Calibrate to your lab <span class="sub2">— optional, from a mix you have already tested</span></summary>
@@ -319,6 +314,9 @@
           <button class="btn-ghost" type="button" id="calReset">↺ Remove calibration</button>
         </div>
       </details>
+
+      <div style="margin-top:16px"><button class="btn-primary btn-block" type="button" id="saveBtn">💾 Save this prediction to the log</button></div>
+      <p class="hint" id="saveMsg" style="margin:8px 0 0;text-align:center"></p>
     </div>
   </section>
 
@@ -356,7 +354,7 @@
   <!-- ============ 6. PREDICTION LOG ============ -->
   <section class="card">
     <h2>6. Prediction Log <span style="font-weight:400;font-size:13px;color:var(--muted)">— 04 PredictionLog.xlsx</span></h2>
-    <p class="hint">One row per prediction (section 3): the proportions, the curing and test conditions, and the predicted strengths with their 80% range.</p>
+    <p class="hint">One row per saved prediction (the Save button in section 3): the proportions, the curing and test conditions, and the predicted strengths with their 80% range.</p>
     <div class="bar" style="margin-bottom:14px">
       <div class="l" id="predCount">No predictions logged yet.</div>
       <div class="r">
@@ -1048,30 +1046,6 @@ function currentMix(){
 }
 const featuresFor = (binder, fiber, cond) => buildFeatures(binder, fiber, cond, calcMix(binder, fiber));
 
-/* one-at-a-time changes to the mix: [label, newBinder, newFiber] or null when not applicable */
-function scenarios(binder, fiber){
-  const out = [];
-  const scale = (obj, test, f) => Object.fromEntries(Object.entries(obj).map(([n,v]) => [n, test(n) ? v*f : v]));
-  const has = (obj, test) => Object.keys(obj).some(test);
-  const isW = n => keyOf(n) === "Water", isS = n => keyOf(n) === "Sand";
-  const isSP = n => keyOf(n) === "SP";
-  if (has(binder, isW)){
-    out.push(["Water −10% (lower W/B)", scale(binder, isW, 0.9), fiber]);
-    out.push(["Water +10% (higher W/B)", scale(binder, isW, 1.1), fiber]);
-  }
-  const vt = Object.values(fiber).reduce((a,b) => a+b, 0);
-  if (vt > 0){
-    if (vt > 0.5) out.push([`Fiber −0.5 vol% (to ${fmt(vt-0.5,1)}%)`, binder, scale(fiber, () => true, (vt-0.5)/vt)]);
-    out.push([`Fiber +0.5 vol% (to ${fmt(vt+0.5,1)}%)`, binder, scale(fiber, () => true, (vt+0.5)/vt)]);
-  }
-  if (has(binder, isS)){
-    out.push(["Sand −20%", scale(binder, isS, 0.8), fiber]);
-    out.push(["Sand +20%", scale(binder, isS, 1.2), fiber]);
-  }
-  if (has(binder, isSP)) out.push(["Superplasticizer +20%", scale(binder, isSP, 1.2), fiber]);
-  return out;
-}
-
 function runPrediction(){
   hideErr($("predError"));
   if (!SM){ showErr($("predError"), "The model file (strength_model.js) did not load."); return; }
@@ -1098,19 +1072,6 @@ function runPrediction(){
     });
     $("ageTable").innerHTML = `<thead><tr><th>Age</th>${keys.map(k => `<th>${esc(T[k].label)} (${T[k].unit})</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody>`;
 
-    // sensitivity
-    const base = Object.fromEntries(keys.map(k => [k, pred(k, x)]));
-    const sc = scenarios(binder, fiber);
-    $("sensTable").innerHTML = sc.length ? `<thead><tr><th>Change</th>${keys.map(k => `<th>Δ ${esc(T[k].label)} (${T[k].unit})</th>`).join("")}</tr></thead><tbody>${
-      sc.map(([lab, b2, f2]) => {
-        let xs; try{ xs = featuresFor(b2, f2, cond).x; }catch(e){ return ""; }
-        return `<tr><td>${esc(lab)}</td>${keys.map(k => {
-          const dv = pred(k, xs) - base[k], d = dOf(k), eps = d === 2 ? 0.005 : 0.05;
-          if (Math.abs(dv) < eps) return `<td>0</td>`;
-          return `<td class="${dv > 0 ? "up" : "dn"}">${dv > 0 ? "+" : "−"}${fmt(Math.abs(dv), d)}</td>`;
-        }).join("")}</tr>`;
-      }).join("")}</tbody>` : `<tbody><tr><td>Add water, sand or fiber to see how changing them affects the prediction.</td></tr></tbody>`;
-
     // notes
     $("predWarn").innerHTML = notes.length ? `<ul class="warns">${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : "";
     $("predWarn").classList.toggle("hidden", !notes.length);
@@ -1118,11 +1079,21 @@ function runPrediction(){
     $("calNote").textContent = ck.length ? `Calibrated to your lab (${ck.map(k => `${T[k].label}: ${CAL[k].type === "mul" ? "×" + fmt(CAL[k].v,2) : (CAL[k].v >= 0 ? "+" : "") + fmt(CAL[k].v, dOf(k)) + " " + T[k].unit}`).join("; ")}). Saved ${CAL[ck[0]].date}.` : "";
     $("calNote").classList.toggle("hidden", !ck.length);
     $("predOut").classList.remove("hidden");
-    addPredRow(binder, fiber, cond, x);
+    lastPred = {binder, fiber, cond, x};          // logged only when the user presses Save
+    $("saveMsg").textContent = "";
   }catch(err){
+    lastPred = null;
+    $("predOut").classList.add("hidden");
     showErr($("predError"), err.message);
   }
 }
+let lastPred = null;
+$("saveBtn").onclick = () => {
+  if (!lastPred) return;
+  const {binder, fiber, cond, x} = lastPred;
+  const saved = addPredRow(binder, fiber, cond, x);
+  $("saveMsg").textContent = saved ? "Saved to the prediction log (section 6)." : "This prediction is already the last row of the log.";
+};
 
 /* Prediction log: condition and output columns stay after the material columns. */
 const PRED_COND = ["Curing method", "Curing temperature (°C)", "Curing duration (days)", "Test age (days)"];
@@ -1134,7 +1105,7 @@ function predOutCols(){
 }
 if (SM) LOGS.pred.trailing = [...PRED_COND, ...predOutCols(), "Calibrated"];
 
-/* One row per prediction; a rerun that gives the same row as the last one is not logged again. */
+/* One row per saved prediction (Save button); the same row as the last one is not logged again. Returns true when added. */
 function addPredRow(binder, fiber, cond, x){
   const row = {};
   for (const [n,v] of Object.entries(binder)) row[n] = v;
@@ -1157,10 +1128,11 @@ function addPredRow(binder, fiber, cond, x){
   row["Calibrated"] = Object.keys(CAL).some(k => SM.targets[k]) ? "yes" : "no";
 
   const L = LOGS.pred, last = L.rows[L.rows.length - 1];
-  if (last){ const {[TIME_COL]:_, ...prev} = last; if (JSON.stringify(prev) === JSON.stringify(row)) return; }
+  if (last){ const {[TIME_COL]:_, ...prev} = last; if (JSON.stringify(prev) === JSON.stringify(row)) return false; }
   L.rows.push({[TIME_COL]: stamp(new Date()), ...row});
   persist(L);
   renderLog(L);
+  return true;
 }
 
 $("calBtn").onclick = () => {
@@ -1208,11 +1180,8 @@ $("cAge").onchange = () => {
   if ($("cMethod").value !== "heat") $("cDays").value = custom ? $("cAgeCustom").value : $("cAge").value;
 };
 $("cAgeCustom").oninput = () => { if ($("cMethod").value !== "heat") $("cDays").value = $("cAgeCustom").value; };
-$("predBtn").onclick = runPrediction;
-/* keep the prediction in step with the conditions once it is showing */
-document.querySelector("#predCard .cond").addEventListener("change", () => {
-  if (!$("predOut").classList.contains("hidden")) runPrediction();
-});
+/* the prediction follows the conditions as soon as a mix has been calculated (section 1) */
+document.querySelector("#predCard .cond").addEventListener("change", () => { if (lastResult) runPrediction(); });
 if (SM) $("pTrain").textContent = `${SM.targets.fc.n_rows} published fiber-reinforced mixes from ${SM.targets.fc.n_papers} papers`;
 
 /* ------------------------------------------------------------------ init -- */
