@@ -45,14 +45,24 @@ for f in sorted(glob.glob(os.path.join(here, "additions_v2", "*.csv"))):
         u = W[W["_doi"] == key]
         papers.append({"title": str(title).strip(), "link": str(link), "added": "2026-11",
                        "rows": int(len(g)), "fc": int(u["use_fc"].sum()), "eps": int(u["use_eps"].sum())})
-        F_extra = len(g); globals().setdefault("EXTRA_ROWS", 0); EXTRA_ROWS += F_extra
-summary = {"rows": int(len(F)) + globals().get("EXTRA_ROWS", 0), "papers": len(papers),
-           "has": {t: int(F[f"has_{t}"].sum()) for t in ("fc", "eps")},
+# rows extracted for the new papers (all additions_v2 files, same de-duplication as above)
+NEW = pd.concat([pd.read_csv(f, encoding="utf-8-sig") for f in sorted(glob.glob(os.path.join(here, "additions_v2", "*.csv")))], ignore_index=True)
+NEW["_doi"] = NEW["DOI / URL"].map(norm)
+NEW = NEW[~NEW["_doi"].isin(set(F["_doi"]))]
+new_dois = set(NEW["_doi"])
+W_old, W_new = W[~W["_doi"].isin(new_dois)], W[W["_doi"].isin(new_dois)]
+num = lambda s: pd.to_numeric(s, errors="coerce").notna()
+has_new = {"fc": int(num(NEW["Compressive strength (MPa)"]).sum()), "eps": int(num(NEW["Tensile strain capacity (%)"]).sum())}
+summary = {"rows": int(len(F) + len(NEW)), "papers": len(papers),
+           "papers_used": sum(1 for p in papers if p["fc"] or p["eps"]),
+           "has": {t: int(F[f"has_{t}"].sum()) + has_new[t] for t in ("fc", "eps")},
            "use": {t: int(W[f"use_{t}"].sum()) for t in ("fc", "eps")},
            "why_not_fc": F.loc[F["has_fc"].astype(bool) & ~F["use_fc"].astype(bool), "why_not_fc"]
                           .fillna("").str.split(";").explode().str.strip().loc[lambda s: s != ""].replace("no fibre", "no fiber").value_counts().to_dict()}
-lost = int(F["use_fc"].sum() - W["use_fc"].sum())          # passed cleaning but cannot be entered on the web
-if lost: summary["why_not_fc"]["uses a material outside the 21"] = lost
+lost = int(F["use_fc"].sum() - W_old["use_fc"].sum())      # passed cleaning but cannot be entered on the web
+if lost > 0: summary["why_not_fc"]["uses a material outside the 21"] = lost
+lost_new = has_new["fc"] - int(W_new["use_fc"].sum())       # new papers: rows left out by the build rules or checked by hand
+if lost_new > 0: summary["why_not_fc"]["new papers: material outside the 21, missing W/B or age, or removed after checking"] = lost_new
 os.makedirs(os.path.join(root, "data"), exist_ok=True)
 json.dump({"summary": summary, "papers": papers}, open(os.path.join(root, "data", "sources.json"), "w", encoding="utf-8"),
           ensure_ascii=False, separators=(",", ":"))
