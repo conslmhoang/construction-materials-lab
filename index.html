@@ -515,6 +515,7 @@ function readRows(){
     if (FIBER_PROP[k]){                                     // empty or 0 -> back to the suggested value
       const r = fiberRows[+inp.dataset.i], g = fiberDefault(r.name), p = FIBER_PROP[k];
       r[p] = isFinite(v) && v > 0 ? v : g[p];
+      if (!(isFinite(v) && v > 0)) inp.value = g[p];       // show the value that is used
       return;
     }
     const arr = k === "binder" ? binderRows : fiberRows;
@@ -933,6 +934,7 @@ function buildFeatures(binder, fiber, cond, res){
   if (Math.abs(B - 1) > 0.01) notes.push(`Cement + fly ash + GGBS = ${fmt(B,3)}, not 1: the model reads every proportion per their sum (the kg per m³ do not change).`);
   for (const m of SM.materials) f[m.key] = m.group === "fiber" ? (amt[m.key]||0) : (amt[m.key]||0) / B;
   if (!amt.Water) notes.push("No water in the mix: predictions are unreliable.");
+  if (!amt.Cement) notes.push("Cement-free mix (alkali-activated / geopolymer): the model is less accurate for these mixes. For a lab whose mixes are not in the data, the typical compressive-strength error is about 26%, against about 14% for mixes with cement, so confirm with a trial batch.");
 
   // curing / test conditions
   const m = cond.method;
