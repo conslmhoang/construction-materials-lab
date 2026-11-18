@@ -123,8 +123,9 @@
   tfoot td{font-weight:700;border-top:2px solid var(--line-2);background:#f7fcf9}
   /* Log headers keep the material names as written, on one line */
   .logtable th{text-transform:none;letter-spacing:0;font-size:12.5px;white-space:nowrap}
-  .logtable th:first-child,.logtable td:first-child{white-space:nowrap;text-align:left}
-  .logtable th:nth-child(2),.logtable td:nth-child(2){text-align:right}
+  .logtable th.del,.logtable td.del{width:1%;padding:2px 4px;text-align:center}
+  .logtable th:nth-child(2),.logtable td:nth-child(2){white-space:nowrap;text-align:left}
+  .logtable th:nth-child(3),.logtable td:nth-child(3){text-align:right}
   .tag{font-size:11px;padding:2px 7px;border-radius:99px;background:#e0f2fe;color:#075985;font-weight:600}
   .tag.fib{background:#dcfce7;color:#166534}
 
@@ -165,8 +166,6 @@
   .sub2{font-weight:400;font-size:13px;color:var(--muted)}
   .h3{font-size:15px;margin:22px 0 8px}
   .pcard .ci{font-size:13px;color:var(--ink-2);margin-bottom:6px}
-  .calib{margin-top:22px;border:1px solid var(--line);border-radius:10px;padding:12px 16px;background:#fbfefc}
-  .calib summary{cursor:pointer;font-weight:600;font-size:14.5px}
   td.up{color:#166534} td.dn{color:#991b1b}
   .nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:14px}
   .nav a{color:var(--blue);text-decoration:none;font-weight:600}
@@ -294,26 +293,12 @@
     <p class="hint" style="margin:8px 0 0" id="condHint">Standard moist room: 20 °C, ≥95% RH, cured until the test age.</p>
     <p id="predError" class="note err hidden" style="margin-top:16px;margin-bottom:0"></p>
     <div id="predOut" class="hidden" style="margin-top:16px">
-      <div id="calNote" class="note ok hidden"></div>
       <div id="predWarn" class="note warn hidden"></div>
       <div class="pred" id="predCards"></div>
 
       <h3 class="h3">Strength development <span class="sub2">— same mix and curing</span></h3>
       <div class="tablewrap"><table id="ageTable"></table></div>
 
-      <details class="calib" id="calBox">
-        <summary>🎯 Calibrate to your lab <span class="sub2">— optional, from a mix you have already tested</span></summary>
-        <p class="hint" style="margin-top:10px">Cast this mix under these conditions, enter what you measured, then press <b>Calibrate</b>.
-          Later predictions are scaled by the same correction (it is stored in this browser only). One to three trial specimens usually halve the error.</p>
-        <div class="cond">
-          <div><label for="mFc">Measured compressive strength (MPa)</label><input type="number" id="mFc" min="0" step="0.1" placeholder="optional"></div>
-          <div><label for="mEps">Measured tensile strain capacity (%)</label><input type="number" id="mEps" min="0" step="0.01" placeholder="optional"></div>
-        </div>
-        <div class="bar" style="margin-top:12px;justify-content:flex-start">
-          <button class="btn-primary" type="button" id="calBtn">🎯 Calibrate</button>
-          <button class="btn-ghost" type="button" id="calReset">↺ Remove calibration</button>
-        </div>
-      </details>
 
       <div style="margin-top:16px"><button class="btn-primary btn-block" type="button" id="saveBtn">💾 Save this prediction to the log</button></div>
       <p class="hint" id="saveMsg" style="margin:8px 0 0;text-align:center"></p>
@@ -726,10 +711,10 @@ function renderLog(L){
     ? `${n} ${n === 1 ? L.one : L.many} logged — newest first.`
     : `No ${L.many} logged yet.`;
   if (!n){ el.innerHTML = ""; return; }
-  const cols = columnsOf(L), data = matrixOf(L);
+  const cols = columnsOf(L), data = matrixOf(L), key = Object.keys(LOGS).find(k => LOGS[k] === L);
   el.innerHTML = `
-    <thead><tr>${cols.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead>
-    <tbody>${data.slice().reverse().map(r => `<tr>${
+    <thead><tr><th class="del"></th>${cols.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead>
+    <tbody>${data.map((r, i) => [r, i]).reverse().map(([r, i]) => `<tr><td class="del"><button class="btn-x" type="button" data-logdel="${key}" data-i="${i}" title="Delete this row" aria-label="Delete this row">×</button></td>${
       cols.map(c => `<td>${typeof r[c]!=="number" ? esc(r[c])
         : L.plain ? esc(r[c].toLocaleString("en-US", {maximumFractionDigits:3}))
         : esc(fmt(r[c], Number.isInteger(r[c])?0:3))}</td>`).join("")
@@ -877,6 +862,13 @@ $("batchBtn").onclick = () => {
 };
 
 document.addEventListener("click", e => {
+  const rm = e.target.closest("[data-logdel]");
+  if (rm){
+    const L = LOGS[rm.dataset.logdel], i = +rm.dataset.i, r = L.rows[i];
+    if (!r || !confirm(`Delete this ${L.one} (${r[TIME_COL] || "row " + (i + 1)})? This cannot be undone.`)) return;
+    L.rows.splice(i, 1); persist(L); renderLog(L);
+    return;
+  }
   const dl = e.target.closest("[data-dl]");
   if (dl){ downloadLog(LOGS[dl.dataset.dl], dl.dataset.kind); return; }
 
@@ -1018,23 +1010,17 @@ function predictOne(t, x){
 }
 
 const AGES = [3, 7, 14, 28];
-const CAL_KEY = "cml_calib_v1";
-let CAL = {};
-try{ CAL = JSON.parse(localStorage.getItem(CAL_KEY) || "{}") || {}; }catch(e){ CAL = {}; }
+try{ localStorage.removeItem("cml_calib_v1"); }catch(e){}   // lab calibration was removed from the page
 const dOf = k => SM.targets[k].unit === "%" ? 2 : 1;
 
 const raw = (k, x) => Math.max(0, predictOne(SM.targets[k], x));
-function applyCal(k, v){
-  const c = CAL[k]; if (!c) return v;
-  return Math.max(0, c.type === "mul" ? v * c.v : v + c.v);
-}
-const pred = (k, x) => applyCal(k, raw(k, x));
+const pred = (k, x) => raw(k, x);
 /* 80% interval from cross-validation residuals in the same range of predicted values */
 function interval(k, x){
   const t = SM.targets[k], p = raw(k, x), iv = t.interval;
   if (!iv) return null;
   const b = iv.edges.filter(e => p > e).length;
-  return [applyCal(k, Math.max(0, p + iv.lo[b])), applyCal(k, Math.max(0, p + iv.hi[b]))];
+  return [Math.max(0, p + iv.lo[b]), Math.max(0, p + iv.hi[b])];
 }
 
 function currentMix(){
@@ -1057,7 +1043,7 @@ function runPrediction(){
     $("predCards").innerHTML = keys.map(k => {
       const t = T[k], v = pred(k, x), d = dOf(k), ci = interval(k, x);
       return `<div class="pcard">
-        <div class="k">${esc(t.label)} ${CAL[k]?'<span class="tag fib">calibrated</span>':""}</div>
+        <div class="k">${esc(t.label)}</div>
         <div class="v">${fmt(v,d)} <small>${t.unit}</small></div>
         ${ci ? `<div class="ci">80% range: ${fmt(ci[0],d)} – ${fmt(ci[1],d)} ${t.unit}</div>` : ""}
         <div class="r">10-fold cross-validation: R² ${fmt(t.r2_random,2)}, MAE ±${fmt(t.mae_random,d)} ${t.unit}<br>
@@ -1075,9 +1061,6 @@ function runPrediction(){
     // notes
     $("predWarn").innerHTML = notes.length ? `<ul class="warns">${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : "";
     $("predWarn").classList.toggle("hidden", !notes.length);
-    const ck = Object.keys(CAL).filter(k => T[k]);
-    $("calNote").textContent = ck.length ? `Calibrated to your lab (${ck.map(k => `${T[k].label}: ${CAL[k].type === "mul" ? "×" + fmt(CAL[k].v,2) : (CAL[k].v >= 0 ? "+" : "") + fmt(CAL[k].v, dOf(k)) + " " + T[k].unit}`).join("; ")}). Saved ${CAL[ck[0]].date}.` : "";
-    $("calNote").classList.toggle("hidden", !ck.length);
     $("predOut").classList.remove("hidden");
     lastPred = {binder, fiber, cond, x};          // logged only when the user presses Save
     $("saveMsg").textContent = "";
@@ -1125,7 +1108,6 @@ function addPredRow(binder, fiber, cond, x){
     row[cols[3*i+1]] = ci ? +ci[0].toFixed(d) : "";
     row[cols[3*i+2]] = ci ? +ci[1].toFixed(d) : "";
   });
-  row["Calibrated"] = Object.keys(CAL).some(k => SM.targets[k]) ? "yes" : "no";
 
   const L = LOGS.pred, last = L.rows[L.rows.length - 1];
   if (last){ const {[TIME_COL]:_, ...prev} = last; if (JSON.stringify(prev) === JSON.stringify(row)) return false; }
@@ -1135,30 +1117,6 @@ function addPredRow(binder, fiber, cond, x){
   return true;
 }
 
-$("calBtn").onclick = () => {
-  hideErr($("predError"));
-  try{
-    const {binder, fiber} = currentMix();
-    const {x} = featuresFor(binder, fiber, readConditions());
-    const meas = {fc: parseFloat($("mFc").value), eps: parseFloat($("mEps").value)};
-    let n = 0;
-    for (const [k, m] of Object.entries(meas)){
-      if (!isFinite(m) || m <= 0 || !SM.targets[k]) continue;
-      const p = raw(k, x), type = SM.targets[k].correction === "add" ? "add" : "mul";
-      if (type === "mul" && p <= 0) continue;
-      CAL[k] = {type, v: type === "mul" ? m / p : m - p, date: stamp(new Date()).slice(0,10)};
-      n++;
-    }
-    if (!n) throw new Error("Enter at least one measured value greater than 0 to calibrate.");
-    try{ localStorage.setItem(CAL_KEY, JSON.stringify(CAL)); }catch(e){}
-    runPrediction();
-  }catch(err){ showErr($("predError"), err.message); }
-};
-$("calReset").onclick = () => {
-  CAL = {}; try{ localStorage.removeItem(CAL_KEY); }catch(e){}
-  ["mFc","mEps"].forEach(id => $(id).value = "");
-  if (!$("predOut").classList.contains("hidden")) runPrediction();
-};
 
 const COND_HINT = {
   std:"Standard moist room: 20 °C, ≥95% RH, cured until the test age.",

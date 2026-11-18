@@ -6,9 +6,9 @@ A browser-only tool for fiber-reinforced cementitious and geopolymer composites 
 
 1. **Mix design**: proportions → kg per m³ and per batch, with cost, embodied energy and CO₂ (20 materials, the same ones the model uses).
 2. **Strength prediction**: compressive strength and tensile strain capacity from the mix,
-   curing method/temperature/humidity/duration and test age. It includes an 80% range, a strength-vs-age table,
-   a "what changes the prediction" table and optional calibration with your own lab results.
-3. **Logs**: every mix design, batch and prediction is logged and can be downloaded as Excel/CSV.
+   curing method/temperature/duration, test age and the fiber length, diameter, strength and modulus. It includes an 80% range, a strength-vs-age table,
+   and a Save button that adds a result to the prediction log.
+3. **Logs**: every mix design and batch is logged, predictions when you press Save; each row can be deleted (×), and the logs download as Excel/CSV.
 
 | Page | What it shows |
 |---|---|
