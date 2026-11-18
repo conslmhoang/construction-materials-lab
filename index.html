@@ -985,6 +985,13 @@ const FEAT_LABEL = {Cement:"Cement share of binder", FA:"Fly ash share", GGBS:"G
 
 /* --- model evaluation (same arithmetic as CatBoost / scikit-learn) --- */
 function predictOne(t, x){
+  // mean of several models (fc: Extra Trees x Abrams W/B curve + CatBoost, ml_spike/train_export.py)
+  if (t.kind === "avg") return t.parts.reduce((s, p) => s + predictOne(p, x), 0) / t.parts.length;
+  if (t.abrams){      // trees learn log fc - (a + k * W/P), W/P = water / (cement + FA + GGBS + SF + MK + LP)
+    const {abrams:A, ...rest} = t;
+    const wp = x[A.w] / (1 + A.p.reduce((s, i) => s + x[i], 0));
+    return Math.exp(predictOne(rest, x) + A.a + A.k * wp);
+  }
   if (t.kind === "catboost"){
     let s = 0;
     for (const tr of t.trees){

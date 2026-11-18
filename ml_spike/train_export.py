@@ -1,6 +1,6 @@
 """Train the final strength models from "excel/04 Dataset_web.xlsx" and export them for the web.
 
-  fc  : Extra Trees  eps : Extra Trees   (best in benchmark10.py, 2026-11-18)
+  fc  : mean of Extra Trees x Abrams(W/B) curve and CatBoost    eps : Extra Trees   (2026-11-18)
 
 Inputs = the 21 web materials + curing/test conditions + 5 values computed from them (web_data.py);
 the strain model also uses fiber length / diameter (TARGET_FEATURES in web_data.py).
@@ -22,13 +22,36 @@ from catboost import CatBoostRegressor
 
 X, Y, groups = load()
 SPEC = {
-    "fc":  dict(kind="et",       unit="MPa", label="Compressive strength", trees=100),   # 100 trees: same R2 as 300 (0.942), 1/3 of the file size
+    # fc: mean of Extra Trees x Abrams curve and CatBoost (class Ens). Abrams: fc falls exponentially with the water/powder
+    # ratio, which the trees alone do not learn where data are sparse (high-fly-ash mixes with W/B > 0.33).
+    # 10-fold random R2 0.945 vs 0.942 (ET alone), new-paper R2 0.798 vs 0.763. ET: 100 trees (same R2 as 300, 1/3 size).
+    "fc":  dict(kind="ens",      unit="MPa", label="Compressive strength", trees=100),
     "eps": dict(kind="et",       unit="%",   label="Tensile strain capacity"),
 }
 
-NAME = {"catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest"}
+NAME = {"catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest", "ens": "Extra Trees × Abrams W/B curve + CatBoost"}
+POWDER = ("SF", "MK", "LP")   # counted with cement + FA + GGBS in the water/powder ratio of the Abrams curve
+WI = None                     # model columns of Water and of POWDER, set per target
+
+class Ens:
+    """Mean of Extra Trees x Abrams curve and CatBoost.
+    Abrams: log fc = a + k * W/P, W/P = water / (cement + FA + GGBS + SF + MK + LP), fitted on the training rows.
+    The trees learn log fc - (a + k * W/P), so the prediction keeps falling with W/P where data are sparse.
+    (W/P, not water / (cement + FA + GGBS): with much silica fume the latter is high for strong UHPC and the
+    curve then blew up to >1000 MPa on new papers.)"""
+    def __init__(self, trees): self.trees = trees
+    def wp(self, Xa): return Xa[:, WI[0]] / (1 + Xa[:, WI[1:]].sum(axis=1))
+    def fit(self, Xa, y):
+        self.k, self.a = np.polyfit(self.wp(Xa), np.log(y), 1)
+        self.et = make("et", self.trees).fit(prep("et", Xa), np.log(y) - self.base(Xa))
+        self.cb = make("catboost").fit(Xa, y)
+        return self
+    def base(self, Xa): return self.a + self.k * self.wp(Xa)
+    def predict(self, Xa): return (np.exp(self.et.predict(prep("et", Xa)) + self.base(Xa)) + self.cb.predict(Xa)) / 2
 
 def make(kind, trees=300):
+    if kind == "ens":
+        return Ens(trees)
     if kind == "catboost":
         return CatBoostRegressor(iterations=800, depth=4, learning_rate=0.05, l2_leaf_reg=3,
                                  verbose=0, random_seed=0, thread_count=4, allow_writing_files=False)
@@ -37,7 +60,7 @@ def make(kind, trees=300):
     return ExtraTreesRegressor(n_estimators=trees, min_samples_leaf=2, max_features=0.5, n_jobs=-1, random_state=0)   # = benchmark10.py
 
 def prep(kind, Xa):
-    return Xa if kind == "catboost" else np.where(np.isnan(Xa), -1.0, Xa)   # trees: NaN -> -1 (same in JS)
+    return Xa if kind in ("catboost", "ens") else np.where(np.isnan(Xa), -1.0, Xa)   # trees: NaN -> -1 (same in JS)
 
 def half_paper(g, seed):
     rng = np.random.default_rng(seed); tr, te = [], []
@@ -46,6 +69,26 @@ def half_paper(g, seed):
         if len(idx) < 2: tr += list(idx); continue
         h = len(idx) // 2; tr += list(idx[:h]); te += list(idx[h:])
     return np.array(tr), np.array(te)
+
+def export_cb(mdl, key, feats, fidx):
+    tmp = os.path.join(OUT, f"_{key}_catboost.json"); mdl.save_model(tmp, format="json")
+    cb = json.load(open(tmp)); os.remove(tmp)
+    ff = cb["features_info"]["float_features"]
+    nan_mode = {f["flat_feature_index"]: f.get("nan_value_treatment", "AsIs") for f in ff}
+    trees = [{"s": [[fidx[sp["float_feature_index"]], r7(sp["border"])] for sp in t["splits"]],
+              "v": [r4(v) for v in t["leaf_values"]]} for t in cb["oblivious_trees"]]
+    sb = cb.get("scale_and_bias", [1, [0]])
+    return dict(trees=trees, scale=sb[0], bias=float(np.ravel(sb[1])[0]),
+                nan=[nan_mode.get(feats.index(f), "AsIs") if f in feats else "AsIs" for f in FEATURES])
+
+def export_et(mdl, fidx):
+    trees = []
+    for est in mdl.estimators_:
+        t = est.tree_
+        trees.append({"f": [fidx[i] if i >= 0 else int(i) for i in t.feature], "t": [r7(v) for v in t.threshold],
+                      "l": t.children_left.tolist(), "r": t.children_right.tolist(),
+                      "v": [r4(v) for v in t.value[:, 0, 0]]})
+    return dict(trees=trees)
 
 r4 = lambda v: float(f"{v:.5g}")
 r7 = lambda v: float(f"{v:.8g}")              # split thresholds: keep enough digits to match Python exactly
@@ -57,6 +100,7 @@ for key, s in SPEC.items():
     y = Y[key]
     m = y.notna().values
     feats = TARGET_FEATURES[key]; fidx = [FEATURES.index(f) for f in feats]   # model column -> web input index
+    WI = [feats.index(f) for f in ("Water",) + POWDER]
     Xa = X.loc[m, feats].values.astype(float); ya = y[m].values; ga = groups[m].values
     kind = s["kind"]
 
@@ -110,26 +154,13 @@ for key, s in SPEC.items():
                  interval=dict(level=0.8, edges=[r4(v) for v in edges], lo=lo_, hi=hi_, coverage=round(cover, 3)),
                  correction_mae={k_: round(float(np.mean(v)), 3) for k_, v in err.items()},
                  y_min=r4(ya.min()), y_max=r4(ya.max()))
-    if kind == "catboost":
-        tmp = os.path.join(OUT, f"_{key}_catboost.json"); mdl.save_model(tmp, format="json")
-        cb = json.load(open(tmp)); os.remove(tmp)
-        ff = cb["features_info"]["float_features"]
-        nan_mode = {f["flat_feature_index"]: f.get("nan_value_treatment", "AsIs") for f in ff}
-        trees = []
-        for t in cb["oblivious_trees"]:
-            trees.append({"s": [[fidx[sp["float_feature_index"]], r7(sp["border"])] for sp in t["splits"]],
-                          "v": [r4(v) for v in t["leaf_values"]]})
-        sb = cb.get("scale_and_bias", [1, [0]])
-        entry.update(trees=trees, scale=sb[0], bias=float(np.ravel(sb[1])[0]),
-                     nan=[nan_mode.get(feats.index(f), "AsIs") if f in feats else "AsIs" for f in FEATURES])
-    else:
-        trees = []
-        for est in mdl.estimators_:
-            t = est.tree_
-            trees.append({"f": [fidx[i] if i >= 0 else int(i) for i in t.feature], "t": [r7(v) for v in t.threshold],
-                          "l": t.children_left.tolist(), "r": t.children_right.tolist(),
-                          "v": [r4(v) for v in t.value[:, 0, 0]]})
-        entry.update(trees=trees)
+    if kind == "catboost": entry.update(export_cb(mdl, key, feats, fidx))
+    elif kind == "ens":
+        entry.update(kind="avg", parts=[dict(kind="trees", **export_et(mdl.et, fidx),
+                                             abrams=dict(a=r7(mdl.a), k=r7(mdl.k), w=FEATURES.index("Water"),
+                                                         p=[FEATURES.index(f) for f in POWDER])),
+                                        dict(kind="catboost", **export_cb(mdl.cb, key, feats, fidx))])
+    else: entry.update(export_et(mdl, fidx))
     out["targets"][key] = entry
 
     # ---- domain ranges (1st-99th percentile of rows that have a value)

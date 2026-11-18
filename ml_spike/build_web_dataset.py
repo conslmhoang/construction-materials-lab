@@ -87,7 +87,13 @@ DROP_DOI = {"10.1155/2022/7876056": "'elongation (%)' equals the tension displac
             "10.1016/j.pce.2022.103233": "no curing stated; 7-d tensile strength above fc in several mixes (implausible)",
             "10.1016/j.engstruct.2018.05.036": "test age not stated (only the steam-curing schedule)",
             "10.1016/j.dibe.2026.100938": "PBO fiber paper (PBO removed from the materials): whole paper left out",
-            "10.1016/j.cemconres.2017.04.004": "PBO fiber paper (PBO removed from the materials): whole paper left out"}
+            "10.1016/j.cemconres.2017.04.004": "PBO fiber paper (PBO removed from the materials): whole paper left out",
+            "10.3390/ma15186339": "Table 3 has an expansive agent (EA 0.05), not one of the materials; missed at extraction",
+            "10.3390/fib13100133": "structural slab study: curing method and test age of the HDFRCC not stated",
+            "10.1016/j.jobe.2023.108093": "NaOH (SH) given only as 0.1 of binder, concentration of the solution not stated",
+            "10.1016/j.jobe.2023.105946": "NaOH (SH) given only as 0.1 of binder, concentration of the solution not stated",
+            "10.1016/j.conbuildmat.2018.08.135": "slag / Ca(OH)2 / Na2SO4 split derived, not stated in the paper",
+            "10.1177/1687814015585420": "SP, methyl cellulose and defoamer given only as one total"}
 drop_doi = d["_doi"].astype(str).str.lower().str.contains("|".join(map(re.escape, DROP_DOI)))
 keep = (d["_use_fc"] | d["_use_eps"]) & ~other & ~no_fiber_type & (B3 > 0) & W.notna() & ~drop_doi
 # W/B below 0.12 is not credible for these composites; with water glass most of the water is inside the WG
