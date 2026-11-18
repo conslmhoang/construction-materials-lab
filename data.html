@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Data Sources — Construction Materials Lab</title>
-<meta name="description" content="The published papers behind the strength-prediction dataset for fiber-reinforced cementitious and geopolymer composites, and how the data were cleaned.">
+<meta name="description" content="The published papers behind the strength-prediction dataset for fiber-reinforced cementitious and geopolymer composites.">
 <style>
   :root{
     color-scheme: light;
@@ -39,9 +39,6 @@
   .stat .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
   .stat .v{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
   .stat .d{font-size:12.5px;color:var(--ink-2)}
-  .funnel{display:grid;grid-template-columns:minmax(120px,240px) 1fr auto;gap:6px 12px;align-items:center;font-size:13.5px;margin-top:6px}
-  .funnel .b{height:14px;border-radius:0 4px 4px 0;background:var(--bar)}
-  .funnel .n{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600;text-align:right}
   input[type=search]{width:100%;max-width:420px;padding:9px 11px;border:1px solid var(--line-2);border-radius:8px;font:inherit;font-size:14px;background:var(--card);color:var(--ink)}
   .tablewrap{overflow-x:auto}
   table{border-collapse:collapse;width:100%;font-size:13px;min-width:600px}
@@ -57,7 +54,7 @@
 <div class="wrap">
   <header>
     <h1>📚 Data Sources</h1>
-    <p>Where the training data come from and how they were cleaned</p>
+    <p>Where the training data come from</p>
     <nav class="nav"><a href="index.html">← Calculator &amp; prediction</a><a href="benchmark.html">📈 10-model comparison</a></nav>
   </header>
 
@@ -66,18 +63,6 @@
     <div class="stats" id="stats"></div>
   </section>
 
-  <section class="card">
-    <h2>How the data were collected and cleaned</h2>
-    <ul class="hint" style="color:var(--ink-2);font-size:14px">
-      <li><b>Collection:</b> mix proportions, curing conditions and test results were extracted from published papers on fiber-reinforced cementitious and geopolymer composites (ECC/SHCC, UHPC, UHP-ECC, alkali-activated). Every value keeps a pointer to the table or page it came from; unit conversions (kg/m³ → ratio to binder) are recorded, and DOIs were checked against Crossref.</li>
-      <li><b>Training file:</b> <code>excel/04 Dataset_web.xlsx</code> has only the columns the calculator has: the 20 materials (cement + fly ash + GGBS as the binder, the rest per binder, PE / PVA / steel fibers in vol%), the length (mm), diameter (µm), tensile strength (MPa) and elastic modulus (GPa) of each fiber type as reported (a value not reported = the reference value the calculator suggests), curing method, temperature, duration, test age, and the two outputs (compressive strength and tensile strain capacity).</li>
-      <li><b>Nothing is deleted:</b> each row is only flagged as used or not used for each model, with a reason.</li>
-      <li><b>Excluded from the models:</b> mixes without fibers, special tests (fire, freeze–thaw, impact), rows missing the water/binder ratio or test age, statistical outliers, and materials without a reliable density. Tensile strain capacity uses direct (uniaxial / dog-bone) tension tests only.</li>
-    </ul>
-    <h3 style="font-size:15px;margin:16px 0 4px">Compressive strength: from all rows to the training set</h3>
-    <div class="funnel" id="funnel"></div>
-    <p class="hint" style="margin-top:10px">One row can be excluded for more than one reason, so the reasons add up to more than the excluded total.</p>
-  </section>
 
   <section class="card">
     <h2>Source papers</h2>
@@ -114,9 +99,6 @@ fetch("data/sources.json").then(r => { if (!r.ok) throw new Error(r.status); ret
     ["Compressive strength", n0(s.use.fc), `used of ${n0(s.has.fc)} with a value`],
     ["Tensile strain capacity", n0(s.use.eps), `used of ${n0(s.has.eps)} with a value`],
   ].map(([k,v,d]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join("");
-  const steps = [["All rows", s.rows], ["With a compressive strength", s.has.fc],
-    ...Object.entries(s.why_not_fc).map(([k,v]) => ["Excluded: " + k, v]), ["Used for training", s.use.fc]];
-  $("funnel").innerHTML = steps.map(([l,v]) => `<div>${esc(l)}</div><div><div class="b" style="width:${(v/s.rows*100).toFixed(1)}%"></div></div><div class="n">${n0(v)}</div>`).join("");
   renderTable();
 }).catch(err => { $("count").textContent = "Could not load data/sources.json (" + err.message + "). Open this page through GitHub Pages or a local web server."; });
 

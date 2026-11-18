@@ -14,7 +14,7 @@ A browser-only tool for fiber-reinforced cementitious and geopolymer composites 
 |---|---|
 | `index.html` | Calculator + prediction |
 | `benchmark.html` | 10 ML models compared (10-fold cross-validation, random split) |
-| `data.html` | The 512 source papers and how the data were cleaned |
+| `data.html` | The 512 source papers |
 
 ## Excel files: `excel/`
 
