@@ -1,5 +1,5 @@
 """Write data/sources.json for data.html: every source paper with its DOI and how many of its
-mixes are used for each model (rows of "04 Dataset_web.xlsx", the training file).
+mixes are used for each model (rows of "excel/04 Dataset_web.xlsx", the training file).
 Usage: python build_sources_json.py      (run from ml_spike/)
 """
 import os, json, re
@@ -9,7 +9,7 @@ root = os.path.dirname(here)
 S = pd.read_csv(os.path.join(root, "03 Dataset_sources.csv"), encoding="utf-8-sig")
 F = pd.read_csv(os.path.join(here, "clean", "dataset_clean.csv"), encoding="utf-8-sig")
 
-W = pd.read_excel(os.path.join(root, "04 Dataset_web.xlsx"), sheet_name="Data")
+W = pd.read_excel(os.path.join(root, "excel", "04 Dataset_web.xlsx"), sheet_name="Data")
 OUTS = {"fc": "Compressive strength (MPa)", "eps": "Tensile strain capacity (%)"}
 for k, c in OUTS.items(): W["use_" + k] = W[c].notna()
 

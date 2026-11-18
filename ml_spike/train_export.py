@@ -1,4 +1,4 @@
-"""Train the final strength models from "04 Dataset_web.xlsx" and export them for the web.
+"""Train the final strength models from "excel/04 Dataset_web.xlsx" and export them for the web.
 
   fc  : CatBoost     eps : Extra Trees   (best in benchmark10.py)
 

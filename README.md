@@ -14,9 +14,16 @@ A browser-only tool for fiber-reinforced cementitious and geopolymer composites 
 |---|---|
 | `index.html` | Calculator + prediction |
 | `benchmark.html` | 10 ML models compared (10-fold cross-validation, random split) |
-| `data.html` | The 285 source papers and how the data were cleaned |
+| `data.html` | The 503 source papers and how the data were cleaned |
 
-## Training data: `04 Dataset_web.xlsx`
+## Excel files: `excel/`
+
+| File | Content |
+|---|---|
+| `Materials_21.xlsx` | Density, energy (MJ/kg), CO2 (kg/kg) and cost ($/kg) of the 21 materials, each with its source. The web can load it (Load material database from Excel). Rebuild: `python ml_spike/build_materials_xlsx.py` |
+| `04 Dataset_web.xlsx` | Training data of the ML models (below) |
+
+## Training data: `excel/04 Dataset_web.xlsx`
 
 One sheet, one row per mix and test age, and only the columns the web has:
 
@@ -42,7 +49,7 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 ```
 cd ml_spike
-python build_web_dataset.py              # 03 Dataset_ratio.xlsx -> 04 Dataset_web.xlsx
+python build_web_dataset.py              # 03 Dataset_ratio.xlsx -> excel/04 Dataset_web.xlsx
 python benchmark10.py                    # compare 10 models (benchmark.html)
 python train_export.py ../strength_model.js   # models for the web
 python build_sources_json.py             # data/sources.json (data.html)

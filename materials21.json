@@ -1,5 +1,5 @@
 {
-  "_about": "The 21 materials of the web calculator AND of the strength model (one list for both). name = what the web shows and the column in 04 Dataset_web.xlsx; key = model input; datamix = column in 01 Datamix.xlsx that gives density, cost, energy and CO2; group: binder = Cement/FA/GGBS (their shares add up to 1), ratio = mass ratio to that binder, fiber = vol% of the mix.",
+  "_about": "The 21 materials of the web calculator AND of the strength model (one list for both). name = what the web shows and the column in excel/04 Dataset_web.xlsx; key = model input; datamix = column in 01 Datamix.xlsx that gives density, cost, energy and CO2; group: binder = Cement/FA/GGBS (their shares add up to 1), ratio = mass ratio to that binder, fiber = vol% of the mix.",
   "materials": [
     {"name": "Cement (OPC)",            "key": "Cement", "group": "binder", "datamix": "OPC (Ordinary Portland Cement)"},
     {"name": "Fly ash (FA)",            "key": "FA",     "group": "binder", "datamix": "FA (Fly ash)"},

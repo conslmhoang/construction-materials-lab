@@ -1,4 +1,4 @@
-"""Build the training file "04 Dataset_web.xlsx" with exactly the web's inputs:
+"""Build the training file "excel/04 Dataset_web.xlsx" with exactly the web's inputs:
 
   Paper, DOI | 21 materials (materials21.json) | curing method, curing temperature, curing duration, test age |
   compressive strength, tensile strain capacity
@@ -25,7 +25,7 @@ import numpy as np, pandas as pd
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
 SRC = os.path.join(root, "03 Dataset_ratio.xlsx")
-OUT = os.path.join(root, "04 Dataset_web.xlsx")
+OUT = os.path.join(root, "excel", "04 Dataset_web.xlsx")
 M21 = json.load(open(os.path.join(root, "materials21.json"), encoding="utf-8"))["materials"]
 NAME = {m["key"]: m["name"] for m in M21}
 

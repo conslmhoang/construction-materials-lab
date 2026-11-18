@@ -1,4 +1,4 @@
-"""Load "04 Dataset_web.xlsx" and turn each row into the model inputs with EXACTLY the rules
+"""Load "excel/04 Dataset_web.xlsx" and turn each row into the model inputs with EXACTLY the rules
 of the web page (index.html: calcMix + buildFeatures). Training and the web see the same numbers.
 
 Inputs = the 21 materials (materials21.json) + curing method / temperature / duration + test age,
@@ -12,7 +12,7 @@ import numpy as np, pandas as pd
 
 here = os.path.dirname(os.path.abspath(__file__))
 root = os.path.dirname(here)
-DATA = os.path.join(root, "04 Dataset_web.xlsx")
+DATA = os.path.join(root, "excel", "04 Dataset_web.xlsx")
 M21 = json.load(open(os.path.join(root, "materials21.json"), encoding="utf-8"))["materials"]
 KEYS = [m["key"] for m in M21]
 BINDER = [m["key"] for m in M21 if m["group"] == "binder"]
