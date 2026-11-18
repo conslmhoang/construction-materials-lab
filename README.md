@@ -43,7 +43,7 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 2,186 / 398 | CatBoost | 0.94 | 8.4 MPa |
+| Compressive strength | 2,186 / 398 | Extra Trees (100 trees on the web) | 0.94 | 7.8 MPa |
 | Tensile strain capacity | 1,176 / 310 | Extra Trees | 0.76 | 1.03 % |
 
 The strain model also uses the fiber length, diameter, tensile strength and elastic modulus; the compressive-strength

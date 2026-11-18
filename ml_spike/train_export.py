@@ -1,6 +1,6 @@
 """Train the final strength models from "excel/04 Dataset_web.xlsx" and export them for the web.
 
-  fc  : CatBoost     eps : Extra Trees   (best in benchmark10.py)
+  fc  : Extra Trees  eps : Extra Trees   (best in benchmark10.py, 2026-11-18)
 
 Inputs = the 21 web materials + curing/test conditions + 5 values computed from them (web_data.py);
 the strain model also uses fiber length / diameter (TARGET_FEATURES in web_data.py).
@@ -22,19 +22,19 @@ from catboost import CatBoostRegressor
 
 X, Y, groups = load()
 SPEC = {
-    "fc":  dict(kind="catboost", unit="MPa", label="Compressive strength"),
+    "fc":  dict(kind="et",       unit="MPa", label="Compressive strength", trees=100),   # 100 trees: same R2 as 300 (0.942), 1/3 of the file size
     "eps": dict(kind="et",       unit="%",   label="Tensile strain capacity"),
 }
 
 NAME = {"catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest"}
 
-def make(kind):
+def make(kind, trees=300):
     if kind == "catboost":
         return CatBoostRegressor(iterations=800, depth=4, learning_rate=0.05, l2_leaf_reg=3,
                                  verbose=0, random_seed=0, thread_count=4, allow_writing_files=False)
     if kind == "rf":
         return RandomForestRegressor(n_estimators=150, min_samples_leaf=3, max_features=0.5, n_jobs=-1, random_state=0)
-    return ExtraTreesRegressor(n_estimators=300, min_samples_leaf=2, max_features=0.5, n_jobs=-1, random_state=0)   # = benchmark10.py
+    return ExtraTreesRegressor(n_estimators=trees, min_samples_leaf=2, max_features=0.5, n_jobs=-1, random_state=0)   # = benchmark10.py
 
 def prep(kind, Xa):
     return Xa if kind == "catboost" else np.where(np.isnan(Xa), -1.0, Xa)   # trees: NaN -> -1 (same in JS)
@@ -65,7 +65,7 @@ for key, s in SPEC.items():
     for sd in range(3):
         pr = np.zeros(len(ya))
         for tr_, te_ in KFold(10, shuffle=True, random_state=sd).split(Xa):
-            pr[te_] = make(kind).fit(prep(kind, Xa[tr_]), ya[tr_]).predict(prep(kind, Xa[te_]))
+            pr[te_] = make(kind, s.get("trees", 300)).fit(prep(kind, Xa[tr_]), ya[tr_]).predict(prep(kind, Xa[te_]))
         rr2.append(r2_score(ya, pr)); rmae.append(mean_absolute_error(ya, pr))
         if sd == 0: pr0 = pr.copy()
     # ---- 80% prediction interval from random-split residuals, binned by predicted value (5 bins)
@@ -79,9 +79,9 @@ for key, s in SPEC.items():
     # ---- stricter error estimates
     pred = np.zeros(len(ya))
     for tr, te in GroupKFold(10, shuffle=True, random_state=0).split(Xa, ya, ga):
-        pred[te] = make(kind).fit(prep(kind, Xa[tr]), ya[tr]).predict(prep(kind, Xa[te]))
+        pred[te] = make(kind, s.get("trees", 300)).fit(prep(kind, Xa[tr]), ya[tr]).predict(prep(kind, Xa[te]))
     tr, te = half_paper(ga, 0)
-    ph = make(kind).fit(prep(kind, Xa[tr]), ya[tr]).predict(prep(kind, Xa[te]))
+    ph = make(kind, s.get("trees", 300)).fit(prep(kind, Xa[tr]), ya[tr]).predict(prep(kind, Xa[te]))
 
     # ---- lab correction: additive vs multiplicative, using k measured mixes of the same paper
     rng = np.random.default_rng(1); err = {"none": [], "add": [], "mul": []}
@@ -99,7 +99,7 @@ for key, s in SPEC.items():
     corr = "mul" if np.mean(err["mul"]) <= np.mean(err["add"]) else "add"
 
     # ---- final model on all rows
-    mdl = make(kind).fit(prep(kind, Xa), ya)
+    mdl = make(kind, s.get("trees", 300)).fit(prep(kind, Xa), ya)
     entry = dict(features=feats, label=s["label"], unit=s["unit"], kind="catboost" if kind == "catboost" else "trees", model_name=NAME[kind], n_rows=int(m.sum()), n_papers=int(len(np.unique(ga))),
                  r2_random=round(float(np.mean(rr2)), 3), mae_random=round(float(np.mean(rmae)), 3),
                  mae_new_lab=round(float(mean_absolute_error(ya, pred)), 3),
