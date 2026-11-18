@@ -4,7 +4,7 @@ Live site: https://conslmhoang.github.io/construction-materials-lab/
 
 A browser-only tool for fiber-reinforced cementitious and geopolymer composites (ECC/SHCC, UHPC, UHP-ECC):
 
-1. **Mix design**: proportions → kg per m³ and per batch, with cost, embodied energy and CO₂ (21 materials, the same ones the model uses).
+1. **Mix design**: proportions → kg per m³ and per batch, with cost, embodied energy and CO₂ (20 materials, the same ones the model uses).
 2. **Strength prediction**: compressive strength and tensile strain capacity from the mix,
    curing method/temperature/humidity/duration and test age. It includes an 80% range, a strength-vs-age table,
    a "what changes the prediction" table and optional calibration with your own lab results.
@@ -14,13 +14,13 @@ A browser-only tool for fiber-reinforced cementitious and geopolymer composites 
 |---|---|
 | `index.html` | Calculator + prediction |
 | `benchmark.html` | 10 ML models compared (10-fold cross-validation, random split) |
-| `data.html` | The 503 source papers and how the data were cleaned |
+| `data.html` | The 512 source papers and how the data were cleaned |
 
 ## Excel files: `excel/`
 
 | File | Content |
 |---|---|
-| `Materials_21.xlsx` | Density, energy (MJ/kg), CO2 (kg/kg) and cost ($/kg) of the 21 materials, each with its source. The web can load it (Load material database from Excel). Rebuild: `python ml_spike/build_materials_xlsx.py` |
+| `Materials_20.xlsx` | Density, energy (MJ/kg), CO2 (kg/kg) and cost ($/kg) of the 20 materials, plus the suggested fiber length, diameter, tensile strength and elastic modulus, each with its source. The web can load it (Load material database from Excel). Rebuild: `python ml_spike/build_materials_xlsx.py` |
 | `04 Dataset_web.xlsx` | Training data of the ML models (below) |
 
 ## Training data: `excel/04 Dataset_web.xlsx`
@@ -30,7 +30,8 @@ One sheet, one row per mix and test age, and only the columns the web has:
 | Columns | Content |
 |---|---|
 | Paper, DOI | source paper |
-| 21 materials | same names and units as the calculator (`materials21.json`): cement + fly ash + GGBS = the binder (shares add up to 1), the other 14 = mass ratio to that binder, 4 fibers = vol% |
+| 20 materials | same names and units as the calculator (`materials21.json`): cement + fly ash + GGBS = the binder (shares add up to 1), the other 14 = mass ratio to that binder, 3 fibers (PE, PVA, steel) = vol%. PBO fiber was removed |
+| 12 fiber properties | length (mm), diameter (µm), tensile strength (MPa) and elastic modulus (GPa) of each fiber type as reported in the paper; blank = not reported. The strain model uses all four (volume-weighted); a value the paper does not report = the reference value in `materials21.json` (PE and PVA: the fiber of Prof. Bang Yeon Lee's lab; steel: 10.3390/ma15051668), the same value the web suggests |
 | 4 conditions | curing method, curing temperature (°C), curing duration (days), test age (days) |
 | 2 outputs | compressive strength (MPa), tensile strain capacity (%); blank when not used |
 
@@ -42,8 +43,11 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 2,163 / 392 | CatBoost | 0.94 | 8.3 MPa |
-| Tensile strain capacity | 1,139 / 301 | Extra Trees | 0.73 | 1.08 % |
+| Compressive strength | 2,186 / 398 | CatBoost | 0.94 | 8.4 MPa |
+| Tensile strain capacity | 1,176 / 310 | Extra Trees | 0.76 | 1.03 % |
+
+The strain model also uses the fiber length, diameter, tensile strength and elastic modulus; the compressive-strength
+model does not (they did not improve it).
 
 ## Rebuilding
 

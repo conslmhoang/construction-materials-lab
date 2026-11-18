@@ -1,0 +1,4 @@
+10.12989/acc.2026.22.3.01 (Lee 2026, PE-AAS part): kept only tap-water mix AT-E (tensile only; fc values only in Fig. 3). Rejected: AN-E (nanobubble mixing water, not representable by the 21 inputs); PBO-OPC mixes CT-B/CN-B (PBO fiber, not PE/PVA).
+10.1016/j.jobe.2025.112964 (Hwang 2025): kept PE-15 only. Rejected: SE-15 (selvage), GF-15 (glass), PET-15 (PET) - fibers not PE/PVA.
+10.1080/21650373.2024.2441432 (Park 2025): rejected - all mixes (F-5, F-10, F-15) use PE-based selvage fibers (PE + glass/PET blend).
+10.1016/j.cemconcomp.2024.105776 (Nguyen 2024): rejected - all mixes use recycled selvage fibers (PE + glass + PET); also crack-healing study.

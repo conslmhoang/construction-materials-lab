@@ -1,0 +1,2 @@
+10.1016/j.conbuildmat.2018.08.135 | UHPFRC mix rejected only (steel fiber mix uses expansive admixture + shrinkage-reducing admixture + silica filler); HDFRC mix extracted
+10.1177/1687814015585420 | mix L4 rejected only: text says L4 gave +13% tensile strength and +31% strain vs L1, Table 3 gives +7.5% and -6% (2.18 vs 2.32); L1, L2, L3, L5 extracted

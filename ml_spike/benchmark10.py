@@ -13,7 +13,7 @@ import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 here = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(here, "bench10"); os.makedirs(OUT, exist_ok=True)
-from web_data import load, FEATURES
+from web_data import load, FEATURES, TARGET_FEATURES
 from sklearn.model_selection import KFold
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 from sklearn.pipeline import make_pipeline
@@ -65,7 +65,7 @@ def run(Xa, y, splits, mk):
 rows, web = [], {"date": pd.Timestamp.now().strftime("%Y-%m-%d"), "features": FEATURES, "targets": {}}
 for key, (label, unit) in TARGETS.items():
     m = Y[key].notna().values
-    Xa = X[m].values.astype(float); ya = Y[key].values[m]; ga = groups[m].values
+    Xa = X.loc[m, TARGET_FEATURES[key]].values.astype(float); ya = Y[key].values[m]; ga = groups[m].values
     T = {"label": label, "unit": unit, "n_rows": int(m.sum()), "n_papers": int(len(np.unique(ga))), "models": [], "oof_random": {}}
     for mname, (family, mk) in MODELS.items():
         t0 = time.time(); r = {"target": key, "model": mname, "family": family}; sc = []

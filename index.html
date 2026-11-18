@@ -109,6 +109,9 @@
   .item:last-of-type{border-bottom:none}
   .item .nm{font-size:13.5px;font-weight:600;overflow-wrap:anywhere}
   .item .dn{display:block;font-size:11.5px;font-weight:400;color:var(--muted)}
+  .item .geo{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:12.5px;color:var(--muted)}
+  .item .geo label{display:flex;align-items:center;gap:6px;margin:0;font-weight:400;font-size:12.5px;color:var(--muted)}
+  .item .geo input{width:84px}
   .empty{font-size:13px;color:var(--muted);padding:12px 0;font-style:italic}
 
   .tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -202,7 +205,7 @@
     <h2>1. Mix-Design Configuration</h2>
     <p class="hint">The binder is <b>cement + fly ash + GGBS</b>: give their shares so they add up to 1 (e.g. cement 0.4, fly ash 0.6).
       Every other material (silica fume, metakaolin, limestone powder, sand, water, SP, activators …) is a mass ratio to that binder (e.g. water 0.25).
-      Fibers are percent of the total volume. These 21 materials are the ones the strength model was trained on.</p>
+      Fibers are percent of the total volume; each fiber also has a length, diameter, tensile strength and elastic modulus (suggested: PE and PVA = the fiber used in the papers of Prof. Bang Yeon Lee's lab, CNU; steel = a published 13 mm / 0.2 mm, 2200 MPa fiber; you can change them). These 20 materials are the ones the strength model was trained on.</p>
 
     <div class="grid2">
       <div class="panel">
@@ -283,8 +286,8 @@
       <div>
         <label for="cAge">Test age (days)</label>
         <select id="cAge">
-          <option>3</option><option>7</option><option>14</option><option selected>28</option>
-
+          <option>3</option><option>7</option><option>14</option><option selected>28</option><option>56</option><option>90</option>
+          <option value="custom">Other…</option>
         </select>
       </div>
       <div class="hidden" id="cAgeCustomBox"><label for="cAgeCustom">Custom age (days)</label><input type="number" id="cAgeCustom" value="14" min="1" step="1"></div>
@@ -401,8 +404,7 @@ const DEFAULT_MATERIALS = [
   {"name":"Ca(OH)2","density":2240.0,"energy":4.25,"co2":1.09,"cost":0.2},
   {"name":"PE fiber","density":970.0,"energy":94.5,"co2":4.08,"cost":22.39},
   {"name":"PVA fiber","density":1300.0,"energy":101.0,"co2":3.4,"cost":12.67},
-  {"name":"Steel fiber","density":7800.0,"energy":60.0,"co2":1.6,"cost":5.0},
-  {"name":"PBO fiber","density":1560.0,"energy":0.0,"co2":0.0,"cost":202.5}
+  {"name":"Steel fiber","density":7800.0,"energy":60.0,"co2":1.6,"cost":5.0}
 ];
 // <<< MATERIALS END
 
@@ -507,12 +509,19 @@ function renderRows(){
   const build = (rows, host, unit, step) => {
     if (!rows.length){ host.innerHTML = `<p class="empty">No ${unit} selected yet.</p>`; return; }
     host.innerHTML = rows.map((r,i) => {
-      const m = MATERIALS[r.name];
+      const m = MATERIALS[r.name], g = unit === "fiber" ? fiberDefault(r.name) : null;
       return `<div class="item">
         <div class="nm">${esc(r.name)}<span class="dn">ρ = ${fmt(m.density,0)} kg/m³</span></div>
         <input type="number" min="0" step="${step}" value="${r.value ?? ""}"
                data-kind="${unit}" data-i="${i}" aria-label="Value for ${esc(r.name)}">
         <button class="btn-x" type="button" data-del="${unit}" data-i="${i}" title="Remove">×</button>
+        ${g ? `<div class="geo">
+          <label>Length (mm) <input type="number" min="0" step="0.1" value="${r.L ?? g.L}" data-kind="fiberL" data-i="${i}" aria-label="Fiber length of ${esc(r.name)} in mm"></label>
+          <label>Diameter (µm) <input type="number" min="0" step="0.1" value="${r.D ?? g.D}" data-kind="fiberD" data-i="${i}" aria-label="Fiber diameter of ${esc(r.name)} in µm"></label>
+          <label>Tensile strength (MPa) <input type="number" min="0" step="1" value="${r.S ?? g.S}" data-kind="fiberS" data-i="${i}" aria-label="Fiber tensile strength of ${esc(r.name)} in MPa"></label>
+          <label>Elastic modulus (GPa) <input type="number" min="0" step="0.1" value="${r.E ?? g.E}" data-kind="fiberE" data-i="${i}" aria-label="Fiber elastic modulus of ${esc(r.name)} in GPa"></label>
+          <span>Suggested: ${fmt(g.L,0)} mm, ${fmt(g.D,0)} µm, ${fmt(g.S,0)} MPa, ${fmt(g.E,0)} GPa</span>
+        </div>` : ""}
       </div>`;
     }).join("");
   };
@@ -522,10 +531,29 @@ function renderRows(){
 
 function readRows(){
   document.querySelectorAll('input[data-kind]').forEach(inp => {
-    const arr = inp.dataset.kind === "binder" ? binderRows : fiberRows;
-    const v = parseFloat(inp.value);
+    const k = inp.dataset.kind, v = parseFloat(inp.value);
+    if (FIBER_PROP[k]){                                     // empty or 0 -> back to the suggested value
+      const r = fiberRows[+inp.dataset.i], g = fiberDefault(r.name), p = FIBER_PROP[k];
+      r[p] = isFinite(v) && v > 0 ? v : g[p];
+      return;
+    }
+    const arr = k === "binder" ? binderRows : fiberRows;
     arr[+inp.dataset.i].value = isFinite(v) ? v : 0;
   });
+}
+
+const FIBER_PROP = {fiberL:"L", fiberD:"D", fiberS:"S", fiberE:"E"};
+/* Suggested fiber length (mm), diameter (µm), tensile strength (MPa) and elastic modulus (GPa) (materials21.json via the
+   model file): PE and PVA = the fiber of Prof. Bang Yeon Lee's lab (CNU); steel = a published steel fiber. The model uses the
+   same values when a paper does not report them. null for a fiber the model does not know. */
+function fiberDefault(name){
+  const m = (typeof STRENGTH_MODEL !== "undefined") && STRENGTH_MODEL.materials.find(x => x.name === name);
+  return m && m.length_mm ? {L:m.length_mm, D:m.diameter_um, S:m.tensile_strength_mpa, E:m.elastic_modulus_gpa} : null;
+}
+/* properties the user entered for a fiber in the list (the suggestion where not entered) */
+function fiberGeom(name){
+  const r = fiberRows.find(x => x.name === name) || {}, g = fiberDefault(name) || {};
+  return {L:r.L || g.L, D:r.D || g.D, S:r.S || g.S, E:r.E || g.E};
 }
 
 /* ------------------------------------------------------------ calculation -- */
@@ -804,7 +832,9 @@ $("addBinder").onclick = () => {
 $("addFiber").onclick = () => {
   const v = $("selFiber").value;
   if (!v || fiberRows.some(r => r.name === v)) return;
-  readRows(); fiberRows.push({name:v, value:1}); renderRows();
+  readRows();
+  const g = fiberDefault(v);
+  fiberRows.push(g ? {name:v, value:1, ...g} : {name:v, value:1}); renderRows();
 };
 document.addEventListener("click", e => {
   const del = e.target.closest("[data-del]");
@@ -883,7 +913,7 @@ $("dbReset").onclick = () => { hideErr($("dbError")); setDb(DEFAULT_MATERIALS, "
 
 /* ============================================================ prediction ==
    The trained models live in strength_model.js (written by ml_spike/train_export.py).
-   Mix -> model inputs: the 21 materials (cement + fly ash + GGBS = the binder, everything else per that
+   Mix -> model inputs: the 20 materials (cement + fly ash + GGBS = the binder, everything else per that
    binder, fibers in vol%) + curing/test conditions + 5 derived values. Same rules as ml_spike/web_data.py. */
 const SM = (typeof STRENGTH_MODEL !== "undefined") ? STRENGTH_MODEL : null;
 /* material name on the web -> {key, group} (binder / ratio / fiber), from materials21.json via the model file */
@@ -926,6 +956,14 @@ function buildFeatures(binder, fiber, cond, res){
   // derived values (computed from the inputs above, never typed in)
   const FIB = SM.materials.filter(x => x.group === "fiber").map(x => x.key);
   f.V_total = FIB.reduce((s,k) => s + f[k], 0);
+  // fiber length (mm), diameter (µm), tensile strength (MPa), modulus (GPa), volume-weighted over the fiber types (= web_data.py)
+  const acc = {L:0, D:0, S:0, E:0};
+  for (const [n,v] of Object.entries(fiber)){
+    if (!keyOf(n)) continue;
+    const g = fiberGeom(n); for (const p in acc) acc[p] += v * g[p];
+  }
+  for (const p in acc) f["Fib_" + p] = f.V_total > 0 ? acc[p] / f.V_total : NaN;
+  f.Fib_LD = f.Fib_L * 1000 / f.Fib_D;
   f.W_C = f.Cement > 0 ? f.Water / f.Cement : NaN;
   f.Activator_tot = ["NaOH","Na2SO4","Na2SiO3","WG","CaOH2"].reduce((s,k) => s + f[k], 0);
   const rho = k => MATERIALS[SM.materials.find(x => x.key === k).name].density;
@@ -934,7 +972,7 @@ function buildFeatures(binder, fiber, cond, res){
   const vb = BIN.reduce((s,k) => s + f[k] / (rho(k)/1000), 0);             // litres per kg binder
   f.Paste_vol = (vb + f.Water) / 1000 * f.Binder_kgm3;
 
-  if (ignored.length) notes.push(`Not used by the model (not one of its 21 materials): ${ignored.join(", ")}.`);
+  if (ignored.length) notes.push(`Not used by the model (not one of its 20 materials): ${ignored.join(", ")}.`);
   if (f.V_total === 0) notes.push("No fibers: the model was trained on fiber-reinforced mixes, so treat the result with care.");
   // outside the training range (1st–99th percentile)
   const out = [];
@@ -950,7 +988,9 @@ const FEAT_LABEL = {Cement:"Cement share of binder", FA:"Fly ash share", GGBS:"G
   SF:"Silica fume/binder", MK:"Metakaolin/binder", LP:"Limestone powder/binder", Sand:"Sand/binder", CR:"Crumb rubber/binder",
   EPS:"EPS beads/binder", Water:"Water/binder", SP:"SP/binder", VMA:"VMA/binder", NaOH:"NaOH/binder", Na2SO4:"Na2SO4/binder",
   Na2SiO3:"Na2SiO3/binder", WG:"Water glass/binder", CaOH2:"Ca(OH)2/binder",
-  PE:"PE fiber (vol%)", PVA:"PVA fiber (vol%)", Steel:"Steel fiber (vol%)", PBO:"PBO fiber (vol%)", V_total:"Total fiber (vol%)",
+  PE:"PE fiber (vol%)", PVA:"PVA fiber (vol%)", Steel:"Steel fiber (vol%)", V_total:"Total fiber (vol%)",
+  Fib_L:"Fiber length (mm)", Fib_D:"Fiber diameter (µm)", Fib_LD:"Fiber length/diameter",
+  Fib_S:"Fiber tensile strength (MPa)", Fib_E:"Fiber elastic modulus (GPa)",
   Cure_T:"Curing temperature", Cure_days:"Curing duration", Age_days:"Test age", W_C:"Water/cement",
   Activator_tot:"Activator/binder", Paste_vol:"Paste volume", Binder_kgm3:"Binder content (kg/m³)"};
 
@@ -1098,7 +1138,11 @@ if (SM) LOGS.pred.trailing = [...PRED_COND, ...predOutCols(), "Calibrated"];
 function addPredRow(binder, fiber, cond, x){
   const row = {};
   for (const [n,v] of Object.entries(binder)) row[n] = v;
-  for (const [n,v] of Object.entries(fiber))  row[n+FIB_SUFF] = v;
+  for (const [n,v] of Object.entries(fiber)){
+    row[n+FIB_SUFF] = v;
+    const g = fiberDefault(n) && fiberGeom(n);
+    if (g){ row[n+" length (mm)"] = g.L; row[n+" diameter (µm)"] = g.D; row[n+" tensile strength (MPa)"] = g.S; row[n+" elastic modulus (GPa)"] = g.E; }
+  }
   row["Curing method"]           = $("cMethod").selectedOptions[0].text;
   row["Curing temperature (°C)"] = cond.T;
   row["Curing duration (days)"]  = cond.days;

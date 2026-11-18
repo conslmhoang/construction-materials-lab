@@ -1,0 +1,4 @@
+10.1016/j.conbuildmat.2022.129653 (025 Choi 2022): HD-FRCC curing not stated in the paper (only "28 days" test age); HS-FRCC uses steel fiber, pure-silica filler and expansive agent.
+10.1016/j.conbuildmat.2021.125280 (031 Choi 2021): compressive strength only in Fig. 3 ("about 38 MPa"), tensile strain/first-cracking only in Fig. 5 (only relative differences in text); Table 5 is after healing.
+10.1016/j.conbuildmat.2020.121760 (033 Choi 2021): compressive strength, first-cracking, strain only in Figs. 4 and 6; Table 7 gives only water-cured tensile strength (no fc, no strain).
+10.1016/j.conbuildmat.2020.120857 (038): mix M-E rejected (CaO-based expansive agent not allowed); M-C and M-S added.

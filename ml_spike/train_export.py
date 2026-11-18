@@ -2,7 +2,8 @@
 
   fc  : CatBoost     eps : Extra Trees   (best in benchmark10.py)
 
-Inputs = the 21 web materials + curing/test conditions + 5 values computed from them (web_data.py).
+Inputs = the 21 web materials + curing/test conditions + 5 values computed from them (web_data.py);
+the strain model also uses fiber length / diameter (TARGET_FEATURES in web_data.py).
 Headline score = random-split 10-fold CV x 3 seeds.
 
 Usage:  python train_export.py [../strength_model.js]
@@ -13,7 +14,7 @@ import numpy as np, pandas as pd
 here = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(here, "model"); os.makedirs(OUT, exist_ok=True)
 HTML = sys.argv[1] if len(sys.argv) > 1 else None
-from web_data import load, FEATURES, M21
+from web_data import load, FEATURES, TARGET_FEATURES, M21
 from sklearn.model_selection import GroupKFold, KFold
 from sklearn.metrics import r2_score, mean_absolute_error
 from sklearn.ensemble import ExtraTreesRegressor, RandomForestRegressor
@@ -49,13 +50,14 @@ def half_paper(g, seed):
 r4 = lambda v: float(f"{v:.5g}")
 r7 = lambda v: float(f"{v:.8g}")              # split thresholds: keep enough digits to match Python exactly
 out = {"version": pd.Timestamp.now().strftime("%Y-%m-%d"), "features": FEATURES,
-       "materials": [{k: m[k] for k in ("name", "key", "group")} for m in M21], "targets": {}}
+       "materials": [{k: m[k] for k in ("name", "key", "group", "length_mm", "diameter_um", "tensile_strength_mpa", "elastic_modulus_gpa") if k in m} for m in M21], "targets": {}}
 tests = {"features": FEATURES, "rows": []}
 
 for key, s in SPEC.items():
     y = Y[key]
     m = y.notna().values
-    Xa = X[m].values.astype(float); ya = y[m].values; ga = groups[m].values
+    feats = TARGET_FEATURES[key]; fidx = [FEATURES.index(f) for f in feats]   # model column -> web input index
+    Xa = X.loc[m, feats].values.astype(float); ya = y[m].values; ga = groups[m].values
     kind = s["kind"]
 
     # ---- headline: random-split 10-fold CV, 3 seeds
@@ -98,7 +100,7 @@ for key, s in SPEC.items():
 
     # ---- final model on all rows
     mdl = make(kind).fit(prep(kind, Xa), ya)
-    entry = dict(label=s["label"], unit=s["unit"], kind="catboost" if kind == "catboost" else "trees", model_name=NAME[kind], n_rows=int(m.sum()), n_papers=int(len(np.unique(ga))),
+    entry = dict(features=feats, label=s["label"], unit=s["unit"], kind="catboost" if kind == "catboost" else "trees", model_name=NAME[kind], n_rows=int(m.sum()), n_papers=int(len(np.unique(ga))),
                  r2_random=round(float(np.mean(rr2)), 3), mae_random=round(float(np.mean(rmae)), 3),
                  mae_new_lab=round(float(mean_absolute_error(ya, pred)), 3),
                  r2_new_lab=round(float(r2_score(ya, pred)), 3),
@@ -115,33 +117,32 @@ for key, s in SPEC.items():
         nan_mode = {f["flat_feature_index"]: f.get("nan_value_treatment", "AsIs") for f in ff}
         trees = []
         for t in cb["oblivious_trees"]:
-            trees.append({"s": [[sp["float_feature_index"], r7(sp["border"])] for sp in t["splits"]],
+            trees.append({"s": [[fidx[sp["float_feature_index"]], r7(sp["border"])] for sp in t["splits"]],
                           "v": [r4(v) for v in t["leaf_values"]]})
         sb = cb.get("scale_and_bias", [1, [0]])
         entry.update(trees=trees, scale=sb[0], bias=float(np.ravel(sb[1])[0]),
-                     nan=[nan_mode.get(i, "AsIs") for i in range(len(FEATURES))])
+                     nan=[nan_mode.get(feats.index(f), "AsIs") if f in feats else "AsIs" for f in FEATURES])
     else:
         trees = []
         for est in mdl.estimators_:
             t = est.tree_
-            trees.append({"f": t.feature.tolist(), "t": [r7(v) for v in t.threshold],
+            trees.append({"f": [fidx[i] if i >= 0 else int(i) for i in t.feature], "t": [r7(v) for v in t.threshold],
                           "l": t.children_left.tolist(), "r": t.children_right.tolist(),
                           "v": [r4(v) for v in t.value[:, 0, 0]]})
         entry.update(trees=trees)
     out["targets"][key] = entry
 
     # ---- domain ranges (1st-99th percentile of rows that have a value)
-    if key == "fc":
-        rng_ = {}
-        for j, f in enumerate(FEATURES):
-            v = Xa[:, j][np.isfinite(Xa[:, j])]
-            if len(v): rng_[f] = [r4(np.percentile(v, 1)), r4(np.percentile(v, 99))]
-        out["ranges"] = rng_
+    rng_ = out.setdefault("ranges", {})
+    for j, f in enumerate(feats):
+        v = Xa[:, j][np.isfinite(Xa[:, j])]
+        if len(v) and (key == "fc" or f not in rng_): rng_[f] = [r4(np.percentile(v, 1)), r4(np.percentile(v, 99))]
     # ---- test vectors for the JS predictor
     pick = np.random.default_rng(7).choice(len(ya), 15, replace=False)
     pp = mdl.predict(prep(kind, Xa[pick]))
     for i, p in zip(pick, pp):
-        tests["rows"].append({"target": key, "x": [None if not np.isfinite(v) else float(v) for v in Xa[i]], "pred": float(p)})
+        xi = np.full(len(FEATURES), np.nan); xi[fidx] = Xa[i]            # full web input vector
+        tests["rows"].append({"target": key, "x": [None if not np.isfinite(v) else float(v) for v in xi], "pred": float(p)})
 
     print(f"{key:4s} {kind:8s} n={entry['n_rows']:4d} papers={entry['n_papers']:3d}  random R2={entry['r2_random']:.3f} MAE={entry['mae_random']:.2f}  new-lab R2={entry['r2_new_lab']:.2f} "
           f"MAE={entry['mae_new_lab']:.2f}  lab-known R2={entry['r2_lab_known']:.2f} MAE={entry['mae_lab_known']:.2f}  "

@@ -1,11 +1,11 @@
 """Build the training file "excel/04 Dataset_web.xlsx" with exactly the web's inputs:
 
-  Paper, DOI | 21 materials (materials21.json) | curing method, curing temperature, curing duration, test age |
+  Paper, DOI | 20 materials (materials21.json) | curing method, curing temperature, curing duration, test age |
   compressive strength, tensile strain capacity
 
 Rules
-- A row is kept only if every material in it is one of the 21 (defoamer / anti-foamer is allowed but not listed).
-  Rows of the same paper that use only the 21 materials are kept even if other rows of that paper are not.
+- A row is kept only if every material in it is one of the 20 (defoamer / anti-foamer is allowed but not listed).
+  Rows of the same paper that use only the 20 materials are kept even if other rows of that paper are not.
 - Binder = cement + fly ash + GGBS; their shares add up to 1. Anything the paper counted in its binder
   (silica fume, metakaolin, limestone powder, Ca(OH)2, Na2SiO3 ...) becomes a ratio to this binder:
   every "x / paper binder" value is divided by (cement + FA + GGBS share of the paper binder).
@@ -29,16 +29,16 @@ OUT = os.path.join(root, "excel", "04 Dataset_web.xlsx")
 M21 = json.load(open(os.path.join(root, "materials21.json"), encoding="utf-8"))["materials"]
 NAME = {m["key"]: m["name"] for m in M21}
 
-# ---- source columns (03 Dataset_ratio.xlsx, 0-based) for each of the 21 materials
+# ---- source columns (03 Dataset_ratio.xlsx, 0-based) for each of the 20 materials (PBO fiber removed: it is in OTHER)
 BINDER_FRAC = {"Cement": [4], "FA": [8], "GGBS": [7], "SF": [9], "MK": [10], "LP": [11]}   # shares of the paper binder
 PER_B = {"WG": [67], "NaOH": [68], "CaOH2": [69], "Na2SO4": [70], "Na2SiO3": [71],
          "Sand": [86, 87, 90, 91, 92, 93, 94, 97, 181], "CR": [106], "EPS": [107],
          "SP": [110, 116, 172], "VMA": [117, 118]}
-FIBER = {"PE": [182], "PVA": [189], "Steel": [199, 206, 207, 281, 282, 289], "PBO": [211]}
+FIBER = {"PE": [182], "PVA": [189], "Steel": [199, 206, 207, 281, 282, 289]}   # PBO (211) removed: rows with PBO are left out
 WATER_COLS = [83, 84, 85, 131, 132, 134]          # water in any form (W/B already includes ice)
 DEFOAMER = [120, 126]
 # every other material-amount column = not allowed
-OTHER = [5, 6, 12, 13, 14, 15, 16, 17, 18, 19, 37, 55, 72, 88, 95, 96, 102, 103, 104, 105, 108, 109, 111, 119,
+OTHER = [211, 5, 6, 12, 13, 14, 15, 16, 17, 18, 19, 37, 55, 72, 88, 95, 96, 102, 103, 104, 105, 108, 109, 111, 119,
          124, 125, 138, 139, 148, 156, 161, 173, 174, 217, 227, 235, 241, 242, 271, 295, 303, 313]
 assert not set(OTHER) & set(sum(list(BINDER_FRAC.values()) + list(PER_B.values()) + list(FIBER.values()), []))
 
@@ -77,15 +77,17 @@ B3 = S(BINDER_FRAC["Cement"] + BINDER_FRAC["FA"] + BINDER_FRAC["GGBS"])     # sh
 W = pd.to_numeric(d[83], errors="coerce").fillna(pd.to_numeric(d[134], errors="coerce")).fillna(pd.to_numeric(d[85], errors="coerce"))
 # papers checked by hand and left out (DOI -> reason)
 DROP_DOI = {"10.1155/2022/7876056": "'elongation (%)' equals the tension displacement in mm, no gauge length, no fc",
-            "10.1016/j.jobe.2020.101613": "fine aggregate is crushed basalt (basalt is not one of the 21 materials)",
+            "10.1016/j.jobe.2020.101613": "fine aggregate is crushed basalt (basalt is not one of the materials)",
             "10.1016/j.cemconres.2007.12.006": "fc quoted from another paper (ref. [12]), not measured in this study",
             "10.1016/j.ceramint.2021.11.232": "fiber 'vol%' in the text contradicts the kg/m3 in Table 3 (wt% of binder)",
-            "10.1016/j.conbuildmat.2021.122618": "fine aggregate is 100% recycled fine aggregate (not one of the 21 materials)",
+            "10.1016/j.conbuildmat.2021.122618": "fine aggregate is 100% recycled fine aggregate (not one of the materials)",
             "10.1016/j.conbuildmat.2023.131580": "no curing or test age stated for the reference specimens",
             "10.1016/j.conbuildmat.2018.03.243": "steel fiber 0.75+0.75 vol% in the table contradicts 0.5+0.5 vol% in the text",
             "10.1016/j.jobe.2024.110793": "tensile test type and test age not stated; wet-spun values only as % of dry-spun",
             "10.1016/j.pce.2022.103233": "no curing stated; 7-d tensile strength above fc in several mixes (implausible)",
-            "10.1016/j.engstruct.2018.05.036": "test age not stated (only the steam-curing schedule)"}
+            "10.1016/j.engstruct.2018.05.036": "test age not stated (only the steam-curing schedule)",
+            "10.1016/j.dibe.2026.100938": "PBO fiber paper (PBO removed from the materials): whole paper left out",
+            "10.1016/j.cemconres.2017.04.004": "PBO fiber paper (PBO removed from the materials): whole paper left out"}
 drop_doi = d["_doi"].astype(str).str.lower().str.contains("|".join(map(re.escape, DROP_DOI)))
 keep = (d["_use_fc"] | d["_use_eps"]) & ~other & ~no_fiber_type & (B3 > 0) & W.notna() & ~drop_doi
 # W/B below 0.12 is not credible for these composites; with water glass most of the water is inside the WG
@@ -104,6 +106,31 @@ for k in ["SP", "VMA", "NaOH", "Na2SO4", "Na2SiO3", "WG", "CaOH2"]:
 for k, v in fib.items():
     D[NAME[k]] = v
 D = D[["Paper", "DOI"] + [m["name"] for m in M21]]
+
+# ---- fiber length (mm), diameter (µm), tensile strength (MPa) and elastic modulus (GPa) per fiber type,
+# as reported in the paper (blank = not reported). Columns: (vol%, length, diameter, strength, modulus).
+# Steel: volume-weighted over its sub-types; three sub-types give the length in their column name.
+GEOM = {"PE": [(182, 184, 185, 186, 187)], "PVA": [(189, 191, 192, 193, 194)],
+        "Steel": [(199, 201, 202, 203, 204), (206, 19.5, None, None, None), (207, 16.5, None, None, None),
+                  (281, 13.0, None, None, None), (282, 283, 284, 288, None), (289, 290, 291, 294, None)]}
+FIBER_PROPS = (("length", 1, "mm"), ("diameter", 2, "µm"), ("tensile strength", 3, "MPa"), ("elastic modulus", 4, "GPa"))
+for k, subs in GEOM.items():
+    for lab, ci, unit in FIBER_PROPS:
+        acc = pd.Series(0.0, index=d.index); ws = pd.Series(0.0, index=d.index)
+        for s in subs:
+            v = N(s[0]); c = s[ci]
+            x = pd.Series(c, index=d.index, dtype=float) if isinstance(c, float) else \
+                (pd.to_numeric(d[c], errors="coerce") if c is not None else pd.Series(np.nan, index=d.index))
+            ok = x.notna() & (v > 0)
+            acc += (x.fillna(0) * v).where(ok, 0); ws += v.where(ok, 0)
+        D[f"{k} fiber {lab} ({unit})"] = (acc / ws.replace(0, np.nan)).round(2)
+
+# fiber values missed in the extraction, checked against the paper: (DOI, column, {diameter (µm): value})
+FIBER_FIX = [("10.1016/j.dibe.2025.100677", "PE fiber elastic modulus (GPa)", {12: 88.0, 18: 120.0})]   # Table 3: NPE 88, SPE 120 GPa
+for doi, col, by_d in FIBER_FIX:
+    rows_ = d["_doi"].astype(str).str.lower().str.contains(re.escape(doi)) & D[col].isna()
+    for dm, val in by_d.items():
+        D.loc[rows_ & (D["PE fiber diameter (µm)"] == dm), col] = val
 
 # ---- curing and test conditions
 cm = d[327].astype(str).str.lower().where(d[327].notna(), "")
@@ -139,12 +166,13 @@ guide = pd.DataFrame({"Item": [
     "Source paper (rows are grouped by paper on data.html).",
     "Share of the binder; the binder is only cement + fly ash + GGBS, so these three add up to 1.",
     "Mass ratio to that binder (silica fume, metakaolin and limestone powder too). Sand = any sand; SP includes HRWR; VMA includes HPMC; Na2SiO3 = SSM / ASM / SMP (anhydrous).",
-    "Volume % of the mix.",
+    "Volume % of the mix. Length (mm), diameter (µm), tensile strength (MPa) and elastic modulus (GPa) of each fiber type as reported in the paper; blank = not reported "
+    "(the model then uses the most common value in this file, the same default the web shows, see materials21.json).",
     "Standard moist room / Water curing / Sealed / wrapped / Air (lab ambient) / Heat / steam curing (same list as the web).",
     "°C; 20 °C when a non-heat paper does not state it.",
     "Heat curing: days at high temperature. Otherwise days of curing; the test age when not stated.",
     "Blank when not reported or excluded during cleaning (see data.html).",
-    "Rows using any material outside the 21 are left out (defoamer allowed). Ratios re-expressed per cement + FA + GGBS.",
+    "Rows using any material outside the 20 are left out (defoamer allowed). Ratios re-expressed per cement + FA + GGBS.",
     "Built from 03 Dataset_ratio.xlsx and ml_spike/additions_v2/*.csv by ml_spike/build_web_dataset.py.",
     "python ml_spike/build_web_dataset.py, then python ml_spike/train_export.py ../strength_model.js"]})
 with pd.ExcelWriter(OUT, engine="openpyxl") as w:

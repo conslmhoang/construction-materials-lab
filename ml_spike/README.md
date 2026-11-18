@@ -124,5 +124,5 @@ Dữ liệu đã làm sạch (`clean/dataset_clean.csv`), 33 đầu vào web. **
 
 Web dùng CatBoost (fc, ft) + Extra Trees (εu).
 
-**Từ 2026-11-16 mô hình chỉ học từ `excel/04 Dataset_web.xlsx`** (21 vật liệu trong `materials21.json` + 4 điều kiện dưỡng hộ/tuổi + 2 kết quả: nén, biến dạng kéo; binder = cement + FA + GGBS, các chất khác chia theo binder đó), tạo bằng `build_web_dataset.py`; đặc trưng tính trong `web_data.py` theo đúng công thức của web. Chạy: `python build_web_dataset.py` → `python benchmark10.py` → `python train_export.py ../strength_model.js`.
+**Từ 2026-11-16 mô hình chỉ học từ `excel/04 Dataset_web.xlsx`** (20 vật liệu trong `materials21.json` (đã bỏ sợi PBO từ 2026-11-18) + 4 thông số sợi (dài, đường kính, cường độ, mô đun; chỉ mô hình biến dạng dùng) + 4 điều kiện dưỡng hộ/tuổi + 2 kết quả: nén, biến dạng kéo; binder = cement + FA + GGBS, các chất khác chia theo binder đó), tạo bằng `build_web_dataset.py`; đặc trưng tính trong `web_data.py` theo đúng công thức của web. Chạy: `python build_web_dataset.py` → `python benchmark10.py` → `python train_export.py ../strength_model.js`.
 Trang kết quả: `benchmark.html`. Mục 5 của `index.html` thêm điều kiện bảo dưỡng + tuổi thí nghiệm.
