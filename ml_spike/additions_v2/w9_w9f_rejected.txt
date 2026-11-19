@@ -1,0 +1,4 @@
+10.1016/j.jobe.2026.116068 - Only mono-PE mix (VPE2.0+VPP0) is PP-free; every other Table 3 mix (incl. control JZ) has PP fiber. Binder is 50% waste marble powder (not on the 21-material list; mapping it to limestone powder would be an assumption), and the 28-d test age of the fiber-series rows is only implied. Rejected.
+10.1016/j.conbuildmat.2020.118221 - Mix contains borax (not allowed); also fc, flexural and splitting-tensile results appear only in figures (Figs. 5, 8, 10); no direct tension test; basalt fiber mixes.
+10.1016/j.conbuildmat.2025.143386 - No fiber in any mix (AA-UHPC binder study); no direct tension test.
+10.1016/j.conbuildmat.2025.144907 - Only PP fibers (not allowed); no steel/PE/PVA mixes.

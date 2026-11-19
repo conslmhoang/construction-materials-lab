@@ -8,6 +8,8 @@ output files, checks). Every rule there applies, with the changes below.
 - MDPI: `Papers\Paper news\mdpi_txt\MDPI_<doi>.txt`. Line 1 = `DOI: ...`. The body text comes first; ALL tables are at the
   end under "TABLES (from the article's table pop-ups):" as `[[TABLE]] <caption>` + tab-separated rows (a table can
   appear twice; use it once).
+- Other publishers: `Papers\Paper news\other_txt\OTHER_<doi>.txt`: plain page text; tables as `[[TABLE]] <caption>` +
+  tab-separated rows (the caption can also be the line just before).
 - Do NOT use the web or a browser. Work only from these files.
 
 ## Scope

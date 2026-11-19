@@ -1,21 +1,21 @@
 ﻿target,model,family,R2 random-row,MAE random-row,RMSE random-row,fit_s
-fc,Linear Regression,Linear,0.81,15.655,20.922,0.3
-fc,KNN,Distance,0.904,9.729,14.902,0.4
-fc,SVR,Kernel,0.911,9.224,14.316,8.3
-fc,ANN (MLP),Neural,0.882,9.304,16.123,27.9
-fc,Decision Tree,Tree,0.879,10.798,16.719,0.4
-fc,Random Forest,Bagging,0.935,8.082,12.252,16.6
-fc,Extra Trees,Bagging,0.943,7.636,11.491,12.0
-fc,Gradient Boosting,Boosting,0.93,9.11,12.755,47.1
-fc,XGBoost,Boosting,0.933,8.82,12.478,11.5
-fc,CatBoost,Boosting,0.939,8.386,11.872,29.8
+fc,Linear Regression,Linear,0.811,15.605,20.844,0.3
+fc,KNN,Distance,0.904,9.683,14.828,0.4
+fc,SVR,Kernel,0.912,9.144,14.215,8.3
+fc,ANN (MLP),Neural,0.92,9.125,13.555,26.6
+fc,Decision Tree,Tree,0.886,10.61,16.213,0.4
+fc,Random Forest,Bagging,0.935,8.105,12.26,16.8
+fc,Extra Trees,Bagging,0.943,7.627,11.495,12.0
+fc,Gradient Boosting,Boosting,0.93,9.089,12.667,46.7
+fc,XGBoost,Boosting,0.932,8.855,12.491,12.4
+fc,CatBoost,Boosting,0.939,8.445,11.877,31.6
 eps,Linear Regression,Linear,0.563,1.517,2.057,0.3
 eps,KNN,Distance,0.686,1.209,1.743,0.3
-eps,SVR,Kernel,0.693,1.15,1.725,2.9
-eps,ANN (MLP),Neural,0.68,1.24,1.761,12.0
+eps,SVR,Kernel,0.693,1.15,1.725,2.6
+eps,ANN (MLP),Neural,0.68,1.24,1.761,11.8
 eps,Decision Tree,Tree,0.603,1.301,1.96,0.3
-eps,Random Forest,Bagging,0.753,1.058,1.547,14.3
-eps,Extra Trees,Bagging,0.762,1.022,1.519,9.9
-eps,Gradient Boosting,Boosting,0.735,1.134,1.603,32.0
-eps,XGBoost,Boosting,0.743,1.109,1.578,9.6
-eps,CatBoost,Boosting,0.746,1.097,1.569,28.4
+eps,Random Forest,Bagging,0.753,1.058,1.547,14.2
+eps,Extra Trees,Bagging,0.762,1.022,1.519,10.0
+eps,Gradient Boosting,Boosting,0.735,1.134,1.603,32.2
+eps,XGBoost,Boosting,0.743,1.109,1.578,11.2
+eps,CatBoost,Boosting,0.746,1.097,1.569,28.8

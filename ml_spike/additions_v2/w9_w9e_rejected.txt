@@ -1,0 +1,5 @@
+10.1016/j.conbuildmat.2024.139768 - geopolymer mortar (FA/slag, steel/PVA): compressive strength only in Fig. 4/5 (no numbers in text/table); NaOH/Na2SiO3 amounts not given per mix (only 18.3%:73%:8.6% proportions, ambiguous).
+10.1016/j.conbuildmat.2026.145311 - UHPGC (GGBS/SF, steel): borax retarder in every mix (not allowed); Act/B 0.34 is a total activator ratio with no NaOH/water glass split; 28 d compressive only in Fig. 4. (Table 4 has direct-tension strain, but mixes are excluded.)
+10.1016/j.conbuildmat.2026.146122 - Ca(OH)2-activated cement-free UHPC: every mix contains silica flour (quartz flour, not allowed); compressive/tensile results in figures only.
+10.1016/j.cemconcomp.2026.106758 - Ca(OH)2-activated cement-free UHPFRC: every mix contains silica flour (quartz flour, not allowed); results in figures only.
+10.1016/j.conbuildmat.2026.148127 - AA-UHPC (GGBFS/FA/SF, steel): BaCl2 retarder in every mix (not allowed); tension is splitting/3-point bending, not direct tension (only compressive could be used, but mixes are excluded by BaCl2).

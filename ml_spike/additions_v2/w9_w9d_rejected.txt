@@ -1,0 +1,5 @@
+10.1016/j.jclepro.2019.117950 - Compressive strengths of the 7 mixes only in Fig. 6 (text gives just the range min/max); no per-mix numbers; 10 M NaOH solution amount (SH 53.3 kg/m3) with water content unstated for W/B. Also flexural only, no direct tension.
+10.1016/j.conbuildmat.2023.130883 - All fiber mixes contain 20% recycled fine aggregate (recycled concrete, not an allowed material); activator amounts given only as Na2O 8% / Ms 1.25 (no stated masses); PP-fiber mixes too; strengths mostly in figures.
+10.1016/j.conbuildmat.2024.135059 - Carbon and glass fibers only (not allowed), marble powder filler; strengths only in figures.
+10.1016/j.jobe.2024.111750 - No fibers at all (UHPGC); compressive strengths only in figures.
+10.1016/j.jobe.2021.103668 - ACCEPTED, 1 row (GS(E), 7 d, fc 123 MPa stated in text). Other points (GS(A) 7/28/91 d, QP mixes, GS(E) 91 d) are figure-only or approximate ("~100 MPa"); QP mixes contain quartz powder (not allowed).

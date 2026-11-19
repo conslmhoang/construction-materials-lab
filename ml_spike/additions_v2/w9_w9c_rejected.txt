@@ -1,0 +1,8 @@
+10.1016/j.nxmate.2026.101923 - LQFA geopolymer paste + PVA: activator given only as "30%/33%" of paste with NaOH(10 M):Na2SiO3 = 1:2; basis (mass/volume) not stated, no NaOH solution amount per mix, waterglass composition unknown; compressive strengths for fiber mixes and strain only partly in text -> cannot derive W/B, NaOH/B, WG/B without assumption.
+10.1016/j.jobe.2025.114812 - steel-fiber AAC contains natural (coarse) aggregate (NA 1086 kg/m3); coarse aggregate not allowed.
+10.1016/j.jobe.2024.109501 - slag geopolymer with marble powder 867 kg/m3 as aggregate (not one of the 21 materials); compressive strength from half-prisms; all fiber mixes use marble powder; rejected in doubt.
+10.1016/j.conbuildmat.2020.118851 - UHTGC (PVA): mix table gives only wt% activator (composition/modulus/NaOH not stated); compressive and tensile strain results only in figures.
+10.1016/j.jobe.2024.111244 - calcined-clay + slag PVA EGC: only flexural results (no compressive, no direct tension); no sand.
+10.1016/j.jobe.2025.111857 - A-UHPC: every mix contains PP fiber (not allowed).
+10.1016/j.conbuildmat.2024.134934 - UHPGC microwave curing: compressive strength only in figures (text gives only a few values for matrix; no table); no direct tension.
+10.1016/j.conbuildmat.2026.146771 - UHP geopolymer coral concrete: coral coarse aggregate; not allowed.

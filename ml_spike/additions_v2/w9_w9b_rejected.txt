@@ -1,0 +1,4 @@
+10.1016/j.conbuildmat.2023.133109 - every mix contains eco-processed pozzolan (EPP, not one of the 21 materials); fibers are PP and micro steel; compressive/density results only in figures (not checked further).
+10.1016/j.compstruct.2026.120688 - all mixes contain borax decahydrate retarder (not allowed); rG10-30 also contain rGFRP powder; compressive strength, tensile strain and strength given only in figures (text states only the endpoints 131.09 and 101.87 MPa, 5.94 and 8.30 MPa cracking strength).
+10.1016/j.cscm.2025.e05556 - results (compressive, tensile strength, ultimate strain of 16 mixes) only in Fig. 10/11, no per-mix numbers in a table; only range/ANOVA tables.
+10.1016/j.conbuildmat.2026.146265 - fibers are PP, glass, kenaf, flax (none allowed); binder is coal gangue + slag + silica fume (coal gangue not allowed); no direct tension test.

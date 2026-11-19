@@ -1,0 +1,6 @@
+10.1016/j.conbuildmat.2026.145342 | rejected: every mix is activated with sodium carbonate (SC, Na2CO3, 1:1 molar with NaOH), which is not one of the 21 materials.
+10.1016/j.conbuildmat.2025.140927 | rejected: binder contains recycled construction-and-demolition-waste powders (brick, tile, concrete) and the aggregates are recycled CDW (not allowed materials); 7/28-d compressive strengths only in Fig. 6.
+10.1016/j.conbuildmat.2022.129841 | rejected: every fibre mix contains "SS" (steel slag, 400 kg/m3, CaO 36.8 / Fe2O3 26.4) in the binder, not an allowed material; fibre-free pastes (FS0-FS30) have no fibre.
+10.1016/j.jobe.2022.105792 | PARTIALLY ACCEPTED (4 rows): no direct tension test and compressive strengths per mix only in Fig. 12; only the fc values stated in the text were kept (M45-ECC with 2% PVA 7 d 40.1 and 28 d 67.6; M2_0.50_1250 28 d 39.5; M4_0.33_1250 28 d 68.9). Not used: the other six EGC mixes and all 7-d EGC values (figure only or derived from % differences); M3_0.33_1000 (48.2 MPa, sentence ambiguous).
+10.1002/suco.202200871 | ACCEPTED (16 rows, L-PVA / H-PVA / PE series). See notes: tensile age not stated separately from Table 5 (28 d).
+10.1002/suco.202200871 | review: tensile results left out, the age of the tension tests is not stated (28 d is stated for compressive only)

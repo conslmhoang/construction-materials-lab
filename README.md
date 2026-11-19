@@ -14,7 +14,7 @@ A browser-only tool for fiber-reinforced cementitious and geopolymer composites 
 |---|---|
 | `index.html` | Calculator + prediction |
 | `benchmark.html` | 10 ML models compared (10-fold cross-validation, random split) |
-| `data.html` | The 509 source papers |
+| `data.html` | The 512 source papers |
 
 ## Excel files: `excel/`
 
@@ -43,7 +43,7 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 2,180 / 396 | Extra Trees × Abrams W/B curve + CatBoost (mean) | 0.95 | 7.6 MPa |
+| Compressive strength | 2,201 / 399 | Extra Trees × Abrams W/B curve + CatBoost (mean) | 0.95 | 7.6 MPa |
 | Tensile strain capacity | 1,155 / 306 | Extra Trees | 0.76 | 1.02 % |
 
 The strain model also uses the fiber length, diameter, tensile strength and elastic modulus; the compressive-strength
