@@ -1,0 +1,6 @@
+10.3390/buildings13123020 (paper kept: 1 mix, 4 rows). Rejected parts:
+- Trial mixes 1-3 (5/10/15 % silica fume, Tables 4 and 12): only the SF replacement %, molarity and Na2SiO3/NaOH ratio are given; no kg/m3 proportions or AL/FA, so full proportions are not stated.
+- RSM runs 1-13 (Table 7) and the validation mix (Table 11, 58.235 MPa): only GGBS % and AL/FA given; the other proportions are not stated for them.
+- GPC (Table 6, Table 13/15): contains coarse aggregate (1092 kg/m3) and no fiber.
+- Tensile strain capacity: not reported (only tensile strength 4.003 MPa and figures).
+- Pull-out/bond and flexural results: not target outputs.

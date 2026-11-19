@@ -1,0 +1,6 @@
+10.1016/j.matpr.2023.07.055 - hybrid steel + polypropylene fibre in every fibre mix (PP not allowed); concrete with coarse aggregate; only unreinforced/hybrid mixes, tension only by splitting
+10.1016/j.conbuildmat.2025.144119 - every mix contains steel slag and quartz powder/quartz sand (not in the 21 materials); results (UCS) only in Fig. 10, not in text/table
+10.1016/j.conbuildmat.2025.144413 - polypropylene fibres only; compressive tests of geopolymer-cemented aeolian sand (no cement/mortar-type mix in scope)
+10.1016/j.polymertesting.2023.108199 - nano-SiO2 in every mix, coarse aggregate (concrete), metakaolin binder, steel+PVA hybrid; specimens after wet-hot-salt exposure, no ordinary-condition table values
+10.1016/j.clay.2025.108055 - binder is metakaolin + silica fume only (no cement/FA/GGBS); fly ash cenosphere used as fine aggregate (not in the 21 materials)
+10.1016/j.conbuildmat.2022.128428 - PE fibre mortar studied for crack fractal dimension under flexure; only matrix (fibre-free) compressive strength stated (31.9/29.3 MPa); no fc or direct tensile strain for fibre mixes; activator amounts given only as a combined total (not splittable)

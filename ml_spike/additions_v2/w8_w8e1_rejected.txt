@@ -1,0 +1,6 @@
+10.1016/j.jobe.2026.116870 - every mix contains rice husk ash (RHA, Table 5), not an allowed material.
+10.1016/j.jobe.2023.108141 - every mix contains POFA (palm oil fuel ash) and half the mixes PP fibre; compressive and splitting tensile results only in figures (Fig. 11, 15), no direct tension.
+10.1016/j.cemconcomp.2024.105727 - cryogenic (-170 C) exposure study; compressive and flexural results only in figures (Fig. 7); activator given only as solution masses; PP fibre mixes not allowed.
+10.1016/j.matpr.2024.05.064 - basalt fibre (not allowed) and coarse aggregate; compressive results only in Fig. 6.
+10.1016/j.conbuildmat.2025.145013 - every mix contains silica flour (ground quartz, not allowed); NaOH only as 4 M solution without stated solids; fibers carry nano-silica/CaCO3 surface coatings.
+10.1016/j.conbuildmat.2018.07.110 - PP and polyolefin fibres only (not allowed) and coarse aggregate concrete.

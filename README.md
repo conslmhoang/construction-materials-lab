@@ -14,7 +14,7 @@ A browser-only tool for fiber-reinforced cementitious and geopolymer composites 
 |---|---|
 | `index.html` | Calculator + prediction |
 | `benchmark.html` | 10 ML models compared (10-fold cross-validation, random split) |
-| `data.html` | The 506 source papers |
+| `data.html` | The 509 source papers |
 
 ## Excel files: `excel/`
 
@@ -43,11 +43,14 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 2,167 / 394 | Extra Trees × Abrams W/B curve + CatBoost (mean) | 0.95 | 7.6 MPa |
-| Tensile strain capacity | 1,151 / 305 | Extra Trees | 0.77 | 1.02 % |
+| Compressive strength | 2,180 / 396 | Extra Trees × Abrams W/B curve + CatBoost (mean) | 0.95 | 7.6 MPa |
+| Tensile strain capacity | 1,155 / 306 | Extra Trees | 0.76 | 1.02 % |
 
 The strain model also uses the fiber length, diameter, tensile strength and elastic modulus; the compressive-strength
 model does not (they did not improve it).
+
+NaOH given only as a molar solution is converted to NaOH solids + water with the OxyChem Caustic Soda Handbook,
+Table 1 (density and NaOH content at 60 °F): `ml_spike/additions_v2/naoh_solution.py`, `ml_spike/reference/naoh_solution_table.csv`.
 
 The compressive-strength model averages two models: Extra Trees that learn the deviation from an Abrams curve
 (log fc falls linearly with water / (cement + FA + GGBS + SF + MK + LP)) and CatBoost. Trees alone hardly lowered the

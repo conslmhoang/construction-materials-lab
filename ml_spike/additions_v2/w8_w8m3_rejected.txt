@@ -1,0 +1,5 @@
+10.3390/jmse8040278 - AAFS steel-fibre mortars; compressive strengths only in Figure 5 (text gives just 2 values); other curing is CO2/chloride/sulfuric acid exposure; NaOH and silicate only as solutions (Ms/Na2O% design), no direct tension.
+10.3390/buildings16010057 - every mix contains steel slag (not allowed) and borax retarder; NaOH/Na2SiO3 amounts fine but material list violated.
+10.3390/buildings13123020 - PVA EGC; NaOH only as 10 M solution (solids would need computing from molarity), silicate solution solids not stated, no strain value (tensile strength only), other mixes' full proportions not given.
+10.3390/app9163424 - geopolymer CONCRETE with coarse aggregate (593 kg), NaOH only as solution amount, PP fibers in half the series.
+10.3390/buildings14041094 - hybrid PE/PP; 12 of 15 mixes contain PP fiber; the 3 PE-only mixes contain BaCl2 retarder (not allowed), NaOH 10 M solution mixed 2:1 with water glass (activator amounts split from a total, solids by molarity).

@@ -1,0 +1,5 @@
+10.1016/j.jobe.2022.104556 - PE-fibre geopolymer mortar (fly ash/slag/SF, alkali-activator in kg/m3 as one lump, composition not given per component); compressive strength only in Fig. 9 (no table/text numbers); no direct tension.
+10.1016/j.jobe.2020.101519 - AAS concrete with coarse aggregate (906 kg/m3) and only glass/basalt/PP fibers (none of PE/PVA/steel); NaOH given as molarity-only solution.
+10.1016/j.cemconcomp.2026.106741 - uses sodium tetraborate decahydrate retarder (not allowed); compressive strength only in Fig. 10; mix given only as ratios (Na2O 5.75 %, Ms) so activator amounts would be derived.
+10.1016/j.tafmec.2021.103157 - NaOH given as 16 M solution only (no solids stated: would have to be computed from molarity); curing regime not stated; PP fibers in 3 of 7 mixes; no direct tension.
+10.1016/j.jobe.2026.117329 - UHPGC: sand amount not in table (only binder/sand = 1.0, binder ambiguous), stated W/B 0.3 does not reproduce from Table 2 (about 0.25-0.28), fc for steel-fibre mixes is only in Fig. 3 (text gives 2 values), no direct tension; half the mixes have coarse aggregate.

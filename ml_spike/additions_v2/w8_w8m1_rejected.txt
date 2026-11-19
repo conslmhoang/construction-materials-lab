@@ -1,0 +1,5 @@
+10.3390/fib6020030 - sisal (natural) fibers only, indirect (splitting) tensile test, no direct tension; fiber type not allowed.
+10.3390/buildings14123723 - metakaolin-only binder, PVA mixed with "polymer" fibers, microwave curing; no cement/FA/GGBS binder; also compressive fibers type outside scope.
+10.3390/buildings15193533 - geopolymer CONCRETE with coarse aggregate (1210 kg/m3); also NaOH given only as 14 M solution, solids not stated; no direct tension.
+10.3390/infrastructures10080192 - G-UHPC with quartz powder (not allowed), no fibers in any mix, results after elevated-temperature exposure.
+10.3390/min10040333 | restored 2026-11-19: NaOH solids from the paper's own Table 3 (8 M = 26 %); NaOH solution / water glass split from the stated total (0.36) and stated ratio (2.5)

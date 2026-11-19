@@ -1,0 +1,5 @@
+10.3390/app15041712 - PVA AAEC (FA-C/FA-F/GGBFS + Ca(OH)2 + Na2SiO3.5H2O or Na2SO4, one-part, silica sand). Only the 4 control mixes (B1,B2,T1,T2) are free of MgO/MWCNT/rGO, and they cannot be used: per-mix W/B is not stated (text only says "0.35 to 0.4"); reagent total R/B 0.09/0.12 in Table 2 contradicts text "0.35 of total binder"; Ca(OH)2 and Na2SiO3 amounts would have to be split from the total by the 1:2.5 / 2.5:1 ratio (not allowed); PVA fiber is 1.2% in 2.1 but 2% in 2.2 (text conflict). Also, all other 28 mixes contain MgO or carbon nanomaterials (not allowed).
+10.3390/coatings15111239 - polypropylene fibers (not allowed).
+10.3390/ma13061443 - polypropylene fibers (not allowed).
+10.3390/jcs10040201 - glass fibers and concrete (coarse aggregate) (not allowed).
+10.3390/fib4010011 - AR-glass, E-glass, basalt, carbon fibers only (not allowed); flexural tests, no direct tension.
