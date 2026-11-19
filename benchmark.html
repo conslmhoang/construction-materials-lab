@@ -87,6 +87,10 @@
       <li><b>Inputs:</b> exactly what the calculator asks for: the 20 materials (cement, fly ash and GGBS shares of the binder, the other materials per binder, PE / PVA / steel fiber vol%), curing method, temperature and duration, and test age. The tensile strain models also get the fiber length, diameter, tensile strength and elastic modulus.</li>
       <li><b>Testing:</b> 10-fold cross-validation with a random split. The mixes are shuffled and split into 10 parts; each part is predicted by a model trained on the other 9, so every mix is predicted once by a model that never saw it. Repeated with 3 random seeds and averaged.</li>
       <li><b>Hyper-parameters:</b> fixed for each model (no tuning on the test folds).</li>
+      <li><b>Model used on the calculator:</b> tensile strain capacity = Extra Trees (best here). Compressive strength = the mean of
+        Extra Trees trained on the deviation from an Abrams curve (strength falls exponentially with water / powder) and CatBoost:
+        same 10-fold test, R² 0.945 and MAE 7.6 MPa, and it keeps lowering the strength when water is added in mixes with few data
+        (a high-fly-ash ECC at W/B 0.36: 66 MPa with Extra Trees alone, 46 MPa with the combined model, 47 MPa measured).</li>
     </ul>
   </section>
 
