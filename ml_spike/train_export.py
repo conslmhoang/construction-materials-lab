@@ -1,6 +1,6 @@
 """Train the final strength models from "excel/04 Dataset_web.xlsx" and export them for the web.
 
-  fc  : mean of Extra Trees x Abrams(W/B) curve and CatBoost    eps : Extra Trees   (2026-11-18)
+  fc  : Extra Trees x Abrams(W/P) curve    eps : Extra Trees   (2026-11-20)
 
 Inputs = the 21 web materials + curing/test conditions + 5 values computed from them (web_data.py);
 the strain model also uses fiber length / diameter (TARGET_FEATURES in web_data.py).
@@ -22,14 +22,15 @@ from catboost import CatBoostRegressor
 
 X, Y, groups = load()
 SPEC = {
-    # fc: mean of Extra Trees x Abrams curve and CatBoost (class Ens). Abrams: fc falls exponentially with the water/powder
-    # ratio, which the trees alone do not learn where data are sparse (high-fly-ash mixes with W/B > 0.33).
-    # 10-fold random R2 0.945 vs 0.942 (ET alone), new-paper R2 0.798 vs 0.763. ET: 100 trees (same R2 as 300, 1/3 size).
-    "fc":  dict(kind="ens",      unit="MPa", label="Compressive strength", trees=100),
+    # fc: one model, Extra Trees x Abrams curve (class Abr). Abrams: fc falls exponentially with the water/powder ratio,
+    # which trees alone do not learn where data are sparse (high-fly-ash ECC at W/B 0.36: 66 MPa without, 49 with, 47.4 measured).
+    # Best of the 10 models when all learn the Abrams deviation (benchmark10.py). The user chose one model over the
+    # mean with CatBoost (R2 0.945) and over weighted stacking (0.946): 2026-11-20.
+    "fc":  dict(kind="abr",      unit="MPa", label="Compressive strength", trees=300),   # 300 trees: same R2 as 100 but steadier single predictions (ECC-PE 49.3 vs 50.8, measured 47.4)
     "eps": dict(kind="et",       unit="%",   label="Tensile strain capacity"),
 }
 
-NAME = {"catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest", "ens": "Extra Trees × Abrams W/B curve + CatBoost"}
+NAME = {"abr": "Extra Trees × Abrams W/B curve", "catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest", "ens": "Extra Trees × Abrams W/B curve + CatBoost"}
 POWDER = ("SF", "MK", "LP")   # counted with cement + FA + GGBS in the water/powder ratio of the Abrams curve
 WI = None                     # model columns of Water and of POWDER, set per target
 
@@ -49,7 +50,17 @@ class Ens:
     def base(self, Xa): return self.a + self.k * self.wp(Xa)
     def predict(self, Xa): return (np.exp(self.et.predict(prep("et", Xa)) + self.base(Xa)) + self.cb.predict(Xa)) / 2
 
+class Abr(Ens):
+    """Extra Trees x Abrams curve alone (the model on the web for fc)."""
+    def fit(self, Xa, y):
+        self.k, self.a = np.polyfit(self.wp(Xa), np.log(y), 1)
+        self.et = make("et", self.trees).fit(prep("et", Xa), np.log(y) - self.base(Xa))
+        return self
+    def predict(self, Xa): return np.exp(self.et.predict(prep("et", Xa)) + self.base(Xa))
+
 def make(kind, trees=300):
+    if kind == "abr":
+        return Abr(trees)
     if kind == "ens":
         return Ens(trees)
     if kind == "catboost":
@@ -60,7 +71,7 @@ def make(kind, trees=300):
     return ExtraTreesRegressor(n_estimators=trees, min_samples_leaf=2, max_features=0.5, n_jobs=-1, random_state=0)   # = benchmark10.py
 
 def prep(kind, Xa):
-    return Xa if kind in ("catboost", "ens") else np.where(np.isnan(Xa), -1.0, Xa)   # trees: NaN -> -1 (same in JS)
+    return Xa if kind in ("catboost", "ens", "abr") else np.where(np.isnan(Xa), -1.0, Xa)   # trees: NaN -> -1 (same in JS)
 
 def half_paper(g, seed):
     rng = np.random.default_rng(seed); tr, te = [], []
@@ -160,6 +171,9 @@ for key, s in SPEC.items():
                                              abrams=dict(a=r7(mdl.a), k=r7(mdl.k), w=FEATURES.index("Water"),
                                                          p=[FEATURES.index(f) for f in POWDER])),
                                         dict(kind="catboost", **export_cb(mdl.cb, key, feats, fidx))])
+    elif kind == "abr":
+        entry.update(kind="trees", **export_et(mdl.et, fidx), abrams=dict(a=r7(mdl.a), k=r7(mdl.k), w=FEATURES.index("Water"),
+                                                                        p=[FEATURES.index(f) for f in POWDER]))
     else: entry.update(export_et(mdl, fidx))
     out["targets"][key] = entry
 

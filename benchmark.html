@@ -87,10 +87,13 @@
       <li><b>Inputs:</b> exactly what the calculator asks for: the 20 materials (cement, fly ash and GGBS shares of the binder, the other materials per binder, PE / PVA / steel fiber vol%), curing method, temperature and duration, and test age. The tensile strain models also get the fiber length, diameter, tensile strength and elastic modulus.</li>
       <li><b>Testing:</b> 10-fold cross-validation with a random split. The mixes are shuffled and split into 10 parts; each part is predicted by a model trained on the other 9, so every mix is predicted once by a model that never saw it. Repeated with 3 random seeds and averaged.</li>
       <li><b>Hyper-parameters:</b> fixed for each model (no tuning on the test folds).</li>
-      <li><b>Model used on the calculator:</b> tensile strain capacity = Extra Trees (best here). Compressive strength = the mean of
-        Extra Trees trained on the deviation from an Abrams curve (strength falls exponentially with water / powder) and CatBoost:
-        same 10-fold test, R² 0.945 and MAE 7.6 MPa, and it keeps lowering the strength when water is added in mixes with few data
-        (a high-fly-ash ECC at W/B 0.36: 66 MPa with Extra Trees alone, 46 MPa with the combined model, 47 MPa measured).</li>
+      <li><b>Abrams curve (compressive strength):</b> every model learns how far a mix lies from an Abrams curve,
+        log f<sub>c</sub> = a + k · W/P, with W/P = water / (cement + FA + GGBS + SF + MK + LP); a and k are fitted on the
+        training folds only. Without it, tree models hardly lower the strength when water is added in mixes with few data
+        (a high-fly-ash ECC at W/B 0.36: Extra Trees 66 MPa without the curve, 49 MPa with it, 47.4 MPa measured).
+        Tensile strain capacity: no curve (the Abrams law is about strength).</li>
+      <li><b>Model used on the calculator:</b> the best model of each tab, one model each: Extra Trees with the Abrams curve
+        for compressive strength, Extra Trees for tensile strain capacity.</li>
     </ul>
   </section>
 
@@ -166,8 +169,8 @@ function render(){
   const lin = T.models.find(m => m.model === "Linear Regression");
   $("findings").innerHTML = `<ul>
     <li><b>${esc(best.model)}</b> is best under 10-fold cross-validation (R² ${fmt(best["R2 random-row"],3)}, MAE ${fmt(best["MAE random-row"],d)} ${unit}). Top three: ${esc(top3)}.</li>
-    <li>The five tree ensembles (CatBoost, XGBoost, Gradient Boosting, Extra Trees, Random Forest) are within about 0.02 R² of each other and clearly ahead of SVR, ANN, KNN and a single decision tree.</li>
-    <li>${lin ? `Linear regression is weakest (R² ${fmt(lin["R2 random-row"],2)}): strength depends non-linearly on water/binder ratio, binder type, fiber content and curing.` : ""}</li>
+    <li>The five tree ensembles (CatBoost, XGBoost, Gradient Boosting, Extra Trees, Random Forest) are within about 0.02 R² of each other and ahead of SVR, ANN, KNN and a single decision tree.</li>
+    <li>${lin ? `Linear regression is weakest (R² ${fmt(lin["R2 random-row"],2)}): ${cur === "fc" ? "the Abrams curve covers water/powder, but binder type, fiber content and curing act non-linearly" : "strain depends non-linearly on binder type, fiber content and curing"}.` : ""}</li>
     ${cur === "eps" ? "<li>Strain capacity depends on fiber–matrix bond and flaws that the mix recipe does not capture, so all models are weak here. Treat strain predictions as indicative only.</li>" : ""}
   </ul>`;
   // table

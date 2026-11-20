@@ -43,7 +43,7 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 2,201 / 399 | Extra Trees × Abrams W/B curve + CatBoost (mean) | 0.95 | 7.6 MPa |
+| Compressive strength | 2,201 / 399 | Extra Trees × Abrams W/P curve | 0.94 | 7.7 MPa |
 | Tensile strain capacity | 1,155 / 306 | Extra Trees | 0.76 | 1.02 % |
 
 The strain model also uses the fiber length, diameter, tensile strength and elastic modulus; the compressive-strength
@@ -52,10 +52,11 @@ model does not (they did not improve it).
 NaOH given only as a molar solution is converted to NaOH solids + water with the OxyChem Caustic Soda Handbook,
 Table 1 (density and NaOH content at 60 °F): `ml_spike/additions_v2/naoh_solution.py`, `ml_spike/reference/naoh_solution_table.csv`.
 
-The compressive-strength model averages two models: Extra Trees that learn the deviation from an Abrams curve
-(log fc falls linearly with water / (cement + FA + GGBS + SF + MK + LP)) and CatBoost. Trees alone hardly lowered the
+The compressive-strength model is one model: Extra Trees that learn the deviation from an Abrams curve
+(log fc falls linearly with water / (cement + FA + GGBS + SF + MK + LP), fitted on the data). Trees alone hardly lowered the
 strength when more water was added in regions with few data (e.g. high-fly-ash ECC at W/B 0.36: 66 MPa predicted,
-47 MPa measured; now 46 MPa).
+47.4 MPa measured; with the curve 49 MPa). In the 10-model comparison every model gets the same Abrams curve for
+compressive strength. Averaging with CatBoost or weighted stacking added only about 0.006 R², so the web keeps one model.
 
 ## Rebuilding
 

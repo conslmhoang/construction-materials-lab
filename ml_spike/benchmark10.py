@@ -3,6 +3,9 @@
 Targets : compressive strength, tensile strain capacity
 Inputs  : the 21 web materials + curing/test conditions (web_data.py) — same as train_export.py
 Score   : 10-fold cross-validation, random split, mean of 3 seeds
+Compressive strength: every model learns the deviation from an Abrams curve, log fc = a + k * W/P
+(W/P = water / (cement + FA + GGBS + SF + MK + LP)), fitted on the training folds only; prediction = exp(model + curve).
+Strain capacity: plain target (the Abrams law is about strength, not strain).
 
 Usage:  python benchmark10.py
 Writes bench10/benchmark10.csv, bench10/benchmark10.json (read by benchmark.html), bench10/benchmark10.png
@@ -55,22 +58,29 @@ MODELS = {
 TARGETS = {"fc": ("Compressive strength fc", "MPa"),
            "eps": ("Tensile strain capacity εtu", "%")}
 
-def run(Xa, y, splits, mk):
+def run(Xa, y, splits, mk, wp=None):
     pp = np.zeros(len(y))
     for tr, te in splits:
         keep = ~np.all(np.isnan(Xa[tr]), axis=0)
-        pp[te] = mk().fit(Xa[tr][:, keep], y[tr]).predict(Xa[te][:, keep])
+        if wp is None:
+            pp[te] = mk().fit(Xa[tr][:, keep], y[tr]).predict(Xa[te][:, keep])
+        else:                                                 # Abrams: curve fitted on the training rows only
+            k, a = np.polyfit(wp(Xa[tr]), np.log(y[tr]), 1)
+            mdl = mk().fit(Xa[tr][:, keep], np.log(y[tr]) - a - k * wp(Xa[tr]))
+            pp[te] = np.exp(mdl.predict(Xa[te][:, keep]) + a + k * wp(Xa[te]))
     return pp
 
 rows, web = [], {"date": pd.Timestamp.now().strftime("%Y-%m-%d"), "features": FEATURES, "targets": {}}
 for key, (label, unit) in TARGETS.items():
     m = Y[key].notna().values
     Xa = X.loc[m, TARGET_FEATURES[key]].values.astype(float); ya = Y[key].values[m]; ga = groups[m].values
-    T = {"label": label, "unit": unit, "n_rows": int(m.sum()), "n_papers": int(len(np.unique(ga))), "models": [], "oof_random": {}}
+    F = TARGET_FEATURES[key]; wi = [F.index(f) for f in ("Water", "SF", "MK", "LP")]
+    wp = (lambda Z: Z[:, wi[0]] / (1 + np.nansum(Z[:, wi[1:]], axis=1))) if key == "fc" else None
+    T = {"label": label, "abrams": key == "fc", "unit": unit, "n_rows": int(m.sum()), "n_papers": int(len(np.unique(ga))), "models": [], "oof_random": {}}
     for mname, (family, mk) in MODELS.items():
         t0 = time.time(); r = {"target": key, "model": mname, "family": family}; sc = []
         for s_ in range(3):
-            pp = run(Xa, ya, KFold(10, shuffle=True, random_state=s_).split(Xa), mk)
+            pp = run(Xa, ya, KFold(10, shuffle=True, random_state=s_).split(Xa), mk, wp)
             sc.append((r2_score(ya, pp), mean_absolute_error(ya, pp), mean_squared_error(ya, pp) ** 0.5))
             if s_ == 0: T["oof_random"][mname] = [round(float(v), 3) for v in pp]
         for j, k in enumerate(["R2", "MAE", "RMSE"]):

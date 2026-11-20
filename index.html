@@ -985,7 +985,7 @@ const FEAT_LABEL = {Cement:"Cement share of binder", FA:"Fly ash share", GGBS:"G
 
 /* --- model evaluation (same arithmetic as CatBoost / scikit-learn) --- */
 function predictOne(t, x){
-  // mean of several models (fc: Extra Trees x Abrams W/B curve + CatBoost, ml_spike/train_export.py)
+  // mean of several models (not used now; fc = one Extra Trees model x Abrams W/P curve, ml_spike/train_export.py)
   if (t.kind === "avg") return t.parts.reduce((s, p) => s + predictOne(p, x), 0) / t.parts.length;
   if (t.abrams){      // trees learn log fc - (a + k * W/P), W/P = water / (cement + FA + GGBS + SF + MK + LP)
     const {abrams:A, ...rest} = t;
