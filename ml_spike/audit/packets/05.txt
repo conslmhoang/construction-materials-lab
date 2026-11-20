@@ -1,0 +1,17 @@
+PAPER: Investigation on mechanical properties, pore distribution and crack evolution impact of high ductility low carbon engineered cementitious composites (LCECC) using different eco-friendly aggregates
+DOI: 10.1016/j.jobe.2025.112277
+SOURCES: ['I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\elsevier_txt\\ELS_10_1016_j_jobe_2025_112277.txt']
+Strain rows: 11  MAE 1.94 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber length (mm),PE fiber diameter (µm),PE fiber tensile strength (MPa),PE fiber elastic modulus (GPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Tensile strain capacity (%),row,pred
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.32892,0.21928,0.0,0.2741,0.07614,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,6.6,1955,11.3
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.32892,0.21928,0.0,0.2741,0.07614,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,13.81,1956,7.75
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.32892,0.21928,0.0,0.2741,0.07614,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,8.91,1957,10.15
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.5482,0.0,0.0,0.2741,0.0533,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,6.78,1958,5.31
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.5482,0.0,0.0,0.2741,0.0533,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,5.33,1959,5.38
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.5482,0.0,0.0,0.2741,0.0533,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,6.83,1960,5.17
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.5482,0.0,0.0,0.2741,0.0533,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,4.39,1961,5.31
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.5482,0.0,0.0,0.2741,0.0533,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,4.27,1962,5.54
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.5482,0.0,0.0,0.2741,0.0533,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,3.5,1963,5.67
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.5482,0.0,0.0,0.2741,0.0533,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,6.81,1964,5.13
+0.45455,0.18182,0.36364,0.06822,0.30455,0.14999,0.5482,0.0,0.0,0.2741,0.0533,0.0,0.0,0.0,0.0,0.0,0.0,1.8,0.0,0.0,12.0,24.0,3000.0,116.0,Standard moist room,20,28.0,28.0,5.27,1965,5.13

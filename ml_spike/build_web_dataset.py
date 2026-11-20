@@ -165,6 +165,22 @@ D = D[keep].reset_index(drop=True)
 num = D.columns[2:2 + len(M21)]
 D[num] = D[num].round(5)
 
+# ---- strain audit (audit/corrections.json, made by audit/make_corrections.py; evidence in audit/report_*.md):
+# each edit names a row by (DOI, n-th row of that DOI) and the strain / fc it must still have, so nothing moves silently
+COR = json.load(open(os.path.join(here, "audit", "corrections.json"), encoding="utf-8"))
+kth = D.groupby("DOI").cumcount()
+FCC, EPC = "Compressive strength (MPa)", "Tensile strain capacity (%)"
+same = lambda a, b: (b is None and pd.isna(a)) or (b is not None and not pd.isna(a) and abs(float(a) - b) < 1e-6)
+dropped = []
+for c in COR:
+    i = D.index[(D["DOI"] == c["doi"]) & (kth == c["k"])]
+    assert len(i) == 1 and same(D.at[i[0], EPC], c["eps"]) and same(D.at[i[0], FCC], c["fc"]), f"audit row moved: {c}"
+    if c["action"] == "drop": dropped.append(i[0])
+    for col, v in c["set"].items(): D.at[i[0], col] = np.nan if v is None else v
+D = D.drop(index=dropped)
+D = D[D[FCC].notna() | D[EPC].notna()].reset_index(drop=True)
+print("audit:", len(COR), "row edits,", len(dropped), "rows dropped")
+
 guide = pd.DataFrame({"Item": [
     "One row", "Paper / DOI", "Cement, Fly ash, GGBS", "Other materials", "Fibers", "Curing method",
     "Curing temperature", "Curing duration", "Outputs", "Rules", "Source", "Rebuild"], "Meaning": [

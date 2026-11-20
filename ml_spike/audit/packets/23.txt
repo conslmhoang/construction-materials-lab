@@ -1,0 +1,12 @@
+PAPER: Multiple cracking and strain-hardening criteria of Engineered Cementitious Composites (ECC) with river sand
+DOI: 10.1016/j.cemconres.2024.107511
+SOURCES: ['I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\elsevier_txt\\ELS_10_1016_j_cemconres_2024_107511.txt']
+Strain rows: 6  MAE 1.96 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber length (mm),PE fiber diameter (µm),PE fiber tensile strength (MPa),PE fiber elastic modulus (GPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Tensile strain capacity (%),row,pred
+0.66693,0.33307,0.0,0.11125,0.0,0.0,0.5,0.0,0.0,0.17804,0.01589,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,19.0,3000.0,110.0,Heat / steam curing,90,3.0,4.0,9.44,1437,8.65
+0.66633,0.33367,0.0,0.11148,0.0,0.0,0.61154,0.0,0.0,0.17817,0.01689,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,19.0,3000.0,110.0,Heat / steam curing,90,3.0,4.0,10.0,1438,8.81
+0.66667,0.33333,0.0,0.11085,0.0,0.0,0.72198,0.0,0.0,0.17783,0.02055,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,19.0,3000.0,110.0,Heat / steam curing,90,3.0,4.0,11.5,1439,7.9
+0.4,0.6,0.0,0.0,0.0,0.0,0.3602,0.0,0.0,0.2398,0.008,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,12.0,24.0,3000.0,110.0,Heat / steam curing,90,3.0,4.0,10.12,1440,8.0
+0.4007,0.5993,0.0,0.0,0.0,0.0,0.5494,0.0,0.0,0.2395,0.0098,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,12.0,24.0,3000.0,110.0,Heat / steam curing,90,3.0,4.0,9.07,1441,7.24
+0.4004,0.5996,0.0,0.0,0.0,0.0,0.7493,0.0,0.0,0.2398,0.0168,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,12.0,24.0,3000.0,110.0,Heat / steam curing,90,3.0,4.0,4.09,1442,6.35

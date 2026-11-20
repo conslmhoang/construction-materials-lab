@@ -1,0 +1,9 @@
+PAPER: Enhancing the long-age ductile performance of Engineered Cementitious Composites (ECC) by replacing sand with crumb rubber
+DOI: 10.1016/j.jobe.2025.115166
+SOURCES: ['I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\elsevier_txt\\ELS_10_1016_j_jobe_2025_115166.txt']
+Strain rows: 3  MAE 5.07 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber length (mm),PE fiber diameter (µm),PE fiber tensile strength (MPa),PE fiber elastic modulus (GPa),Steel fiber length (mm),Steel fiber diameter (µm),Steel fiber tensile strength (MPa),Steel fiber elastic modulus (GPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Tensile strain capacity (%),row,pred
+0.65476,0.25,0.09524,0.19048,0.0,0.0,0.35714,0.0,0.0,0.21429,0.01786,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.5,18.0,24.0,3200.0,116.0,13.0,200.0,2400.0,200.0,Standard moist room,20,28.0,28.0,9.51,1807,3.33
+0.65476,0.25,0.09524,0.19048,0.0,0.0,0.35714,0.0,0.0,0.21429,0.01786,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.5,18.0,24.0,3200.0,116.0,13.0,200.0,2400.0,200.0,Air (lab ambient),20,60.0,60.0,2.32,1808,6.98
+0.65476,0.25,0.09524,0.19048,0.0,0.0,0.35714,0.0,0.0,0.21429,0.01786,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.5,18.0,24.0,3200.0,116.0,13.0,200.0,2400.0,200.0,Air (lab ambient),20,90.0,90.0,2.66,1809,7.02

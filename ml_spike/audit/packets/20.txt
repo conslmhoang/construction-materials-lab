@@ -1,0 +1,11 @@
+PAPER: Effect of fiber content and fiber length on the dynamic compressive properties of strain-hardening ultra-high performance concrete
+DOI: 10.1016/j.conbuildmat.2022.127024
+SOURCES: ['I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\elsevier_txt\\ELS_10_1016_j_conbuildmat_2022_127024.txt']
+Strain rows: 5  MAE 2.58 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber length (mm),PE fiber diameter (µm),PE fiber tensile strength (MPa),PE fiber elastic modulus (GPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Compressive strength (MPa),Tensile strain capacity (%),row,pred
+1.0,0.0,0.0,0.11,0.0,0.0,0.44,0.0,0.0,0.222,0.01998,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,18.0,30.0,3250.0,113.0,Heat / steam curing,90,2.0,10.0,128.9,0.37,1771,2.18
+1.0,0.0,0.0,0.11,0.0,0.0,0.44,0.0,0.0,0.222,0.01998,0.0,0.0,0.0,0.0,0.0,0.0,1.5,0.0,0.0,18.0,30.0,3250.0,113.0,Heat / steam curing,90,2.0,10.0,145.2,0.75,1772,3.39
+1.0,0.0,0.0,0.11,0.0,0.0,0.44,0.0,0.0,0.222,0.01998,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,30.0,3250.0,113.0,Heat / steam curing,90,2.0,10.0,136.9,5.71,1773,1.64
+1.0,0.0,0.0,0.11,0.0,0.0,0.44,0.0,0.0,0.222,0.01998,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,12.0,30.0,3250.0,113.0,Heat / steam curing,90,2.0,10.0,116.6,0.8,1774,2.88
+1.0,0.0,0.0,0.11,0.0,0.0,0.44,0.0,0.0,0.222,0.01998,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,6.0,30.0,3250.0,113.0,Heat / steam curing,90,2.0,10.0,106.4,0.13,1775,2.45

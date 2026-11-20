@@ -1,0 +1,10 @@
+PAPER: Curing-dependent behaviors of sustainable alkali-activated fiber reinforced composite: Temperature and humidity effects
+DOI: 10.1016/j.jobe.2024.110392
+SOURCES: ['I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\elsevier_txt\\ELS_10_1016_j_jobe_2024_110392.txt']
+Strain rows: 4  MAE 2.98 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber length (mm),PE fiber diameter (µm),PE fiber tensile strength (MPa),PE fiber elastic modulus (GPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Tensile strain capacity (%),row,pred
+0.0,0.0,1.0,0.25,0.0,0.0,0.375,0.0,0.0,0.28738,0.0,0.0,0.045,0.0,0.0,0.205,0.0,2.0,0.0,0.0,12.0,24.0,3000.0,110.0,Sealed / wrapped,20,28.0,28.0,7.96,2758,8.31
+0.0,0.0,1.0,0.25,0.0,0.0,0.375,0.0,0.0,0.28738,0.0,0.0,0.045,0.0,0.0,0.205,0.0,2.0,0.0,0.0,12.0,24.0,3000.0,110.0,Sealed / wrapped,20,28.0,28.0,9.6,2759,7.47
+0.0,0.0,1.0,0.25,0.0,0.0,0.375,0.0,0.0,0.28738,0.0,0.0,0.045,0.0,0.0,0.205,0.0,2.0,0.0,0.0,12.0,24.0,3000.0,110.0,Sealed / wrapped,60,28.0,28.0,12.2,2760,6.99
+0.0,0.0,1.0,0.25,0.0,0.0,0.375,0.0,0.0,0.28738,0.0,0.0,0.045,0.0,0.0,0.205,0.0,2.0,0.0,0.0,12.0,24.0,3000.0,110.0,Sealed / wrapped,-5,28.0,28.0,5.12,2761,9.35

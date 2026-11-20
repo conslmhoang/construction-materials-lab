@@ -1,0 +1,9 @@
+PAPER: Feasibility of using ultra-high ductility cementitious composites for concrete structures without steel rebar
+DOI: 10.1016/j.engstruct.2018.05.037
+SOURCES: ['I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\elsevier_txt\\ELS_10_1016_j_engstruct_2018_05_037.txt']
+Strain rows: 3  MAE 3.43 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber diameter (µm),PE fiber tensile strength (MPa),PE fiber elastic modulus (GPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Compressive strength (MPa),Tensile strain capacity (%),row,pred
+0.8232,0.1768,0.0,0.0,0.0,0.0,0.5286,0.0,0.0,0.3175,0.0037,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,24.0,2900.0,116.0,Standard moist room,20,180.0,180.0,45.86,11.98,1207,8.28
+0.4543,0.5457,0.0,0.0,0.0,0.0,0.3638,0.0,0.0,0.317,0.0038,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,24.0,2900.0,116.0,Standard moist room,20,28.0,28.0,12.85,13.55,1208,7.78
+0.43477,0.0,0.56523,0.13045,0.0,0.0,0.60875,0.0,0.0,0.19998,0.0217,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,24.0,2900.0,116.0,Standard moist room,20,28.0,28.0,118.5,8.7,1209,7.87

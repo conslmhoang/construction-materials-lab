@@ -1,0 +1,15 @@
+PAPER: Influence of curing conditions on mechanical and microstructural properties of ultra-high-performance strain-hardening cementitious composites with strain capacity up to 17.3%
+DOI: 10.1016/j.dibe.2023.100150
+SOURCES: ['I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\elsevier_txt\\ELS_10_1016_j_dibe_2023_100150.txt']
+Strain rows: 9  MAE 3.65 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber tensile strength (MPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Tensile strain capacity (%),row,pred
+0.6667,0.0,0.3333,0.11136,0.0,0.0,0.33341,0.0,0.0,0.18471,0.02167,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,3000.0,Sealed / wrapped,20,7.0,7.0,17.3,1680,11.44
+0.6667,0.0,0.3333,0.11136,0.0,0.0,0.33341,0.0,0.0,0.18471,0.02167,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,3000.0,Sealed / wrapped,20,7.0,7.0,14.9,1681,12.5
+0.6667,0.0,0.3333,0.11136,0.0,0.0,0.33341,0.0,0.0,0.18471,0.02167,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,3000.0,Sealed / wrapped,20,7.0,7.0,8.9,1682,15.07
+0.6667,0.0,0.3333,0.11136,0.0,0.0,0.33341,0.0,0.0,0.18471,0.02167,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,3000.0,Sealed / wrapped,20,28.0,28.0,11.6,1683,8.4
+0.6667,0.0,0.3333,0.11136,0.0,0.0,0.33341,0.0,0.0,0.18471,0.02167,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,3000.0,Sealed / wrapped,20,28.0,28.0,10.1,1684,9.02
+0.6667,0.0,0.3333,0.11136,0.0,0.0,0.33341,0.0,0.0,0.18471,0.02167,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,3000.0,Sealed / wrapped,20,28.0,28.0,6.3,1685,10.71
+0.6667,0.0,0.3333,0.11136,0.0,0.0,0.33341,0.0,0.0,0.18471,0.02167,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,3000.0,Sealed / wrapped,20,91.0,91.0,11.5,1686,9.54
+0.6667,0.0,0.3333,0.11136,0.0,0.0,0.33341,0.0,0.0,0.18471,0.02167,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,3000.0,Sealed / wrapped,20,91.0,91.0,11.8,1687,9.54
+0.6667,0.0,0.3333,0.11136,0.0,0.0,0.33341,0.0,0.0,0.18471,0.02167,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,3000.0,Sealed / wrapped,20,91.0,91.0,6.0,1688,11.52

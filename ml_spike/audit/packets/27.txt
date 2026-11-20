@@ -1,0 +1,12 @@
+PAPER: Influences of Sodium Lignosulfonate and High-Volume Fly Ash on Setting Time and Hardened S
+DOI: 10.3390/ma14174779
+SOURCES: []
+Strain rows: 4  MAE 2.60 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PVA fiber length (mm),PVA fiber diameter (µm),PVA fiber tensile strength (MPa),PVA fiber elastic modulus (GPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Compressive strength (MPa),Tensile strain capacity (%),row,pred
+0.4545,0.5455,0.0,0.0,0.0,0.0,0.3636,0.0,0.0,0.35,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,12.0,39.0,1600.0,41.0,Water curing,20,27.0,28.0,62.0,1.5,171,3.37
+0.3125,0.6875,0.0,0.0,0.0,0.0,0.25,0.0,0.0,0.35,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,12.0,39.0,1600.0,41.0,Water curing,20,27.0,28.0,27.0,7.0,172,3.21
+0.4545,0.5455,0.0,0.0,0.0,0.0,0.3636,0.0,0.0,0.35,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,12.0,39.0,1600.0,41.0,Water curing,20,27.0,28.0,,5.0,173,1.71
+0.4545,0.5455,0.0,0.0,0.0,0.0,0.3636,0.0,0.0,0.35,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,12.0,39.0,1600.0,41.0,Water curing,20,27.0,28.0,,1.8,174,3.27
+0.4545,0.5455,0.0,0.0,0.0,0.0,0.3636,0.0,0.0,0.35,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,12.0,39.0,1600.0,41.0,Water curing,20,6.0,7.0,20.0,,175,
+0.4545,0.5455,0.0,0.0,0.0,0.0,0.3636,0.0,0.0,0.35,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,12.0,39.0,1600.0,41.0,Water curing,20,6.0,7.0,24.0,,176,

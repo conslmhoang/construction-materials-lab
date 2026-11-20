@@ -1,0 +1,9 @@
+PAPER: Extremely-ductile alkali-activated slag-based composite with a tensile strain capacity up to 22 %
+DOI: 10.1016/j.ceramint.2022.12.057
+SOURCES: ['I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\elsevier_txt\\ELS_10_1016_j_ceramint_2022_12_057.txt', 'I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\download\\023_Lương_2023_10.1016_j.ceramint.2022.12.057.txt']
+Strain rows: 3  MAE 7.68 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber length (mm),PE fiber diameter (µm),PE fiber tensile strength (MPa),PE fiber elastic modulus (GPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Compressive strength (MPa),Tensile strain capacity (%),row,pred
+0.0,0.0,1.0,0.0,0.0,0.0,0.88889,0.05556,0.0,0.2,0.11778,0.0,0.0,0.0,0.0,0.0,0.11111,1.75,0.0,0.0,18.0,12.0,2700.0,88.0,Water curing,23,28.0,28.0,54.6,9.81,1286,20.76
+0.0,0.0,1.0,0.0,0.0,0.0,0.88889,0.05556,0.0,0.2,0.11778,0.0,0.0,0.0,0.0,0.0,0.11111,1.75,0.0,0.0,18.0,12.0,2700.0,88.0,Water curing,23,28.0,28.0,53.6,22.34,1287,15.31
+0.0,0.0,1.0,0.0,0.0,0.0,0.88889,0.05556,0.0,0.2,0.11778,0.0,0.0,0.0,0.0,0.0,0.11111,1.75,0.0,0.0,18.0,12.0,2700.0,88.0,Water curing,23,28.0,28.0,52.2,20.89,1288,15.82

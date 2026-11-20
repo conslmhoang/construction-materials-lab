@@ -1,0 +1,10 @@
+PAPER: Evaluation on the Mechanical Properties of Strain Hardening Cement Composite by Mixing Met
+DOI: 10.5345/jkibc.2011.11.6.530
+SOURCES: []
+Strain rows: 4  MAE 2.90 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber length (mm),PE fiber diameter (µm),PE fiber tensile strength (MPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Compressive strength (MPa),Tensile strain capacity (%),row,pred
+0.9,0.1,0.0,0.0,0.0,0.0,0.8,0.0,0.0,0.45,0.017,0.0036,0.0,0.0,0.0,0.0,0.0,1.5,0.0,0.0,15.0,12.0,1600.0,Water curing,20,28.0,28.0,29.3,6.1,145,3.66
+0.9,0.1,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.45,0.016,0.00315,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,12.0,12.0,1600.0,Water curing,20,28.0,28.0,30.75,5.88,146,2.9
+0.9,0.1,0.0,0.0,0.0,0.0,0.8,0.0,0.0,0.45,0.02,0.0036,0.0,0.0,0.0,0.0,0.0,1.5,0.0,0.0,15.0,12.0,1600.0,Water curing,20,28.0,28.0,29.67,3.1,147,5.48
+0.9,0.1,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.45,0.02,0.00315,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,12.0,12.0,1600.0,Water curing,20,28.0,28.0,28.45,1.63,148,5.41

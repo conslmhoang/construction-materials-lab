@@ -14,7 +14,7 @@ A browser-only tool for fiber-reinforced cementitious and geopolymer composites 
 |---|---|
 | `index.html` | Calculator + prediction |
 | `benchmark.html` | 10 ML models compared (10-fold cross-validation, random split) |
-| `data.html` | The 512 source papers |
+| `data.html` | The 508 source papers |
 
 ## Excel files: `excel/`
 
@@ -43,8 +43,8 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 2,201 / 399 | Extra Trees × Abrams W/P curve | 0.94 | 7.7 MPa |
-| Tensile strain capacity | 1,155 / 306 | Extra Trees | 0.76 | 1.02 % |
+| Compressive strength | 2,144 / 395 | Extra Trees × Abrams W/P curve | 0.94 | 7.8 MPa |
+| Tensile strain capacity | 1,094 / 302 | Extra Trees | 0.78 | 0.95 % |
 
 The strain model also uses the fiber length, diameter, tensile strength and elastic modulus; the compressive-strength
 model does not (they did not improve it).
@@ -54,9 +54,16 @@ Table 1 (density and NaOH content at 60 °F): `ml_spike/additions_v2/naoh_soluti
 
 The compressive-strength model is one model: Extra Trees that learn the deviation from an Abrams curve
 (log fc falls linearly with water / (cement + FA + GGBS + SF + MK + LP), fitted on the data). Trees alone hardly lowered the
-strength when more water was added in regions with few data (e.g. high-fly-ash ECC at W/B 0.36: 66 MPa predicted,
-47.4 MPa measured; with the curve 49 MPa). In the 10-model comparison every model gets the same Abrams curve for
+strength when more water was added in regions with few data (e.g. high-fly-ash ECC at W/B 0.36: 64 MPa predicted,
+47.4 MPa measured; with the curve 47 MPa). In the 10-model comparison every model gets the same Abrams curve for
 compressive strength. Averaging with CatBoost or weighted stacking added only about 0.006 R², so the web keeps one model.
+
+Strain audit (Nov 2026): the 30 papers with the largest strain errors were checked against the papers. Every strain
+value matched; the errors were in the inputs. 63 rows were removed (marble powder entered as limestone, curing that is not
+one web method or has no stated temperature, unstated admixture dosage, one paper that could not be checked), curing labels,
+water (from the mix table) and hybrid PVA fiber properties were corrected, and compressive strengths read from figures were
+removed. Edits: `ml_spike/audit/corrections.json` (applied by `build_web_dataset.py`), evidence: `ml_spike/audit/report_*.md`.
+On the rows the audit did not touch, the strain MAE fell from 1.00 to 0.95 %.
 
 ## Rebuilding
 

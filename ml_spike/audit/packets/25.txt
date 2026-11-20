@@ -1,0 +1,10 @@
+PAPER: Mechanical and autogenous healing properties of high-strength and ultra-ductility engineered geopolymer composites reinforced by PE-PVA hybrid fibers
+DOI: 10.1016/j.cemconcomp.2023.105155
+SOURCES: ['I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\download\\019_Nguyễn_2023_10.1016_j.cemconcomp.2023.105155.txt']
+Strain rows: 4  MAE 2.89 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber length (mm),PE fiber diameter (µm),PE fiber tensile strength (MPa),PE fiber elastic modulus (GPa),PVA fiber length (mm),PVA fiber diameter (µm),PVA fiber tensile strength (MPa),PVA fiber elastic modulus (GPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Tensile strain capacity (%),row,pred
+0.0,0.42105,0.57895,0.05263,0.0,0.0,1.05263,0.0,0.0,0.10526,0.02105,0.0,0.05263,0.0,0.0,0.47368,0.0,1.0,0.5,0.0,18.0,12.0,3030.0,88.0,12.0,40.0,1560.0,41.0,Heat / steam curing,100,1.0,35.0,10.51,2738,9.1
+0.0,0.42105,0.57895,0.05263,0.0,0.0,1.05263,0.0,0.0,0.10526,0.02105,0.0,0.05263,0.0,0.0,0.47368,0.0,0.5,1.0,0.0,18.0,12.0,3030.0,88.0,12.0,40.0,1560.0,41.0,Heat / steam curing,100,1.0,35.0,6.79,2739,4.88
+0.0,0.68421,0.31579,0.05263,0.0,0.0,1.05263,0.0,0.0,0.10526,0.02105,0.0,0.05263,0.0,0.0,0.47368,0.0,1.0,0.5,0.0,18.0,12.0,3030.0,88.0,12.0,40.0,1560.0,41.0,Heat / steam curing,100,1.0,35.0,11.99,2740,8.98
+0.0,0.68421,0.31579,0.05263,0.0,0.0,1.05263,0.0,0.0,0.10526,0.02105,0.0,0.05263,0.0,0.0,0.47368,0.0,0.5,1.0,0.0,18.0,12.0,3030.0,88.0,12.0,40.0,1560.0,41.0,Heat / steam curing,100,1.0,35.0,10.35,2741,5.12

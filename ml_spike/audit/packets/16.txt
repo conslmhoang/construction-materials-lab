@@ -1,0 +1,15 @@
+PAPER: Sand morphology and size effects on fracture and tensile behaviors of engineered cementitious composites with a roughness-based size effect model
+DOI: 10.1016/j.conbuildmat.2026.148363
+SOURCES: ['I:\\01 Master\\02 Smart Concrete\\01 Developing app for predict compressive and tensile strength\\ConstructionMaterialsLab\\Papers\\Paper news\\elsevier_txt\\ELS_10_1016_j_conbuildmat_2026_148363.txt']
+Strain rows: 9  MAE 1.57 %
+
+Cement (OPC),Fly ash (FA),GGBS (slag),Silica fume (SF),Metakaolin (MK),Limestone powder (LP),Sand,Crumb rubber (CR),EPS beads,Water,Superplasticizer (SP),VMA,NaOH,Na2SO4,Na2SiO3 (SSM / ASM / SMP),Water glass (WG),Ca(OH)2,PE fiber,PVA fiber,Steel fiber,PE fiber length (mm),PE fiber diameter (µm),PE fiber tensile strength (MPa),PE fiber elastic modulus (GPa),Curing method,Curing temperature (°C),Curing duration (days),Test age (days),Compressive strength (MPa),Tensile strain capacity (%),row,pred
+0.7,0.3,0.0,0.0,0.0,0.0,0.3,0.0,0.0,0.27,0.003,0.0007,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,24.0,2900.0,116.0,Air (lab ambient),20,28.0,28.0,71.628,8.11,2424,8.56
+0.7,0.3,0.0,0.0,0.0,0.0,0.3,0.0,0.0,0.27,0.003,0.0007,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,24.0,2900.0,116.0,Air (lab ambient),20,28.0,28.0,80.459,7.3,2425,8.77
+0.7,0.3,0.0,0.0,0.0,0.0,0.3,0.0,0.0,0.27,0.003,0.0007,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,24.0,2900.0,116.0,Air (lab ambient),20,28.0,28.0,60.447,6.48,2426,8.77
+0.7,0.3,0.0,0.0,0.0,0.0,0.3,0.0,0.0,0.27,0.003,0.0007,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,24.0,2900.0,116.0,Air (lab ambient),20,28.0,28.0,46.062,6.5,2427,8.77
+0.7,0.3,0.0,0.0,0.0,0.0,0.3,0.0,0.0,0.27,0.003,0.0007,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,24.0,2900.0,116.0,Air (lab ambient),20,28.0,28.0,74.928,8.0,2428,8.74
+0.7,0.3,0.0,0.0,0.0,0.0,0.3,0.0,0.0,0.27,0.003,0.0007,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,24.0,2900.0,116.0,Air (lab ambient),20,28.0,28.0,72.952,10.8,2429,8.77
+0.7,0.3,0.0,0.0,0.0,0.0,0.3,0.0,0.0,0.27,0.003,0.0007,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,24.0,2900.0,116.0,Air (lab ambient),20,28.0,28.0,75.423,8.8,2430,8.5
+0.7,0.3,0.0,0.0,0.0,0.0,0.3,0.0,0.0,0.27,0.003,0.0007,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,24.0,2900.0,116.0,Air (lab ambient),20,28.0,28.0,,11.5,2431,8.17
+0.7,0.3,0.0,0.0,0.0,0.0,0.3,0.0,0.0,0.27,0.003,0.0007,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,18.0,24.0,2900.0,116.0,Air (lab ambient),20,28.0,28.0,,7.5,2432,8.74
