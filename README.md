@@ -55,7 +55,7 @@ Table 1 (density and NaOH content at 60 °F): `ml_spike/additions_v2/naoh_soluti
 The compressive-strength model is one model: Extra Trees that learn the deviation from an Abrams curve
 (log fc falls linearly with water / (cement + FA + GGBS + SF + MK + LP), fitted on the data). Trees alone hardly lowered the
 strength when more water was added in regions with few data (e.g. high-fly-ash ECC at W/B 0.36: 64 MPa predicted,
-47.4 MPa measured; with the curve 47 MPa). In the 10-model comparison every model gets the same Abrams curve for
+47.4 MPa measured; with the curve 50 MPa). In the 10-model comparison every model gets the same Abrams curve for
 compressive strength. Averaging with CatBoost or weighted stacking added only about 0.006 R², so the web keeps one model.
 
 Strain audit (Nov 2026): the 30 papers with the largest strain errors were checked against the papers. Every strain
