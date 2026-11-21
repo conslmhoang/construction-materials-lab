@@ -69,8 +69,10 @@ On the rows the audit did not touch, the strain MAE fell from 1.00 to 0.95 %.
 
 Own lab test (Nov 2026): one ECC-PE mix tested in the CNU lab (air curing, 7 days, CNU PE fiber; fc 47.38 MPa, tensile
 strain 7.02 % = mean of 3 direct tension specimens) is a training row (`ml_spike/additions_v2/z_lab_cnu.csv`, source: the
-lab test sheet), counted as one source in the table above. Before it was added the web predicted 34.5 MPa and 6.67 % for
-this mix at its real conditions; after, 40.9 MPa and 6.91 %. The overall scores did not change.
+lab test sheet), counted as one source in the table above. Our own lab tests count 10 times in training (`LAB_WEIGHT` in
+`train_export.py`), because the web is used for our lab's mixes. Before the test was added the web predicted 34.5 MPa and
+6.67 % for this mix at its real conditions; now 46.7 MPa and 6.97 % (the test itself is in the training data, so this
+shows the fit to our lab, not the error on a new mix). The overall scores did not change.
 
 ## Rebuilding
 

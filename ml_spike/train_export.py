@@ -21,6 +21,10 @@ from sklearn.ensemble import ExtraTreesRegressor, RandomForestRegressor
 from catboost import CatBoostRegressor
 
 X, Y, groups = load()
+# Our own lab tests (additions_v2/z_lab_cnu.csv) count LAB_WEIGHT times in training: the web is used for our lab's mixes,
+# so a measured lab mix should pull the prediction near it to the measured value (weight 10: ECC-PE 7 d air curing
+# 41.4 -> 46.6 MPa, measured 47.4; tested 1 / 5 / 10 / 20 / 50, 2026-11-21). Papers keep weight 1.
+LAB_WEIGHT = 10
 SPEC = {
     # fc: one model, Extra Trees x Abrams curve (class Abr). Abrams: fc falls exponentially with the water/powder ratio,
     # which trees alone often do not learn (+0.05 water: no drop for 26 % of mixes without the curve, 0.1 % with; bench10/abrams_check.csv).
@@ -42,19 +46,19 @@ class Ens:
     curve then blew up to >1000 MPa on new papers.)"""
     def __init__(self, trees): self.trees = trees
     def wp(self, Xa): return Xa[:, WI[0]] / (1 + Xa[:, WI[1:]].sum(axis=1))
-    def fit(self, Xa, y):
+    def fit(self, Xa, y, sample_weight=None):
         self.k, self.a = np.polyfit(self.wp(Xa), np.log(y), 1)
-        self.et = make("et", self.trees).fit(prep("et", Xa), np.log(y) - self.base(Xa))
-        self.cb = make("catboost").fit(Xa, y)
+        self.et = make("et", self.trees).fit(prep("et", Xa), np.log(y) - self.base(Xa), sample_weight=sample_weight)
+        self.cb = make("catboost").fit(Xa, y, sample_weight=sample_weight)
         return self
     def base(self, Xa): return self.a + self.k * self.wp(Xa)
     def predict(self, Xa): return (np.exp(self.et.predict(prep("et", Xa)) + self.base(Xa)) + self.cb.predict(Xa)) / 2
 
 class Abr(Ens):
     """Extra Trees x Abrams curve alone (the model on the web for fc)."""
-    def fit(self, Xa, y):
+    def fit(self, Xa, y, sample_weight=None):
         self.k, self.a = np.polyfit(self.wp(Xa), np.log(y), 1)
-        self.et = make("et", self.trees).fit(prep("et", Xa), np.log(y) - self.base(Xa))
+        self.et = make("et", self.trees).fit(prep("et", Xa), np.log(y) - self.base(Xa), sample_weight=sample_weight)
         return self
     def predict(self, Xa): return np.exp(self.et.predict(prep("et", Xa)) + self.base(Xa))
 
@@ -113,6 +117,7 @@ for key, s in SPEC.items():
     feats = TARGET_FEATURES[key]; fidx = [FEATURES.index(f) for f in feats]   # model column -> web input index
     WI = [feats.index(f) for f in ("Water",) + POWDER]
     Xa = X.loc[m, feats].values.astype(float); ya = y[m].values; ga = groups[m].values
+    wa = np.where(groups[m].str.startswith("CNU lab test").values, float(LAB_WEIGHT), 1.0)
     kind = s["kind"]
 
     # ---- headline: random-split 10-fold CV, 3 seeds
@@ -120,7 +125,7 @@ for key, s in SPEC.items():
     for sd in range(3):
         pr = np.zeros(len(ya))
         for tr_, te_ in KFold(10, shuffle=True, random_state=sd).split(Xa):
-            pr[te_] = make(kind, s.get("trees", 300)).fit(prep(kind, Xa[tr_]), ya[tr_]).predict(prep(kind, Xa[te_]))
+            pr[te_] = make(kind, s.get("trees", 300)).fit(prep(kind, Xa[tr_]), ya[tr_], sample_weight=wa[tr_]).predict(prep(kind, Xa[te_]))
         rr2.append(r2_score(ya, pr)); rmae.append(mean_absolute_error(ya, pr))
         if sd == 0: pr0 = pr.copy()
     # ---- 80% prediction interval from random-split residuals, binned by predicted value (5 bins)
@@ -134,9 +139,9 @@ for key, s in SPEC.items():
     # ---- stricter error estimates
     pred = np.zeros(len(ya))
     for tr, te in GroupKFold(10, shuffle=True, random_state=0).split(Xa, ya, ga):
-        pred[te] = make(kind, s.get("trees", 300)).fit(prep(kind, Xa[tr]), ya[tr]).predict(prep(kind, Xa[te]))
+        pred[te] = make(kind, s.get("trees", 300)).fit(prep(kind, Xa[tr]), ya[tr], sample_weight=wa[tr]).predict(prep(kind, Xa[te]))
     tr, te = half_paper(ga, 0)
-    ph = make(kind, s.get("trees", 300)).fit(prep(kind, Xa[tr]), ya[tr]).predict(prep(kind, Xa[te]))
+    ph = make(kind, s.get("trees", 300)).fit(prep(kind, Xa[tr]), ya[tr], sample_weight=wa[tr]).predict(prep(kind, Xa[te]))
 
     # ---- lab correction: additive vs multiplicative, using k measured mixes of the same paper
     rng = np.random.default_rng(1); err = {"none": [], "add": [], "mul": []}
@@ -154,7 +159,7 @@ for key, s in SPEC.items():
     corr = "mul" if np.mean(err["mul"]) <= np.mean(err["add"]) else "add"
 
     # ---- final model on all rows
-    mdl = make(kind, s.get("trees", 300)).fit(prep(kind, Xa), ya)
+    mdl = make(kind, s.get("trees", 300)).fit(prep(kind, Xa), ya, sample_weight=wa)
     entry = dict(features=feats, label=s["label"], unit=s["unit"], kind="catboost" if kind == "catboost" else "trees", model_name=NAME[kind], n_rows=int(m.sum()), n_papers=int(len(np.unique(ga))),
                  r2_random=round(float(np.mean(rr2)), 3), mae_random=round(float(np.mean(rmae)), 3),
                  mae_new_lab=round(float(mean_absolute_error(ya, pred)), 3),
