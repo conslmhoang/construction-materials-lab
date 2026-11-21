@@ -23,7 +23,7 @@ from catboost import CatBoostRegressor
 X, Y, groups = load()
 SPEC = {
     # fc: one model, Extra Trees x Abrams curve (class Abr). Abrams: fc falls exponentially with the water/powder ratio,
-    # which trees alone do not learn where data are sparse (high-fly-ash ECC at W/B 0.36: 66 MPa without, 49 with, 47.4 measured).
+    # which trees alone often do not learn (+0.05 water: no drop for 26 % of mixes without the curve, 0.1 % with; bench10/abrams_check.csv).
     # Best of the 10 models when all learn the Abrams deviation (benchmark10.py). The user chose one model over the
     # mean with CatBoost (R2 0.945) and over weighted stacking (0.946): 2026-11-20.
     "fc":  dict(kind="abr",      unit="MPa", label="Compressive strength", trees=300),   # 300 trees: same R2 as 100 but steadier single predictions (ECC-PE 49.3 vs 50.8, measured 47.4)

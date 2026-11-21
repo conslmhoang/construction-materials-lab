@@ -53,9 +53,11 @@ NaOH given only as a molar solution is converted to NaOH solids + water with the
 Table 1 (density and NaOH content at 60 °F): `ml_spike/additions_v2/naoh_solution.py`, `ml_spike/reference/naoh_solution_table.csv`.
 
 The compressive-strength model is one model: Extra Trees that learn the deviation from an Abrams curve
-(log fc falls linearly with water / (cement + FA + GGBS + SF + MK + LP), fitted on the data). Trees alone hardly lowered the
-strength when more water was added in regions with few data (e.g. high-fly-ash ECC at W/B 0.36: 64 MPa predicted,
-47.4 MPa measured; with the curve 50 MPa). In the 10-model comparison every model gets the same Abrams curve for
+(log fc falls linearly with water / (cement + FA + GGBS + SF + MK + LP), fitted on the data). Trees alone often did not lower the
+strength when more water was added: +0.05 water left the Extra Trees prediction unchanged or higher for 26 % of the mixes,
+with the curve for 0.1 % (`ml_spike/bench10/abrams_check.csv`). The curve gives the right trend, not the right level for
+every lab: for our high-fly-ash ECC-PE mix (air curing, 7 d, 47.4 MPa measured) Extra Trees alone predicted 60 MPa and the
+curve model 34.5 MPa before the lab test was added as a training row (below). In the 10-model comparison every model gets the same Abrams curve for
 compressive strength. Averaging with CatBoost or weighted stacking added only about 0.006 R², so the web keeps one model.
 
 Strain audit (Nov 2026): the 30 papers with the largest strain errors were checked against the papers. Every strain

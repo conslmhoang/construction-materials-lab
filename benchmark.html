@@ -89,8 +89,9 @@
       <li><b>Hyper-parameters:</b> fixed for each model (no tuning on the test folds).</li>
       <li><b>Abrams curve (compressive strength):</b> every model learns how far a mix lies from an Abrams curve,
         log f<sub>c</sub> = a + k · W/P, with W/P = water / (cement + FA + GGBS + SF + MK + LP); a and k are fitted on the
-        training folds only. Without it, tree models hardly lower the strength when water is added in mixes with few data
-        (a high-fly-ash ECC at W/B 0.36: Extra Trees 64 MPa without the curve, 50 MPa with it, 47.4 MPa measured).
+        training folds only. Without it, tree models often do not lower the strength when water is added: adding 0.05 water
+        to each mix left the Extra Trees prediction unchanged or higher for 26 % of the mixes, with the curve for 0.1 %
+        (out-of-fold, <code>ml_spike/bench10/abrams_check.csv</code>).
         Tensile strain capacity: no curve (the Abrams law is about strength).</li>
       <li><b>Model used on the calculator:</b> the best model of each tab, one model each: Extra Trees with the Abrams curve
         for compressive strength, Extra Trees for tensile strain capacity.</li>
