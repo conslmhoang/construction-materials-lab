@@ -43,8 +43,8 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 2,144 / 395 | Extra Trees × Abrams W/P curve | 0.94 | 7.8 MPa |
-| Tensile strain capacity | 1,094 / 302 | Extra Trees | 0.78 | 0.95 % |
+| Compressive strength | 2,145 / 396 | Extra Trees × Abrams W/P curve | 0.94 | 7.8 MPa |
+| Tensile strain capacity | 1,095 / 303 | Extra Trees | 0.78 | 0.95 % |
 
 The strain model also uses the fiber length, diameter, tensile strength and elastic modulus; the compressive-strength
 model does not (they did not improve it).
@@ -64,6 +64,11 @@ one web method or has no stated temperature, unstated admixture dosage, one pape
 water (from the mix table) and hybrid PVA fiber properties were corrected, and compressive strengths read from figures were
 removed. Edits: `ml_spike/audit/corrections.json` (applied by `build_web_dataset.py`), evidence: `ml_spike/audit/report_*.md`.
 On the rows the audit did not touch, the strain MAE fell from 1.00 to 0.95 %.
+
+Own lab test (Nov 2026): one ECC-PE mix tested in the CNU lab (air curing, 7 days, CNU PE fiber; fc 47.38 MPa, tensile
+strain 7.02 % = mean of 3 direct tension specimens) is a training row (`ml_spike/additions_v2/z_lab_cnu.csv`, source: the
+lab test sheet), counted as one source in the table above. Before it was added the web predicted 34.5 MPa and 6.67 % for
+this mix at its real conditions; after, 40.9 MPa and 6.91 %. The overall scores did not change.
 
 ## Rebuilding
 
