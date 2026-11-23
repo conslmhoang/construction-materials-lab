@@ -1,6 +1,6 @@
 """Train the final strength models from "excel/04 Dataset_web.xlsx" and export them for the web.
 
-  fc  : Extra Trees x Abrams(W/P) curve    eps : Extra Trees   (2026-11-20)
+  fc  : Extra Trees x Abrams(W/P, log age) curve    eps : Extra Trees   (2026-11-23)
 
 Inputs = the 21 web materials + curing/test conditions + 5 values computed from them (web_data.py);
 the strain model also uses fiber length / diameter (TARGET_FEATURES in web_data.py).
@@ -37,6 +37,7 @@ SPEC = {
 NAME = {"abr": "Extra Trees × Abrams W/B curve", "catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest", "ens": "Extra Trees × Abrams W/B curve + CatBoost"}
 POWDER = ("SF", "MK", "LP")   # counted with cement + FA + GGBS in the water/powder ratio of the Abrams curve
 WI = None                     # model columns of Water and of POWDER, set per target
+AI = None                     # model column of the test age, set per target
 
 class Ens:
     """Mean of Extra Trees x Abrams curve and CatBoost.
@@ -46,18 +47,24 @@ class Ens:
     curve then blew up to >1000 MPa on new papers.)"""
     def __init__(self, trees): self.trees = trees
     def wp(self, Xa): return Xa[:, WI[0]] / (1 + Xa[:, WI[1:]].sum(axis=1))
+    def la(self, Xa): return np.log(np.clip(Xa[:, AI], 0.5, None))   # log(test age); age is never missing in the fc rows
+    def curve(self, Xa, y):
+        # log fc = a + k * W/P + c * log(age): the age term makes fc rise with age (2026-11-23: with our 7-day lab test
+        # weighted 10x and age left to the trees only, the ECC-PE mix gave 46.7 MPa at 7 d and 46.1 at 14 d).
+        D = np.column_stack([np.ones(len(y)), self.wp(Xa), self.la(Xa)])
+        self.a, self.k, self.c = np.linalg.lstsq(D, np.log(y), rcond=None)[0]
     def fit(self, Xa, y, sample_weight=None):
-        self.k, self.a = np.polyfit(self.wp(Xa), np.log(y), 1)
+        self.curve(Xa, y)
         self.et = make("et", self.trees).fit(prep("et", Xa), np.log(y) - self.base(Xa), sample_weight=sample_weight)
         self.cb = make("catboost").fit(Xa, y, sample_weight=sample_weight)
         return self
-    def base(self, Xa): return self.a + self.k * self.wp(Xa)
+    def base(self, Xa): return self.a + self.k * self.wp(Xa) + self.c * self.la(Xa)
     def predict(self, Xa): return (np.exp(self.et.predict(prep("et", Xa)) + self.base(Xa)) + self.cb.predict(Xa)) / 2
 
 class Abr(Ens):
     """Extra Trees x Abrams curve alone (the model on the web for fc)."""
     def fit(self, Xa, y, sample_weight=None):
-        self.k, self.a = np.polyfit(self.wp(Xa), np.log(y), 1)
+        self.curve(Xa, y)
         self.et = make("et", self.trees).fit(prep("et", Xa), np.log(y) - self.base(Xa), sample_weight=sample_weight)
         return self
     def predict(self, Xa): return np.exp(self.et.predict(prep("et", Xa)) + self.base(Xa))
@@ -115,7 +122,7 @@ for key, s in SPEC.items():
     y = Y[key]
     m = y.notna().values
     feats = TARGET_FEATURES[key]; fidx = [FEATURES.index(f) for f in feats]   # model column -> web input index
-    WI = [feats.index(f) for f in ("Water",) + POWDER]
+    WI = [feats.index(f) for f in ("Water",) + POWDER]; AI = feats.index("Age_days")
     Xa = X.loc[m, feats].values.astype(float); ya = y[m].values; ga = groups[m].values
     wa = np.where(groups[m].str.startswith("CNU lab test").values, float(LAB_WEIGHT), 1.0)
     kind = s["kind"]
@@ -173,11 +180,11 @@ for key, s in SPEC.items():
     if kind == "catboost": entry.update(export_cb(mdl, key, feats, fidx))
     elif kind == "ens":
         entry.update(kind="avg", parts=[dict(kind="trees", **export_et(mdl.et, fidx),
-                                             abrams=dict(a=r7(mdl.a), k=r7(mdl.k), w=FEATURES.index("Water"),
+                                             abrams=dict(a=r7(mdl.a), k=r7(mdl.k), c=r7(mdl.c), g=FEATURES.index("Age_days"), w=FEATURES.index("Water"),
                                                          p=[FEATURES.index(f) for f in POWDER])),
                                         dict(kind="catboost", **export_cb(mdl.cb, key, feats, fidx))])
     elif kind == "abr":
-        entry.update(kind="trees", **export_et(mdl.et, fidx), abrams=dict(a=r7(mdl.a), k=r7(mdl.k), w=FEATURES.index("Water"),
+        entry.update(kind="trees", **export_et(mdl.et, fidx), abrams=dict(a=r7(mdl.a), k=r7(mdl.k), c=r7(mdl.c), g=FEATURES.index("Age_days"), w=FEATURES.index("Water"),
                                                                         p=[FEATURES.index(f) for f in POWDER]))
     else: entry.update(export_et(mdl, fidx))
     out["targets"][key] = entry

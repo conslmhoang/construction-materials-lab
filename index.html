@@ -987,10 +987,11 @@ const FEAT_LABEL = {Cement:"Cement share of binder", FA:"Fly ash share", GGBS:"G
 function predictOne(t, x){
   // mean of several models (not used now; fc = one Extra Trees model x Abrams W/P curve, ml_spike/train_export.py)
   if (t.kind === "avg") return t.parts.reduce((s, p) => s + predictOne(p, x), 0) / t.parts.length;
-  if (t.abrams){      // trees learn log fc - (a + k * W/P), W/P = water / (cement + FA + GGBS + SF + MK + LP)
+  if (t.abrams){      // trees learn log fc - (a + k * W/P + c * log age), W/P = water / (cement + FA + GGBS + SF + MK + LP)
     const {abrams:A, ...rest} = t;
     const wp = x[A.w] / (1 + A.p.reduce((s, i) => s + x[i], 0));
-    return Math.exp(predictOne(rest, x) + A.a + A.k * wp);
+    const la = A.c ? A.c * Math.log(Math.max(x[A.g], 0.5)) : 0;
+    return Math.exp(predictOne(rest, x) + A.a + A.k * wp + la);
   }
   if (t.kind === "catboost"){
     let s = 0;
@@ -1020,10 +1021,23 @@ try{ localStorage.removeItem("cml_calib_v1"); }catch(e){}   // lab calibration w
 const dOf = k => SM.targets[k].unit === "%" ? 2 : 1;
 
 const raw = (k, x) => Math.max(0, predictOne(SM.targets[k], x));
-const pred = (k, x) => raw(k, x);
+/* Compressive strength never falls with age: the value at a test age is the highest of the model at that age and
+   at the earlier ages 1, 3, 7, 14, 28, 56, 90, 180 d (same mix; curing follows the age when it equalled the test age).
+   Strain is left as the model gives it (strain capacity of ECC can fall with age). */
+const AGE_GRID = [1, 3, 7, 14, 28, 56, 90, 180];
+function pred(k, x){
+  const p = raw(k, x);
+  if (!SM.targets[k].abrams) return p;
+  const ia = SM.features.indexOf("Age_days"), ic = SM.features.indexOf("Cure_days");
+  const age = x[ia], days = x[ic], follow = days === age;
+  return AGE_GRID.filter(a => a < age).reduce((best, a) => {
+    const xa = x.slice(); xa[ia] = a; xa[ic] = follow ? a : Math.min(days, a);
+    return Math.max(best, raw(k, xa));
+  }, p);
+}
 /* 80% interval from cross-validation residuals in the same range of predicted values */
 function interval(k, x){
-  const t = SM.targets[k], p = raw(k, x), iv = t.interval;
+  const t = SM.targets[k], p = pred(k, x), iv = t.interval;
   if (!iv) return null;
   const b = iv.edges.filter(e => p > e).length;
   return [Math.max(0, p + iv.lo[b]), Math.max(0, p + iv.hi[b])];
