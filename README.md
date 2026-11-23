@@ -64,7 +64,8 @@ Strength and age (Nov 2026): in the papers the same mix is stronger at the later
 the trees only, the predicted strength fell at a later age for 25 % of the mixes (e.g. our ECC-PE mix: 46.7 MPa at 7 d,
 46.1 at 14 d). The log(age) term in the curve cut that to 8 % and raised R² from 0.937 to 0.941; the web shows the highest
 value of the model at that age and the earlier ages 1, 3, 7, 14, 28, 56, 90, 180 d, so strength never falls with age.
-Tensile strain capacity is not forced: in the papers it falls with age in 49 % of 106 pairs.
+The web applies the same rule to tensile strain capacity (our choice), although in the papers strain falls with age in
+49 % of 106 measured pairs: for such mixes the web shows the earlier, higher strain at later ages.
 
 Strain audit (Nov 2026): the 30 papers with the largest strain errors were checked against the papers. Every strain
 value matched; the errors were in the inputs. 63 rows were removed (marble powder entered as limestone, curing that is not

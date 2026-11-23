@@ -1021,13 +1021,12 @@ try{ localStorage.removeItem("cml_calib_v1"); }catch(e){}   // lab calibration w
 const dOf = k => SM.targets[k].unit === "%" ? 2 : 1;
 
 const raw = (k, x) => Math.max(0, predictOne(SM.targets[k], x));
-/* Compressive strength never falls with age: the value at a test age is the highest of the model at that age and
-   at the earlier ages 1, 3, 7, 14, 28, 56, 90, 180 d (same mix; curing follows the age when it equalled the test age).
-   Strain is left as the model gives it (strain capacity of ECC can fall with age). */
+/* Neither output falls with age (the user's choice, 2026-11-23): the value at a test age is the highest of the model at
+   that age and at the earlier ages 1, 3, 7, 14, 28, 56, 90, 180 d (same mix; curing follows the age when it equalled the
+   test age). Note: in the papers strain capacity falls with age in 49 % of 106 measured pairs, compressive strength in 3 % of 530. */
 const AGE_GRID = [1, 3, 7, 14, 28, 56, 90, 180];
 function pred(k, x){
   const p = raw(k, x);
-  if (!SM.targets[k].abrams) return p;
   const ia = SM.features.indexOf("Age_days"), ic = SM.features.indexOf("Cure_days");
   const age = x[ia], days = x[ic], follow = days === age;
   return AGE_GRID.filter(a => a < age).reduce((best, a) => {
