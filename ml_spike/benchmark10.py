@@ -3,7 +3,7 @@
 Targets : compressive strength, tensile strain capacity
 Inputs  : the 21 web materials + curing/test conditions (web_data.py) — same as train_export.py
 Score   : 10-fold cross-validation, random split, mean of 3 seeds
-Compressive strength: every model learns the deviation from an Abrams curve, log fc = a + k * W/P
+Compressive strength: every model learns the deviation from an Abrams curve with age, log fc = a + k * W/P + c * log(age)
 (W/P = water / (cement + FA + GGBS + SF + MK + LP)), fitted on the training folds only; prediction = exp(model + curve).
 Strain capacity: plain target (the Abrams law is about strength, not strain).
 
@@ -65,9 +65,10 @@ def run(Xa, y, splits, mk, wp=None):
         if wp is None:
             pp[te] = mk().fit(Xa[tr][:, keep], y[tr]).predict(Xa[te][:, keep])
         else:                                                 # Abrams: curve fitted on the training rows only
-            k, a = np.polyfit(wp(Xa[tr]), np.log(y[tr]), 1)
-            mdl = mk().fit(Xa[tr][:, keep], np.log(y[tr]) - a - k * wp(Xa[tr]))
-            pp[te] = np.exp(mdl.predict(Xa[te][:, keep]) + a + k * wp(Xa[te]))
+            D = lambda Z: np.column_stack([np.ones(len(Z)), wp(Z), np.log(np.clip(Z[:, wp.age], 0.5, None))])
+            coef = np.linalg.lstsq(D(Xa[tr]), np.log(y[tr]), rcond=None)[0]
+            mdl = mk().fit(Xa[tr][:, keep], np.log(y[tr]) - D(Xa[tr]) @ coef)
+            pp[te] = np.exp(mdl.predict(Xa[te][:, keep]) + D(Xa[te]) @ coef)
     return pp
 
 rows, web = [], {"date": pd.Timestamp.now().strftime("%Y-%m-%d"), "features": FEATURES, "targets": {}}
@@ -76,6 +77,7 @@ for key, (label, unit) in TARGETS.items():
     Xa = X.loc[m, TARGET_FEATURES[key]].values.astype(float); ya = Y[key].values[m]; ga = groups[m].values
     F = TARGET_FEATURES[key]; wi = [F.index(f) for f in ("Water", "SF", "MK", "LP")]
     wp = (lambda Z: Z[:, wi[0]] / (1 + np.nansum(Z[:, wi[1:]], axis=1))) if key == "fc" else None
+    if wp is not None: wp.age = F.index("Age_days")
     T = {"label": label, "abrams": key == "fc", "unit": unit, "n_rows": int(m.sum()), "n_papers": int(len(np.unique(ga))), "models": [], "oof_random": {}}
     for mname, (family, mk) in MODELS.items():
         t0 = time.time(); r = {"target": key, "model": mname, "family": family}; sc = []
