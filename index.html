@@ -244,9 +244,9 @@
   </section>
 
   <!-- ============ 3. ACTUAL BATCH ============ -->
-  <section class="card hidden" id="batchCard">
+  <section class="card" id="batchCard">
     <h2>2. Actual Batch Volume</h2>
-    <p class="hint">Scales the 1 m³ proportions to the volume you actually need to cast.</p>
+    <p class="hint">Scales the 1 m³ proportions to the volume you actually need to cast. Calculate the 1 m³ mix in section 1 first.</p>
     <div class="vol">
       <div>
         <label for="volInput">Target volume (m³)</label>
@@ -254,6 +254,7 @@
       </div>
       <div><button class="btn-primary" type="button" id="batchBtn" style="height:41px">📦 Compute Actual Batch</button></div>
     </div>
+    <p id="batchError" class="note err hidden" style="margin-top:16px;margin-bottom:0"></p>
     <div id="batchOut" class="hidden" style="margin-top:18px">
       <div class="tablewrap"><table id="batchTable"></table></div>
       <div class="stats" id="batchStats"></div>
@@ -464,7 +465,7 @@ function setDb(list, label){
   binderRows = []; fiberRows = [];
   lastResult = null;
   $("resultCard").classList.add("hidden");
-  $("batchCard").classList.add("hidden");
+  $("batchOut").classList.add("hidden");
   fillSelects();
   renderRows();
   const n = Object.keys(MATERIALS).length;
@@ -838,7 +839,7 @@ $("calcBtn").onclick = () => {
     renderTable($("resTable"), res, "1 m³");
     renderStats($("resStats"), res.totals, "per m³");
     $("resultCard").classList.remove("hidden");
-    $("batchCard").classList.remove("hidden");
+    hideErr($("batchError"));
     $("batchOut").classList.add("hidden");
     addMixRow(binder, fiber, res);
     if (SM) runPrediction();
@@ -849,9 +850,10 @@ $("calcBtn").onclick = () => {
 };
 
 $("batchBtn").onclick = () => {
-  if (!lastResult) return;
+  if (!lastResult){ showErr($("batchError"), "Calculate the 1 m³ mix in section 1 first."); return; }
   const v = parseFloat($("volInput").value);
-  if (!isFinite(v) || v <= 0){ showErr($("calcError"), "Target volume must be greater than 0."); return; }
+  if (!isFinite(v) || v <= 0){ showErr($("batchError"), "Target volume must be greater than 0."); return; }
+  hideErr($("batchError"));
   const scaled = scaleResult(lastResult, v);
   renderTable($("batchTable"), scaled, fmt(v,4)+" m³");
   renderStats($("batchStats"), scaled.totals, fmt(v,4)+" m³");
