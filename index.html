@@ -993,6 +993,10 @@ function predictOne(t, x){
     const la = A.c ? A.c * Math.log(Math.max(x[A.g], 0.5)) : 0;
     return Math.exp(predictOne(rest, x) + A.a + A.k * wp + la);
   }
+  if (t.agecurve){    // strain: trees x (age / 28)^c, c < 0 (strain falls with age; ml_spike/train_export.py EtAge)
+    const {agecurve:G, ...rest} = t;
+    return predictOne(rest, x) * Math.pow(Math.max(x[G.g], 0.5) / G.ref, G.c);
+  }
   if (t.kind === "catboost"){
     let s = 0;
     for (const tr of t.trees){
@@ -1021,17 +1025,18 @@ try{ localStorage.removeItem("cml_calib_v1"); }catch(e){}   // lab calibration w
 const dOf = k => SM.targets[k].unit === "%" ? 2 : 1;
 
 const raw = (k, x) => Math.max(0, predictOne(SM.targets[k], x));
-/* Neither output falls with age (the user's choice, 2026-11-23): the value at a test age is the highest of the model at
-   that age and at the earlier ages 1, 3, 7, 14, 28, 56, 90, 180 d (same mix; curing follows the age when it equalled the
-   test age). Note: in the papers strain capacity falls with age in 49 % of 106 measured pairs, compressive strength in 3 % of 530. */
+/* Compressive strength never falls and strain capacity never rises with age: the value at a test age is the highest
+   (strength) or lowest (strain) of the model at that age and at the earlier ages 1, 3, 7, 14, 28, 56, 90, 180 d
+   (same mix; curing follows the age when it equalled the test age). */
 const AGE_GRID = [1, 3, 7, 14, 28, 56, 90, 180];
 function pred(k, x){
-  const p = raw(k, x);
+  const p = raw(k, x), up = !!SM.targets[k].abrams;
   const ia = SM.features.indexOf("Age_days"), ic = SM.features.indexOf("Cure_days");
   const age = x[ia], days = x[ic], follow = days === age;
   return AGE_GRID.filter(a => a < age).reduce((best, a) => {
     const xa = x.slice(); xa[ia] = a; xa[ic] = follow ? a : Math.min(days, a);
-    return Math.max(best, raw(k, xa));
+    const v = raw(k, xa);
+    return up ? Math.max(best, v) : Math.min(best, v);
   }, p);
 }
 /* 80% interval from cross-validation residuals in the same range of predicted values */

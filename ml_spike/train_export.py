@@ -31,10 +31,10 @@ SPEC = {
     # Best of the 10 models when all learn the Abrams deviation (benchmark10.py). The user chose one model over the
     # mean with CatBoost (R2 0.945) and over weighted stacking (0.946): 2026-11-20.
     "fc":  dict(kind="abr",      unit="MPa", label="Compressive strength", trees=300),   # 300 trees: same R2 as 100 but steadier single predictions (ECC-PE 49.3 vs 50.8, measured 47.4)
-    "eps": dict(kind="et",       unit="%",   label="Tensile strain capacity"),
+    "eps": dict(kind="eta",      unit="%",   label="Tensile strain capacity"),   # Extra Trees x age curve (class EtAge)
 }
 
-NAME = {"abr": "Extra Trees × Abrams W/B curve", "catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest", "ens": "Extra Trees × Abrams W/B curve + CatBoost"}
+NAME = {"eta": "Extra Trees × age curve", "abr": "Extra Trees × Abrams W/B curve", "catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest", "ens": "Extra Trees × Abrams W/B curve + CatBoost"}
 POWDER = ("SF", "MK", "LP")   # counted with cement + FA + GGBS in the water/powder ratio of the Abrams curve
 WI = None                     # model columns of Water and of POWDER, set per target
 AI = None                     # model column of the test age, set per target
@@ -69,7 +69,31 @@ class Abr(Ens):
         return self
     def predict(self, Xa): return np.exp(self.et.predict(prep("et", Xa)) + self.base(Xa))
 
+class EtAge:
+    """Strain: Extra Trees x age curve eps ~ (age / 28)^c. c = median log-slope over the same mixes measured at several
+    ages (data: strain falls with age; papers where it rose were left out, build_web_dataset.py DROP_DOI, 2026-11-23).
+    The trees learn eps / (age / 28)^c. On the web strain never rises at a later age (index.html pred)."""
+    def __init__(self, trees): self.trees = trees
+    def f(self, Xa): return np.exp(self.c * (np.log(np.clip(Xa[:, AI], 0.5, None)) - np.log(28)))
+    def fit(self, Xa, y, sample_weight=None):
+        self.c = EPS_C
+        self.et = make("et", self.trees).fit(prep("et", Xa), y / self.f(Xa), sample_weight=sample_weight)
+        return self
+    def predict(self, Xa): return self.et.predict(prep("et", Xa)) * self.f(Xa)
+
+def age_slope(Xa, y, g, feats):
+    """median of log(eps_last / eps_first) / log(age_last / age_first) over the same mix (all inputs but age / curing days)."""
+    keyc = [j for j, f in enumerate(feats) if f not in ("Age_days", "Cure_days")]
+    k = [str(p) + "|" + "|".join(map(str, np.round(r, 5))) for p, r in zip(g, Xa[:, keyc])]
+    D = pd.DataFrame({"k": k, "age": Xa[:, feats.index("Age_days")], "y": y}); sl = []
+    for _, G in D.groupby("k"):
+        G = G.groupby("age")["y"].mean().sort_index()
+        if len(G) > 1: sl.append(np.log(G.iloc[-1] / G.iloc[0]) / np.log(G.index[-1] / G.index[0]))
+    return float(np.median(sl)), len(sl)
+
 def make(kind, trees=300):
+    if kind == "eta":
+        return EtAge(trees)
     if kind == "abr":
         return Abr(trees)
     if kind == "ens":
@@ -82,7 +106,7 @@ def make(kind, trees=300):
     return ExtraTreesRegressor(n_estimators=trees, min_samples_leaf=2, max_features=0.5, n_jobs=-1, random_state=0)   # = benchmark10.py
 
 def prep(kind, Xa):
-    return Xa if kind in ("catboost", "ens", "abr") else np.where(np.isnan(Xa), -1.0, Xa)   # trees: NaN -> -1 (same in JS)
+    return Xa if kind in ("catboost", "ens", "abr", "eta") else np.where(np.isnan(Xa), -1.0, Xa)   # trees: NaN -> -1 (same in JS)
 
 def half_paper(g, seed):
     rng = np.random.default_rng(seed); tr, te = [], []
@@ -126,6 +150,7 @@ for key, s in SPEC.items():
     Xa = X.loc[m, feats].values.astype(float); ya = y[m].values; ga = groups[m].values
     wa = np.where(groups[m].str.startswith("CNU lab test").values, float(LAB_WEIGHT), 1.0)
     kind = s["kind"]
+    if kind == "eta": EPS_C, EPS_N = age_slope(Xa, ya, ga, feats); print(f"strain age curve: c = {EPS_C:.3f} from {EPS_N} mixes at several ages", flush=True)
 
     # ---- headline: random-split 10-fold CV, 3 seeds
     rr2, rmae = [], []
@@ -186,6 +211,8 @@ for key, s in SPEC.items():
     elif kind == "abr":
         entry.update(kind="trees", **export_et(mdl.et, fidx), abrams=dict(a=r7(mdl.a), k=r7(mdl.k), c=r7(mdl.c), g=FEATURES.index("Age_days"), w=FEATURES.index("Water"),
                                                                         p=[FEATURES.index(f) for f in POWDER]))
+    elif kind == "eta":
+        entry.update(kind="trees", **export_et(mdl.et, fidx), agecurve=dict(c=r7(mdl.c), g=FEATURES.index("Age_days"), ref=28, n_mixes=EPS_N))
     else: entry.update(export_et(mdl, fidx))
     out["targets"][key] = entry
 

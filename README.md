@@ -14,7 +14,7 @@ A browser-only tool for fiber-reinforced cementitious and geopolymer composites 
 |---|---|
 | `index.html` | Calculator + prediction |
 | `benchmark.html` | 10 ML models compared (10-fold cross-validation, random split) |
-| `data.html` | The 508 source papers |
+| `data.html` | The 485 source papers |
 
 ## Excel files: `excel/`
 
@@ -43,8 +43,8 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 2,145 / 396 | Extra Trees × Abrams W/P + age curve | 0.94 | 7.6 MPa |
-| Tensile strain capacity | 1,095 / 303 | Extra Trees | 0.78 | 0.95 % |
+| Compressive strength | 2,057 / 382 | Extra Trees × Abrams W/P + age curve | 0.94 | 7.6 MPa |
+| Tensile strain capacity | 911 / 280 | Extra Trees × age curve | 0.78 | 1.00 % |
 
 The strain model also uses the fiber length, diameter, tensile strength and elastic modulus; the compressive-strength
 model does not (they did not improve it).
@@ -53,7 +53,7 @@ NaOH given only as a molar solution is converted to NaOH solids + water with the
 Table 1 (density and NaOH content at 60 °F): `ml_spike/additions_v2/naoh_solution.py`, `ml_spike/reference/naoh_solution_table.csv`.
 
 The compressive-strength model is one model: Extra Trees that learn the deviation from an Abrams curve
-(log fc = a + k · W/P + c · log(age), W/P = water / (cement + FA + GGBS + SF + MK + LP), fitted on the data: fc ≈ 164 · e^(−4.60 · W/P) · age^0.086). Trees alone often did not lower the
+(log fc = a + k · W/P + c · log(age), W/P = water / (cement + FA + GGBS + SF + MK + LP), fitted on the data: fc ≈ 166 · e^(−4.50 · W/P) · age^0.077). Trees alone often did not lower the
 strength when more water was added: +0.05 water left the Extra Trees prediction unchanged or higher for 26 % of the mixes,
 with the curve for 0.1 % (`ml_spike/bench10/abrams_check.csv`). The curve gives the right trend, not the right level for
 every lab: for our high-fly-ash ECC-PE mix (air curing, 7 d, 47.4 MPa measured) Extra Trees alone predicted 60 MPa and the
@@ -64,8 +64,11 @@ Strength and age (Nov 2026): in the papers the same mix is stronger at the later
 the trees only, the predicted strength fell at a later age for 25 % of the mixes (e.g. our ECC-PE mix: 46.7 MPa at 7 d,
 46.1 at 14 d). The log(age) term in the curve cut that to 8 % and raised R² from 0.937 to 0.941; the web shows the highest
 value of the model at that age and the earlier ages 1, 3, 7, 14, 28, 56, 90, 180 d, so strength never falls with age.
-The web applies the same rule to tensile strain capacity (our choice), although in the papers strain falls with age in
-49 % of 106 measured pairs: for such mixes the web shows the earlier, higher strain at later ages.
+Strain and age (Nov 2026): tensile strain capacity is taken to fall with age. The 23 papers in which the strain of a mix
+rose at a later age were left out as a whole (our choice; `DROP_DOI` in `build_web_dataset.py`, 184 strain and 88
+compressive-strength values). Before, strain rose in 49 and fell in 52 of 106 same-mix pairs; now it rises in none.
+The strain model is Extra Trees × an age curve, strain ∝ (age / 28)^−0.116, the median slope of the 22 mixes still measured
+at several ages (28 d ≈ 0.85 × 7 d), and on the web strain never rises at a later age.
 
 Strain audit (Nov 2026): the 30 papers with the largest strain errors were checked against the papers. Every strain
 value matched; the errors were in the inputs. 63 rows were removed (marble powder entered as limestone, curing that is not
@@ -78,7 +81,7 @@ Own lab test (Nov 2026): one ECC-PE mix tested in the CNU lab (air curing, 7 day
 strain 7.02 % = mean of 3 direct tension specimens) is a training row (`ml_spike/additions_v2/z_lab_cnu.csv`, source: the
 lab test sheet), counted as one source in the table above. Our own lab tests count 10 times in training (`LAB_WEIGHT` in
 `train_export.py`), because the web is used for our lab's mixes. Before the test was added the web predicted 34.5 MPa and
-6.67 % for this mix at its real conditions; now 46.9 MPa and 6.97 %, and 51.1 MPa at 28 d (the test itself is in the training data, so this
+6.67 % for this mix at its real conditions; now 46.8 MPa and 7.00 %, and 50.9 MPa / 5.95 % at 28 d (the test itself is in the training data, so this
 shows the fit to our lab, not the error on a new mix). The overall scores did not change.
 
 ## Rebuilding

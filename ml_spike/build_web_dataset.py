@@ -93,7 +93,30 @@ DROP_DOI = {"10.1155/2022/7876056": "'elongation (%)' equals the tension displac
             "10.1016/j.jobe.2023.108093": "NaOH (SH) given only as 0.1 of binder, concentration of the solution not stated",
             "10.1016/j.jobe.2023.105946": "NaOH (SH) given only as 0.1 of binder, concentration of the solution not stated",
             "10.1016/j.conbuildmat.2018.08.135": "slag / Ca(OH)2 / Na2SO4 split derived, not stated in the paper",
-            "10.1177/1687814015585420": "SP, methyl cellulose and defoamer given only as one total"}
+            "10.1177/1687814015585420": "SP, methyl cellulose and defoamer given only as one total",
+            "10.1016/j.conbuildmat.2021.125502": "strain capacity rises with test age (2d 2.49 -> 28d 3.64): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.cemconres.2007.04.001": "strain capacity rises with test age (53d 3.37 -> 78d 3.43): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.conbuildmat.2021.122834": "strain capacity rises with test age (28d 1.83 -> 60d 1.94): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.3390/ma15093027": "strain capacity rises with test age (3d 0.07 -> 7d 0.11): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.3390/buildings13061538": "strain capacity rises with test age (28d 5.38 -> 56d 6.68): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.conbuildmat.2025.141711": "strain capacity rises with test age (3d 2.10 -> 7d 2.38): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.3390/ma16020697": "strain capacity rises with test age (7d 4.93 -> 28d 7.46): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.conbuildmat.2012.04.030": "strain capacity rises with test age (14d 0.15 -> 28d 0.27): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.dibe.2023.100150": "strain capacity rises with test age (28d 10.85 -> 91d 11.65): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.3390/nano16120714": "strain capacity rises with test age (7d 3.80 -> 28d 6.51): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.cscm.2024.e03306": "strain capacity rises with test age (1d 2.59 -> 28d 4.10): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.jclepro.2020.121113": "strain capacity rises with test age (28d 2.74 -> 90d 3.82): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.compstruct.2019.111401": "strain capacity rises with test age (7d 7.22 -> 28d 8.75): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.conbuildmat.2021.124833": "strain capacity rises with test age (1d 2.68 -> 3d 3.67): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.conbuildmat.2019.117161": "strain capacity rises with test age (3d 4.63 -> 7d 5.23): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.3390/ma14102660": "strain capacity rises with test age (7d 0.02 -> 28d 0.02): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.3390/ma13071757": "strain capacity rises with test age (1d 4.25 -> 14d 4.34): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.conbuildmat.2015.08.041": "strain capacity rises with test age (1d 4.20 -> 3d 4.30): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1186/s40069-020-00418-9": "strain capacity rises with test age (7d 0.15 -> 14d 0.45): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.conbuildmat.2019.06.129": "strain capacity rises with test age (3d 4.30 -> 7d 4.52): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.3390/civileng7040066": "strain capacity rises with test age (3d 2.80 -> 7d 4.11): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.3390/ma16145077": "strain capacity rises with test age (28d 2.40 -> 365d 2.60): papers with rising strain left out (user's choice, 2026-11-23)",
+            "10.1016/j.conbuildmat.2020.119412": "strain capacity rises with test age (28d 1.80 -> 90d 2.90): papers with rising strain left out (user's choice, 2026-11-23)"}
 drop_doi = d["_doi"].astype(str).str.lower().str.contains("|".join(map(re.escape, DROP_DOI)))
 keep = (d["_use_fc"] | d["_use_eps"]) & ~other & ~no_fiber_type & (B3 > 0) & W.notna() & ~drop_doi
 # W/B below 0.12 is not credible for these composites; with water glass most of the water is inside the WG
@@ -173,6 +196,7 @@ FCC, EPC = "Compressive strength (MPa)", "Tensile strain capacity (%)"
 same = lambda a, b: (b is None and pd.isna(a)) or (b is not None and not pd.isna(a) and abs(float(a) - b) < 1e-6)
 dropped = []
 for c in COR:
+    if any(k_ in c["doi"].lower() for k_ in DROP_DOI): continue      # paper left out as a whole (DROP_DOI above)
     i = D.index[(D["DOI"] == c["doi"]) & (kth == c["k"])]
     assert len(i) == 1 and same(D.at[i[0], EPC], c["eps"]) and same(D.at[i[0], FCC], c["fc"]), f"audit row moved: {c}"
     if c["action"] == "drop": dropped.append(i[0])
