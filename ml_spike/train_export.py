@@ -21,10 +21,8 @@ from sklearn.ensemble import ExtraTreesRegressor, RandomForestRegressor
 from catboost import CatBoostRegressor
 
 X, Y, groups = load()
-# Our own lab tests (additions_v2/z_lab_cnu.csv) count LAB_WEIGHT times in training: the web is used for our lab's mixes,
-# so a measured lab mix should pull the prediction near it to the measured value (weight 10: ECC-PE 7 d air curing
-# 41.4 -> 46.6 MPa, measured 47.4; tested 1 / 5 / 10 / 20 / 50, 2026-11-21). Papers keep weight 1.
-LAB_WEIGHT = 10
+# Our own lab tests (additions_v2/z_lab_cnu.csv) are not in the training data (2026-11-23): the model learns from the
+# papers only; the lab mix is a check of the prediction, not a row the trees can memorise.
 SPEC = {
     # fc: one model, Extra Trees x Abrams curve (class Abr). Abrams: fc falls exponentially with the water/powder ratio,
     # which trees alone often do not learn (+0.05 water: no drop for 26 % of mixes without the curve, 0.1 % with; bench10/abrams_check.csv).
@@ -150,7 +148,7 @@ for key, s in SPEC.items():
     feats = TARGET_FEATURES[key]; fidx = [FEATURES.index(f) for f in feats]   # model column -> web input index
     WI = [feats.index(f) for f in ("Water",) + POWDER]; AI = feats.index("Age_days")
     Xa = X.loc[m, feats].values.astype(float); ya = y[m].values; ga = groups[m].values
-    wa = np.where(groups[m].str.startswith("CNU lab test").values, float(LAB_WEIGHT), 1.0)
+    wa = np.ones(int(m.sum()))
     kind = s["kind"]
     if kind == "eta": EPS_C, EPS_N = age_slope(Xa, ya, ga, feats); print(f"strain age curve: c = {EPS_C:.3f} from {EPS_N} mixes at several ages", flush=True)
 

@@ -54,7 +54,10 @@ d["_paper"], d["_doi"] = F["paper"].values, F["doi"].fillna("").values
 d["_use_fc"], d["_use_eps"] = F["use_fc"].astype(bool).values, F["use_eps"].astype(bool).values
 
 # ---- new papers (same 99-column template as the earlier additions)
+# our own lab tests (z_lab_*.csv) are not training data (user, 2026-11-23): the model learns from the papers only,
+# and the lab mix is kept to check the prediction against the measurement
 for f in sorted(glob.glob(os.path.join(here, "additions_v2", "*.csv"))):
+    if os.path.basename(f).startswith("z_lab"): continue
     a = pd.read_csv(f, encoding="utf-8-sig")
     rows = pd.DataFrame(np.nan, index=range(len(a)), columns=d.columns, dtype=object)
     for c in a.columns:

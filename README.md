@@ -43,8 +43,8 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
-| Compressive strength | 2,057 / 382 | Extra Trees × Abrams W/P + age curve | 0.94 | 7.6 MPa |
-| Tensile strain capacity | 911 / 280 | Extra Trees + age shift | 0.78 | 0.99 % |
+| Compressive strength | 2,056 / 381 | Extra Trees × Abrams W/P + age curve | 0.94 | 7.6 MPa |
+| Tensile strain capacity | 910 / 279 | Extra Trees + age shift | 0.78 | 0.99 % |
 
 The strain model also uses the fiber length, diameter, tensile strength and elastic modulus; the compressive-strength
 model does not (they did not improve it).
@@ -57,7 +57,7 @@ The compressive-strength model is one model: Extra Trees that learn the deviatio
 strength when more water was added: +0.05 water left the Extra Trees prediction unchanged or higher for 26 % of the mixes,
 with the curve for 0.1 % (`ml_spike/bench10/abrams_check.csv`). The curve gives the right trend, not the right level for
 every lab: for our high-fly-ash ECC-PE mix (air curing, 7 d, 47.4 MPa measured) Extra Trees alone predicted 60 MPa and the
-curve model 31.9 MPa without the lab test as a training row (below). In the 10-model comparison every model gets the same Abrams curve for
+curve model 33.5 MPa (the lab test is not training data, below). In the 10-model comparison every model gets the same Abrams curve for
 compressive strength. Averaging with CatBoost or weighted stacking added only about 0.006 R², so the web keeps one model.
 
 Strength and age (Nov 2026): in the papers the same mix is stronger at the later age in 95 % of 530 pairs. With age left to
@@ -80,11 +80,12 @@ removed. Edits: `ml_spike/audit/corrections.json` (applied by `build_web_dataset
 On the rows the audit did not touch, the strain MAE fell from 1.00 to 0.95 %.
 
 Own lab test (Nov 2026): one ECC-PE mix tested in the CNU lab (air curing, 7 days, CNU PE fiber; fc 47.38 MPa, tensile
-strain 7.02 % = mean of 3 direct tension specimens) is a training row (`ml_spike/additions_v2/z_lab_cnu.csv`, source: the
-lab test sheet), counted as one source in the table above. Our own lab tests count 10 times in training (`LAB_WEIGHT` in
-`train_export.py`), because the web is used for our lab's mixes. Before the test was added the web predicted 34.5 MPa and
-6.67 % for this mix at its real conditions; now 46.8 MPa and 7.02 %, and 50.9 MPa / 6.40 % at 28 d (the test itself is in the training data, so this
-shows the fit to our lab, not the error on a new mix). The overall scores did not change.
+strain 7.02 % = mean of 3 direct tension specimens; `ml_spike/additions_v2/z_lab_cnu.csv`, source: the lab test sheet) is
+not training data (since 23 Nov 2026): the models learn from the papers only, and the lab mix is a check. Before, it was a
+training row counted 10 times, so the web returned almost the measured values (46.8 MPa, 7.02 %) — that was the model
+remembering the row, not predicting. Learned from the papers only, the web predicts 33.5 MPa and 5.93 % at 7 d
+(44.6 MPa / 5.50 % at 28 d): about 30 % low for strength and 15 % low for strain. The data hold almost no mix like it
+(PE fiber, air curing, 7 d: 2 rows; PE mixes with W/B ≥ 0.33: 74 of 418), so the model extrapolates here.
 
 ## Rebuilding
 
