@@ -264,8 +264,7 @@
   <!-- ============ 3. PREDICTION ============ -->
   <section class="card" id="predCard">
     <h2>3. Strength Prediction <span class="sub2">— machine-learning estimate</span></h2>
-    <p class="hint">Uses the proportions from section 1 plus the curing and test conditions below (it updates automatically after each calculation and when you change the conditions). Press <b>Save</b> at the end of this section to keep a result you are happy with.
-      Trained on <span id="pTrain">published fiber-reinforced mixes</span>. See <a href="benchmark.html">how 10 models were compared</a> and <a href="data.html">where the data come from</a>.</p>
+    <p class="hint">Press <b>Save</b> at the end of this section to keep a result you are happy with.</p>
     <div class="cond">
       <div>
         <label for="cMethod">Curing method</label>
@@ -288,7 +287,6 @@
       </div>
       <div class="hidden" id="cAgeCustomBox"><label for="cAgeCustom">Custom age (days)</label><input type="number" id="cAgeCustom" value="14" min="1" step="1"></div>
     </div>
-    <p class="hint" style="margin:8px 0 0" id="condHint">Standard moist room: 20 °C, ≥95% RH, cured until the test age.</p>
     <p id="predError" class="note err hidden" style="margin-top:16px;margin-bottom:0"></p>
     <div id="predOut" class="hidden" style="margin-top:16px">
       <div id="predWarn" class="note warn hidden"></div>
@@ -1144,19 +1142,11 @@ function addPredRow(binder, fiber, cond, x){
 }
 
 
-const COND_HINT = {
-  std:"Standard moist room: 20 °C, ≥95% RH, cured until the test age.",
-  water:"Water curing: specimens kept in water (about 20 °C) until the test age.",
-  sealed:"Sealed: specimens wrapped in film or kept in sealed moulds, no water exchange.",
-  air:"Air curing: specimens left in the lab air (about 20 °C, 50–60% RH).",
-  heat:"Heat / steam curing: high-temperature curing (e.g. 90 °C for 2 days), then stored until the test age. Set the test age separately."
-};
 $("cMethod").onchange = () => {
   const m = $("cMethod").value;
   if (m === "heat"){ $("cT").value = 90; $("cDays").value = 2; }
   else $("cT").value = 20;
   if (m !== "heat"){ const a = $("cAge").value; $("cDays").value = a === "custom" ? $("cAgeCustom").value : a; }
-  $("condHint").textContent = COND_HINT[m];
 };
 $("cAge").onchange = () => {
   const custom = $("cAge").value === "custom";
@@ -1166,7 +1156,6 @@ $("cAge").onchange = () => {
 $("cAgeCustom").oninput = () => { if ($("cMethod").value !== "heat") $("cDays").value = $("cAgeCustom").value; };
 /* the prediction follows the conditions as soon as a mix has been calculated (section 1) */
 document.querySelector("#predCard .cond").addEventListener("change", () => { if (lastResult) runPrediction(); });
-if (SM) $("pTrain").textContent = `${SM.targets.fc.n_rows} published fiber-reinforced mixes from ${SM.targets.fc.n_papers} papers`;
 
 /* ------------------------------------------------------------------ init -- */
 setDb(DEFAULT_MATERIALS, "built-in");
