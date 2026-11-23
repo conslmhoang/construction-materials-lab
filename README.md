@@ -44,7 +44,7 @@ so training and the web compute identical numbers. `03 Dataset_ratio.xlsx` is th
 | Output | Rows / papers | Model | R² | MAE |
 |---|---|---|---|---|
 | Compressive strength | 2,057 / 382 | Extra Trees × Abrams W/P + age curve | 0.94 | 7.6 MPa |
-| Tensile strain capacity | 911 / 280 | Extra Trees × age curve | 0.78 | 1.00 % |
+| Tensile strain capacity | 911 / 280 | Extra Trees + age shift | 0.78 | 0.99 % |
 
 The strain model also uses the fiber length, diameter, tensile strength and elastic modulus; the compressive-strength
 model does not (they did not improve it).
@@ -67,8 +67,10 @@ value of the model at that age and the earlier ages 1, 3, 7, 14, 28, 56, 90, 180
 Strain and age (Nov 2026): tensile strain capacity is taken to fall with age. The 23 papers in which the strain of a mix
 rose at a later age were left out as a whole (our choice; `DROP_DOI` in `build_web_dataset.py`, 184 strain and 88
 compressive-strength values). Before, strain rose in 49 and fell in 52 of 106 same-mix pairs; now it rises in none.
-The strain model is Extra Trees × an age curve, strain ∝ (age / 28)^−0.116, the median slope of the 22 mixes still measured
-at several ages (28 d ≈ 0.85 × 7 d), and on the web strain never rises at a later age.
+The strain model is Extra Trees + an age shift, strain = trees + c · ln(age / 28), with c the median slope of the 22 mixes
+still measured at several ages (−0.36 % per ln(age), about 0.5 % of strain lost from 7 to 28 d whatever the strain level;
+a factor (age / 28)^c took 1 % off a 7 % mix, more than the papers show). On the web strain never rises at a later age,
+and the strength-development table shows 7, 14 and 28 d.
 
 Strain audit (Nov 2026): the 30 papers with the largest strain errors were checked against the papers. Every strain
 value matched; the errors were in the inputs. 63 rows were removed (marble powder entered as limestone, curing that is not
@@ -81,7 +83,7 @@ Own lab test (Nov 2026): one ECC-PE mix tested in the CNU lab (air curing, 7 day
 strain 7.02 % = mean of 3 direct tension specimens) is a training row (`ml_spike/additions_v2/z_lab_cnu.csv`, source: the
 lab test sheet), counted as one source in the table above. Our own lab tests count 10 times in training (`LAB_WEIGHT` in
 `train_export.py`), because the web is used for our lab's mixes. Before the test was added the web predicted 34.5 MPa and
-6.67 % for this mix at its real conditions; now 46.8 MPa and 7.00 %, and 50.9 MPa / 5.95 % at 28 d (the test itself is in the training data, so this
+6.67 % for this mix at its real conditions; now 46.8 MPa and 7.02 %, and 50.9 MPa / 6.40 % at 28 d (the test itself is in the training data, so this
 shows the fit to our lab, not the error on a new mix). The overall scores did not change.
 
 ## Rebuilding

@@ -993,9 +993,9 @@ function predictOne(t, x){
     const la = A.c ? A.c * Math.log(Math.max(x[A.g], 0.5)) : 0;
     return Math.exp(predictOne(rest, x) + A.a + A.k * wp + la);
   }
-  if (t.agecurve){    // strain: trees x (age / 28)^c, c < 0 (strain falls with age; ml_spike/train_export.py EtAge)
+  if (t.agecurve){    // strain: trees + c * ln(age / 28), c < 0 (strain falls with age; ml_spike/train_export.py EtAge)
     const {agecurve:G, ...rest} = t;
-    return predictOne(rest, x) * Math.pow(Math.max(x[G.g], 0.5) / G.ref, G.c);
+    return Math.max(predictOne(rest, x) + G.c * Math.log(Math.max(x[G.g], 0.5) / G.ref), 0);
   }
   if (t.kind === "catboost"){
     let s = 0;
@@ -1020,7 +1020,7 @@ function predictOne(t, x){
   return s / t.trees.length;
 }
 
-const AGES = [3, 7, 14, 28];
+const AGES = [7, 14, 28];
 try{ localStorage.removeItem("cml_calib_v1"); }catch(e){}   // lab calibration was removed from the page
 const dOf = k => SM.targets[k].unit === "%" ? 2 : 1;
 

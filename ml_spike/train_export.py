@@ -31,10 +31,10 @@ SPEC = {
     # Best of the 10 models when all learn the Abrams deviation (benchmark10.py). The user chose one model over the
     # mean with CatBoost (R2 0.945) and over weighted stacking (0.946): 2026-11-20.
     "fc":  dict(kind="abr",      unit="MPa", label="Compressive strength", trees=300),   # 300 trees: same R2 as 100 but steadier single predictions (ECC-PE 49.3 vs 50.8, measured 47.4)
-    "eps": dict(kind="eta",      unit="%",   label="Tensile strain capacity"),   # Extra Trees x age curve (class EtAge)
+    "eps": dict(kind="eta",      unit="%",   label="Tensile strain capacity"),   # Extra Trees + age shift (class EtAge)
 }
 
-NAME = {"eta": "Extra Trees × age curve", "abr": "Extra Trees × Abrams W/B curve", "catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest", "ens": "Extra Trees × Abrams W/B curve + CatBoost"}
+NAME = {"eta": "Extra Trees + age shift", "abr": "Extra Trees × Abrams W/B curve", "catboost": "CatBoost", "et": "Extra Trees", "rf": "Random Forest", "ens": "Extra Trees × Abrams W/B curve + CatBoost"}
 POWDER = ("SF", "MK", "LP")   # counted with cement + FA + GGBS in the water/powder ratio of the Abrams curve
 WI = None                     # model columns of Water and of POWDER, set per target
 AI = None                     # model column of the test age, set per target
@@ -70,25 +70,27 @@ class Abr(Ens):
     def predict(self, Xa): return np.exp(self.et.predict(prep("et", Xa)) + self.base(Xa))
 
 class EtAge:
-    """Strain: Extra Trees x age curve eps ~ (age / 28)^c. c = median log-slope over the same mixes measured at several
-    ages (data: strain falls with age; papers where it rose were left out, build_web_dataset.py DROP_DOI, 2026-11-23).
-    The trees learn eps / (age / 28)^c. On the web strain never rises at a later age (index.html pred)."""
+    """Strain: Extra Trees + age shift eps = trees + c * ln(age / 28), c < 0 in strain-% per ln(age): the same drop in
+    strain points whatever the strain level (2026-11-23: the multiplicative curve took 1 % off a 7 % mix from 7 to 28 d;
+    same-mix data drop about the same absolute amount, e.g. 0.2-0.6 % at 2-5 % strain).
+    c = median slope over the same mixes measured at several ages (papers where strain rose were left out,
+    build_web_dataset.py DROP_DOI). On the web strain never rises at a later age (index.html pred)."""
     def __init__(self, trees): self.trees = trees
-    def f(self, Xa): return np.exp(self.c * (np.log(np.clip(Xa[:, AI], 0.5, None)) - np.log(28)))
+    def f(self, Xa): return self.c * (np.log(np.clip(Xa[:, AI], 0.5, None)) - np.log(28))
     def fit(self, Xa, y, sample_weight=None):
         self.c = EPS_C
-        self.et = make("et", self.trees).fit(prep("et", Xa), y / self.f(Xa), sample_weight=sample_weight)
+        self.et = make("et", self.trees).fit(prep("et", Xa), y - self.f(Xa), sample_weight=sample_weight)
         return self
-    def predict(self, Xa): return self.et.predict(prep("et", Xa)) * self.f(Xa)
+    def predict(self, Xa): return np.maximum(self.et.predict(prep("et", Xa)) + self.f(Xa), 0)
 
 def age_slope(Xa, y, g, feats):
-    """median of log(eps_last / eps_first) / log(age_last / age_first) over the same mix (all inputs but age / curing days)."""
+    """median of (eps_last - eps_first) / log(age_last / age_first) over the same mix (all inputs but age / curing days)."""
     keyc = [j for j, f in enumerate(feats) if f not in ("Age_days", "Cure_days")]
     k = [str(p) + "|" + "|".join(map(str, np.round(r, 5))) for p, r in zip(g, Xa[:, keyc])]
     D = pd.DataFrame({"k": k, "age": Xa[:, feats.index("Age_days")], "y": y}); sl = []
     for _, G in D.groupby("k"):
         G = G.groupby("age")["y"].mean().sort_index()
-        if len(G) > 1: sl.append(np.log(G.iloc[-1] / G.iloc[0]) / np.log(G.index[-1] / G.index[0]))
+        if len(G) > 1: sl.append((G.iloc[-1] - G.iloc[0]) / np.log(G.index[-1] / G.index[0]))
     return float(np.median(sl)), len(sl)
 
 def make(kind, trees=300):
